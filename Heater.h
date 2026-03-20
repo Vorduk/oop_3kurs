@@ -1,8 +1,8 @@
 #pragma once
 
-#include "IDevice.h"
+#include "BaseDevice.h"
 
-class Heater : public IDevice, public IAdjustableDevice {
+class Heater : public BaseDevice, public IAdjustableDevice {
 private:
     bool m_isOn;
     int m_powerLevel;  // 0-100%

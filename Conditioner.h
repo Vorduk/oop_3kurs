@@ -1,8 +1,8 @@
 #pragma once
-#include "IDevice.h"
+#include "BaseDevice.h"
 
 // Кондиционер 
-class Conditioner : public IDevice, public IAdjustableDevice {
+class Conditioner : public BaseDevice, public IAdjustableDevice {
 private:
     bool m_isOn;
     int m_powerLevel;  // 0-100% (интенсивность охлаждения)

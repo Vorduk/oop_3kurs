@@ -1,10 +1,11 @@
 #include "Ventilation.h"
 
-Ventilation::Ventilation() : m_isOn(false), m_mode(MODE_MEDIUM) {}
+Ventilation::Ventilation()
+    : BaseDevice("ventilation"), m_isOn(false), m_mode(MODE_MEDIUM) {
+}
 
 void Ventilation::turnOn() {
     m_isOn = true;
-    // Cредний режим по умолчанию
     m_mode = MODE_MEDIUM;
 }
 
@@ -24,7 +25,6 @@ void Ventilation::setMode(int mode) {
     if (mode > MODE_HIGH) {
         m_mode = MODE_HIGH;
     }
-
     m_mode = mode;
 }
 

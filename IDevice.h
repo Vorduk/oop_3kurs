@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 // Интерфейсы устройств
 
@@ -11,6 +12,8 @@ public:
     virtual void turnOn() = 0;
     virtual void turnOff() = 0;
     virtual bool isOn() const = 0;
+    virtual std::string getType() const = 0;
+    virtual int getId() const = 0;
 };
 
 // Интерфейс для устройств с регулировкой мощности

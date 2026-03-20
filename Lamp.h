@@ -1,7 +1,7 @@
 #pragma once
-#include "IDevice.h"
+#include "BaseDevice.h"
 
-class Lamp : public IDevice, public IAdjustableDevice, public IModeSelectableDevice {
+class Lamp : public BaseDevice, public IAdjustableDevice, public IModeSelectableDevice {
 private:
     bool m_isOn;
     int m_powerLevel;  // 0-100% яркость

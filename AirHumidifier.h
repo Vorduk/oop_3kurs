@@ -1,8 +1,8 @@
 #pragma once
-#include "IDevice.h"
+#include "BaseDevice.h"
 
 // Увлажнитель воздуха
-class AirHumidifier : public IDevice, public IModeSelectableDevice {
+class AirHumidifier : public BaseDevice, public IModeSelectableDevice {
 private:
     bool m_isOn;
     int m_mode;  // 1 - слабый, 2 - средний, 3 - сильный

@@ -1,11 +1,12 @@
 #include "Irrigation.h"
-#include <stdexcept>
 
-Irrigation::Irrigation() : m_isOn(false), m_mode(MODE_DRIP) {}
+Irrigation::Irrigation()
+    : BaseDevice("irrigation"), m_isOn(false), m_mode(MODE_DRIP) {
+}
 
 void Irrigation::turnOn() {
     m_isOn = true;
-    m_mode = MODE_DRIP;  // По умолчанию капельный полив.
+    m_mode = MODE_DRIP;
 }
 
 void Irrigation::turnOff() {
@@ -24,7 +25,6 @@ void Irrigation::setMode(int mode) {
     if (mode > MODE_SPRINKLER) {
         m_mode = MODE_SPRINKLER;
     }
-
     m_mode = mode;
 }
 

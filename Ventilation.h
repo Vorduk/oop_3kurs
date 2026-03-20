@@ -1,7 +1,7 @@
 #pragma once
-#include "IDevice.h"
+#include "BaseDevice.h"
 
-class Ventilation : public IDevice, public IModeSelectableDevice {
+class Ventilation : public BaseDevice, public IModeSelectableDevice {
 private:
     bool m_isOn;
     int m_mode;  // 1 - слабый, 2 - средний, 3 - сильный

@@ -1,6 +1,8 @@
 #include "AirHumidifier.h"
 
-AirHumidifier::AirHumidifier() : m_isOn(false), m_mode(MODE_MEDIUM) {}
+AirHumidifier::AirHumidifier()
+    : BaseDevice("air_humidifier"), m_isOn(false), m_mode(MODE_MEDIUM) {
+}
 
 void AirHumidifier::turnOn() {
     m_isOn = true;
@@ -23,7 +25,6 @@ void AirHumidifier::setMode(int mode) {
     if (mode > MODE_HIGH) {
         m_mode = MODE_HIGH;
     }
-
     m_mode = mode;
 }
 

@@ -1,8 +1,8 @@
 #pragma once
-#include "IDevice.h"
+#include "BaseDevice.h"
 
 // Ирригация
-class Irrigation : public IDevice, public IModeSelectableDevice {
+class Irrigation : public BaseDevice, public IModeSelectableDevice {
 private:
     bool m_isOn;
     int m_mode;  // 1 - капельный полив, 2 - разбрызгивание
