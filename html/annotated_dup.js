@@ -1,7 +1,7 @@
 var annotated_dup =
 [
     [ "AirHumidifier", "class_air_humidifier.html", "class_air_humidifier" ],
-    [ "AirHumiditySensor", "class_air_humidity_sensor.html", null ],
+    [ "AirHumiditySensor", "class_air_humidity_sensor.html", "class_air_humidity_sensor" ],
     [ "BaseDevice", "class_base_device.html", "class_base_device" ],
     [ "BaseSensor", "class_base_sensor.html", "class_base_sensor" ],
     [ "ClimateManager", "class_climate_manager.html", null ],
@@ -28,8 +28,8 @@ var annotated_dup =
     [ "ScheduleConfig", "struct_schedule_config.html", null ],
     [ "SimulationEngine", "class_simulation_engine.html", null ],
     [ "SimulationModel", "class_simulation_model.html", null ],
-    [ "SoilMoistureSensor", "class_soil_moisture_sensor.html", null ],
-    [ "TemperatureSensor", "class_temperature_sensor.html", null ],
+    [ "SoilMoistureSensor", "class_soil_moisture_sensor.html", "class_soil_moisture_sensor" ],
+    [ "TemperatureSensor", "class_temperature_sensor.html", "class_temperature_sensor" ],
     [ "TimerSchedule", "class_timer_schedule.html", null ],
     [ "Ventilation", "class_ventilation.html", "class_ventilation" ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['basesensor_0',['BaseSensor',['../class_base_sensor.html#a8e6c48f8e3e794f06ffd4f51d7f365dd',1,'BaseSensor']]]
+  ['airhumiditysensor_0',['AirHumiditySensor',['../class_air_humidity_sensor.html#a6fa1a584b278aa7d5e24756a2ac4ee5f',1,'AirHumiditySensor']]]
 ];

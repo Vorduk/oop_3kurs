@@ -5,6 +5,6 @@ double AirHumiditySensor::getValue() {
     if (auto provider = m_data_provider.lock()) {
         return provider->getAirHumidity();;
     }
-    // Если провайдер умер, возвращается 0
-    return 0;
+    // Если провайдер умер, возвращается в начальное состояние
+    return START_AIR_HUMIDITY_READING;
 }

@@ -98,30 +98,29 @@ $(function(){initNavTree('_air_humidifier_8h_source.html','',''); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Увлажнитель воздуха</span></div>
 <div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_air_humidifier.html">    5</a></span><span class="keyword">class </span>AirHumidifier : <span class="keyword">public</span> BaseDevice, <span class="keyword">public</span> <a class="code hl_class" href="class_i_mode_selectable_device.html">IModeSelectableDevice</a> {</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    AirHumidifier();</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    ~AirHumidifier() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">// Методы IDevice</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_air_humidifier.html#a7fade122d5358bddf07cbf5a47056773">turnOn</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_air_humidifier.html#abd81a7ef7fd89181c3ff5f9203d54f11">turnOff</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_air_humidifier.html#a82d17e0525ff53dda77f1ef9cff76c71">isOn</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// Методы IModeSelectableDevice</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_air_humidifier.html#a6c40b7897c32b6265d6eae37fee8b44f">setMode</a>(<span class="keywordtype">int</span> mode) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_air_humidifier.html#ab1391d978de21934c86e32e0a751beae">getMode</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_LOWEST = 1;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_LOW = 2;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_MEDIUM = 3;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_HIGH = 4;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">bool</span> m_isOn;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">int</span> m_mode; <span class="comment">// 1 - слабый, 2 - средний, 3 - сильный</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    AirHumidifier();</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    ~AirHumidifier() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="comment">// Методы IDevice</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_air_humidifier.html#a7fade122d5358bddf07cbf5a47056773">turnOn</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_air_humidifier.html#abd81a7ef7fd89181c3ff5f9203d54f11">turnOff</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_air_humidifier.html#a82d17e0525ff53dda77f1ef9cff76c71">isOn</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">// Методы IModeSelectableDevice</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_air_humidifier.html#a6c40b7897c32b6265d6eae37fee8b44f">setMode</a>(<span class="keywordtype">int</span> mode) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_air_humidifier.html#ab1391d978de21934c86e32e0a751beae">getMode</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_LOWEST = 1;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_LOW = 2;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_MEDIUM = 3;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_HIGH = 4;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">bool</span> m_isOn;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">int</span> m_mode; <span class="comment">// 1 - слабый, 2 - средний, 3 - сильный</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
 </div>
 <div class="ttc" id="aclass_air_humidifier_html_a6c40b7897c32b6265d6eae37fee8b44f"><div class="ttname"><a href="class_air_humidifier.html#a6c40b7897c32b6265d6eae37fee8b44f">AirHumidifier::setMode</a></div><div class="ttdeci">void setMode(int mode) override</div><div class="ttdoc">Установить режим работы</div><div class="ttdef"><b>Определения</b> AirHumidifier.cpp:21</div></div>
 <div class="ttc" id="aclass_air_humidifier_html_a7fade122d5358bddf07cbf5a47056773"><div class="ttname"><a href="class_air_humidifier.html#a7fade122d5358bddf07cbf5a47056773">AirHumidifier::turnOn</a></div><div class="ttdeci">void turnOn() override</div><div class="ttdoc">Включить устройство</div><div class="ttdef"><b>Определения</b> AirHumidifier.cpp:7</div></div>

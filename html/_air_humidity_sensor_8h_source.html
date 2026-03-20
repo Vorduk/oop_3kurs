@@ -95,21 +95,22 @@ $(function(){initNavTree('_air_humidity_sensor_8h_source.html','',''); });
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;BaseSensor.h&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Сенсор влажности воздуха.</span></div>
-<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_air_humidity_sensor.html">    5</a></span><span class="keyword">class </span>AirHumiditySensor : <span class="keyword">public</span> <a class="code hl_function" href="class_base_sensor.html#a8e6c48f8e3e794f06ffd4f51d7f365dd">BaseSensor</a></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    AirHumiditySensor(<span class="keyword">const</span> <a class="code hl_class" href="class_i_data_provider.html">IDataProvider</a>* data_provider)</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        : <a class="code hl_function" href="class_base_sensor.html#a8e6c48f8e3e794f06ffd4f51d7f365dd">BaseSensor</a>(data_provider, <span class="stringliteral">&quot;air_humidity&quot;</span>) {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    }</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">double</span> m_start_humidity = 0; <span class="comment">// Начальное показание датчика</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_i_sensor.html#a9972b325fb329e6eaefd79e562ad7776">getValue</a>() <span class="keyword">override</span>; <span class="comment">// Метод для получения показания с датчика.</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define START_AIR_HUMIDITY_READING 0</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_air_humidity_sensor.html">   11</a></span><span class="keyword">class </span><a class="code hl_function" href="class_air_humidity_sensor.html#a6fa1a584b278aa7d5e24756a2ac4ee5f">AirHumiditySensor</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_base_sensor.html#a4547b215e8acdf92cde373d5cd4c745a">BaseSensor</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_air_humidity_sensor.html#a6fa1a584b278aa7d5e24756a2ac4ee5f">   17</a></span>    <a class="code hl_function" href="class_air_humidity_sensor.html#a6fa1a584b278aa7d5e24756a2ac4ee5f">AirHumiditySensor</a>(std::weak_ptr&lt;const IDataProvider&gt; data_provider)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        : <a class="code hl_function" href="class_base_sensor.html#a4547b215e8acdf92cde373d5cd4c745a">BaseSensor</a>(data_provider, <span class="stringliteral">&quot;air_humidity&quot;</span>) {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
 </div>
-<div class="ttc" id="aclass_base_sensor_html_a8e6c48f8e3e794f06ffd4f51d7f365dd"><div class="ttname"><a href="class_base_sensor.html#a8e6c48f8e3e794f06ffd4f51d7f365dd">BaseSensor::BaseSensor</a></div><div class="ttdeci">BaseSensor(const IDataProvider *data_provider, const std::string &amp;type)</div><div class="ttdoc">Конструктор базового датчика</div><div class="ttdef"><b>Определения</b> BaseSensor.cpp:5</div></div>
-<div class="ttc" id="aclass_i_data_provider_html"><div class="ttname"><a href="class_i_data_provider.html">IDataProvider</a></div><div class="ttdef"><b>Определения</b> IDataProvider.h:4</div></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_i_sensor.html#a9972b325fb329e6eaefd79e562ad7776">getValue</a>() <span class="keyword">override</span>; <span class="comment">// Метод для получения показания с датчика.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+</div>
+<div class="ttc" id="aclass_air_humidity_sensor_html_a6fa1a584b278aa7d5e24756a2ac4ee5f"><div class="ttname"><a href="class_air_humidity_sensor.html#a6fa1a584b278aa7d5e24756a2ac4ee5f">AirHumiditySensor::AirHumiditySensor</a></div><div class="ttdeci">AirHumiditySensor(std::weak_ptr&lt; const IDataProvider &gt; data_provider)</div><div class="ttdoc">Конструктор датчика влажности воздуха</div><div class="ttdef"><b>Определения</b> AirHumiditySensor.h:17</div></div>
+<div class="ttc" id="aclass_base_sensor_html_a4547b215e8acdf92cde373d5cd4c745a"><div class="ttname"><a href="class_base_sensor.html#a4547b215e8acdf92cde373d5cd4c745a">BaseSensor::BaseSensor</a></div><div class="ttdeci">BaseSensor(std::weak_ptr&lt; const IDataProvider &gt; data_provider, const std::string &amp;type)</div><div class="ttdoc">Конструктор базового датчика</div><div class="ttdef"><b>Определения</b> BaseSensor.cpp:5</div></div>
 <div class="ttc" id="aclass_i_sensor_html_a9972b325fb329e6eaefd79e562ad7776"><div class="ttname"><a href="class_i_sensor.html#a9972b325fb329e6eaefd79e562ad7776">ISensor::getValue</a></div><div class="ttdeci">virtual double getValue()=0</div><div class="ttdoc">Получить текущее показание датчика</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

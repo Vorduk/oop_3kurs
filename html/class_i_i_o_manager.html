@@ -104,20 +104,20 @@ $(function(){initNavTree('class_i_i_o_manager.html','','class_i_i_o_manager-memb
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a25ae7d3f3b69a5883dda3bebd02ab9fd" id="r_a25ae7d3f3b69a5883dda3bebd02ab9fd"><td class="memItemLeft"><a id="a25ae7d3f3b69a5883dda3bebd02ab9fd" name="a25ae7d3f3b69a5883dda3bebd02ab9fd"></a>
-virtual void&#160;</td><td class="memItemRight"><b>addSensor</b> (<a class="el" href="class_i_sensor.html">ISensor</a> *sensor)=0</td></tr>
+<tr class="memitem:a6d11728196f1e531fce78685c31282b7" id="r_a6d11728196f1e531fce78685c31282b7"><td class="memItemLeft"><a id="a6d11728196f1e531fce78685c31282b7" name="a6d11728196f1e531fce78685c31282b7"></a>
+virtual void&#160;</td><td class="memItemRight"><b>addSensor</b> (std::shared_ptr&lt; <a class="el" href="class_i_sensor.html">ISensor</a> &gt; sensor)=0</td></tr>
 <tr class="memitem:a9687cc43a7415de26563529123fe9a21" id="r_a9687cc43a7415de26563529123fe9a21"><td class="memItemLeft"><a id="a9687cc43a7415de26563529123fe9a21" name="a9687cc43a7415de26563529123fe9a21"></a>
 virtual void&#160;</td><td class="memItemRight"><b>removeSensor</b> (int sensorId)=0</td></tr>
-<tr class="memitem:a296795add30d0fc85bf0bd46df54df51" id="r_a296795add30d0fc85bf0bd46df54df51"><td class="memItemLeft"><a id="a296795add30d0fc85bf0bd46df54df51" name="a296795add30d0fc85bf0bd46df54df51"></a>
-virtual <a class="el" href="class_i_sensor.html">ISensor</a> *&#160;</td><td class="memItemRight"><b>getSensor</b> (int sensorId)=0</td></tr>
+<tr class="memitem:a24492c5ab58eb2ba36d91027dbc287b6" id="r_a24492c5ab58eb2ba36d91027dbc287b6"><td class="memItemLeft"><a id="a24492c5ab58eb2ba36d91027dbc287b6" name="a24492c5ab58eb2ba36d91027dbc287b6"></a>
+virtual std::shared_ptr&lt; <a class="el" href="class_i_sensor.html">ISensor</a> &gt;&#160;</td><td class="memItemRight"><b>getSensor</b> (int sensorId)=0</td></tr>
 <tr class="memitem:abadf7c39fcdcf21f81dc5b5ed12115a4" id="r_abadf7c39fcdcf21f81dc5b5ed12115a4"><td class="memItemLeft"><a id="abadf7c39fcdcf21f81dc5b5ed12115a4" name="abadf7c39fcdcf21f81dc5b5ed12115a4"></a>
 virtual std::map&lt; int, double &gt;&#160;</td><td class="memItemRight"><b>readAllSensors</b> ()=0</td></tr>
-<tr class="memitem:ade2487161f5cfe0ebc813138a2c8bba5" id="r_ade2487161f5cfe0ebc813138a2c8bba5"><td class="memItemLeft"><a id="ade2487161f5cfe0ebc813138a2c8bba5" name="ade2487161f5cfe0ebc813138a2c8bba5"></a>
-virtual void&#160;</td><td class="memItemRight"><b>addDevice</b> (<a class="el" href="class_i_device.html">IDevice</a> *device)=0</td></tr>
+<tr class="memitem:ab923f653ad6c666dac1e944183038e17" id="r_ab923f653ad6c666dac1e944183038e17"><td class="memItemLeft"><a id="ab923f653ad6c666dac1e944183038e17" name="ab923f653ad6c666dac1e944183038e17"></a>
+virtual void&#160;</td><td class="memItemRight"><b>addDevice</b> (std::shared_ptr&lt; <a class="el" href="class_i_device.html">IDevice</a> &gt; device)=0</td></tr>
 <tr class="memitem:ab3cd1903d1e96254694c89c28c5ae843" id="r_ab3cd1903d1e96254694c89c28c5ae843"><td class="memItemLeft"><a id="ab3cd1903d1e96254694c89c28c5ae843" name="ab3cd1903d1e96254694c89c28c5ae843"></a>
 virtual void&#160;</td><td class="memItemRight"><b>removeDevice</b> (int deviceId)=0</td></tr>
-<tr class="memitem:a6c2eea9204ca579b42d2985292e1ed4a" id="r_a6c2eea9204ca579b42d2985292e1ed4a"><td class="memItemLeft"><a id="a6c2eea9204ca579b42d2985292e1ed4a" name="a6c2eea9204ca579b42d2985292e1ed4a"></a>
-virtual <a class="el" href="class_i_device.html">IDevice</a> *&#160;</td><td class="memItemRight"><b>getDevice</b> (int deviceId)=0</td></tr>
+<tr class="memitem:afafe022043fcb757c229c00e9b9765a8" id="r_afafe022043fcb757c229c00e9b9765a8"><td class="memItemLeft"><a id="afafe022043fcb757c229c00e9b9765a8" name="afafe022043fcb757c229c00e9b9765a8"></a>
+virtual std::shared_ptr&lt; <a class="el" href="class_i_device.html">IDevice</a> &gt;&#160;</td><td class="memItemRight"><b>getDevice</b> (int deviceId)=0</td></tr>
 <tr class="memitem:a0d9386e54bc25ea89ea3fa824ea1ed9e" id="r_a0d9386e54bc25ea89ea3fa824ea1ed9e"><td class="memItemLeft"><a id="a0d9386e54bc25ea89ea3fa824ea1ed9e" name="a0d9386e54bc25ea89ea3fa824ea1ed9e"></a>
 virtual void&#160;</td><td class="memItemRight"><b>sendCommand</b> (int deviceId, int powerLevel)=0</td></tr>
 <tr class="memitem:a67cf1c7c42e9fae6f7ee7cd27b491560" id="r_a67cf1c7c42e9fae6f7ee7cd27b491560"><td class="memItemLeft"><a id="a67cf1c7c42e9fae6f7ee7cd27b491560" name="a67cf1c7c42e9fae6f7ee7cd27b491560"></a>
