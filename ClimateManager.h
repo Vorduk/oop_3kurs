@@ -4,6 +4,8 @@
 #include <map>
 #include <string>
 #include <memory>
+#include <iostream>
+#include <cmath>
 
 class ClimateManager : public IClimateManager {
 public:

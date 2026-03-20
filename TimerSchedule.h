@@ -13,7 +13,7 @@ private:
     std::chrono::seconds m_interval;
 
 public:
-    TimerSchedule() : m_running(false) {}
+    TimerSchedule() : m_running(false), m_interval(0) {}  // Инициализируем m_interval
 
     ~TimerSchedule() {
         stop();

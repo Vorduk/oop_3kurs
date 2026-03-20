@@ -7,7 +7,7 @@
 #include "AirHumiditySensor.h"
 #include "SoilMoistureSensor.h"
 #include "ClimateManager.h"
-#include "ScheduleConfig.h"
+#include "ScheduleConfig.h"  // Здесь находится ExtendedConfigManager
 #include "SafetyProxyManager.h"
 #include "PidRegulator.h"
 #include "OnOffRegulator.h"
@@ -24,7 +24,7 @@ int main() {
     std::cout << "Patterns: Delegation, Proxy, Configuration" << std::endl;
     std::cout << "========================================" << std::endl << std::endl;
 
-    // 1. Создаем модель как shared_ptr (она будет жить долго)
+    // 1. Создаем модель как shared_ptr
     auto simulationModel = std::make_shared<SimulationModel>(22.0, 65.0, 45.0);
 
     // 2. Создаем датчики с weak_ptr на модель
@@ -40,7 +40,7 @@ int main() {
     auto ventilation = std::make_shared<Ventilation>();
     auto lamp = std::make_shared<Lamp>();
 
-    // 4. Настройка IOManager (владеет shared_ptr)
+    // 4. Настройка IOManager
     auto io_manager = std::make_shared<IOManager>();
     io_manager->addSensor(tempSensor);
     io_manager->addSensor(humiditySensor);
@@ -89,7 +89,7 @@ int main() {
     std::cout << "  - Ventilation: every 10s at 50%" << std::endl;
     std::cout << "  - Lamp: every 15s at 70%" << std::endl;
 
-    // 8. Создаем движок - передаем shared_ptr на модель и ссылку на IOManager
+    // 8. Создаем движок
     SimulationEngine engine(simulationModel, io_manager);
     engine.setClimateManager(safetyProxy);
     engine.setConfigManager(configManager);

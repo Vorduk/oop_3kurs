@@ -4,7 +4,6 @@
 #include <thread>
 #include <chrono>
 
-// Изменяем конструктор
 SimulationEngine::SimulationEngine(std::shared_ptr<SimulationModel> model,
     std::shared_ptr<IOManager> io_manager)
     : m_model(model), m_io_manager(io_manager), m_is_running(false) {
@@ -23,7 +22,7 @@ void SimulationEngine::setConfigManager(std::shared_ptr<IConfigManager> manager)
 }
 
 void SimulationEngine::setupSchedules(ExtendedConfigManager* configManager) {
-    if (!configManager || !m_io_manager) return; 
+    if (!configManager || !m_io_manager) return;
 
     for (const auto& pair : configManager->getAllSchedules()) {
         const std::string& deviceType = pair.first;
@@ -45,7 +44,7 @@ void SimulationEngine::setupSchedules(ExtendedConfigManager* configManager) {
 }
 
 void SimulationEngine::applyScheduledCommand(const std::string& deviceType, int powerLevel) {
-    if (!m_io_manager) return; 
+    if (!m_io_manager) return;
 
     std::cout << "\n[Timer]: Executing scheduled command for " << deviceType
         << " at " << powerLevel << "%" << std::endl;
@@ -128,6 +127,7 @@ void SimulationEngine::applyCommands(const std::map<std::string, int>& commands)
             m_io_manager->sendCommand(deviceId, power);
         }
 
+        // Применяем эффекты к модели
         if (deviceType == "heater") {
             m_model->applyHeaterEffect(power);
         }

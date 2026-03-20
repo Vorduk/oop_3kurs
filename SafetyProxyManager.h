@@ -5,22 +5,11 @@
 #include <iostream>
 #include <map>
 
-// Паттерн Proxy: заместитель для IClimateManager с проверкой безопасности
+/**
+ * @brief Паттерн Proxy: заместитель для IClimateManager с проверкой безопасности
+ */
 class SafetyProxyManager : public IClimateManager {
-private:
-    std::shared_ptr<IClimateManager> m_realManager;
-    std::shared_ptr<IIOManager> m_ioManager;
-
-    // Критические пороги
-    double m_critical_temp_min = 0.0;
-    double m_critical_temp_max = 45.0;
-    double m_critical_humidity_max = 95.0;
-
-    bool m_emergencyMode;
-    std::string m_emergencyReason;
-
 public:
-    // Конструктор принимает shared_ptr
     SafetyProxyManager(std::shared_ptr<IClimateManager> realManager,
         std::shared_ptr<IIOManager> ioManager)
         : m_realManager(realManager), m_ioManager(ioManager), m_emergencyMode(false) {
@@ -35,7 +24,6 @@ public:
     std::map<std::string, int> calculateCommands(
         const std::map<std::string, double>& currentReadings) override {
 
-        // Проверка на аварийные ситуации
         if (checkEmergency(currentReadings)) {
             m_emergencyMode = true;
             std::cout << "\n[!!! EMERGENCY !!!]: " << m_emergencyReason << std::endl;
@@ -44,7 +32,6 @@ public:
 
         m_emergencyMode = false;
 
-        // Паттерн Proxy: делегируем реальному менеджеру в штатном режиме
         if (m_realManager) {
             auto commands = m_realManager->calculateCommands(currentReadings);
             return filterDangerousCommands(commands, currentReadings);
@@ -115,4 +102,14 @@ private:
 
         return filtered;
     }
+
+    std::shared_ptr<IClimateManager> m_realManager;
+    std::shared_ptr<IIOManager> m_ioManager;
+
+    double m_critical_temp_min = 0.0;
+    double m_critical_temp_max = 45.0;
+    double m_critical_humidity_max = 95.0;
+
+    bool m_emergencyMode;
+    std::string m_emergencyReason;
 };

@@ -11,9 +11,6 @@ ClimateManager::ClimateManager()
     m_mapping["temperature_cool"] = "conditioner";
     m_mapping["air_humidity"] = "air_humidifier";
     m_mapping["soil_moisture"] = "irrigation";
-
-    // По умолчанию используем On/Off регуляторы с гистерезисом
-    // Они будут создаваться при необходимости
 }
 
 void ClimateManager::setTargetParameters(const std::map<std::string, double>& targets) {
@@ -116,7 +113,6 @@ void ClimateManager::processParameter(
     }
 
     // Для остальных параметров (влажность воздуха, влажность почвы)
-    // Нужно знать, какое устройство отвечает за этот параметр
     auto mapping_it = m_mapping.find(paramName);
     if (mapping_it == m_mapping.end()) {
         return;
