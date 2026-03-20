@@ -9,7 +9,7 @@
 class SafetyProxyManager : public IClimateManager {
 private:
     std::shared_ptr<IClimateManager> m_realManager;
-    IIOManager* m_ioManager;
+    std::shared_ptr<IIOManager> m_ioManager;  // ← теперь shared_ptr
 
     // Критические пороги
     double m_critical_temp_min = 0.0;
@@ -20,12 +20,13 @@ private:
     std::string m_emergencyReason;
 
 public:
-    SafetyProxyManager(std::shared_ptr<IClimateManager> realManager, IIOManager* ioManager)
+    // Конструктор принимает shared_ptr
+    SafetyProxyManager(std::shared_ptr<IClimateManager> realManager,
+        std::shared_ptr<IIOManager> ioManager)
         : m_realManager(realManager), m_ioManager(ioManager), m_emergencyMode(false) {
     }
 
     void setTargetParameters(const std::map<std::string, double>& targets) override {
-        // Делегируем реальному менеджеру
         if (m_realManager) {
             m_realManager->setTargetParameters(targets);
         }
@@ -86,11 +87,11 @@ private:
 
     std::map<std::string, int> getEmergencyCommands() {
         std::map<std::string, int> emergency;
-        emergency["heater"] = 0;           // Отключить нагреватель
-        emergency["conditioner"] = 100;    // Включить кондиционер на полную
-        emergency["air_humidifier"] = 0;   // Отключить увлажнитель
-        emergency["ventilation"] = 100;    // Включить вентиляцию
-        emergency["irrigation"] = 0;       // Отключить полив
+        emergency["heater"] = 0;
+        emergency["conditioner"] = 100;
+        emergency["air_humidifier"] = 0;
+        emergency["ventilation"] = 100;
+        emergency["irrigation"] = 0;
         return emergency;
     }
 
@@ -102,12 +103,10 @@ private:
 
         auto tempIt = readings.find("temperature");
         if (tempIt != readings.end()) {
-            // Если уже жарко, не включаем нагреватель
             if (tempIt->second > 35.0 && filtered["heater"] > 0) {
                 filtered["heater"] = 0;
                 std::cout << "[SafetyProxy]: Blocked heater - temperature too high" << std::endl;
             }
-            // Если уже холодно, не включаем кондиционер
             if (tempIt->second < 15.0 && filtered["conditioner"] > 0) {
                 filtered["conditioner"] = 0;
                 std::cout << "[SafetyProxy]: Blocked conditioner - temperature too low" << std::endl;

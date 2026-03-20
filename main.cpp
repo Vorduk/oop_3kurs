@@ -41,16 +41,16 @@ int main() {
     auto lamp = std::make_shared<Lamp>();
 
     // 4. Настройка IOManager (владеет shared_ptr)
-    IOManager io_manager;
-    io_manager.addSensor(tempSensor);
-    io_manager.addSensor(humiditySensor);
-    io_manager.addSensor(soilSensor);
-    io_manager.addDevice(heater);
-    io_manager.addDevice(conditioner);
-    io_manager.addDevice(humidifier);
-    io_manager.addDevice(irrigation);
-    io_manager.addDevice(ventilation);
-    io_manager.addDevice(lamp);
+    auto io_manager = std::make_shared<IOManager>();
+    io_manager->addSensor(tempSensor);
+    io_manager->addSensor(humiditySensor);
+    io_manager->addSensor(soilSensor);
+    io_manager->addDevice(heater);
+    io_manager->addDevice(conditioner);
+    io_manager->addDevice(humidifier);
+    io_manager->addDevice(irrigation);
+    io_manager->addDevice(ventilation);
+    io_manager->addDevice(lamp);
 
     // 5. Реальный ClimateManager с делегированием
     auto realClimateManager = std::make_shared<ClimateManager>();
@@ -69,7 +69,7 @@ int main() {
     std::cout << "  - Soil moisture -> On/Off Regulator with hysteresis" << std::endl;
 
     // 6. Паттерн Proxy: оборачиваем в SafetyProxyManager
-    auto safetyProxy = std::make_shared<SafetyProxyManager>(realClimateManager, &io_manager);
+    auto safetyProxy = std::make_shared<SafetyProxyManager>(realClimateManager, io_manager);
     safetyProxy->setCriticalThresholds(5.0, 40.0, 90.0);
 
     std::cout << "\n[Proxy Pattern]: SafetyProxyManager wraps ClimateManager" << std::endl;

@@ -4,7 +4,9 @@
 #include <thread>
 #include <chrono>
 
-SimulationEngine::SimulationEngine(std::shared_ptr<SimulationModel> model, IOManager& io_manager)
+// Изменяем конструктор
+SimulationEngine::SimulationEngine(std::shared_ptr<SimulationModel> model,
+    std::shared_ptr<IOManager> io_manager)
     : m_model(model), m_io_manager(io_manager), m_is_running(false) {
 }
 
@@ -21,7 +23,7 @@ void SimulationEngine::setConfigManager(std::shared_ptr<IConfigManager> manager)
 }
 
 void SimulationEngine::setupSchedules(ExtendedConfigManager* configManager) {
-    if (!configManager) return;
+    if (!configManager || !m_io_manager) return; 
 
     for (const auto& pair : configManager->getAllSchedules()) {
         const std::string& deviceType = pair.first;
@@ -43,12 +45,14 @@ void SimulationEngine::setupSchedules(ExtendedConfigManager* configManager) {
 }
 
 void SimulationEngine::applyScheduledCommand(const std::string& deviceType, int powerLevel) {
+    if (!m_io_manager) return; 
+
     std::cout << "\n[Timer]: Executing scheduled command for " << deviceType
         << " at " << powerLevel << "%" << std::endl;
 
-    auto deviceIds = m_io_manager.getDeviceIdsByType(deviceType);
+    auto deviceIds = m_io_manager->getDeviceIdsByType(deviceType);
     for (int deviceId : deviceIds) {
-        m_io_manager.sendCommand(deviceId, powerLevel);
+        m_io_manager->sendCommand(deviceId, powerLevel);
 
         if (deviceType == "ventilation" && m_model) {
             m_model->applyVentilationEffect(powerLevel);
@@ -60,8 +64,12 @@ void SimulationEngine::applyScheduledCommand(const std::string& deviceType, int 
 }
 
 void SimulationEngine::start() {
-    if (!m_climateManager || !m_configManager || !m_model) {
-        std::cout << "[ERROR]: ClimateManager, ConfigManager or Model not set!" << std::endl;
+    if (!m_climateManager || !m_configManager || !m_model || !m_io_manager) {
+        std::cout << "[ERROR]: Required components not set!" << std::endl;
+        std::cout << "  ClimateManager: " << (m_climateManager ? "OK" : "MISSING") << std::endl;
+        std::cout << "  ConfigManager: " << (m_configManager ? "OK" : "MISSING") << std::endl;
+        std::cout << "  Model: " << (m_model ? "OK" : "MISSING") << std::endl;
+        std::cout << "  IOManager: " << (m_io_manager ? "OK" : "MISSING") << std::endl;
         return;
     }
 
@@ -73,13 +81,13 @@ void SimulationEngine::start() {
     std::cout << "\n[INFO]: SimulationEngine started with control loop" << std::endl;
 
     while (m_is_running) {
-        auto sensorReadings = m_io_manager.readAllSensors();
+        auto sensorReadings = m_io_manager->readAllSensors();
 
         std::map<std::string, double> currentValues;
         for (const auto& pair : sensorReadings) {
             int id = pair.first;
             double value = pair.second;
-            auto sensor = m_io_manager.getSensor(id);
+            auto sensor = m_io_manager->getSensor(id);
             if (sensor) {
                 currentValues[sensor->getType()] = value;
             }
@@ -109,18 +117,17 @@ void SimulationEngine::start() {
 }
 
 void SimulationEngine::applyCommands(const std::map<std::string, int>& commands) {
-    if (!m_model) return;
+    if (!m_model || !m_io_manager) return;
 
     for (const auto& pair : commands) {
         const std::string& deviceType = pair.first;
         int power = pair.second;
 
-        auto deviceIds = m_io_manager.getDeviceIdsByType(deviceType);
+        auto deviceIds = m_io_manager->getDeviceIdsByType(deviceType);
         for (int deviceId : deviceIds) {
-            m_io_manager.sendCommand(deviceId, power);
+            m_io_manager->sendCommand(deviceId, power);
         }
 
-        // Применяем эффекты к модели
         if (deviceType == "heater") {
             m_model->applyHeaterEffect(power);
         }
