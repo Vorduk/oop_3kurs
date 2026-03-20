@@ -92,28 +92,72 @@ $(function(){initNavTree('class_on_off_regulator.html','','class_on_off_regulato
   <div class="headertitle"><div class="title">Класс OnOffRegulator</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Регулятор типа "включено/выключено" (On/Off) с гистерезисом  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_on_off_regulator_8h_source.html">OnOffRegulator.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:OnOffRegulator:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_on_off_regulator.png" usemap="#OnOffRegulator_map" alt=""/>
   <map id="OnOffRegulator_map" name="OnOffRegulator_map">
-<area href="class_i_regulator.html" alt="IRegulator" shape="rect" coords="0,0,101,24"/>
+<area href="class_i_regulator.html" title="Интерфейс для алгоритмов регулирования" alt="IRegulator" shape="rect" coords="0,0,101,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:aaba126db7f66c9a48c94445f7385c845" id="r_aaba126db7f66c9a48c94445f7385c845"><td class="memItemLeft"><a id="aaba126db7f66c9a48c94445f7385c845" name="aaba126db7f66c9a48c94445f7385c845"></a>
-&#160;</td><td class="memItemRight"><b>OnOffRegulator</b> (double hysteresis=1.0)</td></tr>
+<tr class="memitem:aaba126db7f66c9a48c94445f7385c845" id="r_aaba126db7f66c9a48c94445f7385c845"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aaba126db7f66c9a48c94445f7385c845">OnOffRegulator</a> (double hysteresis=1.0)</td></tr>
+<tr class="memdesc:aaba126db7f66c9a48c94445f7385c845"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор регулятора  <br /></td></tr>
 <tr class="memitem:a52351a8d1e38fd1f4ae74ab0e20d1b29" id="r_a52351a8d1e38fd1f4ae74ab0e20d1b29"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a52351a8d1e38fd1f4ae74ab0e20d1b29">calculate</a> (double current, double target) override</td></tr>
+<tr class="memdesc:a52351a8d1e38fd1f4ae74ab0e20d1b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитать управляющий сигнал на основе текущего и целевого значения  <br /></td></tr>
 <tr class="memitem:a374b75d4ef4325c158cabb72c26e98dd" id="r_a374b75d4ef4325c158cabb72c26e98dd"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a374b75d4ef4325c158cabb72c26e98dd">getName</a> () const override</td></tr>
-<tr class="memitem:aa5ffd7e0299bb4e63c73bf14a4ade6fb" id="r_aa5ffd7e0299bb4e63c73bf14a4ade6fb"><td class="memItemLeft"><a id="aa5ffd7e0299bb4e63c73bf14a4ade6fb" name="aa5ffd7e0299bb4e63c73bf14a4ade6fb"></a>
-void&#160;</td><td class="memItemRight"><b>setHysteresis</b> (double hysteresis)</td></tr>
+<tr class="memdesc:a374b75d4ef4325c158cabb72c26e98dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить название регулятора  <br /></td></tr>
+<tr class="memitem:aa5ffd7e0299bb4e63c73bf14a4ade6fb" id="r_aa5ffd7e0299bb4e63c73bf14a4ade6fb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa5ffd7e0299bb4e63c73bf14a4ade6fb">setHysteresis</a> (double hysteresis)</td></tr>
+<tr class="memdesc:aa5ffd7e0299bb4e63c73bf14a4ade6fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить ширину гистерезиса  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_i_regulator"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_i_regulator')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="class_i_regulator.html">IRegulator</a></td></tr>
-<tr class="memitem:aeb2414ef7bb3c5972070a858cf398ac2 inherit pub_methods_class_i_regulator" id="r_aeb2414ef7bb3c5972070a858cf398ac2"><td class="memItemLeft">
-virtual void&#160;</td><td class="memItemRight"><b>reset</b> ()</td></tr>
+<tr class="memitem:aeb2414ef7bb3c5972070a858cf398ac2 inherit pub_methods_class_i_regulator" id="r_aeb2414ef7bb3c5972070a858cf398ac2"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_i_regulator.html#aeb2414ef7bb3c5972070a858cf398ac2">reset</a> ()</td></tr>
+<tr class="memdesc:aeb2414ef7bb3c5972070a858cf398ac2 inherit pub_methods_class_i_regulator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сбросить внутреннее состояние регулятора  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Регулятор типа "включено/выключено" (On/Off) с гистерезисом </p>
+<p>Реализует алгоритм позиционного регулирования, при котором управляющий сигнал может принимать только два значения: 0% (выключено) или 100% (включено). Гистерезис предотвращает постоянное переключение устройства вблизи целевого значения. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="aaba126db7f66c9a48c94445f7385c845" name="aaba126db7f66c9a48c94445f7385c845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaba126db7f66c9a48c94445f7385c845">&#9670;&#160;</a></span>OnOffRegulator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">OnOffRegulator::OnOffRegulator </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>hysteresis</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор регулятора </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hysteresis</td><td>Ширина гистерезиса. Например, при hysteresis = 2.0, устройство не будет переключаться пока значение находится в диапазоне [target - 2.0, target + 2.0] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
 <a id="a52351a8d1e38fd1f4ae74ab0e20d1b29" name="a52351a8d1e38fd1f4ae74ab0e20d1b29"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52351a8d1e38fd1f4ae74ab0e20d1b29">&#9670;&#160;</a></span>calculate()</h2>
@@ -137,12 +181,23 @@ virtual void&#160;</td><td class="memItemRight"><b>reset</b> ()</td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_regulator.html">IRegulator</a>.</p>
+<p>Рассчитать управляющий сигнал на основе текущего и целевого значения </p>
+<p>Алгоритм работы: Если текущее значение ниже (target - hysteresis): вкл устройство (100%) Если текущее значение выше (target + hysteresis): выкл устройство (0%) В зоне гистерезиса [target - hysteresis, target + hysteresis]: сохраняется предыдущее состояние (избегание частых переключений)</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current</td><td>Текущее значение параметра (температура, влажность и т.д.) </td></tr>
+    <tr><td class="paramname">target</td><td>Целевое значение параметра </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>100.0 - включить устройство, 0.0 - выключить устройство </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_regulator.html#a67b21570f93a63bd49dcc49b00fa783d">IRegulator</a>.</p>
 
 </div>
 </div>
@@ -164,17 +219,46 @@ virtual void&#160;</td><td class="memItemRight"><b>reset</b> ()</td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_regulator.html">IRegulator</a>.</p>
+<p>Получить название регулятора </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Строка "OnOffRegulator" </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_regulator.html#aaf8f6df2bdd2d712c5182beabe16fa01">IRegulator</a>.</p>
 
 </div>
 </div>
-<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<a id="aa5ffd7e0299bb4e63c73bf14a4ade6fb" name="aa5ffd7e0299bb4e63c73bf14a4ade6fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ffd7e0299bb4e63c73bf14a4ade6fb">&#9670;&#160;</a></span>setHysteresis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OnOffRegulator::setHysteresis </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>hysteresis</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установить ширину гистерезиса </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hysteresis</td><td>Новая ширина гистерезиса </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li><a class="el" href="_on_off_regulator_8h_source.html">OnOffRegulator.h</a></li>
+<li><b>OnOffRegulator.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

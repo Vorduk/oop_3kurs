@@ -92,26 +92,138 @@ $(function(){initNavTree('class_i_regulator.html','','class_i_regulator-members'
   <div class="headertitle"><div class="title">Класс IRegulator<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Интерфейс для алгоритмов регулирования  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_regulator_8h_source.html">IRegulator.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:IRegulator:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_i_regulator.png" usemap="#IRegulator_map" alt=""/>
   <map id="IRegulator_map" name="IRegulator_map">
-<area href="class_on_off_regulator.html" alt="OnOffRegulator" shape="rect" coords="0,56,101,80"/>
-<area href="class_pid_regulator.html" alt="PidRegulator" shape="rect" coords="111,56,212,80"/>
+<area href="class_on_off_regulator.html" title="Регулятор типа &quot;включено/выключено&quot; (On/Off) с гистерезисом" alt="OnOffRegulator" shape="rect" coords="0,56,101,80"/>
+<area href="class_pid_regulator.html" title="ПИД-регулятор (Proportional-Integral-Derivative) для плавного управления параметрами" alt="PidRegulator" shape="rect" coords="111,56,212,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a67b21570f93a63bd49dcc49b00fa783d" id="r_a67b21570f93a63bd49dcc49b00fa783d"><td class="memItemLeft"><a id="a67b21570f93a63bd49dcc49b00fa783d" name="a67b21570f93a63bd49dcc49b00fa783d"></a>
-virtual double&#160;</td><td class="memItemRight"><b>calculate</b> (double current, double target)=0</td></tr>
-<tr class="memitem:aeb2414ef7bb3c5972070a858cf398ac2" id="r_aeb2414ef7bb3c5972070a858cf398ac2"><td class="memItemLeft"><a id="aeb2414ef7bb3c5972070a858cf398ac2" name="aeb2414ef7bb3c5972070a858cf398ac2"></a>
-virtual void&#160;</td><td class="memItemRight"><b>reset</b> ()</td></tr>
-<tr class="memitem:aaf8f6df2bdd2d712c5182beabe16fa01" id="r_aaf8f6df2bdd2d712c5182beabe16fa01"><td class="memItemLeft"><a id="aaf8f6df2bdd2d712c5182beabe16fa01" name="aaf8f6df2bdd2d712c5182beabe16fa01"></a>
-virtual std::string&#160;</td><td class="memItemRight"><b>getName</b> () const =0</td></tr>
+<tr class="memitem:a67b21570f93a63bd49dcc49b00fa783d" id="r_a67b21570f93a63bd49dcc49b00fa783d"><td class="memItemLeft">virtual double&#160;</td><td class="memItemRight"><a class="el" href="#a67b21570f93a63bd49dcc49b00fa783d">calculate</a> (double current, double target)=0</td></tr>
+<tr class="memdesc:a67b21570f93a63bd49dcc49b00fa783d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитать управляющий сигнал  <br /></td></tr>
+<tr class="memitem:aeb2414ef7bb3c5972070a858cf398ac2" id="r_aeb2414ef7bb3c5972070a858cf398ac2"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aeb2414ef7bb3c5972070a858cf398ac2">reset</a> ()</td></tr>
+<tr class="memdesc:aeb2414ef7bb3c5972070a858cf398ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сбросить внутреннее состояние регулятора  <br /></td></tr>
+<tr class="memitem:aaf8f6df2bdd2d712c5182beabe16fa01" id="r_aaf8f6df2bdd2d712c5182beabe16fa01"><td class="memItemLeft">virtual std::string&#160;</td><td class="memItemRight"><a class="el" href="#aaf8f6df2bdd2d712c5182beabe16fa01">getName</a> () const =0</td></tr>
+<tr class="memdesc:aaf8f6df2bdd2d712c5182beabe16fa01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить название регулятора  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс для алгоритмов регулирования </p>
+<p>Определяет интерфейс для всех алгоритмов, вычисляющих управляющий сигнал на основе отклонения текущего значения от целевого. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a67b21570f93a63bd49dcc49b00fa783d" name="a67b21570f93a63bd49dcc49b00fa783d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67b21570f93a63bd49dcc49b00fa783d">&#9670;&#160;</a></span>calculate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double IRegulator::calculate </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>current</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>target</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Рассчитать управляющий сигнал </p>
+<p>Вычисляет значение управляющего воздействия на основе текущего и целевого значения параметра.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current</td><td>Текущее значение параметра (например, 22.5 °C) </td></tr>
+    <tr><td class="paramname">target</td><td>Целевое значение параметра (например, 23.0 °C) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Управляющий сигнал в процентах (0-100), где: 0 - устройство выключено, 100 - максимальная мощность/интенсивность </dd></dl>
+
+<p>Замещается в <a class="el" href="class_on_off_regulator.html#a52351a8d1e38fd1f4ae74ab0e20d1b29">OnOffRegulator</a> и <a class="el" href="class_pid_regulator.html#a73d11696b9b53b3ad23c59099ec31a83">PidRegulator</a>.</p>
+
+</div>
+</div>
+<a id="aaf8f6df2bdd2d712c5182beabe16fa01" name="aaf8f6df2bdd2d712c5182beabe16fa01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf8f6df2bdd2d712c5182beabe16fa01">&#9670;&#160;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string IRegulator::getName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить название регулятора </p>
+<p>Для логирования и отладки.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>Строковое имя регулятора (например, "PidRegulator", "OnOffRegulator") </dd></dl>
+
+<p>Замещается в <a class="el" href="class_on_off_regulator.html#a374b75d4ef4325c158cabb72c26e98dd">OnOffRegulator</a> и <a class="el" href="class_pid_regulator.html#aa6650fe9d79c87ed9e1e227c32aa0805">PidRegulator</a>.</p>
+
+</div>
+</div>
+<a id="aeb2414ef7bb3c5972070a858cf398ac2" name="aeb2414ef7bb3c5972070a858cf398ac2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb2414ef7bb3c5972070a858cf398ac2">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IRegulator::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сбросить внутреннее состояние регулятора </p>
+<p>Необходим для регуляторов, накапливающих историю (например, PID). Вызывается при смене целевых параметров или перезапуске системы. </p>
+
+<p>Переопределяется в <a class="el" href="class_pid_regulator.html#a58a3374b53eeaede2a1f5a217bc5cc56">PidRegulator</a>.</p>
+
+</div>
+</div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
 <li><a class="el" href="_i_regulator_8h_source.html">IRegulator.h</a></li>
 </ul>

@@ -5,41 +5,72 @@
 #include <atomic>
 #include <iostream>
 
+/**
+ * @brief Класс для периодического выполнения задач по таймеру
+ *
+ * TimerSchedule реализует механизм фонового выполнения callback-функций
+ * с заданным интервалом. Работает в отдельном потоке, обеспечивая
+ * неблокирующее выполнение периодических задач.
+ *
+ * @note При разрушении автоматически
+ *  останавливает таймер и дожидается завершения рабочего потока.
+ *  После вызова stop() или разрушения объекта повторный запуск
+ *  невозможен. Для нового запуска требуется создание нового объекта.
+ *
+ * Примерчик:
+ * @code
+ * TimerSchedule timer;
+ * timer.start(std::chrono::seconds(5), []() {
+ *     std::cout << "Прошло 5 секунд!" << std::endl;
+ * });
+ * std::this_thread::sleep_for(std::chrono::seconds(15));
+ * timer.stop();
+ * @endcode
+ */
 class TimerSchedule {
-private:
-    std::atomic<bool> m_running;
-    std::thread m_thread;
-    std::function<void()> m_callback;
-    std::chrono::seconds m_interval;
-
 public:
-    TimerSchedule() : m_running(false), m_interval(0) {}  // Инициализируем m_interval
+    /**
+     * @brief Конструктор по умолчанию
+     *
+     * Создаёт неактивный таймер. Для запуска необходимо вызвать start().
+     */
+    TimerSchedule();
 
     ~TimerSchedule() {
         stop();
     }
 
-    void start(std::chrono::seconds interval, std::function<void()> callback) {
-        if (m_running) return;
+    /**
+     * @brief Запуск таймера
+     *
+     * Запускает фоновый поток, который будет периодически вызывать
+     * callback-функцию с заданным интервалом. Если таймер уже запущен,
+     * повторный вызов игнорируется.
+     *
+     * @param interval Интервал между вызовами callback-функции
+     * @param callback Функция, вызываемая по истечении каждого интервала
+     *
+     * @note Функция неблокирующая — запускает поток и возвращает управление.
+     * @note Callback-функция выполняется в отдельном потоке, поэтому
+     *       необходимо обеспечивать потокобезопасность доступа к общим данным.
+     */
+    void start(std::chrono::seconds interval, std::function<void()> callback);
 
-        m_interval = interval;
-        m_callback = callback;
-        m_running = true;
+    /**
+     * @brief Остановка таймера
+     *
+     * Сигнализирует рабочему потоку о необходимости завершения и
+     * дожидается его окончания. После остановки таймер не может быть
+     * перезапущен — требуется создание нового объекта.
+     *
+     * @note Метод блокирующий — дожидается завершения рабочего потока.
+     * @note Безопасен для многократного вызова.
+     */
+    void stop();
 
-        m_thread = std::thread([this]() {
-            while (m_running) {
-                std::this_thread::sleep_for(m_interval);
-                if (m_running && m_callback) {
-                    m_callback();
-                }
-            }
-            });
-    }
-
-    void stop() {
-        m_running = false;
-        if (m_thread.joinable()) {
-            m_thread.join();
-        }
-    }
+private:
+    std::atomic<bool> m_running;        ///< Флаг работы таймера (атомарный для потокобезопасности)
+    std::thread m_thread;               ///< Поток, в котором выполняется периодическая задача
+    std::function<void()> m_callback;   ///< Callback-функция, вызываемая по таймеру
+    std::chrono::seconds m_interval;    ///< Интервал между вызовами (в секундах)
 };

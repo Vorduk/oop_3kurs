@@ -92,16 +92,116 @@ $(function(){initNavTree('class_timer_schedule.html','','class_timer_schedule-me
   <div class="headertitle"><div class="title">Класс TimerSchedule</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Класс для периодического выполнения задач по таймеру  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_timer_schedule_8h_source.html">TimerSchedule.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:afae36bffaa4f043f30c9196d5db7cc3c" id="r_afae36bffaa4f043f30c9196d5db7cc3c"><td class="memItemLeft"><a id="afae36bffaa4f043f30c9196d5db7cc3c" name="afae36bffaa4f043f30c9196d5db7cc3c"></a>
-void&#160;</td><td class="memItemRight"><b>start</b> (std::chrono::seconds interval, std::function&lt; void()&gt; callback)</td></tr>
-<tr class="memitem:af989fb72c42fb737397fbe992c57d80d" id="r_af989fb72c42fb737397fbe992c57d80d"><td class="memItemLeft"><a id="af989fb72c42fb737397fbe992c57d80d" name="af989fb72c42fb737397fbe992c57d80d"></a>
-void&#160;</td><td class="memItemRight"><b>stop</b> ()</td></tr>
+<tr class="memitem:accdc8f23fa7a7a79c803dfd99d78830b" id="r_accdc8f23fa7a7a79c803dfd99d78830b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#accdc8f23fa7a7a79c803dfd99d78830b">TimerSchedule</a> ()</td></tr>
+<tr class="memdesc:accdc8f23fa7a7a79c803dfd99d78830b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор по умолчанию  <br /></td></tr>
+<tr class="memitem:afae36bffaa4f043f30c9196d5db7cc3c" id="r_afae36bffaa4f043f30c9196d5db7cc3c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afae36bffaa4f043f30c9196d5db7cc3c">start</a> (std::chrono::seconds interval, std::function&lt; void()&gt; callback)</td></tr>
+<tr class="memdesc:afae36bffaa4f043f30c9196d5db7cc3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запуск таймера  <br /></td></tr>
+<tr class="memitem:af989fb72c42fb737397fbe992c57d80d" id="r_af989fb72c42fb737397fbe992c57d80d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af989fb72c42fb737397fbe992c57d80d">stop</a> ()</td></tr>
+<tr class="memdesc:af989fb72c42fb737397fbe992c57d80d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Остановка таймера  <br /></td></tr>
 </table>
-<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс для периодического выполнения задач по таймеру </p>
+<p><a class="el" href="class_timer_schedule.html" title="Класс для периодического выполнения задач по таймеру">TimerSchedule</a> реализует механизм фонового выполнения callback-функций с заданным интервалом. Работает в отдельном потоке, обеспечивая неблокирующее выполнение периодических задач.</p>
+<dl class="section note"><dt>Заметки</dt><dd>При разрушении автоматически останавливает таймер и дожидается завершения рабочего потока. После вызова <a class="el" href="#af989fb72c42fb737397fbe992c57d80d" title="Остановка таймера">stop()</a> или разрушения объекта повторный запуск невозможен. Для нового запуска требуется создание нового объекта.</dd></dl>
+<p>Примерчик: </p><div class="fragment"><div class="line"><a class="code hl_function" href="#accdc8f23fa7a7a79c803dfd99d78830b">TimerSchedule</a> timer;</div>
+<div class="line">timer.<a class="code hl_function" href="#afae36bffaa4f043f30c9196d5db7cc3c">start</a>(std::chrono::seconds(5), []() {</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Прошло 5 секунд!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">});</div>
+<div class="line">std::this_thread::sleep_for(std::chrono::seconds(15));</div>
+<div class="line">timer.<a class="code hl_function" href="#af989fb72c42fb737397fbe992c57d80d">stop</a>();</div>
+<div class="ttc" id="aclass_timer_schedule_html_accdc8f23fa7a7a79c803dfd99d78830b"><div class="ttname"><a href="#accdc8f23fa7a7a79c803dfd99d78830b">TimerSchedule::TimerSchedule</a></div><div class="ttdeci">TimerSchedule()</div><div class="ttdoc">Конструктор по умолчанию</div><div class="ttdef"><b>Определения</b> TimerSchedule.cpp:3</div></div>
+<div class="ttc" id="aclass_timer_schedule_html_af989fb72c42fb737397fbe992c57d80d"><div class="ttname"><a href="#af989fb72c42fb737397fbe992c57d80d">TimerSchedule::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdoc">Остановка таймера</div><div class="ttdef"><b>Определения</b> TimerSchedule.cpp:30</div></div>
+<div class="ttc" id="aclass_timer_schedule_html_afae36bffaa4f043f30c9196d5db7cc3c"><div class="ttname"><a href="#afae36bffaa4f043f30c9196d5db7cc3c">TimerSchedule::start</a></div><div class="ttdeci">void start(std::chrono::seconds interval, std::function&lt; void()&gt; callback)</div><div class="ttdoc">Запуск таймера</div><div class="ttdef"><b>Определения</b> TimerSchedule.cpp:7</div></div>
+</div><!-- fragment --> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="accdc8f23fa7a7a79c803dfd99d78830b" name="accdc8f23fa7a7a79c803dfd99d78830b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accdc8f23fa7a7a79c803dfd99d78830b">&#9670;&#160;</a></span>TimerSchedule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TimerSchedule::TimerSchedule </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор по умолчанию </p>
+<p>Создаёт неактивный таймер. Для запуска необходимо вызвать <a class="el" href="#afae36bffaa4f043f30c9196d5db7cc3c" title="Запуск таймера">start()</a>. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="afae36bffaa4f043f30c9196d5db7cc3c" name="afae36bffaa4f043f30c9196d5db7cc3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae36bffaa4f043f30c9196d5db7cc3c">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TimerSchedule::start </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::seconds</td>          <td class="paramname"><span class="paramname"><em>interval</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void()&gt;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Запуск таймера </p>
+<p>Запускает фоновый поток, который будет периодически вызывать callback-функцию с заданным интервалом. Если таймер уже запущен, повторный вызов игнорируется.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interval</td><td>Интервал между вызовами callback-функции </td></tr>
+    <tr><td class="paramname">callback</td><td>Функция, вызываемая по истечении каждого интервала</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Функция неблокирующая — запускает поток и возвращает управление. </dd>
+<dd>
+Callback-функция выполняется в отдельном потоке, поэтому необходимо обеспечивать потокобезопасность доступа к общим данным. </dd></dl>
+
+</div>
+</div>
+<a id="af989fb72c42fb737397fbe992c57d80d" name="af989fb72c42fb737397fbe992c57d80d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af989fb72c42fb737397fbe992c57d80d">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TimerSchedule::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Остановка таймера </p>
+<p>Сигнализирует рабочему потоку о необходимости завершения и дожидается его окончания. После остановки таймер не может быть перезапущен — требуется создание нового объекта.</p>
+<dl class="section note"><dt>Заметки</dt><dd>Метод блокирующий — дожидается завершения рабочего потока. </dd>
+<dd>
+Безопасен для многократного вызова. </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li><a class="el" href="_timer_schedule_8h_source.html">TimerSchedule.h</a></li>
+<li><b>TimerSchedule.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -92,26 +92,82 @@ $(function(){initNavTree('class_pid_regulator.html','','class_pid_regulator-memb
   <div class="headertitle"><div class="title">Класс PidRegulator</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>ПИД-регулятор (Proportional-Integral-Derivative) для плавного управления параметрами  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_pid_regulator_8h_source.html">PidRegulator.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:PidRegulator:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_pid_regulator.png" usemap="#PidRegulator_map" alt=""/>
   <map id="PidRegulator_map" name="PidRegulator_map">
-<area href="class_i_regulator.html" alt="IRegulator" shape="rect" coords="0,0,84,24"/>
+<area href="class_i_regulator.html" title="Интерфейс для алгоритмов регулирования" alt="IRegulator" shape="rect" coords="0,0,84,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:aa39893e54a84d389e8a76e509a19e66d" id="r_aa39893e54a84d389e8a76e509a19e66d"><td class="memItemLeft"><a id="aa39893e54a84d389e8a76e509a19e66d" name="aa39893e54a84d389e8a76e509a19e66d"></a>
-&#160;</td><td class="memItemRight"><b>PidRegulator</b> (double kp=2.0, double ki=0.1, double kd=0.5, double dt=1.0)</td></tr>
+<tr class="memitem:aa39893e54a84d389e8a76e509a19e66d" id="r_aa39893e54a84d389e8a76e509a19e66d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa39893e54a84d389e8a76e509a19e66d">PidRegulator</a> (double kp=2.0, double ki=0.1, double kd=0.5, double dt=1.0)</td></tr>
+<tr class="memdesc:aa39893e54a84d389e8a76e509a19e66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор ПИД-регулятора  <br /></td></tr>
 <tr class="memitem:a73d11696b9b53b3ad23c59099ec31a83" id="r_a73d11696b9b53b3ad23c59099ec31a83"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a73d11696b9b53b3ad23c59099ec31a83">calculate</a> (double current, double target) override</td></tr>
+<tr class="memdesc:a73d11696b9b53b3ad23c59099ec31a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисление управляющего сигнала на основе текущего и целевого значения  <br /></td></tr>
 <tr class="memitem:a58a3374b53eeaede2a1f5a217bc5cc56" id="r_a58a3374b53eeaede2a1f5a217bc5cc56"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a58a3374b53eeaede2a1f5a217bc5cc56">reset</a> () override</td></tr>
+<tr class="memdesc:a58a3374b53eeaede2a1f5a217bc5cc56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сброс внутреннего состояния регулятора  <br /></td></tr>
 <tr class="memitem:aa6650fe9d79c87ed9e1e227c32aa0805" id="r_aa6650fe9d79c87ed9e1e227c32aa0805"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#aa6650fe9d79c87ed9e1e227c32aa0805">getName</a> () const override</td></tr>
-<tr class="memitem:a9009fd67355fd0993c5875facedda00d" id="r_a9009fd67355fd0993c5875facedda00d"><td class="memItemLeft"><a id="a9009fd67355fd0993c5875facedda00d" name="a9009fd67355fd0993c5875facedda00d"></a>
-void&#160;</td><td class="memItemRight"><b>setGains</b> (double kp, double ki, double kd)</td></tr>
+<tr class="memdesc:aa6650fe9d79c87ed9e1e227c32aa0805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить название регулятора  <br /></td></tr>
+<tr class="memitem:a9009fd67355fd0993c5875facedda00d" id="r_a9009fd67355fd0993c5875facedda00d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9009fd67355fd0993c5875facedda00d">setGains</a> (double kp, double ki, double kd)</td></tr>
+<tr class="memdesc:a9009fd67355fd0993c5875facedda00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Динамическая перенастройка коэффициентов регулятора  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>ПИД-регулятор (Proportional-Integral-Derivative) для плавного управления параметрами </p>
+<p>Принцип работы: ПИД-регулятор вычисляет управляющий сигнал (0-100%) на основе разницы между текущим и целевым значением (ошибки). Сигнал состоит из трёх компонентов:</p>
+<p>Пропорциональный (P): реагирует на текущую ошибку. Чем больше ошибка, тем сильнее воздействие. Интегральный (I): накапливает ошибку во времени, устраняет установившуюся ошибку. Дифференциальный (D): реагирует на скорость изменения ошибки, сглаживает колебания.</p>
+<p>Формула: output = P * error + I * ∫error dt + D * d(error)/dt </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="aa39893e54a84d389e8a76e509a19e66d" name="aa39893e54a84d389e8a76e509a19e66d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa39893e54a84d389e8a76e509a19e66d">&#9670;&#160;</a></span>PidRegulator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PidRegulator::PidRegulator </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>kp</em></span><span class="paramdefsep"> = </span><span class="paramdefval">2.0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>ki</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.1</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>kd</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.5</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dt</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор ПИД-регулятора </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kp</td><td>Пропорциональный коэффициент (P). Лучше диапазон: 0.5-5.0 Определяет, насколько сильно регулятор реагирует на текущую ошибку. Слишком высокое значение вызывает колебания, слишком низкое - медленную реакцию.</td></tr>
+    <tr><td class="paramname">ki</td><td>Интегральный коэффициент (I). Лучше диапазон: 0.01-0.5 Определяет скорость устранения установившейся ошибки.</td></tr>
+    <tr><td class="paramname">kd</td><td>Дифференциальный коэффициент (D). Лучше диапазон: 0.1-2.0 Определяет демпфирующий эффект, предсказывая будущую ошибку. Помогает предотвратить колебания.</td></tr>
+    <tr><td class="paramname">dt</td><td>Временной шаг в секундах между вызовами <a class="el" href="#a73d11696b9b53b3ad23c59099ec31a83" title="Вычисление управляющего сигнала на основе текущего и целевого значения">calculate()</a> Должен соответствовать частоте вызова регулятора </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
 <a id="a73d11696b9b53b3ad23c59099ec31a83" name="a73d11696b9b53b3ad23c59099ec31a83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73d11696b9b53b3ad23c59099ec31a83">&#9670;&#160;</a></span>calculate()</h2>
@@ -135,12 +191,30 @@ void&#160;</td><td class="memItemRight"><b>setGains</b> (double kp, double ki, d
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_regulator.html">IRegulator</a>.</p>
+<p>Вычисление управляющего сигнала на основе текущего и целевого значения </p>
+<p>Алгоритм:</p><ol type="1">
+<li>Вычисление ошибки = целевое - текущее</li>
+<li>Пропорциональная составляющая: P = Kp * error</li>
+<li>Интегральная составляющая: I += error * dt, затем I = Ki * I</li>
+<li>Дифференциальная составляющая: D = Kd * (error - prevError) / dt</li>
+<li>Суммирование: output = P + I + D</li>
+<li>Ограничение выхода в диапазоне [0, 100]</li>
+</ol>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current</td><td>Текущее значение параметра (температура, влажность и т.д.) </td></tr>
+    <tr><td class="paramname">target</td><td>Желаемое (целевое) значение параметра </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Управляющий сигнал в процентах (0-100), где 0 = выключено, 100 = полная мощность </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_regulator.html#a67b21570f93a63bd49dcc49b00fa783d">IRegulator</a>.</p>
 
 </div>
 </div>
@@ -162,12 +236,15 @@ void&#160;</td><td class="memItemRight"><b>setGains</b> (double kp, double ki, d
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_regulator.html">IRegulator</a>.</p>
+<p>Получить название регулятора </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Строка "PidRegulator" </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_regulator.html#aaf8f6df2bdd2d712c5182beabe16fa01">IRegulator</a>.</p>
 
 </div>
 </div>
@@ -189,17 +266,58 @@ void&#160;</td><td class="memItemRight"><b>setGains</b> (double kp, double ki, d
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Переопределяет метод предка <a class="el" href="class_i_regulator.html">IRegulator</a>.</p>
+<p>Сброс внутреннего состояния регулятора </p>
+<p>Обнуляет интегральную составляющую и предыдущую ошибку. Используется при смене целевого параметра или перезапуске системы. </p>
+
+<p>Переопределяет метод предка <a class="el" href="class_i_regulator.html#aeb2414ef7bb3c5972070a858cf398ac2">IRegulator</a>.</p>
 
 </div>
 </div>
-<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<a id="a9009fd67355fd0993c5875facedda00d" name="a9009fd67355fd0993c5875facedda00d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9009fd67355fd0993c5875facedda00d">&#9670;&#160;</a></span>setGains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PidRegulator::setGains </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>kp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>ki</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>kd</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Динамическая перенастройка коэффициентов регулятора </p>
+<p>Позволяет изменять поведение регулятора во время работы. После изменения коэффициентов сбрасывается внутреннее состояние.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kp</td><td>Пропорциональный коэффициент </td></tr>
+    <tr><td class="paramname">ki</td><td>Интегральный коэффициент </td></tr>
+    <tr><td class="paramname">kd</td><td>Дифференциальный коэффициент </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li><a class="el" href="_pid_regulator_8h_source.html">PidRegulator.h</a></li>
+<li><b>PidRegulator.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -95,42 +95,32 @@ $(function(){initNavTree('_on_off_regulator_8h_source.html','',''); });
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;IRegulator.h&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Простой On/Off регулятор с гистерезисом (паттерн Delegation)</span></div>
-<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="class_on_off_regulator.html">    6</a></span><span class="keyword">class </span>OnOffRegulator : <span class="keyword">public</span> <a class="code hl_class" href="class_i_regulator.html">IRegulator</a> {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordtype">double</span> m_hysteresis;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">bool</span> m_lastState;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    OnOffRegulator(<span class="keywordtype">double</span> hysteresis = 1.0)</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        : m_hysteresis(hysteresis), m_lastState(<span class="keyword">false</span>) {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    }</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">double</span> calculate(<span class="keywordtype">double</span> current, <span class="keywordtype">double</span> target)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordflow">if</span> (current &lt; target - m_hysteresis) {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            m_lastState = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <span class="keywordflow">return</span> 100.0;  <span class="comment">// Включить на полную</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (current &gt; target + m_hysteresis) {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            m_lastState = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keywordflow">return</span> 0.0;    <span class="comment">// Выключить</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        }</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="comment">// В гистерезисе - сохраняем предыдущее состояние</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">return</span> m_lastState ? 100.0 : 0.0;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::string getName()<span class="keyword"> const override </span>{</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;OnOffRegulator&quot;</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> setHysteresis(<span class="keywordtype">double</span> hysteresis) {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        m_hysteresis = hysteresis;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_on_off_regulator.html">   13</a></span><span class="keyword">class </span><a class="code hl_function" href="class_on_off_regulator.html#aaba126db7f66c9a48c94445f7385c845">OnOffRegulator</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_i_regulator.html">IRegulator</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_on_off_regulator.html#aaba126db7f66c9a48c94445f7385c845">   21</a></span>    <a class="code hl_function" href="class_on_off_regulator.html#aaba126db7f66c9a48c94445f7385c845">OnOffRegulator</a>(<span class="keywordtype">double</span> hysteresis = 1.0)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        : m_hysteresis(hysteresis), m_lastState(false) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
 </div>
-<div class="ttc" id="aclass_i_regulator_html"><div class="ttname"><a href="class_i_regulator.html">IRegulator</a></div><div class="ttdef"><b>Определения</b> IRegulator.h:5</div></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_on_off_regulator.html#a52351a8d1e38fd1f4ae74ab0e20d1b29">calculate</a>(<span class="keywordtype">double</span> current, <span class="keywordtype">double</span> target) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::string <a class="code hl_function" href="class_on_off_regulator.html#a374b75d4ef4325c158cabb72c26e98dd">getName</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_on_off_regulator.html#aa5ffd7e0299bb4e63c73bf14a4ade6fb">setHysteresis</a>(<span class="keywordtype">double</span> hysteresis);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">double</span> m_hysteresis;    </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">bool</span> m_lastState;       </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+</div>
+<div class="ttc" id="aclass_i_regulator_html"><div class="ttname"><a href="class_i_regulator.html">IRegulator</a></div><div class="ttdoc">Интерфейс для алгоритмов регулирования</div><div class="ttdef"><b>Определения</b> IRegulator.h:10</div></div>
+<div class="ttc" id="aclass_on_off_regulator_html_a374b75d4ef4325c158cabb72c26e98dd"><div class="ttname"><a href="class_on_off_regulator.html#a374b75d4ef4325c158cabb72c26e98dd">OnOffRegulator::getName</a></div><div class="ttdeci">std::string getName() const override</div><div class="ttdoc">Получить название регулятора</div><div class="ttdef"><b>Определения</b> OnOffRegulator.cpp:18</div></div>
+<div class="ttc" id="aclass_on_off_regulator_html_a52351a8d1e38fd1f4ae74ab0e20d1b29"><div class="ttname"><a href="class_on_off_regulator.html#a52351a8d1e38fd1f4ae74ab0e20d1b29">OnOffRegulator::calculate</a></div><div class="ttdeci">double calculate(double current, double target) override</div><div class="ttdoc">Рассчитать управляющий сигнал на основе текущего и целевого значения</div><div class="ttdef"><b>Определения</b> OnOffRegulator.cpp:3</div></div>
+<div class="ttc" id="aclass_on_off_regulator_html_aa5ffd7e0299bb4e63c73bf14a4ade6fb"><div class="ttname"><a href="class_on_off_regulator.html#aa5ffd7e0299bb4e63c73bf14a4ade6fb">OnOffRegulator::setHysteresis</a></div><div class="ttdeci">void setHysteresis(double hysteresis)</div><div class="ttdoc">Установить ширину гистерезиса</div><div class="ttdef"><b>Определения</b> OnOffRegulator.cpp:23</div></div>
+<div class="ttc" id="aclass_on_off_regulator_html_aaba126db7f66c9a48c94445f7385c845"><div class="ttname"><a href="class_on_off_regulator.html#aaba126db7f66c9a48c94445f7385c845">OnOffRegulator::OnOffRegulator</a></div><div class="ttdeci">OnOffRegulator(double hysteresis=1.0)</div><div class="ttdoc">Конструктор регулятора</div><div class="ttdef"><b>Определения</b> OnOffRegulator.h:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
