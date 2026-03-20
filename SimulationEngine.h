@@ -13,9 +13,8 @@ class ExtendedConfigManager;
 
 class SimulationEngine : public ISimulationEngine {
 public:
-    // Изменяем сигнатуру: принимаем shared_ptr на модель и shared_ptr на IOManager
     SimulationEngine(std::shared_ptr<SimulationModel> model,
-        std::shared_ptr<IOManager> io_manager);  // ← было IOManager&
+        std::shared_ptr<IOManager> io_manager);
 
     ~SimulationEngine();
 
@@ -29,7 +28,7 @@ public:
 private:
     bool m_is_running;
     std::shared_ptr<SimulationModel> m_model;
-    std::shared_ptr<IOManager> m_io_manager;  // ← было IOManager&, теперь shared_ptr
+    std::shared_ptr<IOManager> m_io_manager;
 
     std::shared_ptr<IClimateManager> m_climateManager;
     std::shared_ptr<IConfigManager> m_configManager;

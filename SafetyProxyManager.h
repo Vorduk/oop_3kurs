@@ -9,7 +9,7 @@
 class SafetyProxyManager : public IClimateManager {
 private:
     std::shared_ptr<IClimateManager> m_realManager;
-    std::shared_ptr<IIOManager> m_ioManager;  // ← теперь shared_ptr
+    std::shared_ptr<IIOManager> m_ioManager;
 
     // Критические пороги
     double m_critical_temp_min = 0.0;
