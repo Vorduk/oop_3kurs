@@ -3,27 +3,37 @@
 #include <iostream>
 
 void IOManager::addSensor(ISensor* sensor) {
-    m_sensors.push_back(sensor);
-    std::cout << "[INFO]: Added sensor: " << sensor->getType() << std::endl;
+    int id = sensor->getId();
+
+    m_sensors_by_id[id] = sensor;
+
 }
 
-void IOManager::removeSensor(const std::string& sensorType) {
-    m_sensors.erase(
-        std::remove_if(m_sensors.begin(), m_sensors.end(),
-            [&sensorType](ISensor* sensor) {
-                return sensor->getType() == sensorType;
-            }),
-        m_sensors.end()
-    );
-    std::cout << "[INFO]: Removed sensors of type: " << sensorType << std::endl;
+void IOManager::removeSensor(int sensorId) {
+    auto it = m_sensors_by_id.find(sensorId);
+    if (it != m_sensors_by_id.end()) {
+        std::string type = it->second->getType();
+
+        m_sensors_by_id.erase(it);
+    }
+    else {
+        std::cout << "[WARNING]: Sensor with ID " << sensorId << " not found" << std::endl;
+    }
 }
 
-std::map<std::string, double> IOManager::readAllSensors() {
-    std::map<std::string, double> readings;
+ISensor* IOManager::getSensor(int sensorId) {
+    auto it = m_sensors_by_id.find(sensorId);
+    if (it != m_sensors_by_id.end()) {
+        return it->second;
+    }
+    return nullptr;
+}
 
-    for (std::vector<ISensor*>::const_iterator it = m_sensors.begin();
-        it != m_sensors.end(); ++it) {
-        readings[(*it)->getType()] = (*it)->getValue();
+std::map<int, double> IOManager::readAllSensors() {
+    std::map<int, double> readings;
+
+    for (const auto& [id, sensor] : m_sensors_by_id) {
+        readings[id] = sensor->getValue();
     }
 
     return readings;

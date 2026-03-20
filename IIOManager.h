@@ -11,9 +11,9 @@ public:
 
     // Управление датчиками
     virtual void addSensor(ISensor* sensor) = 0;
-    virtual void removeSensor(const std::string& sensorType) = 0;
+    virtual void removeSensor(int sensorId) = 0;  // Удаление по ID
+    virtual ISensor* getSensor(int sensorId) = 0;
 
-    // Опрос всех датчиков (тип датчика -> значение)
-    virtual std::map<std::string, double> readAllSensors() = 0;
+    // Опрос всех датчиков (ID датчика -> значение)
+    virtual std::map<int, double> readAllSensors() = 0;
 };
-

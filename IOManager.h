@@ -7,11 +7,11 @@
 
 class IOManager : public IIOManager {
 private:
-    std::vector<ISensor*> m_sensors;
+    std::map<int, ISensor*> m_sensors_by_id;  // ID -> датчик
 
 public:
     void addSensor(ISensor* sensor) override;
-    void removeSensor(const std::string& sensorType) override;
-    std::map<std::string, double> readAllSensors() override;
+    void removeSensor(int sensorId) override;
+    ISensor* getSensor(int sensorId) override;
+    std::map<int, double> readAllSensors() override;
 };
-
