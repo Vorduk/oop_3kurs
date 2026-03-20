@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ООП 3 Курс: Класс IOManager</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ООП 3 Курс
+   </div>
+   <div id="projectbrief">Лабы по ооп</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_i_o_manager.html','','class_i_o_manager-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс IOManager</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:IOManager:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_i_o_manager.png" usemap="#IOManager_map" alt=""/>
+  <map id="IOManager_map" name="IOManager_map">
+<area href="class_i_i_o_manager.html" alt="IIOManager" shape="rect" coords="0,0,79,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a5a5895d342532d358cb55bd161d654a6" id="r_a5a5895d342532d358cb55bd161d654a6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5a5895d342532d358cb55bd161d654a6">addSensor</a> (<a class="el" href="class_i_sensor.html">ISensor</a> *sensor) override</td></tr>
+<tr class="memitem:a2dbbd73731675a605d4e25e3e5457e6d" id="r_a2dbbd73731675a605d4e25e3e5457e6d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2dbbd73731675a605d4e25e3e5457e6d">removeSensor</a> (int sensorId) override</td></tr>
+<tr class="memitem:abd8e364688671f54ecc1a594e095e24a" id="r_abd8e364688671f54ecc1a594e095e24a"><td class="memItemLeft"><a class="el" href="class_i_sensor.html">ISensor</a> *&#160;</td><td class="memItemRight"><a class="el" href="#abd8e364688671f54ecc1a594e095e24a">getSensor</a> (int sensorId) override</td></tr>
+<tr class="memitem:a30c132c794dec92964ca2973ced93552" id="r_a30c132c794dec92964ca2973ced93552"><td class="memItemLeft">std::map&lt; int, double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a30c132c794dec92964ca2973ced93552">readAllSensors</a> () override</td></tr>
+<tr class="memitem:a7e484e5537bd3aa1c80534e795edb0d4" id="r_a7e484e5537bd3aa1c80534e795edb0d4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7e484e5537bd3aa1c80534e795edb0d4">addDevice</a> (<a class="el" href="class_i_device.html">IDevice</a> *device) override</td></tr>
+<tr class="memitem:a4716b5b1c0f4931fd042ecd59c7e3fb5" id="r_a4716b5b1c0f4931fd042ecd59c7e3fb5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4716b5b1c0f4931fd042ecd59c7e3fb5">removeDevice</a> (int deviceId) override</td></tr>
+<tr class="memitem:a357d3bd935c3bc70c27cd62c6de5a8c6" id="r_a357d3bd935c3bc70c27cd62c6de5a8c6"><td class="memItemLeft"><a class="el" href="class_i_device.html">IDevice</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a357d3bd935c3bc70c27cd62c6de5a8c6">getDevice</a> (int deviceId) override</td></tr>
+<tr class="memitem:ac78eb92e3484d48d39280bb8fb9b71f1" id="r_ac78eb92e3484d48d39280bb8fb9b71f1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac78eb92e3484d48d39280bb8fb9b71f1">sendCommand</a> (int deviceId, int powerLevel) override</td></tr>
+<tr class="memitem:aba06084b28fd289ef160114155efe9be" id="r_aba06084b28fd289ef160114155efe9be"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aba06084b28fd289ef160114155efe9be">sendCommand</a> (int deviceId, int mode, bool isModeCommand) override</td></tr>
+<tr class="memitem:a2685229688c85f75efe4b9989e129f59" id="r_a2685229688c85f75efe4b9989e129f59"><td class="memItemLeft"><a id="a2685229688c85f75efe4b9989e129f59" name="a2685229688c85f75efe4b9989e129f59"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight"><b>getDeviceIdsByType</b> (const std::string &amp;type)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a7e484e5537bd3aa1c80534e795edb0d4" name="a7e484e5537bd3aa1c80534e795edb0d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e484e5537bd3aa1c80534e795edb0d4">&#9670;&#160;</a></span>addDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IOManager::addDevice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_device.html">IDevice</a> *</td>          <td class="paramname"><span class="paramname"><em>device</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="class_i_i_o_manager.html">IIOManager</a>.</p>
+
+</div>
+</div>
+<a id="a5a5895d342532d358cb55bd161d654a6" name="a5a5895d342532d358cb55bd161d654a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a5895d342532d358cb55bd161d654a6">&#9670;&#160;</a></span>addSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IOManager::addSensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_sensor.html">ISensor</a> *</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="class_i_i_o_manager.html">IIOManager</a>.</p>
+
+</div>
+</div>
+<a id="a357d3bd935c3bc70c27cd62c6de5a8c6" name="a357d3bd935c3bc70c27cd62c6de5a8c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a357d3bd935c3bc70c27cd62c6de5a8c6">&#9670;&#160;</a></span>getDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_i_device.html">IDevice</a> * IOManager::getDevice </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>deviceId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="class_i_i_o_manager.html">IIOManager</a>.</p>
+
+</div>
+</div>
+<a id="abd8e364688671f54ecc1a594e095e24a" name="abd8e364688671f54ecc1a594e095e24a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd8e364688671f54ecc1a594e095e24a">&#9670;&#160;</a></span>getSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_i_sensor.html">ISensor</a> * IOManager::getSensor </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sensorId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="class_i_i_o_manager.html">IIOManager</a>.</p>
+
+</div>
+</div>
+<a id="a30c132c794dec92964ca2973ced93552" name="a30c132c794dec92964ca2973ced93552"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c132c794dec92964ca2973ced93552">&#9670;&#160;</a></span>readAllSensors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; int, double &gt; IOManager::readAllSensors </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="class_i_i_o_manager.html">IIOManager</a>.</p>
+
+</div>
+</div>
+<a id="a4716b5b1c0f4931fd042ecd59c7e3fb5" name="a4716b5b1c0f4931fd042ecd59c7e3fb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4716b5b1c0f4931fd042ecd59c7e3fb5">&#9670;&#160;</a></span>removeDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IOManager::removeDevice </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>deviceId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="class_i_i_o_manager.html">IIOManager</a>.</p>
+
+</div>
+</div>
+<a id="a2dbbd73731675a605d4e25e3e5457e6d" name="a2dbbd73731675a605d4e25e3e5457e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dbbd73731675a605d4e25e3e5457e6d">&#9670;&#160;</a></span>removeSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IOManager::removeSensor </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sensorId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="class_i_i_o_manager.html">IIOManager</a>.</p>
+
+</div>
+</div>
+<a id="aba06084b28fd289ef160114155efe9be" name="aba06084b28fd289ef160114155efe9be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba06084b28fd289ef160114155efe9be">&#9670;&#160;</a></span>sendCommand() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IOManager::sendCommand </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>deviceId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>mode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isModeCommand</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="class_i_i_o_manager.html">IIOManager</a>.</p>
+
+</div>
+</div>
+<a id="ac78eb92e3484d48d39280bb8fb9b71f1" name="ac78eb92e3484d48d39280bb8fb9b71f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac78eb92e3484d48d39280bb8fb9b71f1">&#9670;&#160;</a></span>sendCommand() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IOManager::sendCommand </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>deviceId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>powerLevel</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещает <a class="el" href="class_i_i_o_manager.html">IIOManager</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li><a class="el" href="_i_o_manager_8h_source.html">IOManager.h</a></li>
+<li><b>IOManager.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_i_o_manager.html">IOManager</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
