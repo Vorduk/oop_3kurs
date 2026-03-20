@@ -38,14 +38,29 @@ std::map<int, double> IOManager::readAllSensors() {
 
 void IOManager::addDevice(IDevice* device) {
     int id = device->getId();
+    std::string type = device->getType();
+
     m_devices_by_id[id] = device;
+    m_devices_by_type[type].push_back(id);
+
     std::cout << "[INFO]: Device added - ID: " << id
-        << ", Type: " << device->getType() << std::endl;
+        << ", Type: " << type << std::endl;
 }
 
 void IOManager::removeDevice(int deviceId) {
     auto it = m_devices_by_id.find(deviceId);
     if (it != m_devices_by_id.end()) {
+        std::string type = it->second->getType();
+
+        auto typeIt = m_devices_by_type.find(type);
+        if (typeIt != m_devices_by_type.end()) {
+            auto& ids = typeIt->second;
+            ids.erase(std::remove(ids.begin(), ids.end(), deviceId), ids.end());
+            if (ids.empty()) {
+                m_devices_by_type.erase(typeIt);
+            }
+        }
+
         m_devices_by_id.erase(it);
         std::cout << "[INFO]: Device removed - ID: " << deviceId << std::endl;
     }
@@ -62,6 +77,14 @@ IDevice* IOManager::getDevice(int deviceId) {
     return nullptr;
 }
 
+std::vector<int> IOManager::getDeviceIdsByType(const std::string& type) {
+    auto it = m_devices_by_type.find(type);
+    if (it != m_devices_by_type.end()) {
+        return it->second;
+    }
+    return std::vector<int>();
+}
+
 void IOManager::sendCommand(int deviceId, int powerLevel) {
     auto* device = getDevice(deviceId);
     if (!device) {
@@ -69,7 +92,6 @@ void IOManager::sendCommand(int deviceId, int powerLevel) {
         return;
     }
 
-    // Вкл/выкл устройство
     if (powerLevel > 0 && !device->isOn()) {
         device->turnOn();
         std::cout << "[CMD]: Device " << deviceId << " (" << device->getType()
@@ -81,7 +103,6 @@ void IOManager::sendCommand(int deviceId, int powerLevel) {
             << ") turned OFF" << std::endl;
     }
 
-    // Установка мощности, если устройство поддерживает
     auto* adjustable = dynamic_cast<IAdjustableDevice*>(device);
     if (adjustable && powerLevel > 0) {
         adjustable->setPower(powerLevel);
@@ -96,7 +117,6 @@ void IOManager::sendCommand(int deviceId, int mode, bool isModeCommand) {
     auto* device = getDevice(deviceId);
     if (!device) return;
 
-    // Устанавливка режима, если устройство поддерживает
     auto* modeSelectable = dynamic_cast<IModeSelectableDevice*>(device);
     if (modeSelectable) {
         modeSelectable->setMode(mode);
