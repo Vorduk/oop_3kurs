@@ -92,6 +92,11 @@ $(function(){initNavTree('class_i_mode_selectable_device.html','','class_i_mode_
   <div class="headertitle"><div class="title">Класс IModeSelectableDevice<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Интерфейс для устройств с дискретными режимами работы  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_device_8h_source.html">IDevice.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:IModeSelectableDevice:</div>
 <div class="dyncontent">
@@ -107,11 +112,80 @@ $(function(){initNavTree('class_i_mode_selectable_device.html','','class_i_mode_
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a0f556c22f797fab51200e50e5f7f824f" id="r_a0f556c22f797fab51200e50e5f7f824f"><td class="memItemLeft"><a id="a0f556c22f797fab51200e50e5f7f824f" name="a0f556c22f797fab51200e50e5f7f824f"></a>
-virtual void&#160;</td><td class="memItemRight"><b>setMode</b> (int mode)=0</td></tr>
-<tr class="memitem:a47079596e948650b02d5e2548ef44556" id="r_a47079596e948650b02d5e2548ef44556"><td class="memItemLeft"><a id="a47079596e948650b02d5e2548ef44556" name="a47079596e948650b02d5e2548ef44556"></a>
-virtual int&#160;</td><td class="memItemRight"><b>getMode</b> () const =0</td></tr>
+<tr class="memitem:a0f556c22f797fab51200e50e5f7f824f" id="r_a0f556c22f797fab51200e50e5f7f824f"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a0f556c22f797fab51200e50e5f7f824f">setMode</a> (int mode)=0</td></tr>
+<tr class="memdesc:a0f556c22f797fab51200e50e5f7f824f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить режим работы  <br /></td></tr>
+<tr class="memitem:a47079596e948650b02d5e2548ef44556" id="r_a47079596e948650b02d5e2548ef44556"><td class="memItemLeft">virtual int&#160;</td><td class="memItemRight"><a class="el" href="#a47079596e948650b02d5e2548ef44556">getMode</a> () const =0</td></tr>
+<tr class="memdesc:a47079596e948650b02d5e2548ef44556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущий режим работы  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс для устройств с дискретными режимами работы </p>
+<p>Используется для увлажнителей, вентиляции, систем полива. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a47079596e948650b02d5e2548ef44556" name="a47079596e948650b02d5e2548ef44556"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47079596e948650b02d5e2548ef44556">&#9670;&#160;</a></span>getMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int IModeSelectableDevice::getMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить текущий режим работы </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Код текущего режима </dd></dl>
+
+<p>Замещается в <a class="el" href="class_air_humidifier.html#ab1391d978de21934c86e32e0a751beae">AirHumidifier</a>, <a class="el" href="class_irrigation.html#a10a842f954354c2fe3f388a165f7eefd">Irrigation</a>, <a class="el" href="class_lamp.html#a6d2ac873ea042f4d9505e3690c19d4f0">Lamp</a> и <a class="el" href="class_ventilation.html#a881b60876df40a265d69a9489007db92">Ventilation</a>.</p>
+
+</div>
+</div>
+<a id="a0f556c22f797fab51200e50e5f7f824f" name="a0f556c22f797fab51200e50e5f7f824f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f556c22f797fab51200e50e5f7f824f">&#9670;&#160;</a></span>setMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IModeSelectableDevice::setMode </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установить режим работы </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>Код режима (определяется в конкретном устройстве) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="class_air_humidifier.html#a6c40b7897c32b6265d6eae37fee8b44f">AirHumidifier</a>, <a class="el" href="class_irrigation.html#a5059d5d074a88301a246ae16fa797375">Irrigation</a>, <a class="el" href="class_lamp.html#a46ca55d72335b1ee65fb67e48c7afa0e">Lamp</a> и <a class="el" href="class_ventilation.html#accf8229aac4ba7e44ef0601c4c2ce199">Ventilation</a>.</p>
+
+</div>
+</div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
 <li><a class="el" href="_i_device_8h_source.html">IDevice.h</a></li>
 </ul>

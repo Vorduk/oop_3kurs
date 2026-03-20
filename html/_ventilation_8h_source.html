@@ -106,13 +106,13 @@ $(function(){initNavTree('_ventilation_8h_source.html','',''); });
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    ~Ventilation() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// Методы IDevice</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> turnOn() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> turnOff() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">bool</span> isOn() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ventilation.html#ae8d54aaba96c81a379adacdf897d30bc">turnOn</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ventilation.html#adde1ff78ae98c631d6b2c92714e1155b">turnOff</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_ventilation.html#af4790931fcdbe60372e132147e6e91d3">isOn</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// Методы IModeSelectableDevice</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> setMode(<span class="keywordtype">int</span> mode) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">int</span> getMode() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ventilation.html#accf8229aac4ba7e44ef0601c4c2ce199">setMode</a>(<span class="keywordtype">int</span> mode) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_ventilation.html#a881b60876df40a265d69a9489007db92">getMode</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">// Дополнительные константы для режимов</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_LOW = 1;</div>
@@ -121,7 +121,12 @@ $(function(){initNavTree('_ventilation_8h_source.html','',''); });
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
 </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="ttc" id="aclass_i_mode_selectable_device_html"><div class="ttname"><a href="class_i_mode_selectable_device.html">IModeSelectableDevice</a></div><div class="ttdef"><b>Определения</b> IDevice.h:28</div></div>
+<div class="ttc" id="aclass_i_mode_selectable_device_html"><div class="ttname"><a href="class_i_mode_selectable_device.html">IModeSelectableDevice</a></div><div class="ttdoc">Интерфейс для устройств с дискретными режимами работы</div><div class="ttdef"><b>Определения</b> IDevice.h:68</div></div>
+<div class="ttc" id="aclass_ventilation_html_a881b60876df40a265d69a9489007db92"><div class="ttname"><a href="class_ventilation.html#a881b60876df40a265d69a9489007db92">Ventilation::getMode</a></div><div class="ttdeci">int getMode() const override</div><div class="ttdoc">Получить текущий режим работы</div><div class="ttdef"><b>Определения</b> Ventilation.cpp:31</div></div>
+<div class="ttc" id="aclass_ventilation_html_accf8229aac4ba7e44ef0601c4c2ce199"><div class="ttname"><a href="class_ventilation.html#accf8229aac4ba7e44ef0601c4c2ce199">Ventilation::setMode</a></div><div class="ttdeci">void setMode(int mode) override</div><div class="ttdoc">Установить режим работы</div><div class="ttdef"><b>Определения</b> Ventilation.cpp:21</div></div>
+<div class="ttc" id="aclass_ventilation_html_adde1ff78ae98c631d6b2c92714e1155b"><div class="ttname"><a href="class_ventilation.html#adde1ff78ae98c631d6b2c92714e1155b">Ventilation::turnOff</a></div><div class="ttdeci">void turnOff() override</div><div class="ttdoc">Выключить устройство</div><div class="ttdef"><b>Определения</b> Ventilation.cpp:12</div></div>
+<div class="ttc" id="aclass_ventilation_html_ae8d54aaba96c81a379adacdf897d30bc"><div class="ttname"><a href="class_ventilation.html#ae8d54aaba96c81a379adacdf897d30bc">Ventilation::turnOn</a></div><div class="ttdeci">void turnOn() override</div><div class="ttdoc">Включить устройство</div><div class="ttdef"><b>Определения</b> Ventilation.cpp:7</div></div>
+<div class="ttc" id="aclass_ventilation_html_af4790931fcdbe60372e132147e6e91d3"><div class="ttname"><a href="class_ventilation.html#af4790931fcdbe60372e132147e6e91d3">Ventilation::isOn</a></div><div class="ttdeci">bool isOn() const override</div><div class="ttdoc">Проверить состояние устройства</div><div class="ttdef"><b>Определения</b> Ventilation.cpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

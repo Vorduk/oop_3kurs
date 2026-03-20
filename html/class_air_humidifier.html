@@ -99,23 +99,30 @@ $(function(){initNavTree('class_air_humidifier.html','','class_air_humidifier-me
   <img src="class_air_humidifier.png" usemap="#AirHumidifier_map" alt=""/>
   <map id="AirHumidifier_map" name="AirHumidifier_map">
 <area href="class_base_device.html" alt="BaseDevice" shape="rect" coords="0,56,146,80"/>
-<area href="class_i_mode_selectable_device.html" alt="IModeSelectableDevice" shape="rect" coords="156,56,302,80"/>
-<area href="class_i_device.html" alt="IDevice" shape="rect" coords="0,0,146,24"/>
+<area href="class_i_mode_selectable_device.html" title="Интерфейс для устройств с дискретными режимами работы" alt="IModeSelectableDevice" shape="rect" coords="156,56,302,80"/>
+<area href="class_i_device.html" title="Базовый интерфейс для всех исполнительных устройств" alt="IDevice" shape="rect" coords="0,0,146,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a7fade122d5358bddf07cbf5a47056773" id="r_a7fade122d5358bddf07cbf5a47056773"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7fade122d5358bddf07cbf5a47056773">turnOn</a> () override</td></tr>
+<tr class="memdesc:a7fade122d5358bddf07cbf5a47056773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включить устройство  <br /></td></tr>
 <tr class="memitem:abd81a7ef7fd89181c3ff5f9203d54f11" id="r_abd81a7ef7fd89181c3ff5f9203d54f11"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abd81a7ef7fd89181c3ff5f9203d54f11">turnOff</a> () override</td></tr>
+<tr class="memdesc:abd81a7ef7fd89181c3ff5f9203d54f11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выключить устройство  <br /></td></tr>
 <tr class="memitem:a82d17e0525ff53dda77f1ef9cff76c71" id="r_a82d17e0525ff53dda77f1ef9cff76c71"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a82d17e0525ff53dda77f1ef9cff76c71">isOn</a> () const override</td></tr>
+<tr class="memdesc:a82d17e0525ff53dda77f1ef9cff76c71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить состояние устройства  <br /></td></tr>
 <tr class="memitem:a6c40b7897c32b6265d6eae37fee8b44f" id="r_a6c40b7897c32b6265d6eae37fee8b44f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6c40b7897c32b6265d6eae37fee8b44f">setMode</a> (int mode) override</td></tr>
+<tr class="memdesc:a6c40b7897c32b6265d6eae37fee8b44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить режим работы  <br /></td></tr>
 <tr class="memitem:ab1391d978de21934c86e32e0a751beae" id="r_ab1391d978de21934c86e32e0a751beae"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ab1391d978de21934c86e32e0a751beae">getMode</a> () const override</td></tr>
+<tr class="memdesc:ab1391d978de21934c86e32e0a751beae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущий режим работы  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
 <tr class="memitem:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device" id="r_a79a16249c291375887527b03d8ff287a"><td class="memItemLeft">
 &#160;</td><td class="memItemRight"><b>BaseDevice</b> (const std::string &amp;type)</td></tr>
 <tr class="memitem:a1e54fb0a6f63b7f68976f50562e598dd inherit pub_methods_class_base_device" id="r_a1e54fb0a6f63b7f68976f50562e598dd"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a1e54fb0a6f63b7f68976f50562e598dd">getType</a> () const override</td></tr>
+<tr class="memdesc:a1e54fb0a6f63b7f68976f50562e598dd inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить тип устройства  <br /></td></tr>
 <tr class="memitem:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device" id="r_a4f3f311d11f61ae71a5e1e7510d88fe2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a4f3f311d11f61ae71a5e1e7510d88fe2">getId</a> () const override</td></tr>
+<tr class="memdesc:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор устройства  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Статические открытые данные</h2></td></tr>
@@ -163,7 +170,10 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_mode_selectable_device.html">IModeSelectableDevice</a>.</p>
+<p>Получить текущий режим работы </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Код текущего режима </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_mode_selectable_device.html#a47079596e948650b02d5e2548ef44556">IModeSelectableDevice</a>.</p>
 
 </div>
 </div>
@@ -190,7 +200,10 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_device.html">IDevice</a>.</p>
+<p>Проверить состояние устройства </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true - устройство включено, false - выключено </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_device.html#a05674c4a0c6e60482ac079b999962ae0">IDevice</a>.</p>
 
 </div>
 </div>
@@ -217,7 +230,15 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_mode_selectable_device.html">IModeSelectableDevice</a>.</p>
+<p>Установить режим работы </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>Код режима (определяется в конкретном устройстве) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="class_i_mode_selectable_device.html#a0f556c22f797fab51200e50e5f7f824f">IModeSelectableDevice</a>.</p>
 
 </div>
 </div>
@@ -244,7 +265,9 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_device.html">IDevice</a>.</p>
+<p>Выключить устройство </p>
+
+<p>Замещает <a class="el" href="class_i_device.html#a58a1977682e9e12a37f47b076666ab28">IDevice</a>.</p>
 
 </div>
 </div>
@@ -271,7 +294,9 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_device.html">IDevice</a>.</p>
+<p>Включить устройство </p>
+
+<p>Замещает <a class="el" href="class_i_device.html#a54f243fdef2eecbbce9604db16054fe9">IDevice</a>.</p>
 
 </div>
 </div>

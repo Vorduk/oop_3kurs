@@ -98,7 +98,7 @@ $(function(){initNavTree('class_temperature_sensor.html','','class_temperature_s
  <div class="center">
   <img src="class_temperature_sensor.png" usemap="#TemperatureSensor_map" alt=""/>
   <map id="TemperatureSensor_map" name="TemperatureSensor_map">
-<area href="class_base_sensor.html" alt="BaseSensor" shape="rect" coords="0,56,123,80"/>
+<area href="class_base_sensor.html" title="Абстрактный базовый класс для всех датчиков" alt="BaseSensor" shape="rect" coords="0,56,123,80"/>
 <area href="class_i_sensor.html" title="Интерфейс для всех типов датчиков" alt="ISensor" shape="rect" coords="0,0,123,24"/>
   </map>
 </div></div>
@@ -108,23 +108,29 @@ $(function(){initNavTree('class_temperature_sensor.html','','class_temperature_s
 <tr class="memitem:a4124e7b1703ee97741f2ed411fe06bd9" id="r_a4124e7b1703ee97741f2ed411fe06bd9"><td class="memItemLeft"><a id="a4124e7b1703ee97741f2ed411fe06bd9" name="a4124e7b1703ee97741f2ed411fe06bd9"></a>
 &#160;</td><td class="memItemRight"><b>TemperatureSensor</b> (const <a class="el" href="class_i_data_provider.html">IDataProvider</a> *data_provider)</td></tr>
 <tr class="inherit_header pub_methods_class_base_sensor"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_base_sensor')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="class_base_sensor.html">BaseSensor</a></td></tr>
-<tr class="memitem:a8e6c48f8e3e794f06ffd4f51d7f365dd inherit pub_methods_class_base_sensor" id="r_a8e6c48f8e3e794f06ffd4f51d7f365dd"><td class="memItemLeft">
-&#160;</td><td class="memItemRight"><b>BaseSensor</b> (const <a class="el" href="class_i_data_provider.html">IDataProvider</a> *data_provider, const std::string &amp;type)</td></tr>
+<tr class="memitem:a8e6c48f8e3e794f06ffd4f51d7f365dd inherit pub_methods_class_base_sensor" id="r_a8e6c48f8e3e794f06ffd4f51d7f365dd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="class_base_sensor.html#a8e6c48f8e3e794f06ffd4f51d7f365dd">BaseSensor</a> (const <a class="el" href="class_i_data_provider.html">IDataProvider</a> *data_provider, const std::string &amp;type)</td></tr>
+<tr class="memdesc:a8e6c48f8e3e794f06ffd4f51d7f365dd inherit pub_methods_class_base_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор базового датчика  <br /></td></tr>
 <tr class="memitem:aca0cb4d7213eededf5086b4f0eb579d5 inherit pub_methods_class_base_sensor" id="r_aca0cb4d7213eededf5086b4f0eb579d5"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="class_base_sensor.html#aca0cb4d7213eededf5086b4f0eb579d5">getType</a> () const override</td></tr>
+<tr class="memdesc:aca0cb4d7213eededf5086b4f0eb579d5 inherit pub_methods_class_base_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить тип датчика  <br /></td></tr>
 <tr class="memitem:ae9e4a9c25554112621394d88cda2c35f inherit pub_methods_class_base_sensor" id="r_ae9e4a9c25554112621394d88cda2c35f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="class_base_sensor.html#ae9e4a9c25554112621394d88cda2c35f">getId</a> () const override</td></tr>
+<tr class="memdesc:ae9e4a9c25554112621394d88cda2c35f inherit pub_methods_class_base_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Дополнительные унаследованные члены</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_base_sensor"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_base_sensor')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные данные унаследованные от <a class="el" href="class_base_sensor.html">BaseSensor</a></td></tr>
 <tr class="memitem:a94e19303414b69b106e035da61d18df2 inherit pro_attribs_class_base_sensor" id="r_a94e19303414b69b106e035da61d18df2"><td class="memItemLeft">
 const <a class="el" href="class_i_data_provider.html">IDataProvider</a> *&#160;</td><td class="memItemRight"><b>m_data_provider</b></td></tr>
+<tr class="memdesc:a94e19303414b69b106e035da61d18df2 inherit pro_attribs_class_base_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указатель на источник данных (модель симуляции). <br /></td></tr>
 <tr class="memitem:a4eaf191f6ff34cd8144557b65632e605 inherit pro_attribs_class_base_sensor" id="r_a4eaf191f6ff34cd8144557b65632e605"><td class="memItemLeft">
 std::string&#160;</td><td class="memItemRight"><b>m_type</b></td></tr>
+<tr class="memdesc:a4eaf191f6ff34cd8144557b65632e605 inherit pro_attribs_class_base_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тип датчика (temperature, air_humidity, soil_moisture). <br /></td></tr>
 <tr class="memitem:aa012e29f753689a5aeeb08ac4b3abce2 inherit pro_attribs_class_base_sensor" id="r_aa012e29f753689a5aeeb08ac4b3abce2"><td class="memItemLeft">
 int&#160;</td><td class="memItemRight"><b>m_id</b></td></tr>
+<tr class="memdesc:aa012e29f753689a5aeeb08ac4b3abce2 inherit pro_attribs_class_base_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уникальный идентификатор датчика <br /></td></tr>
 <tr class="inherit_header pro_static_attribs_class_base_sensor"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_attribs_class_base_sensor')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Статические защищенные данные унаследованные от <a class="el" href="class_base_sensor.html">BaseSensor</a></td></tr>
 <tr class="memitem:ade217b43d0b8ccd82160b53e08ab15f3 inherit pro_static_attribs_class_base_sensor" id="r_ade217b43d0b8ccd82160b53e08ab15f3"><td class="memItemLeft">
 static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
+<tr class="memdesc:ade217b43d0b8ccd82160b53e08ab15f3 inherit pro_static_attribs_class_base_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Статический счетчик для генерации ID. <br /></td></tr>
 </table>
 <hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li><a class="el" href="_temperature_sensor_8h_source.html">TemperatureSensor.h</a></li>

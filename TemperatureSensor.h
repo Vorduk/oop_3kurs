@@ -2,10 +2,9 @@
 #include "BaseSensor.h"
 
 // Сенсор температуры
-class TemperatureSensor : public BaseSensor
-{
+class TemperatureSensor : public BaseSensor {
 public:
-    TemperatureSensor(const IDataProvider* data_provider)
+    TemperatureSensor(std::weak_ptr<const IDataProvider> data_provider)
         : BaseSensor(data_provider, "temperature") {
     }
 private:

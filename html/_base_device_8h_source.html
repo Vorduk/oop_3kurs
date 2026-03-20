@@ -103,8 +103,8 @@ $(function(){initNavTree('_base_device_8h_source.html','',''); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    BaseDevice(<span class="keyword">const</span> std::string&amp; type);</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">virtual</span> ~BaseDevice() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    std::string getType() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">int</span> getId() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    std::string <a class="code hl_function" href="class_base_device.html#a1e54fb0a6f63b7f68976f50562e598dd">getType</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_base_device.html#a4f3f311d11f61ae71a5e1e7510d88fe2">getId</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    std::string m_type;</div>
@@ -114,7 +114,9 @@ $(function(){initNavTree('_base_device_8h_source.html','',''); });
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
 </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="ttc" id="aclass_i_device_html"><div class="ttname"><a href="class_i_device.html">IDevice</a></div><div class="ttdef"><b>Определения</b> IDevice.h:7</div></div>
+<div class="ttc" id="aclass_base_device_html_a1e54fb0a6f63b7f68976f50562e598dd"><div class="ttname"><a href="class_base_device.html#a1e54fb0a6f63b7f68976f50562e598dd">BaseDevice::getType</a></div><div class="ttdeci">std::string getType() const override</div><div class="ttdoc">Получить тип устройства</div><div class="ttdef"><b>Определения</b> BaseDevice.cpp:11</div></div>
+<div class="ttc" id="aclass_base_device_html_a4f3f311d11f61ae71a5e1e7510d88fe2"><div class="ttname"><a href="class_base_device.html#a4f3f311d11f61ae71a5e1e7510d88fe2">BaseDevice::getId</a></div><div class="ttdeci">int getId() const override</div><div class="ttdoc">Получить уникальный идентификатор устройства</div><div class="ttdef"><b>Определения</b> BaseDevice.cpp:16</div></div>
+<div class="ttc" id="aclass_i_device_html"><div class="ttname"><a href="class_i_device.html">IDevice</a></div><div class="ttdoc">Базовый интерфейс для всех исполнительных устройств</div><div class="ttdef"><b>Определения</b> IDevice.h:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

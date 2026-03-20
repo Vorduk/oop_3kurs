@@ -3,6 +3,7 @@
 #include <random>
 #include <map>
 #include <string>
+#include <memory>
 
 class SimulationModel : public IDataProvider {
 public:
@@ -19,8 +20,8 @@ public:
     void applyConditionerEffect(int powerLevel);
     void applyHumidifierEffect(int powerLevel);
     void applyIrrigationEffect(int powerLevel);
-    void applyVentilationEffect(int powerLevel);     // НОВЫЙ
-    void applyLampEffect(int powerLevel);            // НОВЫЙ
+    void applyVentilationEffect(int powerLevel);
+    void applyLampEffect(int powerLevel);
 
 private:
     double m_temperature;
@@ -31,9 +32,9 @@ private:
     double m_conditioner_effect;
     double m_humidifier_effect;
     double m_irrigation_effect;
-    double m_ventilation_effect;      // НОВЫЙ
-    double m_lamp_effect;              // НОВЫЙ
-    double m_humidity_effect_from_vent; // НОВЫЙ (для вентиляции)
+    double m_ventilation_effect;
+    double m_lamp_effect;
+    double m_humidity_effect_from_vent;
 
     std::mt19937 m_rng;
     std::uniform_real_distribution<> m_noise;

@@ -3,7 +3,6 @@
 
 // Увлажнитель воздуха
 class AirHumidifier : public BaseDevice, public IModeSelectableDevice {
-
 public:
     AirHumidifier();
     ~AirHumidifier() override = default;

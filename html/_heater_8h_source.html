@@ -107,17 +107,22 @@ $(function(){initNavTree('_heater_8h_source.html','',''); });
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    ~Heater() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment">// Методы IDevice</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> turnOn() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> turnOff() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">bool</span> isOn() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_heater.html#aca359ec2bfb34dcbdc35ea5e7edbf619">turnOn</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_heater.html#a7ed7616b41e7e992815b118a64a01742">turnOff</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_heater.html#a460455d252e73c7c97e4fec566a73480">isOn</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// Методы IAdjustableDevice</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> setPower(<span class="keywordtype">int</span> level) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">int</span> getPower() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_heater.html#ac634b9a0ab14854733024914569b45b5">setPower</a>(<span class="keywordtype">int</span> level) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_heater.html#a59e01eb7b3d3e1f3b5da9e99091fb0cc">getPower</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
 </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="ttc" id="aclass_i_adjustable_device_html"><div class="ttname"><a href="class_i_adjustable_device.html">IAdjustableDevice</a></div><div class="ttdef"><b>Определения</b> IDevice.h:20</div></div>
+<div class="ttc" id="aclass_heater_html_a460455d252e73c7c97e4fec566a73480"><div class="ttname"><a href="class_heater.html#a460455d252e73c7c97e4fec566a73480">Heater::isOn</a></div><div class="ttdeci">bool isOn() const override</div><div class="ttdoc">Проверить состояние устройства</div><div class="ttdef"><b>Определения</b> Heater.cpp:16</div></div>
+<div class="ttc" id="aclass_heater_html_a59e01eb7b3d3e1f3b5da9e99091fb0cc"><div class="ttname"><a href="class_heater.html#a59e01eb7b3d3e1f3b5da9e99091fb0cc">Heater::getPower</a></div><div class="ttdeci">int getPower() const override</div><div class="ttdoc">Получить текущий уровень мощности</div><div class="ttdef"><b>Определения</b> Heater.cpp:29</div></div>
+<div class="ttc" id="aclass_heater_html_a7ed7616b41e7e992815b118a64a01742"><div class="ttname"><a href="class_heater.html#a7ed7616b41e7e992815b118a64a01742">Heater::turnOff</a></div><div class="ttdeci">void turnOff() override</div><div class="ttdoc">Выключить устройство</div><div class="ttdef"><b>Определения</b> Heater.cpp:11</div></div>
+<div class="ttc" id="aclass_heater_html_ac634b9a0ab14854733024914569b45b5"><div class="ttname"><a href="class_heater.html#ac634b9a0ab14854733024914569b45b5">Heater::setPower</a></div><div class="ttdeci">void setPower(int level) override</div><div class="ttdoc">Установить уровень мощности</div><div class="ttdef"><b>Определения</b> Heater.cpp:20</div></div>
+<div class="ttc" id="aclass_heater_html_aca359ec2bfb34dcbdc35ea5e7edbf619"><div class="ttname"><a href="class_heater.html#aca359ec2bfb34dcbdc35ea5e7edbf619">Heater::turnOn</a></div><div class="ttdeci">void turnOn() override</div><div class="ttdoc">Включить устройство</div><div class="ttdef"><b>Определения</b> Heater.cpp:7</div></div>
+<div class="ttc" id="aclass_i_adjustable_device_html"><div class="ttname"><a href="class_i_adjustable_device.html">IAdjustableDevice</a></div><div class="ttdoc">Интерфейс для устройств с плавной регулировкой мощности</div><div class="ttdef"><b>Определения</b> IDevice.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

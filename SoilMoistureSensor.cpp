@@ -1,9 +1,10 @@
 #include "SoilMoistureSensor.h"
 
-double SoilMoistureSensor::getValue()
-{
-    if (m_data_provider) {
-        return m_data_provider->getSoilMoisture();
+double SoilMoistureSensor::getValue() {
+    // Проверка против висячих указателей: lock() возвращает shared_ptr или пустой (data provider - weak ptr)
+    if (auto provider = m_data_provider.lock()) {
+        return provider->getSoilMoisture();
     }
-    return 0.0;
+    // Если провайдер умер, возвращается 0
+    return 0;
 }

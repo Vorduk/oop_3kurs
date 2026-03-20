@@ -92,6 +92,11 @@ $(function(){initNavTree('class_i_adjustable_device.html','','class_i_adjustable
   <div class="headertitle"><div class="title">Класс IAdjustableDevice<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Интерфейс для устройств с плавной регулировкой мощности  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_device_8h_source.html">IDevice.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:IAdjustableDevice:</div>
 <div class="dyncontent">
@@ -106,11 +111,80 @@ $(function(){initNavTree('class_i_adjustable_device.html','','class_i_adjustable
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a515f093a3e2b560ee2efb2212945613c" id="r_a515f093a3e2b560ee2efb2212945613c"><td class="memItemLeft"><a id="a515f093a3e2b560ee2efb2212945613c" name="a515f093a3e2b560ee2efb2212945613c"></a>
-virtual void&#160;</td><td class="memItemRight"><b>setPower</b> (int level)=0</td></tr>
-<tr class="memitem:ad60e48bbc02feda62fdc7e74e52e15b2" id="r_ad60e48bbc02feda62fdc7e74e52e15b2"><td class="memItemLeft"><a id="ad60e48bbc02feda62fdc7e74e52e15b2" name="ad60e48bbc02feda62fdc7e74e52e15b2"></a>
-virtual int&#160;</td><td class="memItemRight"><b>getPower</b> () const =0</td></tr>
+<tr class="memitem:a515f093a3e2b560ee2efb2212945613c" id="r_a515f093a3e2b560ee2efb2212945613c"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a515f093a3e2b560ee2efb2212945613c">setPower</a> (int level)=0</td></tr>
+<tr class="memdesc:a515f093a3e2b560ee2efb2212945613c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить уровень мощности  <br /></td></tr>
+<tr class="memitem:ad60e48bbc02feda62fdc7e74e52e15b2" id="r_ad60e48bbc02feda62fdc7e74e52e15b2"><td class="memItemLeft">virtual int&#160;</td><td class="memItemRight"><a class="el" href="#ad60e48bbc02feda62fdc7e74e52e15b2">getPower</a> () const =0</td></tr>
+<tr class="memdesc:ad60e48bbc02feda62fdc7e74e52e15b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущий уровень мощности  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс для устройств с плавной регулировкой мощности </p>
+<p>Используется для нагревателей, кондиционеров, ламп с регулировкой яркости. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="ad60e48bbc02feda62fdc7e74e52e15b2" name="ad60e48bbc02feda62fdc7e74e52e15b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60e48bbc02feda62fdc7e74e52e15b2">&#9670;&#160;</a></span>getPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int IAdjustableDevice::getPower </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить текущий уровень мощности </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Мощность в процентах (0-100) </dd></dl>
+
+<p>Замещается в <a class="el" href="class_conditioner.html#ae017f2e5a3f8d86eb8afbda0844342ff">Conditioner</a>, <a class="el" href="class_heater.html#a59e01eb7b3d3e1f3b5da9e99091fb0cc">Heater</a> и <a class="el" href="class_lamp.html#aa7ad0c26eb51a0b50c457c279adb3596">Lamp</a>.</p>
+
+</div>
+</div>
+<a id="a515f093a3e2b560ee2efb2212945613c" name="a515f093a3e2b560ee2efb2212945613c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a515f093a3e2b560ee2efb2212945613c">&#9670;&#160;</a></span>setPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IAdjustableDevice::setPower </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>level</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установить уровень мощности </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>Мощность в процентах (0-100) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="class_conditioner.html#a82e63e510e4fbbee7d389cab72577785">Conditioner</a>, <a class="el" href="class_heater.html#ac634b9a0ab14854733024914569b45b5">Heater</a> и <a class="el" href="class_lamp.html#a500f20e26009e64da00f6a73ce979be4">Lamp</a>.</p>
+
+</div>
+</div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
 <li><a class="el" href="_i_device_8h_source.html">IDevice.h</a></li>
 </ul>

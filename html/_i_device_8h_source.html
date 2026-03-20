@@ -94,47 +94,61 @@ $(function(){initNavTree('_i_device_8h_source.html','',''); });
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Интерфейсы устройств</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// Интерфейс для устройств</span></div>
-<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_i_device.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_device.html">IDevice</a> {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_device.html">~IDevice</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">// Общие методы для всех устройств</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> turnOn() = 0;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> turnOff() = 0;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isOn() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">virtual</span> std::string getType() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> getId() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_i_device.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_device.html">IDevice</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_device.html">~IDevice</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment">// Общие методы для всех устройств</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_i_device.html#a54f243fdef2eecbbce9604db16054fe9">   17</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_device.html#a54f243fdef2eecbbce9604db16054fe9">turnOn</a>() = 0;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_i_device.html#a58a1977682e9e12a37f47b076666ab28">   20</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_device.html#a58a1977682e9e12a37f47b076666ab28">turnOff</a>() = 0;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_i_device.html#a05674c4a0c6e60482ac079b999962ae0">   26</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="class_i_device.html#a05674c4a0c6e60482ac079b999962ae0">isOn</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_i_device.html#a9ed395a6bcca13b243e9615ccc9365e4">   32</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_i_device.html#a9ed395a6bcca13b243e9615ccc9365e4">getType</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_i_device.html#aefc30b85c27e519f7dd1ab1dc5333eb0">   38</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_i_device.html#aefc30b85c27e519f7dd1ab1dc5333eb0">getId</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
 </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// Интерфейс для устройств с регулировкой мощности</span></div>
-<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_i_adjustable_device.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_adjustable_device.html">IAdjustableDevice</a> {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_adjustable_device.html">~IAdjustableDevice</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setPower(<span class="keywordtype">int</span> level) = 0;  <span class="comment">// 0-100%</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> getPower() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_i_adjustable_device.html">   46</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_adjustable_device.html">IAdjustableDevice</a> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_adjustable_device.html">~IAdjustableDevice</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_i_adjustable_device.html#a515f093a3e2b560ee2efb2212945613c">   54</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_adjustable_device.html#a515f093a3e2b560ee2efb2212945613c">setPower</a>(<span class="keywordtype">int</span> level) = 0;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_i_adjustable_device.html#ad60e48bbc02feda62fdc7e74e52e15b2">   60</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_i_adjustable_device.html#ad60e48bbc02feda62fdc7e74e52e15b2">getPower</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
 </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// Интерфейс для устройств с фиксированными режимами</span></div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_i_mode_selectable_device.html">   28</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_mode_selectable_device.html">IModeSelectableDevice</a> {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_mode_selectable_device.html">~IModeSelectableDevice</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setMode(<span class="keywordtype">int</span> mode) = 0;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> getMode() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_i_mode_selectable_device.html">   68</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_mode_selectable_device.html">IModeSelectableDevice</a> {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_mode_selectable_device.html">~IModeSelectableDevice</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_i_mode_selectable_device.html#a0f556c22f797fab51200e50e5f7f824f">   76</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_mode_selectable_device.html#a0f556c22f797fab51200e50e5f7f824f">setMode</a>(<span class="keywordtype">int</span> mode) = 0;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_i_mode_selectable_device.html#a47079596e948650b02d5e2548ef44556">   82</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_i_mode_selectable_device.html#a47079596e948650b02d5e2548ef44556">getMode</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
 </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="ttc" id="aclass_i_adjustable_device_html"><div class="ttname"><a href="class_i_adjustable_device.html">IAdjustableDevice</a></div><div class="ttdef"><b>Определения</b> IDevice.h:20</div></div>
-<div class="ttc" id="aclass_i_device_html"><div class="ttname"><a href="class_i_device.html">IDevice</a></div><div class="ttdef"><b>Определения</b> IDevice.h:7</div></div>
-<div class="ttc" id="aclass_i_mode_selectable_device_html"><div class="ttname"><a href="class_i_mode_selectable_device.html">IModeSelectableDevice</a></div><div class="ttdef"><b>Определения</b> IDevice.h:28</div></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="ttc" id="aclass_i_adjustable_device_html"><div class="ttname"><a href="class_i_adjustable_device.html">IAdjustableDevice</a></div><div class="ttdoc">Интерфейс для устройств с плавной регулировкой мощности</div><div class="ttdef"><b>Определения</b> IDevice.h:46</div></div>
+<div class="ttc" id="aclass_i_adjustable_device_html_a515f093a3e2b560ee2efb2212945613c"><div class="ttname"><a href="class_i_adjustable_device.html#a515f093a3e2b560ee2efb2212945613c">IAdjustableDevice::setPower</a></div><div class="ttdeci">virtual void setPower(int level)=0</div><div class="ttdoc">Установить уровень мощности</div></div>
+<div class="ttc" id="aclass_i_adjustable_device_html_ad60e48bbc02feda62fdc7e74e52e15b2"><div class="ttname"><a href="class_i_adjustable_device.html#ad60e48bbc02feda62fdc7e74e52e15b2">IAdjustableDevice::getPower</a></div><div class="ttdeci">virtual int getPower() const =0</div><div class="ttdoc">Получить текущий уровень мощности</div></div>
+<div class="ttc" id="aclass_i_device_html"><div class="ttname"><a href="class_i_device.html">IDevice</a></div><div class="ttdoc">Базовый интерфейс для всех исполнительных устройств</div><div class="ttdef"><b>Определения</b> IDevice.h:10</div></div>
+<div class="ttc" id="aclass_i_device_html_a05674c4a0c6e60482ac079b999962ae0"><div class="ttname"><a href="class_i_device.html#a05674c4a0c6e60482ac079b999962ae0">IDevice::isOn</a></div><div class="ttdeci">virtual bool isOn() const =0</div><div class="ttdoc">Проверить состояние устройства</div></div>
+<div class="ttc" id="aclass_i_device_html_a54f243fdef2eecbbce9604db16054fe9"><div class="ttname"><a href="class_i_device.html#a54f243fdef2eecbbce9604db16054fe9">IDevice::turnOn</a></div><div class="ttdeci">virtual void turnOn()=0</div><div class="ttdoc">Включить устройство</div></div>
+<div class="ttc" id="aclass_i_device_html_a58a1977682e9e12a37f47b076666ab28"><div class="ttname"><a href="class_i_device.html#a58a1977682e9e12a37f47b076666ab28">IDevice::turnOff</a></div><div class="ttdeci">virtual void turnOff()=0</div><div class="ttdoc">Выключить устройство</div></div>
+<div class="ttc" id="aclass_i_device_html_a9ed395a6bcca13b243e9615ccc9365e4"><div class="ttname"><a href="class_i_device.html#a9ed395a6bcca13b243e9615ccc9365e4">IDevice::getType</a></div><div class="ttdeci">virtual std::string getType() const =0</div><div class="ttdoc">Получить тип устройства</div></div>
+<div class="ttc" id="aclass_i_device_html_aefc30b85c27e519f7dd1ab1dc5333eb0"><div class="ttname"><a href="class_i_device.html#aefc30b85c27e519f7dd1ab1dc5333eb0">IDevice::getId</a></div><div class="ttdeci">virtual int getId() const =0</div><div class="ttdoc">Получить уникальный идентификатор устройства</div></div>
+<div class="ttc" id="aclass_i_mode_selectable_device_html"><div class="ttname"><a href="class_i_mode_selectable_device.html">IModeSelectableDevice</a></div><div class="ttdoc">Интерфейс для устройств с дискретными режимами работы</div><div class="ttdef"><b>Определения</b> IDevice.h:68</div></div>
+<div class="ttc" id="aclass_i_mode_selectable_device_html_a0f556c22f797fab51200e50e5f7f824f"><div class="ttname"><a href="class_i_mode_selectable_device.html#a0f556c22f797fab51200e50e5f7f824f">IModeSelectableDevice::setMode</a></div><div class="ttdeci">virtual void setMode(int mode)=0</div><div class="ttdoc">Установить режим работы</div></div>
+<div class="ttc" id="aclass_i_mode_selectable_device_html_a47079596e948650b02d5e2548ef44556"><div class="ttname"><a href="class_i_mode_selectable_device.html#a47079596e948650b02d5e2548ef44556">IModeSelectableDevice::getMode</a></div><div class="ttdeci">virtual int getMode() const =0</div><div class="ttdoc">Получить текущий режим работы</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

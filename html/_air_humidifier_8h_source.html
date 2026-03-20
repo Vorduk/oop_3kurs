@@ -104,13 +104,13 @@ $(function(){initNavTree('_air_humidifier_8h_source.html','',''); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    ~AirHumidifier() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">// Методы IDevice</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> turnOn() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> turnOff() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">bool</span> isOn() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_air_humidifier.html#a7fade122d5358bddf07cbf5a47056773">turnOn</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_air_humidifier.html#abd81a7ef7fd89181c3ff5f9203d54f11">turnOff</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_air_humidifier.html#a82d17e0525ff53dda77f1ef9cff76c71">isOn</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// Методы IModeSelectableDevice</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> setMode(<span class="keywordtype">int</span> mode) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span> getMode() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_air_humidifier.html#a6c40b7897c32b6265d6eae37fee8b44f">setMode</a>(<span class="keywordtype">int</span> mode) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_air_humidifier.html#ab1391d978de21934c86e32e0a751beae">getMode</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_LOWEST = 1;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_LOW = 2;</div>
@@ -123,7 +123,12 @@ $(function(){initNavTree('_air_humidifier_8h_source.html','',''); });
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
 </div>
-<div class="ttc" id="aclass_i_mode_selectable_device_html"><div class="ttname"><a href="class_i_mode_selectable_device.html">IModeSelectableDevice</a></div><div class="ttdef"><b>Определения</b> IDevice.h:28</div></div>
+<div class="ttc" id="aclass_air_humidifier_html_a6c40b7897c32b6265d6eae37fee8b44f"><div class="ttname"><a href="class_air_humidifier.html#a6c40b7897c32b6265d6eae37fee8b44f">AirHumidifier::setMode</a></div><div class="ttdeci">void setMode(int mode) override</div><div class="ttdoc">Установить режим работы</div><div class="ttdef"><b>Определения</b> AirHumidifier.cpp:21</div></div>
+<div class="ttc" id="aclass_air_humidifier_html_a7fade122d5358bddf07cbf5a47056773"><div class="ttname"><a href="class_air_humidifier.html#a7fade122d5358bddf07cbf5a47056773">AirHumidifier::turnOn</a></div><div class="ttdeci">void turnOn() override</div><div class="ttdoc">Включить устройство</div><div class="ttdef"><b>Определения</b> AirHumidifier.cpp:7</div></div>
+<div class="ttc" id="aclass_air_humidifier_html_a82d17e0525ff53dda77f1ef9cff76c71"><div class="ttname"><a href="class_air_humidifier.html#a82d17e0525ff53dda77f1ef9cff76c71">AirHumidifier::isOn</a></div><div class="ttdeci">bool isOn() const override</div><div class="ttdoc">Проверить состояние устройства</div><div class="ttdef"><b>Определения</b> AirHumidifier.cpp:17</div></div>
+<div class="ttc" id="aclass_air_humidifier_html_ab1391d978de21934c86e32e0a751beae"><div class="ttname"><a href="class_air_humidifier.html#ab1391d978de21934c86e32e0a751beae">AirHumidifier::getMode</a></div><div class="ttdeci">int getMode() const override</div><div class="ttdoc">Получить текущий режим работы</div><div class="ttdef"><b>Определения</b> AirHumidifier.cpp:31</div></div>
+<div class="ttc" id="aclass_air_humidifier_html_abd81a7ef7fd89181c3ff5f9203d54f11"><div class="ttname"><a href="class_air_humidifier.html#abd81a7ef7fd89181c3ff5f9203d54f11">AirHumidifier::turnOff</a></div><div class="ttdeci">void turnOff() override</div><div class="ttdoc">Выключить устройство</div><div class="ttdef"><b>Определения</b> AirHumidifier.cpp:12</div></div>
+<div class="ttc" id="aclass_i_mode_selectable_device_html"><div class="ttname"><a href="class_i_mode_selectable_device.html">IModeSelectableDevice</a></div><div class="ttdoc">Интерфейс для устройств с дискретными режимами работы</div><div class="ttdef"><b>Определения</b> IDevice.h:68</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

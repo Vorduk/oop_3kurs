@@ -2,10 +2,9 @@
 #include "BaseSensor.h"
 
 // Cенсор влажности почвы.
-class SoilMoistureSensor : public BaseSensor
-{
+class SoilMoistureSensor : public BaseSensor {
 public:
-    SoilMoistureSensor(const IDataProvider* data_provider)
+    SoilMoistureSensor(std::weak_ptr<const IDataProvider> data_provider)
         : BaseSensor(data_provider, "soil_moisture") {
     }
 private:

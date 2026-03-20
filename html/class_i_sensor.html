@@ -103,7 +103,7 @@ $(function(){initNavTree('class_i_sensor.html','','class_i_sensor-members'); });
  <div class="center">
   <img src="class_i_sensor.png" usemap="#ISensor_map" alt=""/>
   <map id="ISensor_map" name="ISensor_map">
-<area href="class_base_sensor.html" alt="BaseSensor" shape="rect" coords="133,56,256,80"/>
+<area href="class_base_sensor.html" title="Абстрактный базовый класс для всех датчиков" alt="BaseSensor" shape="rect" coords="133,56,256,80"/>
 <area href="class_air_humidity_sensor.html" alt="AirHumiditySensor" shape="rect" coords="0,112,123,136"/>
 <area href="class_soil_moisture_sensor.html" alt="SoilMoistureSensor" shape="rect" coords="133,112,256,136"/>
 <area href="class_temperature_sensor.html" alt="TemperatureSensor" shape="rect" coords="266,112,389,136"/>
@@ -112,17 +112,107 @@ $(function(){initNavTree('class_i_sensor.html','','class_i_sensor-members'); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a9972b325fb329e6eaefd79e562ad7776" id="r_a9972b325fb329e6eaefd79e562ad7776"><td class="memItemLeft"><a id="a9972b325fb329e6eaefd79e562ad7776" name="a9972b325fb329e6eaefd79e562ad7776"></a>
-virtual double&#160;</td><td class="memItemRight"><b>getValue</b> ()=0</td></tr>
-<tr class="memitem:a8338874b669a8c1083a3e4674c8d4173" id="r_a8338874b669a8c1083a3e4674c8d4173"><td class="memItemLeft"><a id="a8338874b669a8c1083a3e4674c8d4173" name="a8338874b669a8c1083a3e4674c8d4173"></a>
-virtual std::string&#160;</td><td class="memItemRight"><b>getType</b> () const =0</td></tr>
-<tr class="memitem:ad48ce226c88234c1064de8fefe53d80e" id="r_ad48ce226c88234c1064de8fefe53d80e"><td class="memItemLeft"><a id="ad48ce226c88234c1064de8fefe53d80e" name="ad48ce226c88234c1064de8fefe53d80e"></a>
-virtual int&#160;</td><td class="memItemRight"><b>getId</b> () const =0</td></tr>
+<tr class="memitem:a9972b325fb329e6eaefd79e562ad7776" id="r_a9972b325fb329e6eaefd79e562ad7776"><td class="memItemLeft">virtual double&#160;</td><td class="memItemRight"><a class="el" href="#a9972b325fb329e6eaefd79e562ad7776">getValue</a> ()=0</td></tr>
+<tr class="memdesc:a9972b325fb329e6eaefd79e562ad7776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущее показание датчика  <br /></td></tr>
+<tr class="memitem:a8338874b669a8c1083a3e4674c8d4173" id="r_a8338874b669a8c1083a3e4674c8d4173"><td class="memItemLeft">virtual std::string&#160;</td><td class="memItemRight"><a class="el" href="#a8338874b669a8c1083a3e4674c8d4173">getType</a> () const =0</td></tr>
+<tr class="memdesc:a8338874b669a8c1083a3e4674c8d4173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить тип датчика  <br /></td></tr>
+<tr class="memitem:ad48ce226c88234c1064de8fefe53d80e" id="r_ad48ce226c88234c1064de8fefe53d80e"><td class="memItemLeft">virtual int&#160;</td><td class="memItemRight"><a class="el" href="#ad48ce226c88234c1064de8fefe53d80e">getId</a> () const =0</td></tr>
+<tr class="memdesc:ad48ce226c88234c1064de8fefe53d80e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор датчика  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Интерфейс для всех типов датчиков </p>
 <p>Каждый датчик имеет уникальный идентификатор, тип и метод получения показаний. </p>
-</div><hr/>Объявления и описания членов класса находятся в файле:<ul>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="ad48ce226c88234c1064de8fefe53d80e" name="ad48ce226c88234c1064de8fefe53d80e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad48ce226c88234c1064de8fefe53d80e">&#9670;&#160;</a></span>getId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int ISensor::getId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить уникальный идентификатор датчика </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Числовой ID датчика</dd></dl>
+<p>Уникальность обеспечивается наследниками. </p>
+
+<p>Замещается в <a class="el" href="class_base_sensor.html#ae9e4a9c25554112621394d88cda2c35f">BaseSensor</a>.</p>
+
+</div>
+</div>
+<a id="a8338874b669a8c1083a3e4674c8d4173" name="a8338874b669a8c1083a3e4674c8d4173"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8338874b669a8c1083a3e4674c8d4173">&#9670;&#160;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string ISensor::getType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить тип датчика </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Строковый идентификатор типа (temperature, air_humidity, soil_moisture) </dd></dl>
+
+<p>Замещается в <a class="el" href="class_base_sensor.html#aca0cb4d7213eededf5086b4f0eb579d5">BaseSensor</a>.</p>
+
+</div>
+</div>
+<a id="a9972b325fb329e6eaefd79e562ad7776" name="a9972b325fb329e6eaefd79e562ad7776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9972b325fb329e6eaefd79e562ad7776">&#9670;&#160;</a></span>getValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double ISensor::getValue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить текущее показание датчика </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Значение измеряемого параметра </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
 <li><a class="el" href="_i_sensor_8h_source.html">ISensor.h</a></li>
 </ul>
 </div><!-- contents -->

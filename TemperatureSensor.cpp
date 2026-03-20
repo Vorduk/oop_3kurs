@@ -1,9 +1,10 @@
 #include "TemperatureSensor.h"
 
-double TemperatureSensor::getValue()
-{
-    if (m_data_provider) {
-        return m_data_provider->getTemperature();
+double TemperatureSensor::getValue() {
+    // Проверка против висячих указателей: lock() возвращает shared_ptr или пустой (data provider - weak ptr)
+    if (auto provider = m_data_provider.lock()) {
+        return provider->getTemperature();
     }
-    return 0.0;
+    // Если провайдер умер, возвращается 0
+    return 0;
 }

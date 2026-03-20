@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-void IOManager::addSensor(ISensor* sensor) {
+void IOManager::addSensor(std::shared_ptr<ISensor> sensor) {
     int id = sensor->getId();
     m_sensors_by_id[id] = sensor;
     std::cout << "[INFO]: Sensor added - ID: " << id
@@ -20,7 +20,7 @@ void IOManager::removeSensor(int sensorId) {
     }
 }
 
-ISensor* IOManager::getSensor(int sensorId) {
+std::shared_ptr<ISensor> IOManager::getSensor(int sensorId) {
     auto it = m_sensors_by_id.find(sensorId);
     if (it != m_sensors_by_id.end()) {
         return it->second;
@@ -31,12 +31,14 @@ ISensor* IOManager::getSensor(int sensorId) {
 std::map<int, double> IOManager::readAllSensors() {
     std::map<int, double> readings;
     for (const auto& [id, sensor] : m_sensors_by_id) {
-        readings[id] = sensor->getValue();
+        if (sensor) {
+            readings[id] = sensor->getValue();
+        }
     }
     return readings;
 }
 
-void IOManager::addDevice(IDevice* device) {
+void IOManager::addDevice(std::shared_ptr<IDevice> device) {
     int id = device->getId();
     std::string type = device->getType();
 
@@ -69,7 +71,7 @@ void IOManager::removeDevice(int deviceId) {
     }
 }
 
-IDevice* IOManager::getDevice(int deviceId) {
+std::shared_ptr<IDevice> IOManager::getDevice(int deviceId) {
     auto it = m_devices_by_id.find(deviceId);
     if (it != m_devices_by_id.end()) {
         return it->second;
@@ -86,7 +88,7 @@ std::vector<int> IOManager::getDeviceIdsByType(const std::string& type) {
 }
 
 void IOManager::sendCommand(int deviceId, int powerLevel) {
-    auto* device = getDevice(deviceId);
+    auto device = getDevice(deviceId);
     if (!device) {
         std::cout << "[WARNING]: Device " << deviceId << " not found" << std::endl;
         return;
@@ -103,7 +105,7 @@ void IOManager::sendCommand(int deviceId, int powerLevel) {
             << ") turned OFF" << std::endl;
     }
 
-    auto* adjustable = dynamic_cast<IAdjustableDevice*>(device);
+    auto adjustable = std::dynamic_pointer_cast<IAdjustableDevice>(device);
     if (adjustable && powerLevel > 0) {
         adjustable->setPower(powerLevel);
         std::cout << "[CMD]: Device " << deviceId << " power set to "
@@ -114,10 +116,10 @@ void IOManager::sendCommand(int deviceId, int powerLevel) {
 void IOManager::sendCommand(int deviceId, int mode, bool isModeCommand) {
     if (!isModeCommand) return;
 
-    auto* device = getDevice(deviceId);
+    auto device = getDevice(deviceId);
     if (!device) return;
 
-    auto* modeSelectable = dynamic_cast<IModeSelectableDevice*>(device);
+    auto modeSelectable = std::dynamic_pointer_cast<IModeSelectableDevice>(device);
     if (modeSelectable) {
         modeSelectable->setMode(mode);
         std::cout << "[CMD]: Device " << deviceId << " mode set to "

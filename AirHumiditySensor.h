@@ -2,10 +2,9 @@
 #include "BaseSensor.h"
 
 // Сенсор влажности воздуха.
-class AirHumiditySensor : public BaseSensor
-{
+class AirHumiditySensor : public BaseSensor {
 public:
-    AirHumiditySensor(const IDataProvider* data_provider)
+    AirHumiditySensor(std::weak_ptr<const IDataProvider> data_provider)
         : BaseSensor(data_provider, "air_humidity") {
     }
 private:

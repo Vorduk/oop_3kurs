@@ -12,10 +12,10 @@
 class BaseSensor : public ISensor {
 
 protected:
-    const IDataProvider* m_data_provider;   ///< Указатель на источник данных (модель симуляции)
-    std::string m_type;                     ///< Тип датчика (temperature, air_humidity, soil_moisture)
-    int m_id;                               ///< Уникальный идентификатор датчика
-    static int s_next_id;                   ///< Статический счетчик для генерации ID
+    std::weak_ptr<const IDataProvider> m_data_provider;   ///< Невладеющая ссылка на источник данных (модель симуляции)
+    std::string m_type;         ///< Тип датчика (temperature, air_humidity, soil_moisture)
+    int m_id;                   ///< Уникальный идентификатор датчика
+    static int s_next_id;       ///< Статический счетчик для генерации ID
 
 public:
     /**
@@ -23,7 +23,7 @@ public:
      * @param data_provider Указатель на источник данных (не может быть nullptr)
      * @param type Строковый тип датчика
      */
-    BaseSensor(const IDataProvider* data_provider, const std::string& type);
+    BaseSensor(std::weak_ptr<const IDataProvider> data_provider, const std::string& type);
 
     /**
      * @brief Получить тип датчика

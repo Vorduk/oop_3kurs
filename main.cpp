@@ -19,46 +19,40 @@
 #include "Lamp.h"
 
 int main() {
-
-    // Лабораторная 4 - Проектирование автоматизированной системы управления микроклиматом в автоматизированной теплице.
-    // Паттерны: Delegation, Proxy, Configuration.
-
-    // Шапка
     std::cout << "========================================" << std::endl;
     std::cout << "Greenhouse Control System - Lab 4" << std::endl;
     std::cout << "Patterns: Delegation, Proxy, Configuration" << std::endl;
     std::cout << "========================================" << std::endl << std::endl;
 
-    // Создание модели симуляции с начальными параметрами (температура, влажность воздуха, влажность почвы)
-    // Подразумевается, что в модели одна грядка в теплице, поэтому влажность почвы одна.
-    SimulationModel simulationModel(22.0, 65.0, 45.0);
+    // 1. Создаем модель как shared_ptr (она будет жить долго)
+    auto simulationModel = std::make_shared<SimulationModel>(22.0, 65.0, 45.0);
 
-    // Создание датчиков
-    TemperatureSensor tempSensor(&simulationModel);
-    AirHumiditySensor humiditySensor(&simulationModel);
-    SoilMoistureSensor soilSensor(&simulationModel);
+    // 2. Создаем датчики с weak_ptr на модель
+    auto tempSensor = std::make_shared<TemperatureSensor>(simulationModel);
+    auto humiditySensor = std::make_shared<AirHumiditySensor>(simulationModel);
+    auto soilSensor = std::make_shared<SoilMoistureSensor>(simulationModel);
 
-    // Создание устройств
-    Heater heater;
-    Conditioner conditioner;
-    AirHumidifier humidifier;
-    Irrigation irrigation;
-    Ventilation ventilation;
-    Lamp lamp;
+    // 3. Создаем устройства
+    auto heater = std::make_shared<Heater>();
+    auto conditioner = std::make_shared<Conditioner>();
+    auto humidifier = std::make_shared<AirHumidifier>();
+    auto irrigation = std::make_shared<Irrigation>();
+    auto ventilation = std::make_shared<Ventilation>();
+    auto lamp = std::make_shared<Lamp>();
 
-    // Настройка IOManager
+    // 4. Настройка IOManager (владеет shared_ptr)
     IOManager io_manager;
-    io_manager.addSensor(&tempSensor);
-    io_manager.addSensor(&humiditySensor);
-    io_manager.addSensor(&soilSensor);
-    io_manager.addDevice(&heater);
-    io_manager.addDevice(&conditioner);
-    io_manager.addDevice(&humidifier);
-    io_manager.addDevice(&irrigation);
-    io_manager.addDevice(&ventilation);
-    io_manager.addDevice(&lamp);
+    io_manager.addSensor(tempSensor);
+    io_manager.addSensor(humiditySensor);
+    io_manager.addSensor(soilSensor);
+    io_manager.addDevice(heater);
+    io_manager.addDevice(conditioner);
+    io_manager.addDevice(humidifier);
+    io_manager.addDevice(irrigation);
+    io_manager.addDevice(ventilation);
+    io_manager.addDevice(lamp);
 
-    // Реальный ClimateManager с делегированием
+    // 5. Реальный ClimateManager с делегированием
     auto realClimateManager = std::make_shared<ClimateManager>();
 
     // Паттерн Delegation: разные регуляторы для разных параметров
@@ -84,24 +78,22 @@ int main() {
     // 7. Расширенный ConfigManager с поддержкой таймеров
     auto configManager = std::make_shared<ExtendedConfigManager>();
 
-    // Устанавливаем целевые параметры
     configManager->setTargetParameter("temperature", 23.0);
     configManager->setTargetParameter("air_humidity", 65.0);
     configManager->setTargetParameter("soil_moisture", 50.0);
 
-    // Паттерн Configuration: настраиваем таймеры для устройств
-    configManager->setSchedule("ventilation", 10, 50);   // Вентиляция каждые 10 сек на 50%
-    configManager->setSchedule("lamp", 15, 70);          // Лампы каждые 15 сек на 70%
+    configManager->setSchedule("ventilation", 10, 50);
+    configManager->setSchedule("lamp", 15, 70);
 
     std::cout << "\n[Configuration Pattern]: Schedules configured:" << std::endl;
     std::cout << "  - Ventilation: every 10s at 50%" << std::endl;
     std::cout << "  - Lamp: every 15s at 70%" << std::endl;
 
-    // 8. Создаем движок и настраиваем
+    // 8. Создаем движок - передаем shared_ptr на модель и ссылку на IOManager
     SimulationEngine engine(simulationModel, io_manager);
-    engine.setClimateManager(safetyProxy);      // Используем Proxy вместо реального менеджера
+    engine.setClimateManager(safetyProxy);
     engine.setConfigManager(configManager);
-    engine.setupSchedules(configManager.get()); // Запускаем таймеры
+    engine.setupSchedules(configManager.get());
 
     std::cout << "\n========================================" << std::endl;
     std::cout << "[INFO]: System fully configured" << std::endl;

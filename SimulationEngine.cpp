@@ -4,7 +4,7 @@
 #include <thread>
 #include <chrono>
 
-SimulationEngine::SimulationEngine(SimulationModel& model, IOManager& io_manager)
+SimulationEngine::SimulationEngine(std::shared_ptr<SimulationModel> model, IOManager& io_manager)
     : m_model(model), m_io_manager(io_manager), m_is_running(false) {
 }
 
@@ -50,18 +50,18 @@ void SimulationEngine::applyScheduledCommand(const std::string& deviceType, int 
     for (int deviceId : deviceIds) {
         m_io_manager.sendCommand(deviceId, powerLevel);
 
-        if (deviceType == "ventilation") {
-            m_model.applyVentilationEffect(powerLevel);
+        if (deviceType == "ventilation" && m_model) {
+            m_model->applyVentilationEffect(powerLevel);
         }
-        else if (deviceType == "lamp") {
-            m_model.applyLampEffect(powerLevel);
+        else if (deviceType == "lamp" && m_model) {
+            m_model->applyLampEffect(powerLevel);
         }
     }
 }
 
 void SimulationEngine::start() {
-    if (!m_climateManager || !m_configManager) {
-        std::cout << "[ERROR]: ClimateManager or ConfigManager not set!" << std::endl;
+    if (!m_climateManager || !m_configManager || !m_model) {
+        std::cout << "[ERROR]: ClimateManager, ConfigManager or Model not set!" << std::endl;
         return;
     }
 
@@ -79,7 +79,7 @@ void SimulationEngine::start() {
         for (const auto& pair : sensorReadings) {
             int id = pair.first;
             double value = pair.second;
-            ISensor* sensor = m_io_manager.getSensor(id);
+            auto sensor = m_io_manager.getSensor(id);
             if (sensor) {
                 currentValues[sensor->getType()] = value;
             }
@@ -97,17 +97,20 @@ void SimulationEngine::start() {
         }
 
         auto commands = m_climateManager->calculateCommands(currentValues);
-
         applyCommands(commands);
 
-        m_model.update();
-        m_model.printParameters();
+        if (m_model) {
+            m_model->update();
+            m_model->printParameters();
+        }
 
         std::this_thread::sleep_for(std::chrono::seconds(2));
     }
 }
 
 void SimulationEngine::applyCommands(const std::map<std::string, int>& commands) {
+    if (!m_model) return;
+
     for (const auto& pair : commands) {
         const std::string& deviceType = pair.first;
         int power = pair.second;
@@ -119,16 +122,16 @@ void SimulationEngine::applyCommands(const std::map<std::string, int>& commands)
 
         // Применяем эффекты к модели
         if (deviceType == "heater") {
-            m_model.applyHeaterEffect(power);
+            m_model->applyHeaterEffect(power);
         }
         else if (deviceType == "conditioner") {
-            m_model.applyConditionerEffect(power);
+            m_model->applyConditionerEffect(power);
         }
         else if (deviceType == "air_humidifier") {
-            m_model.applyHumidifierEffect(power);
+            m_model->applyHumidifierEffect(power);
         }
         else if (deviceType == "irrigation") {
-            m_model.applyIrrigationEffect(power);
+            m_model->applyIrrigationEffect(power);
         }
     }
 }

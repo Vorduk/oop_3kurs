@@ -9,11 +9,12 @@
 #include <map>
 #include <string>
 
-class ExtendedConfigManager; // Forward declaration
+class ExtendedConfigManager;
 
 class SimulationEngine : public ISimulationEngine {
 public:
-    SimulationEngine(SimulationModel& model, IOManager& io_manager);
+    // Принимаем shared_ptr на модель и ссылку на IOManager (он не владеет)
+    SimulationEngine(std::shared_ptr<SimulationModel> model, IOManager& io_manager);
     ~SimulationEngine();
 
     void start() override;
@@ -21,13 +22,12 @@ public:
 
     void setClimateManager(std::shared_ptr<IClimateManager> manager);
     void setConfigManager(std::shared_ptr<IConfigManager> manager);
-
     void setupSchedules(ExtendedConfigManager* configManager);
 
 private:
     bool m_is_running;
-    SimulationModel& m_model;
-    IOManager& m_io_manager;
+    std::shared_ptr<SimulationModel> m_model;  // теперь shared_ptr
+    IOManager& m_io_manager;                    // ссылка на IOManager
 
     std::shared_ptr<IClimateManager> m_climateManager;
     std::shared_ptr<IConfigManager> m_configManager;
