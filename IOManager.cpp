@@ -69,7 +69,7 @@ void IOManager::sendCommand(int deviceId, int powerLevel) {
         return;
     }
 
-    // Включаем/выключаем устройство
+    // Вкл/выкл устройство
     if (powerLevel > 0 && !device->isOn()) {
         device->turnOn();
         std::cout << "[CMD]: Device " << deviceId << " (" << device->getType()
@@ -81,7 +81,7 @@ void IOManager::sendCommand(int deviceId, int powerLevel) {
             << ") turned OFF" << std::endl;
     }
 
-    // Устанавливаем мощность, если устройство поддерживает
+    // Установка мощности, если устройство поддерживает
     auto* adjustable = dynamic_cast<IAdjustableDevice*>(device);
     if (adjustable && powerLevel > 0) {
         adjustable->setPower(powerLevel);
@@ -96,7 +96,7 @@ void IOManager::sendCommand(int deviceId, int mode, bool isModeCommand) {
     auto* device = getDevice(deviceId);
     if (!device) return;
 
-    // Устанавливаем режим, если устройство поддерживает
+    // Устанавливка режима, если устройство поддерживает
     auto* modeSelectable = dynamic_cast<IModeSelectableDevice*>(device);
     if (modeSelectable) {
         modeSelectable->setMode(mode);

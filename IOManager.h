@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+// Менеджера устройств
 class IOManager : public IIOManager {
 private:
     std::map<int, ISensor*> m_sensors_by_id;

@@ -6,6 +6,7 @@
 #include <string>
 #include "IDevice.h"
 
+// Интерфейс менеджера устройств
 class IIOManager {
 public:
     virtual ~IIOManager() = default;

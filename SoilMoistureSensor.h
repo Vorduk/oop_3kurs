@@ -5,8 +5,8 @@
 class SoilMoistureSensor : public BaseSensor
 {
 public:
-    SoilMoistureSensor(const IDataProvider* dataProvider)
-        : BaseSensor(dataProvider, "soil_moisture") {
+    SoilMoistureSensor(const IDataProvider* data_provider)
+        : BaseSensor(data_provider, "soil_moisture") {
     }
 private:
 	double m_start_moisture = 0; // Начальное показание датчика

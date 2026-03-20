@@ -5,8 +5,8 @@
 class TemperatureSensor : public BaseSensor
 {
 public:
-    TemperatureSensor(const IDataProvider* dataProvider)
-        : BaseSensor(dataProvider, "temperature") {
+    TemperatureSensor(const IDataProvider* data_provider)
+        : BaseSensor(data_provider, "temperature") {
     }
 private:
 	double m_start_temperature = 0; // Начальное показание датчика

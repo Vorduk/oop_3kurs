@@ -2,8 +2,8 @@
 
 double TemperatureSensor::getValue()
 {
-    if (m_dataProvider) {
-        return m_dataProvider->getTemperature();
+    if (m_data_provider) {
+        return m_data_provider->getTemperature();
     }
     return 0.0;
 }

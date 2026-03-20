@@ -2,8 +2,8 @@
 
 double AirHumiditySensor::getValue()
 {
-    if (m_dataProvider) {
-        return m_dataProvider->getAirHumidity();
+    if (m_data_provider) {
+        return m_data_provider->getAirHumidity();
     }
     return 0.0;
 }
