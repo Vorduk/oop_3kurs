@@ -1,6 +1,6 @@
 #include "BaseSensor.h"
 
-int BaseSensor::s_next_id = 1;
+int BaseSensor::s_next_id = 1; // Начальное значение id сенсора.
 
 BaseSensor::BaseSensor(const IDataProvider* data_provider, const std::string& type)
     : m_data_provider(data_provider), 
