@@ -6,18 +6,6 @@
 #include <memory>
 
 class ClimateManager : public IClimateManager {
-private:
-    std::map<std::string, double> m_targets;
-    std::map<std::string, std::string> m_mapping;
-
-    // Паттерн Delegation: для каждого параметра свой регулятор
-    std::map<std::string, std::shared_ptr<IRegulator>> m_regulators;
-
-    // Настройки гистерезиса (используются если нет регулятора)
-    double m_temp_hysteresis;
-    double m_humidity_hysteresis;
-    double m_soil_hysteresis;
-
 public:
     ClimateManager();
 
@@ -35,5 +23,24 @@ public:
     void setHysteresis(double temp_hysteresis, double humidity_hysteresis, double soil_hysteresis);
 
 private:
+    std::map<std::string, double> m_targets;
+    std::map<std::string, std::string> m_mapping;
+
+    // Паттерн Delegation: для каждого параметра свой регулятор
+    std::map<std::string, std::shared_ptr<IRegulator>> m_regulators;
+
+    // Настройки гистерезиса (используются если нет регулятора)
+    double m_temp_hysteresis;
+    double m_humidity_hysteresis;
+    double m_soil_hysteresis;
+
+    // Вспомогательный метод для обработки одного параметра
+    void processParameter(
+        const std::string& paramName,
+        const std::map<std::string, double>& current_readings,
+        const std::map<std::string, double>& targets,
+        std::map<std::string, int>& commands
+    );
+
     double calculateControlSignal(const std::string& parameter, double current, double target);
 };

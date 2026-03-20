@@ -65,29 +65,43 @@ double ClimateManager::calculateControlSignal(const std::string& parameter, doub
 }
 
 std::map<std::string, int> ClimateManager::calculateCommands(
-    const std::map<std::string, double>& current_readings) {
-
+    const std::map<std::string, double>& current_readings)
+{
     std::map<std::string, int> commands;
 
-    // Обработка температуры (нагрев)
-    auto temp_it = current_readings.find("temperature");
-    auto target_temp_it = m_targets.find("temperature");
+    processParameter("temperature", current_readings, m_targets, commands);
+    processParameter("air_humidity", current_readings, m_targets, commands);
+    processParameter("soil_moisture", current_readings, m_targets, commands);
 
-    if (temp_it != current_readings.end() && target_temp_it != m_targets.end()) {
-        double current = temp_it->second;
-        double target = target_temp_it->second;
+    return commands;
+}
 
-        double signal = calculateControlSignal("temperature", current, target);
+void ClimateManager::processParameter(
+    const std::string& paramName,
+    const std::map<std::string, double>& current_readings,
+    const std::map<std::string, double>& targets,
+    std::map<std::string, int>& commands)
+{
+    auto current_it = current_readings.find(paramName);
+    auto target_it = targets.find(paramName);
 
+    if (current_it == current_readings.end() || target_it == targets.end()) {
+        return;  // Нет данных для этого параметра
+    }
+
+    double current = current_it->second;
+    double target = target_it->second;
+    double signal = calculateControlSignal(paramName, current, target);
+
+    // Для температуры особая логика (два устройства)
+    if (paramName == "temperature") {
         if (signal > 0) {
-            // Холодно - включаем нагреватель
             commands["heater"] = static_cast<int>(signal);
             commands["conditioner"] = 0;
             std::cout << "[ClimateManager]: Temperature " << current << " C < " << target
                 << " C, heater ON at " << static_cast<int>(signal) << "%" << std::endl;
         }
         else if (signal < 0) {
-            // Жарко - включаем кондиционер
             commands["heater"] = 0;
             commands["conditioner"] = static_cast<int>(-signal);
             std::cout << "[ClimateManager]: Temperature " << current << " C > " << target
@@ -98,47 +112,23 @@ std::map<std::string, int> ClimateManager::calculateCommands(
             commands["conditioner"] = 0;
             std::cout << "[ClimateManager]: Temperature is optimal (" << current << " C)" << std::endl;
         }
+        return;
     }
 
-    // Обработка влажности воздуха (делегирование)
-    auto hum_it = current_readings.find("air_humidity");
-    auto target_hum_it = m_targets.find("air_humidity");
-
-    if (hum_it != current_readings.end() && target_hum_it != m_targets.end()) {
-        double current = hum_it->second;
-        double target = target_hum_it->second;
-
-        double signal = calculateControlSignal("air_humidity", current, target);
-
-        if (signal > 0) {
-            commands["air_humidifier"] = static_cast<int>(signal);
-            std::cout << "[ClimateManager]: Humidity " << current << "% < " << target
-                << "%, humidifier ON at " << static_cast<int>(signal) << "%" << std::endl;
-        }
-        else {
-            commands["air_humidifier"] = 0;
-        }
+    // Для остальных параметров (влажность воздуха, влажность почвы)
+    // Нужно знать, какое устройство отвечает за этот параметр
+    auto mapping_it = m_mapping.find(paramName);
+    if (mapping_it == m_mapping.end()) {
+        return;
     }
+    const std::string& deviceType = mapping_it->second;
 
-    // Обработка влажности почвы (делегирование)
-    auto soil_it = current_readings.find("soil_moisture");
-    auto target_soil_it = m_targets.find("soil_moisture");
-
-    if (soil_it != current_readings.end() && target_soil_it != m_targets.end()) {
-        double current = soil_it->second;
-        double target = target_soil_it->second;
-
-        double signal = calculateControlSignal("soil_moisture", current, target);
-
-        if (signal > 0) {
-            commands["irrigation"] = static_cast<int>(signal);
-            std::cout << "[ClimateManager]: Soil moisture " << current << "% < " << target
-                << "%, irrigation ON at " << static_cast<int>(signal) << "%" << std::endl;
-        }
-        else {
-            commands["irrigation"] = 0;
-        }
+    if (signal > 0) {
+        commands[deviceType] = static_cast<int>(signal);
+        std::cout << "[ClimateManager]: " << paramName << " " << current << " < " << target
+            << ", " << deviceType << " ON at " << static_cast<int>(signal) << "%" << std::endl;
     }
-
-    return commands;
+    else {
+        commands[deviceType] = 0;
+    }
 }
