@@ -6,20 +6,9 @@ ExtendedConfigManager::ExtendedConfigManager() {
     m_targets["soil_moisture"] = 45.0;
 }
 
-double ExtendedConfigManager::getTargetParameter(const std::string& parameter) {
-    auto it = m_targets.find(parameter);
-    return (it != m_targets.end()) ? it->second : 0.0;
-}
-
-void ExtendedConfigManager::setTargetParameter(const std::string& parameter, double value) {
-    m_targets[parameter] = value;
-}
-
-std::map<std::string, double> ExtendedConfigManager::getAllTargets() {
-    return m_targets;
-}
-
-void ExtendedConfigManager::setSchedule(const std::string& deviceType, int intervalSeconds, int powerLevel) {
+void ExtendedConfigManager::setSchedule(const std::string& deviceType,
+    int intervalSeconds,
+    int powerLevel) {
     m_schedules[deviceType] = ScheduleConfig(intervalSeconds, powerLevel);
     std::cout << "[Config]: Schedule set for " << deviceType
         << " - every " << intervalSeconds << "s at " << powerLevel << "%" << std::endl;

@@ -3,11 +3,6 @@
 #include <map>
 #include <string>
 
-/**
- * @brief Менеджер конфигурации целевых параметров
- *
- * Хранит целевые значения температуры, влажности воздуха и почвы.
- */
 class ConfigManager : public IConfigManager {
 public:
     ConfigManager();
@@ -16,6 +11,6 @@ public:
     void setTargetParameter(const std::string& parameter, double value) override;
     std::map<std::string, double> getAllTargets() override;
 
-private:
+protected:
     std::map<std::string, double> m_targets;
 };
