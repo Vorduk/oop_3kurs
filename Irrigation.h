@@ -1,25 +1,42 @@
 #pragma once
 #include "BaseDevice.h"
 
-// Ирригация
+/**
+ * @brief Система капельного полива для увлажнения почвы
+ *
+ * Поддерживает дискретные режимы работы (капельный/разбрызгивание).
+ * Реализует интерфейсы IDevice и IModeSelectableDevice.
+ */
 class Irrigation : public BaseDevice, public IModeSelectableDevice {
-private:
-    bool m_isOn;
-    int m_mode;  // 1 - капельный полив, 2 - разбрызгивание
-
 public:
     Irrigation();
     ~Irrigation() override = default;
 
     //  Методы IDevice
+
+    /** @brief Вкл систему полива */
     void turnOn() override;
+
+    /** @brief Выкл систему полива */
     void turnOff() override;
+
+    /** @brief Включён ли система полива */
     bool isOn() const override;
 
+
     // Методы IModeSelectableDevice
+
+    /** @brief Установить режим полива */
     void setMode(int mode) override;
+
+    /** @brief Получить режим полива */
     int getMode() const override;
 
-    static constexpr int MODE_DRIP = 1;      // Капельный полив
-    static constexpr int MODE_SPRINKLER = 2;  // Разбрызгивание
+    /** @brief Режимы полива */
+    static constexpr int MODE_DRIP = 1;         ///< Капельный полив
+    static constexpr int MODE_SPRINKLER = 2;    ///< Разбрызгивание
+
+private:
+    bool m_isOn;    ///< Состояние устройства (включен/выключен)
+    int m_mode;     ///< Текущий режим полива (1-2)
 };

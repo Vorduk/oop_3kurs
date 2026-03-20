@@ -94,37 +94,45 @@ $(function(){initNavTree('_irrigation_8h_source.html','',''); });
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;BaseDevice.h&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Ирригация</span></div>
-<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_irrigation.html">    5</a></span><span class="keyword">class </span>Irrigation : <span class="keyword">public</span> BaseDevice, <span class="keyword">public</span> <a class="code hl_class" href="class_i_mode_selectable_device.html">IModeSelectableDevice</a> {</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keywordtype">bool</span> m_isOn;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordtype">int</span> m_mode;  <span class="comment">// 1 - капельный полив, 2 - разбрызгивание</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    Irrigation();</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    ~Irrigation() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment">//  Методы IDevice</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_irrigation.html#aef2f45047615d31bfebb490d094b8ace">turnOn</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_irrigation.html#a891a818ce1cce9598656c91e52e1e91f">turnOff</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_irrigation.html#a81544fb94cf0e8b4a9fc6cea206687a7">isOn</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// Методы IModeSelectableDevice</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_irrigation.html#a5059d5d074a88301a246ae16fa797375">setMode</a>(<span class="keywordtype">int</span> mode) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_irrigation.html#a10a842f954354c2fe3f388a165f7eefd">getMode</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_DRIP = 1;      <span class="comment">// Капельный полив</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODE_SPRINKLER = 2;  <span class="comment">// Разбрызгивание</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_irrigation.html">   10</a></span><span class="keyword">class </span>Irrigation : <span class="keyword">public</span> <a class="code hl_function" href="class_base_device.html#a79a16249c291375887527b03d8ff287a">BaseDevice</a>, <span class="keyword">public</span> <a class="code hl_class" href="class_i_mode_selectable_device.html">IModeSelectableDevice</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    Irrigation();</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    ~Irrigation() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">//  Методы IDevice</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_irrigation.html#aef2f45047615d31bfebb490d094b8ace">turnOn</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_irrigation.html#a891a818ce1cce9598656c91e52e1e91f">turnOff</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_irrigation.html#a81544fb94cf0e8b4a9fc6cea206687a7">isOn</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// Методы IModeSelectableDevice</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_irrigation.html#a5059d5d074a88301a246ae16fa797375">setMode</a>(<span class="keywordtype">int</span> mode) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_irrigation.html#a10a842f954354c2fe3f388a165f7eefd">getMode</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_irrigation.html#a0cec11f35b63b6e2d16e4da1f379f925">   36</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_irrigation.html#a0cec11f35b63b6e2d16e4da1f379f925">MODE_DRIP</a> = 1;         </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_irrigation.html#ab1d5bfc08183b80a2623e1d4f63906d7">   37</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_irrigation.html#ab1d5bfc08183b80a2623e1d4f63906d7">MODE_SPRINKLER</a> = 2;    </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span> m_isOn;    </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">int</span> m_mode;     </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
 </div>
+<div class="ttc" id="aclass_base_device_html_a79a16249c291375887527b03d8ff287a"><div class="ttname"><a href="class_base_device.html#a79a16249c291375887527b03d8ff287a">BaseDevice::BaseDevice</a></div><div class="ttdeci">BaseDevice(const std::string &amp;type)</div><div class="ttdoc">Конструктор базового устройства</div><div class="ttdef"><b>Определения</b> BaseDevice.cpp:5</div></div>
 <div class="ttc" id="aclass_i_mode_selectable_device_html"><div class="ttname"><a href="class_i_mode_selectable_device.html">IModeSelectableDevice</a></div><div class="ttdoc">Интерфейс для устройств с дискретными режимами работы</div><div class="ttdef"><b>Определения</b> IDevice.h:68</div></div>
-<div class="ttc" id="aclass_irrigation_html_a10a842f954354c2fe3f388a165f7eefd"><div class="ttname"><a href="class_irrigation.html#a10a842f954354c2fe3f388a165f7eefd">Irrigation::getMode</a></div><div class="ttdeci">int getMode() const override</div><div class="ttdoc">Получить текущий режим работы</div><div class="ttdef"><b>Определения</b> Irrigation.cpp:31</div></div>
-<div class="ttc" id="aclass_irrigation_html_a5059d5d074a88301a246ae16fa797375"><div class="ttname"><a href="class_irrigation.html#a5059d5d074a88301a246ae16fa797375">Irrigation::setMode</a></div><div class="ttdeci">void setMode(int mode) override</div><div class="ttdoc">Установить режим работы</div><div class="ttdef"><b>Определения</b> Irrigation.cpp:21</div></div>
-<div class="ttc" id="aclass_irrigation_html_a81544fb94cf0e8b4a9fc6cea206687a7"><div class="ttname"><a href="class_irrigation.html#a81544fb94cf0e8b4a9fc6cea206687a7">Irrigation::isOn</a></div><div class="ttdeci">bool isOn() const override</div><div class="ttdoc">Проверить состояние устройства</div><div class="ttdef"><b>Определения</b> Irrigation.cpp:17</div></div>
-<div class="ttc" id="aclass_irrigation_html_a891a818ce1cce9598656c91e52e1e91f"><div class="ttname"><a href="class_irrigation.html#a891a818ce1cce9598656c91e52e1e91f">Irrigation::turnOff</a></div><div class="ttdeci">void turnOff() override</div><div class="ttdoc">Выключить устройство</div><div class="ttdef"><b>Определения</b> Irrigation.cpp:12</div></div>
-<div class="ttc" id="aclass_irrigation_html_aef2f45047615d31bfebb490d094b8ace"><div class="ttname"><a href="class_irrigation.html#aef2f45047615d31bfebb490d094b8ace">Irrigation::turnOn</a></div><div class="ttdeci">void turnOn() override</div><div class="ttdoc">Включить устройство</div><div class="ttdef"><b>Определения</b> Irrigation.cpp:7</div></div>
+<div class="ttc" id="aclass_irrigation_html_a0cec11f35b63b6e2d16e4da1f379f925"><div class="ttname"><a href="class_irrigation.html#a0cec11f35b63b6e2d16e4da1f379f925">Irrigation::MODE_DRIP</a></div><div class="ttdeci">static constexpr int MODE_DRIP</div><div class="ttdoc">Режимы полива</div><div class="ttdef"><b>Определения</b> Irrigation.h:36</div></div>
+<div class="ttc" id="aclass_irrigation_html_a10a842f954354c2fe3f388a165f7eefd"><div class="ttname"><a href="class_irrigation.html#a10a842f954354c2fe3f388a165f7eefd">Irrigation::getMode</a></div><div class="ttdeci">int getMode() const override</div><div class="ttdoc">Получить режим полива</div><div class="ttdef"><b>Определения</b> Irrigation.cpp:31</div></div>
+<div class="ttc" id="aclass_irrigation_html_a5059d5d074a88301a246ae16fa797375"><div class="ttname"><a href="class_irrigation.html#a5059d5d074a88301a246ae16fa797375">Irrigation::setMode</a></div><div class="ttdeci">void setMode(int mode) override</div><div class="ttdoc">Установить режим полива</div><div class="ttdef"><b>Определения</b> Irrigation.cpp:21</div></div>
+<div class="ttc" id="aclass_irrigation_html_a81544fb94cf0e8b4a9fc6cea206687a7"><div class="ttname"><a href="class_irrigation.html#a81544fb94cf0e8b4a9fc6cea206687a7">Irrigation::isOn</a></div><div class="ttdeci">bool isOn() const override</div><div class="ttdoc">Включён ли система полива</div><div class="ttdef"><b>Определения</b> Irrigation.cpp:17</div></div>
+<div class="ttc" id="aclass_irrigation_html_a891a818ce1cce9598656c91e52e1e91f"><div class="ttname"><a href="class_irrigation.html#a891a818ce1cce9598656c91e52e1e91f">Irrigation::turnOff</a></div><div class="ttdeci">void turnOff() override</div><div class="ttdoc">Выкл систему полива</div><div class="ttdef"><b>Определения</b> Irrigation.cpp:12</div></div>
+<div class="ttc" id="aclass_irrigation_html_ab1d5bfc08183b80a2623e1d4f63906d7"><div class="ttname"><a href="class_irrigation.html#ab1d5bfc08183b80a2623e1d4f63906d7">Irrigation::MODE_SPRINKLER</a></div><div class="ttdeci">static constexpr int MODE_SPRINKLER</div><div class="ttdoc">Разбрызгивание</div><div class="ttdef"><b>Определения</b> Irrigation.h:37</div></div>
+<div class="ttc" id="aclass_irrigation_html_aef2f45047615d31bfebb490d094b8ace"><div class="ttname"><a href="class_irrigation.html#aef2f45047615d31bfebb490d094b8ace">Irrigation::turnOn</a></div><div class="ttdeci">void turnOn() override</div><div class="ttdoc">Вкл систему полива</div><div class="ttdef"><b>Определения</b> Irrigation.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

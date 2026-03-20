@@ -92,13 +92,18 @@ $(function(){initNavTree('class_ventilation.html','','class_ventilation-members'
   <div class="headertitle"><div class="title">Класс Ventilation</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Вентиляция для воздухообмена в теплице  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_ventilation_8h_source.html">Ventilation.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:Ventilation:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_ventilation.png" usemap="#Ventilation_map" alt=""/>
   <map id="Ventilation_map" name="Ventilation_map">
-<area href="class_base_device.html" alt="BaseDevice" shape="rect" coords="0,56,146,80"/>
+<area href="class_base_device.html" title="Абстрактный базовый класс для всех устройств" alt="BaseDevice" shape="rect" coords="0,56,146,80"/>
 <area href="class_i_mode_selectable_device.html" title="Интерфейс для устройств с дискретными режимами работы" alt="IModeSelectableDevice" shape="rect" coords="156,56,302,80"/>
 <area href="class_i_device.html" title="Базовый интерфейс для всех исполнительных устройств" alt="IDevice" shape="rect" coords="0,0,146,24"/>
   </map>
@@ -107,44 +112,52 @@ $(function(){initNavTree('class_ventilation.html','','class_ventilation-members'
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:ae8d54aaba96c81a379adacdf897d30bc" id="r_ae8d54aaba96c81a379adacdf897d30bc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae8d54aaba96c81a379adacdf897d30bc">turnOn</a> () override</td></tr>
-<tr class="memdesc:ae8d54aaba96c81a379adacdf897d30bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включить устройство  <br /></td></tr>
+<tr class="memdesc:ae8d54aaba96c81a379adacdf897d30bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вкл вентиляцию  <br /></td></tr>
 <tr class="memitem:adde1ff78ae98c631d6b2c92714e1155b" id="r_adde1ff78ae98c631d6b2c92714e1155b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adde1ff78ae98c631d6b2c92714e1155b">turnOff</a> () override</td></tr>
-<tr class="memdesc:adde1ff78ae98c631d6b2c92714e1155b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выключить устройство  <br /></td></tr>
+<tr class="memdesc:adde1ff78ae98c631d6b2c92714e1155b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выкл вентиляцию  <br /></td></tr>
 <tr class="memitem:af4790931fcdbe60372e132147e6e91d3" id="r_af4790931fcdbe60372e132147e6e91d3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af4790931fcdbe60372e132147e6e91d3">isOn</a> () const override</td></tr>
-<tr class="memdesc:af4790931fcdbe60372e132147e6e91d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить состояние устройства  <br /></td></tr>
+<tr class="memdesc:af4790931fcdbe60372e132147e6e91d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включена ли вентиляция  <br /></td></tr>
 <tr class="memitem:accf8229aac4ba7e44ef0601c4c2ce199" id="r_accf8229aac4ba7e44ef0601c4c2ce199"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#accf8229aac4ba7e44ef0601c4c2ce199">setMode</a> (int mode) override</td></tr>
-<tr class="memdesc:accf8229aac4ba7e44ef0601c4c2ce199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить режим работы  <br /></td></tr>
+<tr class="memdesc:accf8229aac4ba7e44ef0601c4c2ce199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить режим работы вентиляции  <br /></td></tr>
 <tr class="memitem:a881b60876df40a265d69a9489007db92" id="r_a881b60876df40a265d69a9489007db92"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a881b60876df40a265d69a9489007db92">getMode</a> () const override</td></tr>
-<tr class="memdesc:a881b60876df40a265d69a9489007db92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущий режим работы  <br /></td></tr>
+<tr class="memdesc:a881b60876df40a265d69a9489007db92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить режим вентиляции  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
-<tr class="memitem:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device" id="r_a79a16249c291375887527b03d8ff287a"><td class="memItemLeft">
-&#160;</td><td class="memItemRight"><b>BaseDevice</b> (const std::string &amp;type)</td></tr>
+<tr class="memitem:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device" id="r_a79a16249c291375887527b03d8ff287a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a79a16249c291375887527b03d8ff287a">BaseDevice</a> (const std::string &amp;type)</td></tr>
+<tr class="memdesc:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор базового устройства  <br /></td></tr>
 <tr class="memitem:a1e54fb0a6f63b7f68976f50562e598dd inherit pub_methods_class_base_device" id="r_a1e54fb0a6f63b7f68976f50562e598dd"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a1e54fb0a6f63b7f68976f50562e598dd">getType</a> () const override</td></tr>
 <tr class="memdesc:a1e54fb0a6f63b7f68976f50562e598dd inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить тип устройства  <br /></td></tr>
 <tr class="memitem:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device" id="r_a4f3f311d11f61ae71a5e1e7510d88fe2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a4f3f311d11f61ae71a5e1e7510d88fe2">getId</a> () const override</td></tr>
-<tr class="memdesc:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор устройства  <br /></td></tr>
+<tr class="memdesc:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Статические открытые данные</h2></td></tr>
-<tr class="memitem:a63bbaca48245040e0a2d292b5bf894cf" id="r_a63bbaca48245040e0a2d292b5bf894cf"><td class="memItemLeft"><a id="a63bbaca48245040e0a2d292b5bf894cf" name="a63bbaca48245040e0a2d292b5bf894cf"></a>
-static constexpr int&#160;</td><td class="memItemRight"><b>MODE_LOW</b> = 1</td></tr>
+<tr class="memitem:a63bbaca48245040e0a2d292b5bf894cf" id="r_a63bbaca48245040e0a2d292b5bf894cf"><td class="memItemLeft">static constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#a63bbaca48245040e0a2d292b5bf894cf">MODE_LOW</a> = 1</td></tr>
+<tr class="memdesc:a63bbaca48245040e0a2d292b5bf894cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Режимы работы вентиляции  <br /></td></tr>
 <tr class="memitem:a5227ea081c22787c70f72c32124c54fa" id="r_a5227ea081c22787c70f72c32124c54fa"><td class="memItemLeft"><a id="a5227ea081c22787c70f72c32124c54fa" name="a5227ea081c22787c70f72c32124c54fa"></a>
 static constexpr int&#160;</td><td class="memItemRight"><b>MODE_MEDIUM</b> = 2</td></tr>
+<tr class="memdesc:a5227ea081c22787c70f72c32124c54fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Средний режим <br /></td></tr>
 <tr class="memitem:abede092b8ffb736fdab6dcbcdfb86e2f" id="r_abede092b8ffb736fdab6dcbcdfb86e2f"><td class="memItemLeft"><a id="abede092b8ffb736fdab6dcbcdfb86e2f" name="abede092b8ffb736fdab6dcbcdfb86e2f"></a>
 static constexpr int&#160;</td><td class="memItemRight"><b>MODE_HIGH</b> = 3</td></tr>
+<tr class="memdesc:abede092b8ffb736fdab6dcbcdfb86e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сильный режим <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Дополнительные унаследованные члены</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные данные унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
 <tr class="memitem:af517d54d68e654e92992b48cc4167900 inherit pro_attribs_class_base_device" id="r_af517d54d68e654e92992b48cc4167900"><td class="memItemLeft">
 std::string&#160;</td><td class="memItemRight"><b>m_type</b></td></tr>
+<tr class="memdesc:af517d54d68e654e92992b48cc4167900 inherit pro_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тип устройства <br /></td></tr>
 <tr class="memitem:ac5e605f370131274dc810a8c30a0fa50 inherit pro_attribs_class_base_device" id="r_ac5e605f370131274dc810a8c30a0fa50"><td class="memItemLeft">
 int&#160;</td><td class="memItemRight"><b>m_id</b></td></tr>
+<tr class="memdesc:ac5e605f370131274dc810a8c30a0fa50 inherit pro_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уникальный идентификатор <br /></td></tr>
 <tr class="inherit_header pro_static_attribs_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_attribs_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Статические защищенные данные унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
 <tr class="memitem:abb435477d35b79bc4e7a039e7245401a inherit pro_static_attribs_class_base_device" id="r_abb435477d35b79bc4e7a039e7245401a"><td class="memItemLeft">
 static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
+<tr class="memdesc:abb435477d35b79bc4e7a039e7245401a inherit pro_static_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Статический счетчик для генерации ID. <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Вентиляция для воздухообмена в теплице </p>
+<p>Поддерживает дискретные режимы работы (низкий/средний/высокий). Реализует интерфейсы <a class="el" href="class_i_device.html" title="Базовый интерфейс для всех исполнительных устройств">IDevice</a> и <a class="el" href="class_i_mode_selectable_device.html" title="Интерфейс для устройств с дискретными режимами работы">IModeSelectableDevice</a>. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
 <a id="a881b60876df40a265d69a9489007db92" name="a881b60876df40a265d69a9489007db92"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a881b60876df40a265d69a9489007db92">&#9670;&#160;</a></span>getMode()</h2>
 
@@ -168,8 +181,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Получить текущий режим работы </p>
-<dl class="section return"><dt>Возвращает</dt><dd>Код текущего режима </dd></dl>
+<p>Получить режим вентиляции </p>
 
 <p>Замещает <a class="el" href="class_i_mode_selectable_device.html#a47079596e948650b02d5e2548ef44556">IModeSelectableDevice</a>.</p>
 
@@ -198,8 +210,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Проверить состояние устройства </p>
-<dl class="section return"><dt>Возвращает</dt><dd>true - устройство включено, false - выключено </dd></dl>
+<p>Включена ли вентиляция </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a05674c4a0c6e60482ac079b999962ae0">IDevice</a>.</p>
 
@@ -228,13 +239,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Установить режим работы </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mode</td><td>Код режима (определяется в конкретном устройстве) </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Установить режим работы вентиляции </p>
 
 <p>Замещает <a class="el" href="class_i_mode_selectable_device.html#a0f556c22f797fab51200e50e5f7f824f">IModeSelectableDevice</a>.</p>
 
@@ -263,7 +268,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Выключить устройство </p>
+<p>Выкл вентиляцию </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a58a1977682e9e12a37f47b076666ab28">IDevice</a>.</p>
 
@@ -292,9 +297,35 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Включить устройство </p>
+<p>Вкл вентиляцию </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a54f243fdef2eecbbce9604db16054fe9">IDevice</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Данные класса</h2>
+<a id="a63bbaca48245040e0a2d292b5bf894cf" name="a63bbaca48245040e0a2d292b5bf894cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63bbaca48245040e0a2d292b5bf894cf">&#9670;&#160;</a></span>MODE_LOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Ventilation::MODE_LOW = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Режимы работы вентиляции </p>
+<p>Слабый режим </p>
 
 </div>
 </div>

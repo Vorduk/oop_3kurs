@@ -92,13 +92,18 @@ $(function(){initNavTree('class_air_humidifier.html','','class_air_humidifier-me
   <div class="headertitle"><div class="title">Класс AirHumidifier</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Увлажнитель для повышения влажности воздуха  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_air_humidifier_8h_source.html">AirHumidifier.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:AirHumidifier:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_air_humidifier.png" usemap="#AirHumidifier_map" alt=""/>
   <map id="AirHumidifier_map" name="AirHumidifier_map">
-<area href="class_base_device.html" alt="BaseDevice" shape="rect" coords="0,56,146,80"/>
+<area href="class_base_device.html" title="Абстрактный базовый класс для всех устройств" alt="BaseDevice" shape="rect" coords="0,56,146,80"/>
 <area href="class_i_mode_selectable_device.html" title="Интерфейс для устройств с дискретными режимами работы" alt="IModeSelectableDevice" shape="rect" coords="156,56,302,80"/>
 <area href="class_i_device.html" title="Базовый интерфейс для всех исполнительных устройств" alt="IDevice" shape="rect" coords="0,0,146,24"/>
   </map>
@@ -107,27 +112,28 @@ $(function(){initNavTree('class_air_humidifier.html','','class_air_humidifier-me
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a7fade122d5358bddf07cbf5a47056773" id="r_a7fade122d5358bddf07cbf5a47056773"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7fade122d5358bddf07cbf5a47056773">turnOn</a> () override</td></tr>
-<tr class="memdesc:a7fade122d5358bddf07cbf5a47056773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включить устройство  <br /></td></tr>
+<tr class="memdesc:a7fade122d5358bddf07cbf5a47056773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вкл увлажнитель воздуха  <br /></td></tr>
 <tr class="memitem:abd81a7ef7fd89181c3ff5f9203d54f11" id="r_abd81a7ef7fd89181c3ff5f9203d54f11"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abd81a7ef7fd89181c3ff5f9203d54f11">turnOff</a> () override</td></tr>
-<tr class="memdesc:abd81a7ef7fd89181c3ff5f9203d54f11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выключить устройство  <br /></td></tr>
+<tr class="memdesc:abd81a7ef7fd89181c3ff5f9203d54f11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выкл увлажнитель воздуха  <br /></td></tr>
 <tr class="memitem:a82d17e0525ff53dda77f1ef9cff76c71" id="r_a82d17e0525ff53dda77f1ef9cff76c71"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a82d17e0525ff53dda77f1ef9cff76c71">isOn</a> () const override</td></tr>
-<tr class="memdesc:a82d17e0525ff53dda77f1ef9cff76c71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить состояние устройства  <br /></td></tr>
+<tr class="memdesc:a82d17e0525ff53dda77f1ef9cff76c71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включён ли увлажнитель воздуха  <br /></td></tr>
 <tr class="memitem:a6c40b7897c32b6265d6eae37fee8b44f" id="r_a6c40b7897c32b6265d6eae37fee8b44f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6c40b7897c32b6265d6eae37fee8b44f">setMode</a> (int mode) override</td></tr>
-<tr class="memdesc:a6c40b7897c32b6265d6eae37fee8b44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить режим работы  <br /></td></tr>
+<tr class="memdesc:a6c40b7897c32b6265d6eae37fee8b44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить режим работы увлажнителя воздуха  <br /></td></tr>
 <tr class="memitem:ab1391d978de21934c86e32e0a751beae" id="r_ab1391d978de21934c86e32e0a751beae"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ab1391d978de21934c86e32e0a751beae">getMode</a> () const override</td></tr>
-<tr class="memdesc:ab1391d978de21934c86e32e0a751beae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущий режим работы  <br /></td></tr>
+<tr class="memdesc:ab1391d978de21934c86e32e0a751beae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить режим увлажнителя воздуха  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
-<tr class="memitem:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device" id="r_a79a16249c291375887527b03d8ff287a"><td class="memItemLeft">
-&#160;</td><td class="memItemRight"><b>BaseDevice</b> (const std::string &amp;type)</td></tr>
+<tr class="memitem:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device" id="r_a79a16249c291375887527b03d8ff287a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a79a16249c291375887527b03d8ff287a">BaseDevice</a> (const std::string &amp;type)</td></tr>
+<tr class="memdesc:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор базового устройства  <br /></td></tr>
 <tr class="memitem:a1e54fb0a6f63b7f68976f50562e598dd inherit pub_methods_class_base_device" id="r_a1e54fb0a6f63b7f68976f50562e598dd"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a1e54fb0a6f63b7f68976f50562e598dd">getType</a> () const override</td></tr>
 <tr class="memdesc:a1e54fb0a6f63b7f68976f50562e598dd inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить тип устройства  <br /></td></tr>
 <tr class="memitem:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device" id="r_a4f3f311d11f61ae71a5e1e7510d88fe2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a4f3f311d11f61ae71a5e1e7510d88fe2">getId</a> () const override</td></tr>
-<tr class="memdesc:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор устройства  <br /></td></tr>
+<tr class="memdesc:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Статические открытые данные</h2></td></tr>
 <tr class="memitem:aa0d91f85efee1608d555048083c64471" id="r_aa0d91f85efee1608d555048083c64471"><td class="memItemLeft"><a id="aa0d91f85efee1608d555048083c64471" name="aa0d91f85efee1608d555048083c64471"></a>
 static constexpr int&#160;</td><td class="memItemRight"><b>MODE_LOWEST</b> = 1</td></tr>
+<tr class="memdesc:aa0d91f85efee1608d555048083c64471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Режимы увлажнителя воздуха <br /></td></tr>
 <tr class="memitem:a5cba79c15b1a0224edef8091c0e11120" id="r_a5cba79c15b1a0224edef8091c0e11120"><td class="memItemLeft"><a id="a5cba79c15b1a0224edef8091c0e11120" name="a5cba79c15b1a0224edef8091c0e11120"></a>
 static constexpr int&#160;</td><td class="memItemRight"><b>MODE_LOW</b> = 2</td></tr>
 <tr class="memitem:aac62a2b9a623858d33d9c47e8d1775ba" id="r_aac62a2b9a623858d33d9c47e8d1775ba"><td class="memItemLeft"><a id="aac62a2b9a623858d33d9c47e8d1775ba" name="aac62a2b9a623858d33d9c47e8d1775ba"></a>
@@ -140,13 +146,19 @@ static constexpr int&#160;</td><td class="memItemRight"><b>MODE_HIGH</b> = 4</td
 <tr class="inherit_header pro_attribs_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные данные унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
 <tr class="memitem:af517d54d68e654e92992b48cc4167900 inherit pro_attribs_class_base_device" id="r_af517d54d68e654e92992b48cc4167900"><td class="memItemLeft">
 std::string&#160;</td><td class="memItemRight"><b>m_type</b></td></tr>
+<tr class="memdesc:af517d54d68e654e92992b48cc4167900 inherit pro_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тип устройства <br /></td></tr>
 <tr class="memitem:ac5e605f370131274dc810a8c30a0fa50 inherit pro_attribs_class_base_device" id="r_ac5e605f370131274dc810a8c30a0fa50"><td class="memItemLeft">
 int&#160;</td><td class="memItemRight"><b>m_id</b></td></tr>
+<tr class="memdesc:ac5e605f370131274dc810a8c30a0fa50 inherit pro_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уникальный идентификатор <br /></td></tr>
 <tr class="inherit_header pro_static_attribs_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_attribs_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Статические защищенные данные унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
 <tr class="memitem:abb435477d35b79bc4e7a039e7245401a inherit pro_static_attribs_class_base_device" id="r_abb435477d35b79bc4e7a039e7245401a"><td class="memItemLeft">
 static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
+<tr class="memdesc:abb435477d35b79bc4e7a039e7245401a inherit pro_static_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Статический счетчик для генерации ID. <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Увлажнитель для повышения влажности воздуха </p>
+<p>Поддерживает дискретные режимы работы (низкий/средний/высокий). Реализует интерфейсы <a class="el" href="class_i_device.html" title="Базовый интерфейс для всех исполнительных устройств">IDevice</a> и <a class="el" href="class_i_mode_selectable_device.html" title="Интерфейс для устройств с дискретными режимами работы">IModeSelectableDevice</a>. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
 <a id="ab1391d978de21934c86e32e0a751beae" name="ab1391d978de21934c86e32e0a751beae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab1391d978de21934c86e32e0a751beae">&#9670;&#160;</a></span>getMode()</h2>
 
@@ -170,8 +182,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Получить текущий режим работы </p>
-<dl class="section return"><dt>Возвращает</dt><dd>Код текущего режима </dd></dl>
+<p>Получить режим увлажнителя воздуха </p>
 
 <p>Замещает <a class="el" href="class_i_mode_selectable_device.html#a47079596e948650b02d5e2548ef44556">IModeSelectableDevice</a>.</p>
 
@@ -200,8 +211,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Проверить состояние устройства </p>
-<dl class="section return"><dt>Возвращает</dt><dd>true - устройство включено, false - выключено </dd></dl>
+<p>Включён ли увлажнитель воздуха </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a05674c4a0c6e60482ac079b999962ae0">IDevice</a>.</p>
 
@@ -230,13 +240,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Установить режим работы </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mode</td><td>Код режима (определяется в конкретном устройстве) </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Установить режим работы увлажнителя воздуха </p>
 
 <p>Замещает <a class="el" href="class_i_mode_selectable_device.html#a0f556c22f797fab51200e50e5f7f824f">IModeSelectableDevice</a>.</p>
 
@@ -265,7 +269,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Выключить устройство </p>
+<p>Выкл увлажнитель воздуха </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a58a1977682e9e12a37f47b076666ab28">IDevice</a>.</p>
 
@@ -294,7 +298,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Включить устройство </p>
+<p>Вкл увлажнитель воздуха </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a54f243fdef2eecbbce9604db16054fe9">IDevice</a>.</p>
 

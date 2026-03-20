@@ -92,13 +92,18 @@ $(function(){initNavTree('class_lamp.html','','class_lamp-members'); });
   <div class="headertitle"><div class="title">Класс Lamp</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Лампы освещения для обеспечения светового дня  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_lamp_8h_source.html">Lamp.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:Lamp:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_lamp.png" usemap="#Lamp_map" alt=""/>
   <map id="Lamp_map" name="Lamp_map">
-<area href="class_base_device.html" alt="BaseDevice" shape="rect" coords="0,56,146,80"/>
+<area href="class_base_device.html" title="Абстрактный базовый класс для всех устройств" alt="BaseDevice" shape="rect" coords="0,56,146,80"/>
 <area href="class_i_adjustable_device.html" title="Интерфейс для устройств с плавной регулировкой мощности" alt="IAdjustableDevice" shape="rect" coords="156,56,302,80"/>
 <area href="class_i_mode_selectable_device.html" title="Интерфейс для устройств с дискретными режимами работы" alt="IModeSelectableDevice" shape="rect" coords="312,56,458,80"/>
 <area href="class_i_device.html" title="Базовый интерфейс для всех исполнительных устройств" alt="IDevice" shape="rect" coords="0,0,146,24"/>
@@ -108,48 +113,56 @@ $(function(){initNavTree('class_lamp.html','','class_lamp-members'); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a09ac1384b2c801260b39376a08ec95a7" id="r_a09ac1384b2c801260b39376a08ec95a7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a09ac1384b2c801260b39376a08ec95a7">turnOn</a> () override</td></tr>
-<tr class="memdesc:a09ac1384b2c801260b39376a08ec95a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включить устройство  <br /></td></tr>
+<tr class="memdesc:a09ac1384b2c801260b39376a08ec95a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вкл лампу  <br /></td></tr>
 <tr class="memitem:aa7b287e1ec5f5d2b1459f0d70fb842ee" id="r_aa7b287e1ec5f5d2b1459f0d70fb842ee"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa7b287e1ec5f5d2b1459f0d70fb842ee">turnOff</a> () override</td></tr>
-<tr class="memdesc:aa7b287e1ec5f5d2b1459f0d70fb842ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выключить устройство  <br /></td></tr>
+<tr class="memdesc:aa7b287e1ec5f5d2b1459f0d70fb842ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выкл лампу  <br /></td></tr>
 <tr class="memitem:ae4f1081e495e470cf7eef8d6aa751101" id="r_ae4f1081e495e470cf7eef8d6aa751101"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae4f1081e495e470cf7eef8d6aa751101">isOn</a> () const override</td></tr>
-<tr class="memdesc:ae4f1081e495e470cf7eef8d6aa751101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить состояние устройства  <br /></td></tr>
+<tr class="memdesc:ae4f1081e495e470cf7eef8d6aa751101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включена ли лампа  <br /></td></tr>
 <tr class="memitem:a500f20e26009e64da00f6a73ce979be4" id="r_a500f20e26009e64da00f6a73ce979be4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a500f20e26009e64da00f6a73ce979be4">setPower</a> (int level) override</td></tr>
-<tr class="memdesc:a500f20e26009e64da00f6a73ce979be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить уровень мощности  <br /></td></tr>
+<tr class="memdesc:a500f20e26009e64da00f6a73ce979be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменить мощность лампы  <br /></td></tr>
 <tr class="memitem:aa7ad0c26eb51a0b50c457c279adb3596" id="r_aa7ad0c26eb51a0b50c457c279adb3596"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aa7ad0c26eb51a0b50c457c279adb3596">getPower</a> () const override</td></tr>
-<tr class="memdesc:aa7ad0c26eb51a0b50c457c279adb3596"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущий уровень мощности  <br /></td></tr>
+<tr class="memdesc:aa7ad0c26eb51a0b50c457c279adb3596"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить мощность лампы  <br /></td></tr>
 <tr class="memitem:a46ca55d72335b1ee65fb67e48c7afa0e" id="r_a46ca55d72335b1ee65fb67e48c7afa0e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a46ca55d72335b1ee65fb67e48c7afa0e">setMode</a> (int mode) override</td></tr>
-<tr class="memdesc:a46ca55d72335b1ee65fb67e48c7afa0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить режим работы  <br /></td></tr>
+<tr class="memdesc:a46ca55d72335b1ee65fb67e48c7afa0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить режим освещения лампы  <br /></td></tr>
 <tr class="memitem:a6d2ac873ea042f4d9505e3690c19d4f0" id="r_a6d2ac873ea042f4d9505e3690c19d4f0"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6d2ac873ea042f4d9505e3690c19d4f0">getMode</a> () const override</td></tr>
-<tr class="memdesc:a6d2ac873ea042f4d9505e3690c19d4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущий режим работы  <br /></td></tr>
+<tr class="memdesc:a6d2ac873ea042f4d9505e3690c19d4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить режим освещения лампы  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
-<tr class="memitem:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device" id="r_a79a16249c291375887527b03d8ff287a"><td class="memItemLeft">
-&#160;</td><td class="memItemRight"><b>BaseDevice</b> (const std::string &amp;type)</td></tr>
+<tr class="memitem:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device" id="r_a79a16249c291375887527b03d8ff287a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a79a16249c291375887527b03d8ff287a">BaseDevice</a> (const std::string &amp;type)</td></tr>
+<tr class="memdesc:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор базового устройства  <br /></td></tr>
 <tr class="memitem:a1e54fb0a6f63b7f68976f50562e598dd inherit pub_methods_class_base_device" id="r_a1e54fb0a6f63b7f68976f50562e598dd"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a1e54fb0a6f63b7f68976f50562e598dd">getType</a> () const override</td></tr>
 <tr class="memdesc:a1e54fb0a6f63b7f68976f50562e598dd inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить тип устройства  <br /></td></tr>
 <tr class="memitem:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device" id="r_a4f3f311d11f61ae71a5e1e7510d88fe2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a4f3f311d11f61ae71a5e1e7510d88fe2">getId</a> () const override</td></tr>
-<tr class="memdesc:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор устройства  <br /></td></tr>
+<tr class="memdesc:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Статические открытые данные</h2></td></tr>
-<tr class="memitem:a5ac9456420f479730a5f55b5d2cc1eee" id="r_a5ac9456420f479730a5f55b5d2cc1eee"><td class="memItemLeft"><a id="a5ac9456420f479730a5f55b5d2cc1eee" name="a5ac9456420f479730a5f55b5d2cc1eee"></a>
-static constexpr int&#160;</td><td class="memItemRight"><b>MODE_WHITE</b> = 1</td></tr>
+<tr class="memitem:a5ac9456420f479730a5f55b5d2cc1eee" id="r_a5ac9456420f479730a5f55b5d2cc1eee"><td class="memItemLeft">static constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#a5ac9456420f479730a5f55b5d2cc1eee">MODE_WHITE</a> = 1</td></tr>
+<tr class="memdesc:a5ac9456420f479730a5f55b5d2cc1eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Режимы освещения (спектр).  <br /></td></tr>
 <tr class="memitem:a8f3756b3d304a2889ffc1b0698bda85a" id="r_a8f3756b3d304a2889ffc1b0698bda85a"><td class="memItemLeft"><a id="a8f3756b3d304a2889ffc1b0698bda85a" name="a8f3756b3d304a2889ffc1b0698bda85a"></a>
 static constexpr int&#160;</td><td class="memItemRight"><b>MODE_WARM</b> = 2</td></tr>
+<tr class="memdesc:a8f3756b3d304a2889ffc1b0698bda85a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Теплый свет (вечерний). <br /></td></tr>
 <tr class="memitem:a3dc646e9c62e5498d0ef6dd7cdc30ee0" id="r_a3dc646e9c62e5498d0ef6dd7cdc30ee0"><td class="memItemLeft"><a id="a3dc646e9c62e5498d0ef6dd7cdc30ee0" name="a3dc646e9c62e5498d0ef6dd7cdc30ee0"></a>
 static constexpr int&#160;</td><td class="memItemRight"><b>MODE_UF</b> = 3</td></tr>
+<tr class="memdesc:a3dc646e9c62e5498d0ef6dd7cdc30ee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ультрафиолетовый (для роста). <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Дополнительные унаследованные члены</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные данные унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
 <tr class="memitem:af517d54d68e654e92992b48cc4167900 inherit pro_attribs_class_base_device" id="r_af517d54d68e654e92992b48cc4167900"><td class="memItemLeft">
 std::string&#160;</td><td class="memItemRight"><b>m_type</b></td></tr>
+<tr class="memdesc:af517d54d68e654e92992b48cc4167900 inherit pro_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тип устройства <br /></td></tr>
 <tr class="memitem:ac5e605f370131274dc810a8c30a0fa50 inherit pro_attribs_class_base_device" id="r_ac5e605f370131274dc810a8c30a0fa50"><td class="memItemLeft">
 int&#160;</td><td class="memItemRight"><b>m_id</b></td></tr>
+<tr class="memdesc:ac5e605f370131274dc810a8c30a0fa50 inherit pro_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уникальный идентификатор <br /></td></tr>
 <tr class="inherit_header pro_static_attribs_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_attribs_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Статические защищенные данные унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
 <tr class="memitem:abb435477d35b79bc4e7a039e7245401a inherit pro_static_attribs_class_base_device" id="r_abb435477d35b79bc4e7a039e7245401a"><td class="memItemLeft">
 static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
+<tr class="memdesc:abb435477d35b79bc4e7a039e7245401a inherit pro_static_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Статический счетчик для генерации ID. <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Лампы освещения для обеспечения светового дня </p>
+<p>Поддерживает регулировку яркости (0-100%) и выбор спектра (белый/теплый/УФ). Реализует интерфейсы <a class="el" href="class_i_device.html" title="Базовый интерфейс для всех исполнительных устройств">IDevice</a>, <a class="el" href="class_i_adjustable_device.html" title="Интерфейс для устройств с плавной регулировкой мощности">IAdjustableDevice</a> и <a class="el" href="class_i_mode_selectable_device.html" title="Интерфейс для устройств с дискретными режимами работы">IModeSelectableDevice</a>. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
 <a id="a6d2ac873ea042f4d9505e3690c19d4f0" name="a6d2ac873ea042f4d9505e3690c19d4f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d2ac873ea042f4d9505e3690c19d4f0">&#9670;&#160;</a></span>getMode()</h2>
 
@@ -173,8 +186,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Получить текущий режим работы </p>
-<dl class="section return"><dt>Возвращает</dt><dd>Код текущего режима </dd></dl>
+<p>Получить режим освещения лампы </p>
 
 <p>Замещает <a class="el" href="class_i_mode_selectable_device.html#a47079596e948650b02d5e2548ef44556">IModeSelectableDevice</a>.</p>
 
@@ -203,8 +215,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Получить текущий уровень мощности </p>
-<dl class="section return"><dt>Возвращает</dt><dd>Мощность в процентах (0-100) </dd></dl>
+<p>Получить мощность лампы </p>
 
 <p>Замещает <a class="el" href="class_i_adjustable_device.html#ad60e48bbc02feda62fdc7e74e52e15b2">IAdjustableDevice</a>.</p>
 
@@ -233,8 +244,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Проверить состояние устройства </p>
-<dl class="section return"><dt>Возвращает</dt><dd>true - устройство включено, false - выключено </dd></dl>
+<p>Включена ли лампа </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a05674c4a0c6e60482ac079b999962ae0">IDevice</a>.</p>
 
@@ -263,13 +273,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Установить режим работы </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mode</td><td>Код режима (определяется в конкретном устройстве) </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Установить режим освещения лампы </p>
 
 <p>Замещает <a class="el" href="class_i_mode_selectable_device.html#a0f556c22f797fab51200e50e5f7f824f">IModeSelectableDevice</a>.</p>
 
@@ -298,13 +302,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Установить уровень мощности </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">level</td><td>Мощность в процентах (0-100) </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Изменить мощность лампы </p>
 
 <p>Замещает <a class="el" href="class_i_adjustable_device.html#a515f093a3e2b560ee2efb2212945613c">IAdjustableDevice</a>.</p>
 
@@ -333,7 +331,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Выключить устройство </p>
+<p>Выкл лампу </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a58a1977682e9e12a37f47b076666ab28">IDevice</a>.</p>
 
@@ -362,9 +360,35 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Включить устройство </p>
+<p>Вкл лампу </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a54f243fdef2eecbbce9604db16054fe9">IDevice</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Данные класса</h2>
+<a id="a5ac9456420f479730a5f55b5d2cc1eee" name="a5ac9456420f479730a5f55b5d2cc1eee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ac9456420f479730a5f55b5d2cc1eee">&#9670;&#160;</a></span>MODE_WHITE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Lamp::MODE_WHITE = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Режимы освещения (спектр). </p>
+<p>Белый свет (дневной) </p>
 
 </div>
 </div>

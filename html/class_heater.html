@@ -92,13 +92,18 @@ $(function(){initNavTree('class_heater.html','','class_heater-members'); });
   <div class="headertitle"><div class="title">Класс Heater</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Нагреватель для повышения температуры в теплице  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_heater_8h_source.html">Heater.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:Heater:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_heater.png" usemap="#Heater_map" alt=""/>
   <map id="Heater_map" name="Heater_map">
-<area href="class_base_device.html" alt="BaseDevice" shape="rect" coords="0,56,114,80"/>
+<area href="class_base_device.html" title="Абстрактный базовый класс для всех устройств" alt="BaseDevice" shape="rect" coords="0,56,114,80"/>
 <area href="class_i_adjustable_device.html" title="Интерфейс для устройств с плавной регулировкой мощности" alt="IAdjustableDevice" shape="rect" coords="124,56,238,80"/>
 <area href="class_i_device.html" title="Базовый интерфейс для всех исполнительных устройств" alt="IDevice" shape="rect" coords="0,0,114,24"/>
   </map>
@@ -107,35 +112,41 @@ $(function(){initNavTree('class_heater.html','','class_heater-members'); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:aca359ec2bfb34dcbdc35ea5e7edbf619" id="r_aca359ec2bfb34dcbdc35ea5e7edbf619"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aca359ec2bfb34dcbdc35ea5e7edbf619">turnOn</a> () override</td></tr>
-<tr class="memdesc:aca359ec2bfb34dcbdc35ea5e7edbf619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включить устройство  <br /></td></tr>
+<tr class="memdesc:aca359ec2bfb34dcbdc35ea5e7edbf619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вкл нагреватель  <br /></td></tr>
 <tr class="memitem:a7ed7616b41e7e992815b118a64a01742" id="r_a7ed7616b41e7e992815b118a64a01742"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7ed7616b41e7e992815b118a64a01742">turnOff</a> () override</td></tr>
-<tr class="memdesc:a7ed7616b41e7e992815b118a64a01742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выключить устройство  <br /></td></tr>
+<tr class="memdesc:a7ed7616b41e7e992815b118a64a01742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выкл нагреватель  <br /></td></tr>
 <tr class="memitem:a460455d252e73c7c97e4fec566a73480" id="r_a460455d252e73c7c97e4fec566a73480"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a460455d252e73c7c97e4fec566a73480">isOn</a> () const override</td></tr>
-<tr class="memdesc:a460455d252e73c7c97e4fec566a73480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить состояние устройства  <br /></td></tr>
+<tr class="memdesc:a460455d252e73c7c97e4fec566a73480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включён ли нагреватель  <br /></td></tr>
 <tr class="memitem:ac634b9a0ab14854733024914569b45b5" id="r_ac634b9a0ab14854733024914569b45b5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac634b9a0ab14854733024914569b45b5">setPower</a> (int level) override</td></tr>
-<tr class="memdesc:ac634b9a0ab14854733024914569b45b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить уровень мощности  <br /></td></tr>
+<tr class="memdesc:ac634b9a0ab14854733024914569b45b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменить мощность нагревателя  <br /></td></tr>
 <tr class="memitem:a59e01eb7b3d3e1f3b5da9e99091fb0cc" id="r_a59e01eb7b3d3e1f3b5da9e99091fb0cc"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a59e01eb7b3d3e1f3b5da9e99091fb0cc">getPower</a> () const override</td></tr>
-<tr class="memdesc:a59e01eb7b3d3e1f3b5da9e99091fb0cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущий уровень мощности  <br /></td></tr>
+<tr class="memdesc:a59e01eb7b3d3e1f3b5da9e99091fb0cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущую мощность нагревателя  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Открытые члены унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
-<tr class="memitem:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device" id="r_a79a16249c291375887527b03d8ff287a"><td class="memItemLeft">
-&#160;</td><td class="memItemRight"><b>BaseDevice</b> (const std::string &amp;type)</td></tr>
+<tr class="memitem:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device" id="r_a79a16249c291375887527b03d8ff287a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a79a16249c291375887527b03d8ff287a">BaseDevice</a> (const std::string &amp;type)</td></tr>
+<tr class="memdesc:a79a16249c291375887527b03d8ff287a inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор базового устройства  <br /></td></tr>
 <tr class="memitem:a1e54fb0a6f63b7f68976f50562e598dd inherit pub_methods_class_base_device" id="r_a1e54fb0a6f63b7f68976f50562e598dd"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a1e54fb0a6f63b7f68976f50562e598dd">getType</a> () const override</td></tr>
 <tr class="memdesc:a1e54fb0a6f63b7f68976f50562e598dd inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить тип устройства  <br /></td></tr>
 <tr class="memitem:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device" id="r_a4f3f311d11f61ae71a5e1e7510d88fe2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="class_base_device.html#a4f3f311d11f61ae71a5e1e7510d88fe2">getId</a> () const override</td></tr>
-<tr class="memdesc:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор устройства  <br /></td></tr>
+<tr class="memdesc:a4f3f311d11f61ae71a5e1e7510d88fe2 inherit pub_methods_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить уникальный идентификатор  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Дополнительные унаследованные члены</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Защищенные данные унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
 <tr class="memitem:af517d54d68e654e92992b48cc4167900 inherit pro_attribs_class_base_device" id="r_af517d54d68e654e92992b48cc4167900"><td class="memItemLeft">
 std::string&#160;</td><td class="memItemRight"><b>m_type</b></td></tr>
+<tr class="memdesc:af517d54d68e654e92992b48cc4167900 inherit pro_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тип устройства <br /></td></tr>
 <tr class="memitem:ac5e605f370131274dc810a8c30a0fa50 inherit pro_attribs_class_base_device" id="r_ac5e605f370131274dc810a8c30a0fa50"><td class="memItemLeft">
 int&#160;</td><td class="memItemRight"><b>m_id</b></td></tr>
+<tr class="memdesc:ac5e605f370131274dc810a8c30a0fa50 inherit pro_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Уникальный идентификатор <br /></td></tr>
 <tr class="inherit_header pro_static_attribs_class_base_device"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_attribs_class_base_device')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Статические защищенные данные унаследованные от <a class="el" href="class_base_device.html">BaseDevice</a></td></tr>
 <tr class="memitem:abb435477d35b79bc4e7a039e7245401a inherit pro_static_attribs_class_base_device" id="r_abb435477d35b79bc4e7a039e7245401a"><td class="memItemLeft">
 static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
+<tr class="memdesc:abb435477d35b79bc4e7a039e7245401a inherit pro_static_attribs_class_base_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Статический счетчик для генерации ID. <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Нагреватель для повышения температуры в теплице </p>
+<p>Поддерживает плавную регулировку мощности (0-100%). Реализует интерфейсы <a class="el" href="class_i_device.html" title="Базовый интерфейс для всех исполнительных устройств">IDevice</a> и <a class="el" href="class_i_adjustable_device.html" title="Интерфейс для устройств с плавной регулировкой мощности">IAdjustableDevice</a>. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
 <a id="a59e01eb7b3d3e1f3b5da9e99091fb0cc" name="a59e01eb7b3d3e1f3b5da9e99091fb0cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59e01eb7b3d3e1f3b5da9e99091fb0cc">&#9670;&#160;</a></span>getPower()</h2>
 
@@ -159,8 +170,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Получить текущий уровень мощности </p>
-<dl class="section return"><dt>Возвращает</dt><dd>Мощность в процентах (0-100) </dd></dl>
+<p>Получить текущую мощность нагревателя </p>
 
 <p>Замещает <a class="el" href="class_i_adjustable_device.html#ad60e48bbc02feda62fdc7e74e52e15b2">IAdjustableDevice</a>.</p>
 
@@ -189,8 +199,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Проверить состояние устройства </p>
-<dl class="section return"><dt>Возвращает</dt><dd>true - устройство включено, false - выключено </dd></dl>
+<p>Включён ли нагреватель </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a05674c4a0c6e60482ac079b999962ae0">IDevice</a>.</p>
 
@@ -219,13 +228,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Установить уровень мощности </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">level</td><td>Мощность в процентах (0-100) </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Изменить мощность нагревателя </p>
 
 <p>Замещает <a class="el" href="class_i_adjustable_device.html#a515f093a3e2b560ee2efb2212945613c">IAdjustableDevice</a>.</p>
 
@@ -254,7 +257,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Выключить устройство </p>
+<p>Выкл нагреватель </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a58a1977682e9e12a37f47b076666ab28">IDevice</a>.</p>
 
@@ -283,7 +286,7 @@ static int&#160;</td><td class="memItemRight"><b>s_next_id</b> = 1</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Включить устройство </p>
+<p>Вкл нагреватель </p>
 
 <p>Замещает <a class="el" href="class_i_device.html#a54f243fdef2eecbbce9604db16054fe9">IDevice</a>.</p>
 
