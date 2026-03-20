@@ -11,8 +11,9 @@ var hierarchy =
       [ "SafetyProxyManager", "class_safety_proxy_manager.html", null ]
     ] ],
     [ "IConfigManager", "class_i_config_manager.html", [
-      [ "ConfigManager", "class_config_manager.html", null ],
-      [ "ExtendedConfigManager", "class_extended_config_manager.html", null ]
+      [ "ConfigManager", "class_config_manager.html", [
+        [ "ExtendedConfigManager", "class_extended_config_manager.html", null ]
+      ] ]
     ] ],
     [ "IDataProvider", "class_i_data_provider.html", [
       [ "SimulationModel", "class_simulation_model.html", null ]
@@ -26,6 +27,9 @@ var hierarchy =
         [ "Lamp", "class_lamp.html", null ],
         [ "Ventilation", "class_ventilation.html", null ]
       ] ]
+    ] ],
+    [ "IEmergencyStrategy", "class_i_emergency_strategy.html", [
+      [ "TemperatureEmergencyStrategy", "class_temperature_emergency_strategy.html", null ]
     ] ],
     [ "IIOManager", "class_i_i_o_manager.html", [
       [ "IOManager", "class_i_o_manager.html", null ]

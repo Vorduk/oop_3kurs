@@ -92,6 +92,11 @@ $(function(){initNavTree('class_climate_manager.html','','class_climate_manager-
   <div class="headertitle"><div class="title">Класс ClimateManager</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Менеджер климата, реализующий логику поддержания микроклимата  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_climate_manager_8h_source.html">ClimateManager.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:ClimateManager:</div>
 <div class="dyncontent">
@@ -105,17 +110,45 @@ $(function(){initNavTree('class_climate_manager.html','','class_climate_manager-
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a0fc093688cddd503c667bc872479cd0f" id="r_a0fc093688cddd503c667bc872479cd0f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0fc093688cddd503c667bc872479cd0f">setTargetParameters</a> (const std::map&lt; std::string, double &gt; &amp;targets) override</td></tr>
-<tr class="memdesc:a0fc093688cddd503c667bc872479cd0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить целевые параметры микроклимата  <br /></td></tr>
+<tr class="memdesc:a0fc093688cddd503c667bc872479cd0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить целевые значения параметров микроклимата  <br /></td></tr>
 <tr class="memitem:a2d8a2148eeee2479fcb1a729d198db1c" id="r_a2d8a2148eeee2479fcb1a729d198db1c"><td class="memItemLeft">std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2d8a2148eeee2479fcb1a729d198db1c">calculateCommands</a> (const std::map&lt; std::string, double &gt; &amp;current_readings) override</td></tr>
-<tr class="memdesc:a2d8a2148eeee2479fcb1a729d198db1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитать управляющие команды для устройств  <br /></td></tr>
-<tr class="memitem:ac8821822a72afbf8f49acbd5fbeccaed" id="r_ac8821822a72afbf8f49acbd5fbeccaed"><td class="memItemLeft"><a id="ac8821822a72afbf8f49acbd5fbeccaed" name="ac8821822a72afbf8f49acbd5fbeccaed"></a>
-void&#160;</td><td class="memItemRight"><b>setMapping</b> (const std::string &amp;parameter, const std::string &amp;device_type)</td></tr>
-<tr class="memitem:aa3b76b04d8afb5d0950315185758c7f7" id="r_aa3b76b04d8afb5d0950315185758c7f7"><td class="memItemLeft"><a id="aa3b76b04d8afb5d0950315185758c7f7" name="aa3b76b04d8afb5d0950315185758c7f7"></a>
-void&#160;</td><td class="memItemRight"><b>setRegulator</b> (const std::string &amp;parameter, std::shared_ptr&lt; <a class="el" href="class_i_regulator.html">IRegulator</a> &gt; regulator)</td></tr>
-<tr class="memitem:a76c50dd8160001cdc82b9e44d8023867" id="r_a76c50dd8160001cdc82b9e44d8023867"><td class="memItemLeft"><a id="a76c50dd8160001cdc82b9e44d8023867" name="a76c50dd8160001cdc82b9e44d8023867"></a>
-void&#160;</td><td class="memItemRight"><b>setHysteresis</b> (double temp_hysteresis, double humidity_hysteresis, double soil_hysteresis)</td></tr>
+<tr class="memdesc:a2d8a2148eeee2479fcb1a729d198db1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитать управляющие команды на основе текущих показаний  <br /></td></tr>
+<tr class="memitem:aef062672708809f0bf5ac81971a36b87" id="r_aef062672708809f0bf5ac81971a36b87"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aef062672708809f0bf5ac81971a36b87">addStrategy</a> (std::shared_ptr&lt; <a class="el" href="class_control_strategy.html">ControlStrategy</a> &gt; strategy)</td></tr>
+<tr class="memdesc:aef062672708809f0bf5ac81971a36b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавить стратегию управления (паттерн Делегирования).  <br /></td></tr>
+<tr class="memitem:aa3b76b04d8afb5d0950315185758c7f7" id="r_aa3b76b04d8afb5d0950315185758c7f7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa3b76b04d8afb5d0950315185758c7f7">setRegulator</a> (const std::string &amp;parameter, std::shared_ptr&lt; <a class="el" href="class_i_regulator.html">IRegulator</a> &gt; regulator)</td></tr>
+<tr class="memdesc:aa3b76b04d8afb5d0950315185758c7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить регулятор для параметра (удобный метод-обёртка).  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Менеджер климата, реализующий логику поддержания микроклимата </p>
+<p>Вычисление управляющих сигналов делегируется объектам <a class="el" href="class_control_strategy.html" title="Стратегия управления одним параметром микроклимата">ControlStrategy</a>, которые инкапсулируют логику управления для каждого параметра (температура, влажность и т.д.).</p>
+<p>Каждая стратегия знает: какой параметр контролирует какие устройства использует какой регулятор применяет (PID, On/Off и т.д.)</p>
+<p><a class="el" href="class_climate_manager.html" title="Менеджер климата, реализующий логику поддержания микроклимата">ClimateManager</a> собирает команды от всех стратегий и объединяет их, разрешая конфликты (например, если два параметра пытаются управлять одним устройством, выбирается максимальная мощность). </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="aef062672708809f0bf5ac81971a36b87" name="aef062672708809f0bf5ac81971a36b87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef062672708809f0bf5ac81971a36b87">&#9670;&#160;</a></span>addStrategy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClimateManager::addStrategy </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_control_strategy.html">ControlStrategy</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>strategy</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Добавить стратегию управления (паттерн Делегирования). </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">strategy</td><td>Умный указатель на стратегию </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a2d8a2148eeee2479fcb1a729d198db1c" name="a2d8a2148eeee2479fcb1a729d198db1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d8a2148eeee2479fcb1a729d198db1c">&#9670;&#160;</a></span>calculateCommands()</h2>
 
@@ -128,7 +161,7 @@ void&#160;</td><td class="memItemRight"><b>setHysteresis</b> (double temp_hyster
         <tr>
           <td class="memname">std::map&lt; std::string, int &gt; ClimateManager::calculateCommands </td>
           <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>currentReadings</em></span></td><td>)</td>
+          <td class="paramtype">const std::map&lt; std::string, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>current_readings</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -139,18 +172,47 @@ void&#160;</td><td class="memItemRight"><b>setHysteresis</b> (double temp_hyster
 </table>
 </div><div class="memdoc">
 
-<p>Рассчитать управляющие команды для устройств </p>
-<p>На основе текущих показаний датчиков и ранее установленных целевых параметров вычисляет, какие устройства и с какой мощностью должны работать.</p>
+<p>Рассчитать управляющие команды на основе текущих показаний </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">currentReadings</td><td>Текущие показания всех датчиков (параметр -&gt; текущее значение)</td></tr>
+    <tr><td class="paramname">current_readings</td><td>Текущие показания датчиков </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Возвращает</dt><dd>std::map&lt;std::string, int&gt; команда -&gt; мощность Ключ: тип устройства ("heater", "conditioner", "air_humidifier" и т.д.) Значение: уровень мощности в процентах (0-100)</dd></dl>
-<dl class="section note"><dt>Заметки</dt><dd>Положительное значение для устройства означает "включить с указанной мощностью" Значение 0 означает "выключить устройство" </dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd>map "тип устройства -&gt; мощность (0-100)" </dd></dl>
 
 <p>Замещает <a class="el" href="class_i_climate_manager.html#a4eefed9774f941dd770a7843613c80b2">IClimateManager</a>.</p>
+
+</div>
+</div>
+<a id="aa3b76b04d8afb5d0950315185758c7f7" name="aa3b76b04d8afb5d0950315185758c7f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3b76b04d8afb5d0950315185758c7f7">&#9670;&#160;</a></span>setRegulator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClimateManager::setRegulator </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>parameter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_i_regulator.html">IRegulator</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>regulator</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установить регулятор для параметра (удобный метод-обёртка). </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Имя параметра ("temperature", "air_humidity" и т.д.) </td></tr>
+    <tr><td class="paramname">regulator</td><td>Умный указатель на регулятор</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Если стратегия для указанного параметра уже существует, регулятор назначается ей. Если нет — создаётся новая стратегия. Для параметра "temperature" автоматически создаётся стратегия с двумя устройствами (heater и conditioner). </p>
 
 </div>
 </div>
@@ -177,15 +239,13 @@ void&#160;</td><td class="memItemRight"><b>setHysteresis</b> (double temp_hyster
 </table>
 </div><div class="memdoc">
 
-<p>Установить целевые параметры микроклимата </p>
-<p>Задает желаемые значения параметров, к которым система должна стремиться. Ключи — имена параметров ("temperature", "air_humidity", "soil_moisture").</p>
+<p>Установить целевые значения параметров микроклимата </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">targets</td><td>Ассоциативный массив параметр -&gt; целевое значение</td></tr>
+    <tr><td class="paramname">targets</td><td>map "параметр -&gt; целевое значение" </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Заметки</dt><dd>Целевые параметры сохраняются внутри менеджера и используются при каждом вызове <a class="el" href="#a2d8a2148eeee2479fcb1a729d198db1c" title="Рассчитать управляющие команды для устройств">calculateCommands()</a>. </dd></dl>
 
 <p>Замещает <a class="el" href="class_i_climate_manager.html#a73d0c7d23b679757c8cf1ce1606a93af">IClimateManager</a>.</p>
 

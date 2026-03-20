@@ -92,6 +92,11 @@ $(function(){initNavTree('class_simulation_engine.html','','class_simulation_eng
   <div class="headertitle"><div class="title">Класс SimulationEngine</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Движок симуляции системы управления теплицей  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_simulation_engine_8h_source.html">SimulationEngine.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:SimulationEngine:</div>
 <div class="dyncontent">
@@ -104,20 +109,134 @@ $(function(){initNavTree('class_simulation_engine.html','','class_simulation_eng
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a506a0edc735a194e7101a768ae726aeb" id="r_a506a0edc735a194e7101a768ae726aeb"><td class="memItemLeft"><a id="a506a0edc735a194e7101a768ae726aeb" name="a506a0edc735a194e7101a768ae726aeb"></a>
-&#160;</td><td class="memItemRight"><b>SimulationEngine</b> (std::shared_ptr&lt; <a class="el" href="class_simulation_model.html">SimulationModel</a> &gt; model, std::shared_ptr&lt; <a class="el" href="class_i_o_manager.html">IOManager</a> &gt; io_manager)</td></tr>
+<tr class="memitem:a506a0edc735a194e7101a768ae726aeb" id="r_a506a0edc735a194e7101a768ae726aeb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a506a0edc735a194e7101a768ae726aeb">SimulationEngine</a> (std::shared_ptr&lt; <a class="el" href="class_simulation_model.html">SimulationModel</a> &gt; model, std::shared_ptr&lt; <a class="el" href="class_i_o_manager.html">IOManager</a> &gt; io_manager)</td></tr>
+<tr class="memdesc:a506a0edc735a194e7101a768ae726aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор движка симуляции  <br /></td></tr>
 <tr class="memitem:ab363eff2cbcf9b0622f8749c3acf1499" id="r_ab363eff2cbcf9b0622f8749c3acf1499"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab363eff2cbcf9b0622f8749c3acf1499">start</a> () override</td></tr>
-<tr class="memdesc:ab363eff2cbcf9b0622f8749c3acf1499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запустить цикл управления  <br /></td></tr>
+<tr class="memdesc:ab363eff2cbcf9b0622f8749c3acf1499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запустить основной цикл управления  <br /></td></tr>
 <tr class="memitem:a169304d5cff6722dc2446213ced1247c" id="r_a169304d5cff6722dc2446213ced1247c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a169304d5cff6722dc2446213ced1247c">stop</a> () override</td></tr>
 <tr class="memdesc:a169304d5cff6722dc2446213ced1247c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Остановить цикл управления  <br /></td></tr>
-<tr class="memitem:a68850029473227f4039092348b12269c" id="r_a68850029473227f4039092348b12269c"><td class="memItemLeft"><a id="a68850029473227f4039092348b12269c" name="a68850029473227f4039092348b12269c"></a>
-void&#160;</td><td class="memItemRight"><b>setClimateManager</b> (std::shared_ptr&lt; <a class="el" href="class_i_climate_manager.html">IClimateManager</a> &gt; manager)</td></tr>
-<tr class="memitem:a40c00526809b85b2c1e623e16d282de3" id="r_a40c00526809b85b2c1e623e16d282de3"><td class="memItemLeft"><a id="a40c00526809b85b2c1e623e16d282de3" name="a40c00526809b85b2c1e623e16d282de3"></a>
-void&#160;</td><td class="memItemRight"><b>setConfigManager</b> (std::shared_ptr&lt; <a class="el" href="class_i_config_manager.html">IConfigManager</a> &gt; manager)</td></tr>
-<tr class="memitem:ab00f8a668169c731ae81d63080270324" id="r_ab00f8a668169c731ae81d63080270324"><td class="memItemLeft"><a id="ab00f8a668169c731ae81d63080270324" name="ab00f8a668169c731ae81d63080270324"></a>
-void&#160;</td><td class="memItemRight"><b>setupSchedules</b> (<a class="el" href="class_extended_config_manager.html">ExtendedConfigManager</a> *configManager)</td></tr>
+<tr class="memitem:a68850029473227f4039092348b12269c" id="r_a68850029473227f4039092348b12269c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a68850029473227f4039092348b12269c">setClimateManager</a> (std::shared_ptr&lt; <a class="el" href="class_i_climate_manager.html">IClimateManager</a> &gt; manager)</td></tr>
+<tr class="memdesc:a68850029473227f4039092348b12269c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить менеджер климата (внедрение зависимости).  <br /></td></tr>
+<tr class="memitem:a40c00526809b85b2c1e623e16d282de3" id="r_a40c00526809b85b2c1e623e16d282de3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a40c00526809b85b2c1e623e16d282de3">setConfigManager</a> (std::shared_ptr&lt; <a class="el" href="class_i_config_manager.html">IConfigManager</a> &gt; manager)</td></tr>
+<tr class="memdesc:a40c00526809b85b2c1e623e16d282de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить менеджер конфигурации (внедрение зависимости).  <br /></td></tr>
+<tr class="memitem:ab00f8a668169c731ae81d63080270324" id="r_ab00f8a668169c731ae81d63080270324"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab00f8a668169c731ae81d63080270324">setupSchedules</a> (<a class="el" href="class_extended_config_manager.html">ExtendedConfigManager</a> *configManager)</td></tr>
+<tr class="memdesc:ab00f8a668169c731ae81d63080270324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Настроить периодические задачи (расписания).  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Движок симуляции системы управления теплицей </p>
+<p>Центральный компонент, реализующий основной цикл управления. Координирует работу всех остальных компонентов: Сбор показаний с датчиков (через <a class="el" href="class_i_o_manager.html">IOManager</a>) Получение целевых параметров (через <a class="el" href="class_i_config_manager.html" title="Интерфейс менеджера целевых конфигураций">IConfigManager</a>) Расчёт управляющих команд (через <a class="el" href="class_i_climate_manager.html" title="Интерфейс менеджера климата">IClimateManager</a>) Применение команд к устройствам (через <a class="el" href="class_i_o_manager.html">IOManager</a>) Обновление модели симуляции </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a506a0edc735a194e7101a768ae726aeb" name="a506a0edc735a194e7101a768ae726aeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a506a0edc735a194e7101a768ae726aeb">&#9670;&#160;</a></span>SimulationEngine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SimulationEngine::SimulationEngine </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_simulation_model.html">SimulationModel</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>model</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_i_o_manager.html">IOManager</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>io_manager</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор движка симуляции </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model</td><td>Модель симуляции (источник данных для датчиков) </td></tr>
+    <tr><td class="paramname">io_manager</td><td>Менеджер ввода/вывода (датчики и устройства)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Инициализирует компоненты. Движок не запускается автоматически — требуется явный вызов <a class="el" href="#ab363eff2cbcf9b0622f8749c3acf1499" title="Запустить основной цикл управления">start()</a> после конфигурации. </p>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a68850029473227f4039092348b12269c" name="a68850029473227f4039092348b12269c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68850029473227f4039092348b12269c">&#9670;&#160;</a></span>setClimateManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationEngine::setClimateManager </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_i_climate_manager.html">IClimateManager</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>manager</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установить менеджер климата (внедрение зависимости). </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">manager</td><td>Умный указатель на менеджер климата</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Позволяет подменить реальный менеджер на прокси для добавления проверок безопасности без изменения кода движка. </p>
+
+</div>
+</div>
+<a id="a40c00526809b85b2c1e623e16d282de3" name="a40c00526809b85b2c1e623e16d282de3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40c00526809b85b2c1e623e16d282de3">&#9670;&#160;</a></span>setConfigManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationEngine::setConfigManager </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_i_config_manager.html">IConfigManager</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>manager</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установить менеджер конфигурации (внедрение зависимости). </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">manager</td><td>Умный указатель на менеджер конфигурации </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab00f8a668169c731ae81d63080270324" name="ab00f8a668169c731ae81d63080270324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab00f8a668169c731ae81d63080270324">&#9670;&#160;</a></span>setupSchedules()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationEngine::setupSchedules </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_extended_config_manager.html">ExtendedConfigManager</a> *</td>          <td class="paramname"><span class="paramname"><em>configManager</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Настроить периодические задачи (расписания). </p>
+<p>Настройка периодических задач по расписанию</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">configManager</td><td>Расширенный менеджер конфигурации с расписаниями</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Создаёт фоновые таймеры для устройств, которые должны работать по расписанию (вентиляция, лампы).</p>
+<p>Создаёт фоновые потоки для каждого устройства с расписанием. Каждый таймер в отдельном потоке периодически вызывает applyScheduledCommand() для своего устройства. </p>
+
+</div>
+</div>
 <a id="ab363eff2cbcf9b0622f8749c3acf1499" name="ab363eff2cbcf9b0622f8749c3acf1499"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab363eff2cbcf9b0622f8749c3acf1499">&#9670;&#160;</a></span>start()</h2>
 
@@ -141,7 +260,10 @@ void&#160;</td><td class="memItemRight"><b>setupSchedules</b> (<a class="el" hre
 </table>
 </div><div class="memdoc">
 
-<p>Запустить цикл управления </p>
+<p>Запустить основной цикл управления </p>
+<p>Основной цикл управления</p>
+<p>Запускает бесконечный цикл, в котором: Считываются показания всех датчиков Вычисляются управляющие команды Команды применяются к устройствам Модель симуляции обновляется Пауза 2 секунды</p>
+<p>Работает в главном потоке. Проверка наличия всех компонентов Установка целевых параметров в <a class="el" href="class_climate_manager.html" title="Менеджер климата, реализующий логику поддержания микроклимата">ClimateManager</a> Бесконечный цикл (пока m_is_running == true): Чтение показаний всех датчиков Преобразование ID датчиков в имена параметров Вывод текущих показаний в консоль Расчёт управляющих команд (делегирование <a class="el" href="class_climate_manager.html" title="Менеджер климата, реализующий логику поддержания микроклимата">ClimateManager</a>) Применение команд к устройствам и модели Обновление модели симуляции (естественные процессы + эффекты устройств) Вывод текущего состояния модели Пауза 2 секунды </p>
 
 <p>Замещает <a class="el" href="class_i_simulation_engine.html#a57db60e16b59c9a848bc9d814b30ce4b">ISimulationEngine</a>.</p>
 
@@ -171,6 +293,9 @@ void&#160;</td><td class="memItemRight"><b>setupSchedules</b> (<a class="el" hre
 </div><div class="memdoc">
 
 <p>Остановить цикл управления </p>
+<p>Остановка цикла управления</p>
+<p>Сигнализирует о завершении работы и дожидается остановки всех фоновых таймеров (расписаний)</p>
+<p>Устанавливает флаг m_is_running = false, что приводит к завершению главного цикла в методе <a class="el" href="#ab363eff2cbcf9b0622f8749c3acf1499" title="Запустить основной цикл управления">start()</a>. Затем дожидается остановки всех фоновых таймеров (расписаний). </p>
 
 <p>Замещает <a class="el" href="class_i_simulation_engine.html#a620fd240be91a112b1545bc82698f354">ISimulationEngine</a>.</p>
 

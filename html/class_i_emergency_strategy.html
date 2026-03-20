@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ООП 3 Курс: Класс IEmergencyStrategy</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ООП 3 Курс
+   </div>
+   <div id="projectbrief">Лабы по ооп</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_i_emergency_strategy.html','','class_i_emergency_strategy-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс IEmergencyStrategy<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Интерфейс стратегии аварийного реагирования  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_emergency_strategy_8h_source.html">IEmergencyStrategy.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:IEmergencyStrategy:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_i_emergency_strategy.png" usemap="#IEmergencyStrategy_map" alt=""/>
+  <map id="IEmergencyStrategy_map" name="IEmergencyStrategy_map">
+<area href="class_temperature_emergency_strategy.html" title="Конкретная стратегия для температурно-влажностных аварий" alt="TemperatureEmergencyStrategy" shape="rect" coords="0,56,194,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a52279462591e74db8722b3abb5280050" id="r_a52279462591e74db8722b3abb5280050"><td class="memItemLeft">virtual std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a52279462591e74db8722b3abb5280050">getEmergencyCommands</a> () const =0</td></tr>
+<tr class="memdesc:a52279462591e74db8722b3abb5280050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить команды для аварийной ситуации  <br /></td></tr>
+<tr class="memitem:a27dcdcce857cca4578fa8a4f3d455960" id="r_a27dcdcce857cca4578fa8a4f3d455960"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a27dcdcce857cca4578fa8a4f3d455960">isEmergency</a> (const std::map&lt; std::string, double &gt; &amp;readings, std::string &amp;reason) const =0</td></tr>
+<tr class="memdesc:a27dcdcce857cca4578fa8a4f3d455960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить, является ли ситуация аварийной  <br /></td></tr>
+<tr class="memitem:acd083ab7a4f884d22767960c08bc3877" id="r_acd083ab7a4f884d22767960c08bc3877"><td class="memItemLeft">virtual std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight"><a class="el" href="#acd083ab7a4f884d22767960c08bc3877">filterDangerousCommands</a> (const std::map&lt; std::string, int &gt; &amp;commands, const std::map&lt; std::string, double &gt; &amp;readings) const</td></tr>
+<tr class="memdesc:acd083ab7a4f884d22767960c08bc3877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отфильтровать опасные команды в штатном режиме  <br /></td></tr>
+<tr class="memitem:a2f1396fb3a1434d1caae34143b56f8b8" id="r_a2f1396fb3a1434d1caae34143b56f8b8"><td class="memItemLeft"><a id="a2f1396fb3a1434d1caae34143b56f8b8" name="a2f1396fb3a1434d1caae34143b56f8b8"></a>
+virtual std::string&#160;</td><td class="memItemRight"><b>getName</b> () const =0</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс стратегии аварийного реагирования </p>
+<p>Паттерн Delegation: <a class="el" href="class_safety_proxy_manager.html" title="Паттерн Proxy: заместитель для IClimateManager с проверкой безопасности">SafetyProxyManager</a> делегирует логику аварийных команд специализированным стратегиям. Это позволяет легко добавлять новые типы аварий (пожар, наводнение, поломка датчиков) без изменения прокси. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="acd083ab7a4f884d22767960c08bc3877" name="acd083ab7a4f884d22767960c08bc3877"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd083ab7a4f884d22767960c08bc3877">&#9670;&#160;</a></span>filterDangerousCommands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::map&lt; std::string, int &gt; IEmergencyStrategy::filterDangerousCommands </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; std::string, int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>commands</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::map&lt; std::string, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>readings</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Отфильтровать опасные команды в штатном режиме </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commands</td><td>Команды от реального менеджера </td></tr>
+    <tr><td class="paramname">readings</td><td>Текущие показания </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Отфильтрованные безопасные команды </dd></dl>
+
+<p>Переопределяется в <a class="el" href="class_temperature_emergency_strategy.html#aaaacc8e2a4799513c4a5af2f6c173ac8">TemperatureEmergencyStrategy</a>.</p>
+
+</div>
+</div>
+<a id="a52279462591e74db8722b3abb5280050" name="a52279462591e74db8722b3abb5280050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52279462591e74db8722b3abb5280050">&#9670;&#160;</a></span>getEmergencyCommands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::map&lt; std::string, int &gt; IEmergencyStrategy::getEmergencyCommands </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить команды для аварийной ситуации </p>
+<dl class="section return"><dt>Возвращает</dt><dd>map устройство -&gt; мощность/режим </dd></dl>
+
+<p>Замещается в <a class="el" href="class_temperature_emergency_strategy.html#af4f30c858597962dc2e313417566d1c2">TemperatureEmergencyStrategy</a>.</p>
+
+</div>
+</div>
+<a id="a27dcdcce857cca4578fa8a4f3d455960" name="a27dcdcce857cca4578fa8a4f3d455960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27dcdcce857cca4578fa8a4f3d455960">&#9670;&#160;</a></span>isEmergency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IEmergencyStrategy::isEmergency </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; std::string, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>readings</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>reason</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверить, является ли ситуация аварийной </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">readings</td><td>Текущие показания датчиков </td></tr>
+    <tr><td class="paramname">reason</td><td>[out] Причина аварии (для логирования) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true - авария, false - штатный режим </dd></dl>
+
+<p>Замещается в <a class="el" href="class_temperature_emergency_strategy.html#af0396abc097d6b2ce9d8f8c1d707556b">TemperatureEmergencyStrategy</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li><a class="el" href="_i_emergency_strategy_8h_source.html">IEmergencyStrategy.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_i_emergency_strategy.html">IEmergencyStrategy</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

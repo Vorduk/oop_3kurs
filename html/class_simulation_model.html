@@ -92,6 +92,11 @@ $(function(){initNavTree('class_simulation_model.html','','class_simulation_mode
   <div class="headertitle"><div class="title">Класс SimulationModel</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Модель симуляции физических процессов в теплице  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_simulation_model_8h_source.html">SimulationModel.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:SimulationModel:</div>
 <div class="dyncontent">
@@ -104,32 +109,245 @@ $(function(){initNavTree('class_simulation_model.html','','class_simulation_mode
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a84aea669cd2a0b78ac88da8e0e97a4ea" id="r_a84aea669cd2a0b78ac88da8e0e97a4ea"><td class="memItemLeft"><a id="a84aea669cd2a0b78ac88da8e0e97a4ea" name="a84aea669cd2a0b78ac88da8e0e97a4ea"></a>
-&#160;</td><td class="memItemRight"><b>SimulationModel</b> (double initial_temperature, double initial_air_humidity, double initial_soil_moisture)</td></tr>
+<tr class="memitem:a84aea669cd2a0b78ac88da8e0e97a4ea" id="r_a84aea669cd2a0b78ac88da8e0e97a4ea"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a84aea669cd2a0b78ac88da8e0e97a4ea">SimulationModel</a> (double initial_temperature, double initial_air_humidity, double initial_soil_moisture)</td></tr>
+<tr class="memdesc:a84aea669cd2a0b78ac88da8e0e97a4ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор модели симуляции  <br /></td></tr>
 <tr class="memitem:aff08fa80a897fc2b53ed0ee8e608e335" id="r_aff08fa80a897fc2b53ed0ee8e608e335"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#aff08fa80a897fc2b53ed0ee8e608e335">getTemperature</a> () const override</td></tr>
 <tr class="memdesc:aff08fa80a897fc2b53ed0ee8e608e335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущую температуру воздуха  <br /></td></tr>
 <tr class="memitem:a947d6d47232dec63abe5bfee94fa82ba" id="r_a947d6d47232dec63abe5bfee94fa82ba"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a947d6d47232dec63abe5bfee94fa82ba">getAirHumidity</a> () const override</td></tr>
 <tr class="memdesc:a947d6d47232dec63abe5bfee94fa82ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущую влажность воздуха  <br /></td></tr>
 <tr class="memitem:ae8ac3c362d2e0f5cc33028eacc92476e" id="r_ae8ac3c362d2e0f5cc33028eacc92476e"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ae8ac3c362d2e0f5cc33028eacc92476e">getSoilMoisture</a> () const override</td></tr>
 <tr class="memdesc:ae8ac3c362d2e0f5cc33028eacc92476e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущую влажность почвы  <br /></td></tr>
-<tr class="memitem:ae008da20e685bc6951dcef3ed78c0d5f" id="r_ae008da20e685bc6951dcef3ed78c0d5f"><td class="memItemLeft"><a id="ae008da20e685bc6951dcef3ed78c0d5f" name="ae008da20e685bc6951dcef3ed78c0d5f"></a>
-void&#160;</td><td class="memItemRight"><b>update</b> ()</td></tr>
-<tr class="memitem:ab81c87bc867db903b0db26a5e5a9a3c7" id="r_ab81c87bc867db903b0db26a5e5a9a3c7"><td class="memItemLeft"><a id="ab81c87bc867db903b0db26a5e5a9a3c7" name="ab81c87bc867db903b0db26a5e5a9a3c7"></a>
-void&#160;</td><td class="memItemRight"><b>printParameters</b> () const</td></tr>
-<tr class="memitem:aa7c42abdd9c481ef1509e7bdea4f9739" id="r_aa7c42abdd9c481ef1509e7bdea4f9739"><td class="memItemLeft"><a id="aa7c42abdd9c481ef1509e7bdea4f9739" name="aa7c42abdd9c481ef1509e7bdea4f9739"></a>
-void&#160;</td><td class="memItemRight"><b>applyHeaterEffect</b> (int powerLevel)</td></tr>
-<tr class="memitem:a0d434c87b3a592e7f8d9656cc8d181ff" id="r_a0d434c87b3a592e7f8d9656cc8d181ff"><td class="memItemLeft"><a id="a0d434c87b3a592e7f8d9656cc8d181ff" name="a0d434c87b3a592e7f8d9656cc8d181ff"></a>
-void&#160;</td><td class="memItemRight"><b>applyConditionerEffect</b> (int powerLevel)</td></tr>
-<tr class="memitem:aa54cdc9750bb20c20a53a69ce835c3e3" id="r_aa54cdc9750bb20c20a53a69ce835c3e3"><td class="memItemLeft"><a id="aa54cdc9750bb20c20a53a69ce835c3e3" name="aa54cdc9750bb20c20a53a69ce835c3e3"></a>
-void&#160;</td><td class="memItemRight"><b>applyHumidifierEffect</b> (int powerLevel)</td></tr>
-<tr class="memitem:a72ebd703f23b0202bc85b8467458624e" id="r_a72ebd703f23b0202bc85b8467458624e"><td class="memItemLeft"><a id="a72ebd703f23b0202bc85b8467458624e" name="a72ebd703f23b0202bc85b8467458624e"></a>
-void&#160;</td><td class="memItemRight"><b>applyIrrigationEffect</b> (int powerLevel)</td></tr>
-<tr class="memitem:afa54831b2e97f334b504cf82f16465c4" id="r_afa54831b2e97f334b504cf82f16465c4"><td class="memItemLeft"><a id="afa54831b2e97f334b504cf82f16465c4" name="afa54831b2e97f334b504cf82f16465c4"></a>
-void&#160;</td><td class="memItemRight"><b>applyVentilationEffect</b> (int powerLevel)</td></tr>
-<tr class="memitem:a635ffbd9fc55d78ae5ec2417c39387e2" id="r_a635ffbd9fc55d78ae5ec2417c39387e2"><td class="memItemLeft"><a id="a635ffbd9fc55d78ae5ec2417c39387e2" name="a635ffbd9fc55d78ae5ec2417c39387e2"></a>
-void&#160;</td><td class="memItemRight"><b>applyLampEffect</b> (int powerLevel)</td></tr>
+<tr class="memitem:ae008da20e685bc6951dcef3ed78c0d5f" id="r_ae008da20e685bc6951dcef3ed78c0d5f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae008da20e685bc6951dcef3ed78c0d5f">update</a> ()</td></tr>
+<tr class="memdesc:ae008da20e685bc6951dcef3ed78c0d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновление состояния модели на один шаг симуляции  <br /></td></tr>
+<tr class="memitem:ab81c87bc867db903b0db26a5e5a9a3c7" id="r_ab81c87bc867db903b0db26a5e5a9a3c7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab81c87bc867db903b0db26a5e5a9a3c7">printParameters</a> () const</td></tr>
+<tr class="memdesc:ab81c87bc867db903b0db26a5e5a9a3c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вывод текущих параметров в консоль  <br /></td></tr>
+<tr class="memitem:aa7c42abdd9c481ef1509e7bdea4f9739" id="r_aa7c42abdd9c481ef1509e7bdea4f9739"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa7c42abdd9c481ef1509e7bdea4f9739">applyHeaterEffect</a> (int powerLevel)</td></tr>
+<tr class="memdesc:aa7c42abdd9c481ef1509e7bdea4f9739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нагреватель (повышает температуру).  <br /></td></tr>
+<tr class="memitem:a0d434c87b3a592e7f8d9656cc8d181ff" id="r_a0d434c87b3a592e7f8d9656cc8d181ff"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0d434c87b3a592e7f8d9656cc8d181ff">applyConditionerEffect</a> (int powerLevel)</td></tr>
+<tr class="memdesc:a0d434c87b3a592e7f8d9656cc8d181ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Кондиционер (понижает температуру).  <br /></td></tr>
+<tr class="memitem:aa54cdc9750bb20c20a53a69ce835c3e3" id="r_aa54cdc9750bb20c20a53a69ce835c3e3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa54cdc9750bb20c20a53a69ce835c3e3">applyHumidifierEffect</a> (int powerLevel)</td></tr>
+<tr class="memdesc:aa54cdc9750bb20c20a53a69ce835c3e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Увлажнитель (повышает влажность воздуха).  <br /></td></tr>
+<tr class="memitem:a72ebd703f23b0202bc85b8467458624e" id="r_a72ebd703f23b0202bc85b8467458624e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a72ebd703f23b0202bc85b8467458624e">applyIrrigationEffect</a> (int powerLevel)</td></tr>
+<tr class="memdesc:a72ebd703f23b0202bc85b8467458624e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Полив (повышает влажность почвы).  <br /></td></tr>
+<tr class="memitem:afa54831b2e97f334b504cf82f16465c4" id="r_afa54831b2e97f334b504cf82f16465c4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afa54831b2e97f334b504cf82f16465c4">applyVentilationEffect</a> (int powerLevel)</td></tr>
+<tr class="memdesc:afa54831b2e97f334b504cf82f16465c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вентиляция (понижает T и влажность).  <br /></td></tr>
+<tr class="memitem:a635ffbd9fc55d78ae5ec2417c39387e2" id="r_a635ffbd9fc55d78ae5ec2417c39387e2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a635ffbd9fc55d78ae5ec2417c39387e2">applyLampEffect</a> (int powerLevel)</td></tr>
+<tr class="memdesc:a635ffbd9fc55d78ae5ec2417c39387e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Лампы (повышают температуру).  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Модель симуляции физических процессов в теплице </p>
+<p>Реализует интерфейс <a class="el" href="class_i_data_provider.html" title="Интерфейс поставщика данных о состоянии теплицы">IDataProvider</a>, предоставляя текущие значения параметров микроклимата датчикам.</p>
+<p>Модель симулирует Изменение температуры под действием нагревателей и кондиционеров Изменение влажности воздуха от увлажнителей и вентиляции Изменение влажности почвы от системы полива Естественные процессы (охлаждение, испарение, случайные флуктуации)</p>
+<p>Эффекты от устройств накапливаются в отдельных полях (m_heater_effect и т.д.) и применяются единовременно при вызове <a class="el" href="#ae008da20e685bc6951dcef3ed78c0d5f" title="Обновление состояния модели на один шаг симуляции">update()</a>.</p>
+<dl class="section note"><dt>Заметки</dt><dd>Использует подход "накопления эффектов": устройства вызывают applyXxxEffect(), а <a class="el" href="#ae008da20e685bc6951dcef3ed78c0d5f" title="Обновление состояния модели на один шаг симуляции">update()</a> суммирует все эффекты и применяет их. Это позволяет корректно обрабатывать команды от нескольких устройств. </dd></dl>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a84aea669cd2a0b78ac88da8e0e97a4ea" name="a84aea669cd2a0b78ac88da8e0e97a4ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84aea669cd2a0b78ac88da8e0e97a4ea">&#9670;&#160;</a></span>SimulationModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SimulationModel::SimulationModel </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>initial_temperature</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>initial_air_humidity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>initial_soil_moisture</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор модели симуляции </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initial_temperature</td><td>Начальная температура воздуха (°C) </td></tr>
+    <tr><td class="paramname">initial_air_humidity</td><td>Начальная влажность воздуха (%) </td></tr>
+    <tr><td class="paramname">initial_soil_moisture</td><td>Начальная влажность почвы (%)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Инициализирует начальные значения параметров и генератор случайных чисел. Все эффекты устройств изначально равны 0. </p>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a0d434c87b3a592e7f8d9656cc8d181ff" name="a0d434c87b3a592e7f8d9656cc8d181ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d434c87b3a592e7f8d9656cc8d181ff">&#9670;&#160;</a></span>applyConditionerEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationModel::applyConditionerEffect </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>powerLevel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Кондиционер (понижает температуру). </p>
+<p>Применить эффект кондиционера</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">powerLevel</td><td>Мощность кондиционера (0-100%)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Коэффициент преобразования: -0.02°C на 1% мощности При 100% мощности: -2.0°C за цикл</p>
+<dl class="section note"><dt>Заметки</dt><dd>Отрицательное значение, так как кондиционер охлаждает </dd></dl>
+
+</div>
+</div>
+<a id="aa7c42abdd9c481ef1509e7bdea4f9739" name="aa7c42abdd9c481ef1509e7bdea4f9739"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7c42abdd9c481ef1509e7bdea4f9739">&#9670;&#160;</a></span>applyHeaterEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationModel::applyHeaterEffect </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>powerLevel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Нагреватель (повышает температуру). </p>
+<p>Применить эффект нагревателя</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">powerLevel</td><td>Мощность нагревателя (0-100%)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Коэффициент преобразования: 0.025°C на 1% мощности При 100% мощности: +2.5°C за цикл </p>
+
+</div>
+</div>
+<a id="aa54cdc9750bb20c20a53a69ce835c3e3" name="aa54cdc9750bb20c20a53a69ce835c3e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa54cdc9750bb20c20a53a69ce835c3e3">&#9670;&#160;</a></span>applyHumidifierEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationModel::applyHumidifierEffect </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>powerLevel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Увлажнитель (повышает влажность воздуха). </p>
+<p>Применить эффект увлажнителя воздуха</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">powerLevel</td><td>Мощность увлажнителя (0-100%)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Коэффициент преобразования: +0.015% на 1% мощности При 100% мощности: +1.5% влажности за цикл </p>
+
+</div>
+</div>
+<a id="a72ebd703f23b0202bc85b8467458624e" name="a72ebd703f23b0202bc85b8467458624e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72ebd703f23b0202bc85b8467458624e">&#9670;&#160;</a></span>applyIrrigationEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationModel::applyIrrigationEffect </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>powerLevel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Полив (повышает влажность почвы). </p>
+<p>Применить эффект системы полива</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">powerLevel</td><td>Интенсивность полива (0-100%)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Коэффициент преобразования: +0.09% на 1% мощности При 100% мощности: +9.0% влажности почвы за цикл</p>
+<dl class="section note"><dt>Заметки</dt><dd>Полив имеет наибольший эффект среди всех устройств, так как влажность почвы меняется быстрее воздуха </dd></dl>
+
+</div>
+</div>
+<a id="a635ffbd9fc55d78ae5ec2417c39387e2" name="a635ffbd9fc55d78ae5ec2417c39387e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a635ffbd9fc55d78ae5ec2417c39387e2">&#9670;&#160;</a></span>applyLampEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationModel::applyLampEffect </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>powerLevel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Лампы (повышают температуру). </p>
+<p>Применить эффект ламп освещения</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">powerLevel</td><td>Мощность ламп (0-100%)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Коэффициент преобразования: +0.02°C на 1% мощности При 100% мощности: +2.0°C за цикл</p>
+<dl class="section note"><dt>Заметки</dt><dd>Лампы не влияют на влажность </dd></dl>
+
+</div>
+</div>
+<a id="afa54831b2e97f334b504cf82f16465c4" name="afa54831b2e97f334b504cf82f16465c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa54831b2e97f334b504cf82f16465c4">&#9670;&#160;</a></span>applyVentilationEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationModel::applyVentilationEffect </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>powerLevel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Вентиляция (понижает T и влажность). </p>
+<p>Применить эффект вентиляции</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">powerLevel</td><td>Мощность вентиляции (0-100%)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Вентиляция одновременно влияет на два параметра:</p><ul>
+<li>Температура: -0.015°C на 1% мощности</li>
+<li>Влажность воздуха: -0.01% на 1% мощности</li>
+</ul>
+<p>При 100% мощности: -1.5°C и -1.0% влажности </p>
+
+</div>
+</div>
 <a id="a947d6d47232dec63abe5bfee94fa82ba" name="a947d6d47232dec63abe5bfee94fa82ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a947d6d47232dec63abe5bfee94fa82ba">&#9670;&#160;</a></span>getAirHumidity()</h2>
 
@@ -217,6 +435,50 @@ void&#160;</td><td class="memItemRight"><b>applyLampEffect</b> (int powerLevel)<
 <dl class="section return"><dt>Возвращает</dt><dd>Температура в градусах Цельсия </dd></dl>
 
 <p>Замещает <a class="el" href="class_i_data_provider.html#a81aadd3ae1e6adc02619390ca06f393d">IDataProvider</a>.</p>
+
+</div>
+</div>
+<a id="ab81c87bc867db903b0db26a5e5a9a3c7" name="ab81c87bc867db903b0db26a5e5a9a3c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab81c87bc867db903b0db26a5e5a9a3c7">&#9670;&#160;</a></span>printParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationModel::printParameters </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Вывод текущих параметров в консоль </p>
+<p>Используется для мониторинга состояния системы в лабораторной работе</p>
+<p>Используется для визуального контроля работы системы в лабе. Вызывается каждый цикл управления. </p>
+
+</div>
+</div>
+<a id="ae008da20e685bc6951dcef3ed78c0d5f" name="ae008da20e685bc6951dcef3ed78c0d5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae008da20e685bc6951dcef3ed78c0d5f">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationModel::update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обновление состояния модели на один шаг симуляции </p>
+<p>Выполняет Применение накопленных эффектов от устройств Добавление случайного шума (имитация естественных колебаний) Естественное испарение и охлаждение Ограничение параметров допустимыми пределами Сброс накопленных эффектов</p>
+<dl class="section note"><dt>Заметки</dt><dd>Вызывается каждый цикл управления (раз в 2 секунды)</dd></dl>
+<p>Порядок applyDeviceEffects() — применить эффекты от устройств Добавить случайный шум — имитация естественных колебаний Естественное испарение — снижение влажности почвы и воздуха clampParameters() — ограничить параметры resetDeviceEffects() — сбросить эффекты для следующего цикла</p>
+<dl class="section note"><dt>Заметки</dt><dd>Важен порядок: сначала устройства, потом естественные процессы, чтобы эффекты не "съедались" испарением в том же цикле </dd></dl>
 
 </div>
 </div>

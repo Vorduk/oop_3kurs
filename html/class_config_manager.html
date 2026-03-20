@@ -93,7 +93,7 @@ $(function(){initNavTree('class_config_manager.html','','class_config_manager-me
 </div><!--header-->
 <div class="contents">
 
-<p>Менеджер конфигурации целевых параметров  
+<p>Базовый менеджер конфигурации для хранения целевых параметров микроклимата  
  <a href="#details">Подробнее...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_config_manager_8h_source.html">ConfigManager.h</a>&gt;</code></p>
@@ -103,23 +103,59 @@ $(function(){initNavTree('class_config_manager.html','','class_config_manager-me
  <div class="center">
   <img src="class_config_manager.png" usemap="#ConfigManager_map" alt=""/>
   <map id="ConfigManager_map" name="ConfigManager_map">
-<area href="class_i_config_manager.html" title="Интерфейс менеджера целевых конфигураций" alt="IConfigManager" shape="rect" coords="0,0,103,24"/>
+<area href="class_i_config_manager.html" title="Интерфейс менеджера целевых конфигураций" alt="IConfigManager" shape="rect" coords="0,0,152,24"/>
+<area href="class_extended_config_manager.html" alt="ExtendedConfigManager" shape="rect" coords="0,112,152,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
+<tr class="memitem:a7d3d7c10423d969f7544509f6fcca32f" id="r_a7d3d7c10423d969f7544509f6fcca32f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7d3d7c10423d969f7544509f6fcca32f">ConfigManager</a> ()</td></tr>
+<tr class="memdesc:a7d3d7c10423d969f7544509f6fcca32f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор, инициализирует параметры значениями по умолчанию  <br /></td></tr>
 <tr class="memitem:a647dd14fbd56d86599068a28840f69be" id="r_a647dd14fbd56d86599068a28840f69be"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a647dd14fbd56d86599068a28840f69be">getTargetParameter</a> (const std::string &amp;parameter) override</td></tr>
 <tr class="memdesc:a647dd14fbd56d86599068a28840f69be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить целевое значение параметра  <br /></td></tr>
 <tr class="memitem:a8d5b252d9afbd05940fea136bb737708" id="r_a8d5b252d9afbd05940fea136bb737708"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8d5b252d9afbd05940fea136bb737708">setTargetParameter</a> (const std::string &amp;parameter, double value) override</td></tr>
 <tr class="memdesc:a8d5b252d9afbd05940fea136bb737708"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить целевое значение параметра  <br /></td></tr>
 <tr class="memitem:a11210931fd5a4955050dbc1d017f4218" id="r_a11210931fd5a4955050dbc1d017f4218"><td class="memItemLeft">std::map&lt; std::string, double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a11210931fd5a4955050dbc1d017f4218">getAllTargets</a> () override</td></tr>
 <tr class="memdesc:a11210931fd5a4955050dbc1d017f4218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить все целевые параметры  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:a049ebc0985d87750971fdfb5568bd44a" id="r_a049ebc0985d87750971fdfb5568bd44a"><td class="memItemLeft"><a id="a049ebc0985d87750971fdfb5568bd44a" name="a049ebc0985d87750971fdfb5568bd44a"></a>
+std::map&lt; std::string, double &gt;&#160;</td><td class="memItemRight"><b>m_targets</b></td></tr>
+<tr class="memdesc:a049ebc0985d87750971fdfb5568bd44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Хранилище целевых параметров <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
-<div class="textblock"><p>Менеджер конфигурации целевых параметров </p>
-<p>Хранит целевые значения температуры, влажности воздуха и почвы. </p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<div class="textblock"><p>Базовый менеджер конфигурации для хранения целевых параметров микроклимата </p>
+<p>Хранит целевые значения параметров, к которым система управления должна стремиться. Реализует интерфейс <a class="el" href="class_i_config_manager.html" title="Интерфейс менеджера целевых конфигураций">IConfigManager</a>.</p>
+<p>Целевые параметры по умолчанию:</p><ul>
+<li>температура: 22.0 °C</li>
+<li>влажность воздуха: 65.0 %</li>
+<li>влажность почвы: 45.0 % </li>
+</ul>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a7d3d7c10423d969f7544509f6fcca32f" name="a7d3d7c10423d969f7544509f6fcca32f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d3d7c10423d969f7544509f6fcca32f">&#9670;&#160;</a></span>ConfigManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ConfigManager::ConfigManager </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор, инициализирует параметры значениями по умолчанию </p>
+<p>Конструктор, устанавливает значения параметров по умолчанию</p>
+<p>Инициализирует три основных параметра микроклимата теплицы: температура 22°C — комфортный диапазон для большинства растений влажность воздуха 65% — оптимальная для фотосинтеза влажность почвы 45% — достаточная для корневой системы </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
 <a id="a11210931fd5a4955050dbc1d017f4218" name="a11210931fd5a4955050dbc1d017f4218"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a11210931fd5a4955050dbc1d017f4218">&#9670;&#160;</a></span>getAllTargets()</h2>
 
@@ -176,11 +212,11 @@ $(function(){initNavTree('class_config_manager.html','','class_config_manager-me
 <p>Получить целевое значение параметра </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">parameter</td><td>Имя параметра (например "temperature", "air_humidity", "soil_moisture") </td></tr>
+    <tr><td class="paramname">parameter</td><td>Имя параметра ("temperature", "air_humidity", "soil_moisture") </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Возвращает</dt><dd>Целевое значение параметра </dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Целевое значение параметра, 0.0 если параметр не найден </dd></dl>
 
 <p>Замещает <a class="el" href="class_i_config_manager.html#aee3a0979adbfcbaec44df109143885bd">IConfigManager</a>.</p>
 
@@ -217,7 +253,7 @@ $(function(){initNavTree('class_config_manager.html','','class_config_manager-me
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
     <tr><td class="paramname">parameter</td><td>Имя параметра </td></tr>
-    <tr><td class="paramname">value</td><td>Целевое значение </td></tr>
+    <tr><td class="paramname">value</td><td>Целевое значение (температура в °C, влажность в %) </td></tr>
   </table>
   </dd>
 </dl>

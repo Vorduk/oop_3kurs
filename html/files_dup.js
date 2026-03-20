@@ -13,6 +13,7 @@ var files_dup =
     [ "IConfigManager.h", "_i_config_manager_8h_source.html", null ],
     [ "IDataProvider.h", "_i_data_provider_8h_source.html", null ],
     [ "IDevice.h", "_i_device_8h_source.html", null ],
+    [ "IEmergencyStrategy.h", "_i_emergency_strategy_8h_source.html", null ],
     [ "IIOManager.h", "_i_i_o_manager_8h_source.html", null ],
     [ "IOManager.h", "_i_o_manager_8h_source.html", null ],
     [ "IRegulator.h", "_i_regulator_8h_source.html", null ],
@@ -27,6 +28,7 @@ var files_dup =
     [ "SimulationEngine.h", "_simulation_engine_8h_source.html", null ],
     [ "SimulationModel.h", "_simulation_model_8h_source.html", null ],
     [ "SoilMoistureSensor.h", "_soil_moisture_sensor_8h_source.html", null ],
+    [ "TemperatureEmergencyStrategy.h", "_temperature_emergency_strategy_8h_source.html", null ],
     [ "TemperatureSensor.h", "_temperature_sensor_8h_source.html", null ],
     [ "TimerSchedule.h", "_timer_schedule_8h_source.html", null ],
     [ "Ventilation.h", "_ventilation_8h_source.html", null ]

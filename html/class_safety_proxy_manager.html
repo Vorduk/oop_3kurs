@@ -109,22 +109,61 @@ $(function(){initNavTree('class_safety_proxy_manager.html','','class_safety_prox
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:adbf4158d096dd4018461193f055c6e13" id="r_adbf4158d096dd4018461193f055c6e13"><td class="memItemLeft"><a id="adbf4158d096dd4018461193f055c6e13" name="adbf4158d096dd4018461193f055c6e13"></a>
-&#160;</td><td class="memItemRight"><b>SafetyProxyManager</b> (std::shared_ptr&lt; <a class="el" href="class_i_climate_manager.html">IClimateManager</a> &gt; realManager, std::shared_ptr&lt; <a class="el" href="class_i_i_o_manager.html">IIOManager</a> &gt; ioManager)</td></tr>
+<tr class="memitem:adbf4158d096dd4018461193f055c6e13" id="r_adbf4158d096dd4018461193f055c6e13"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#adbf4158d096dd4018461193f055c6e13">SafetyProxyManager</a> (std::shared_ptr&lt; <a class="el" href="class_i_climate_manager.html">IClimateManager</a> &gt; realManager, std::shared_ptr&lt; <a class="el" href="class_i_i_o_manager.html">IIOManager</a> &gt; ioManager)</td></tr>
+<tr class="memdesc:adbf4158d096dd4018461193f055c6e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор прокси безопасности  <br /></td></tr>
+<tr class="memitem:ae738ffaffa99ae41459f383c5043050f" id="r_ae738ffaffa99ae41459f383c5043050f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae738ffaffa99ae41459f383c5043050f">setEmergencyStrategy</a> (std::shared_ptr&lt; <a class="el" href="class_i_emergency_strategy.html">IEmergencyStrategy</a> &gt; strategy)</td></tr>
+<tr class="memdesc:ae738ffaffa99ae41459f383c5043050f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить стратегию аварийного реагирования  <br /></td></tr>
+<tr class="memitem:af26247008ea160e3a2901db22c8263db" id="r_af26247008ea160e3a2901db22c8263db"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af26247008ea160e3a2901db22c8263db">setCriticalThresholds</a> (double tempMin, double tempMax, double humidityMax)</td></tr>
+<tr class="memdesc:af26247008ea160e3a2901db22c8263db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить критические пороги (метод для обратной совместимости).  <br /></td></tr>
 <tr class="memitem:aedd712c9c87d6a05de6c4452a87b6d7b" id="r_aedd712c9c87d6a05de6c4452a87b6d7b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aedd712c9c87d6a05de6c4452a87b6d7b">setTargetParameters</a> (const std::map&lt; std::string, double &gt; &amp;targets) override</td></tr>
 <tr class="memdesc:aedd712c9c87d6a05de6c4452a87b6d7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить целевые параметры микроклимата  <br /></td></tr>
 <tr class="memitem:a3c6ff944479a81b0b8f24aa54c0d70b6" id="r_a3c6ff944479a81b0b8f24aa54c0d70b6"><td class="memItemLeft">std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a3c6ff944479a81b0b8f24aa54c0d70b6">calculateCommands</a> (const std::map&lt; std::string, double &gt; &amp;currentReadings) override</td></tr>
-<tr class="memdesc:a3c6ff944479a81b0b8f24aa54c0d70b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитать управляющие команды для устройств  <br /></td></tr>
-<tr class="memitem:a5b0ad3ba78be44ad63683927656f6aa5" id="r_a5b0ad3ba78be44ad63683927656f6aa5"><td class="memItemLeft"><a id="a5b0ad3ba78be44ad63683927656f6aa5" name="a5b0ad3ba78be44ad63683927656f6aa5"></a>
-bool&#160;</td><td class="memItemRight"><b>isEmergencyMode</b> () const</td></tr>
-<tr class="memitem:a4ea1c1380646e0723fdf36deb770c111" id="r_a4ea1c1380646e0723fdf36deb770c111"><td class="memItemLeft"><a id="a4ea1c1380646e0723fdf36deb770c111" name="a4ea1c1380646e0723fdf36deb770c111"></a>
-std::string&#160;</td><td class="memItemRight"><b>getEmergencyReason</b> () const</td></tr>
-<tr class="memitem:af26247008ea160e3a2901db22c8263db" id="r_af26247008ea160e3a2901db22c8263db"><td class="memItemLeft"><a id="af26247008ea160e3a2901db22c8263db" name="af26247008ea160e3a2901db22c8263db"></a>
-void&#160;</td><td class="memItemRight"><b>setCriticalThresholds</b> (double tempMin, double tempMax, double humidityMax)</td></tr>
+<tr class="memdesc:a3c6ff944479a81b0b8f24aa54c0d70b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитать управляющие команды с проверкой безопасности  <br /></td></tr>
+<tr class="memitem:a5b0ad3ba78be44ad63683927656f6aa5" id="r_a5b0ad3ba78be44ad63683927656f6aa5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5b0ad3ba78be44ad63683927656f6aa5">isEmergencyMode</a> () const</td></tr>
+<tr class="memdesc:a5b0ad3ba78be44ad63683927656f6aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить, находится ли система в аварийном режиме  <br /></td></tr>
+<tr class="memitem:a4ea1c1380646e0723fdf36deb770c111" id="r_a4ea1c1380646e0723fdf36deb770c111"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a4ea1c1380646e0723fdf36deb770c111">getEmergencyReason</a> () const</td></tr>
+<tr class="memdesc:a4ea1c1380646e0723fdf36deb770c111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить причину последней аварийной ситуации  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Паттерн Proxy: заместитель для <a class="el" href="class_i_climate_manager.html" title="Интерфейс менеджера климата">IClimateManager</a> с проверкой безопасности </p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<p><a class="el" href="class_safety_proxy_manager.html" title="Паттерн Proxy: заместитель для IClimateManager с проверкой безопасности">SafetyProxyManager</a> оборачивает реальный менеджер климата, добавляя дополнительные проверки безопасности. Перед передачей команд реальному менеджеру прокси проверяет, не находится ли система в аварийном состоянии.</p>
+<p>Логика аварийного реагирования делегируется стратегии <a class="el" href="class_i_emergency_strategy.html" title="Интерфейс стратегии аварийного реагирования">IEmergencyStrategy</a>, что делает прокси легко расширяемым. Можно добавлять новые стратегии аварий (пожар, наводнение, поломка датчиков) без изменения кода прокси.</p>
+<dl class="section note"><dt>Заметки</dt><dd>Реальный менеджер может быть любым объектом, реализующим <a class="el" href="class_i_climate_manager.html" title="Интерфейс менеджера климата">IClimateManager</a> </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_i_emergency_strategy.html" title="Интерфейс стратегии аварийного реагирования">IEmergencyStrategy</a> </dd>
+<dd>
+<a class="el" href="class_temperature_emergency_strategy.html" title="Конкретная стратегия для температурно-влажностных аварий">TemperatureEmergencyStrategy</a> </dd></dl>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="adbf4158d096dd4018461193f055c6e13" name="adbf4158d096dd4018461193f055c6e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbf4158d096dd4018461193f055c6e13">&#9670;&#160;</a></span>SafetyProxyManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SafetyProxyManager::SafetyProxyManager </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_i_climate_manager.html">IClimateManager</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>realManager</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_i_i_o_manager.html">IIOManager</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>ioManager</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор прокси безопасности </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">realManager</td><td>Реальный менеджер климата (оборачиваемый объект) </td></tr>
+    <tr><td class="paramname">ioManager</td><td>Менеджер ввода/вывода (для доступа к датчикам) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
 <a id="a3c6ff944479a81b0b8f24aa54c0d70b6" name="a3c6ff944479a81b0b8f24aa54c0d70b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c6ff944479a81b0b8f24aa54c0d70b6">&#9670;&#160;</a></span>calculateCommands()</h2>
 
@@ -143,23 +182,126 @@ void&#160;</td><td class="memItemRight"><b>setCriticalThresholds</b> (double tem
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Рассчитать управляющие команды для устройств </p>
-<p>На основе текущих показаний датчиков и ранее установленных целевых параметров вычисляет, какие устройства и с какой мощностью должны работать.</p>
+<p>Рассчитать управляющие команды с проверкой безопасности </p>
+<p>Проверить наличие аварийной ситуации через стратегию Если авария — вернуть аварийные команды (безопасный режим) Если штатная ситуация — запросить команды у реального менеджера Отфильтровать опасные команды через стратегию Вернуть безопасные команды</p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">currentReadings</td><td>Текущие показания всех датчиков (параметр -&gt; текущее значение)</td></tr>
+    <tr><td class="paramname">currentReadings</td><td>Текущие показания датчиков </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Возвращает</dt><dd>std::map&lt;std::string, int&gt; команда -&gt; мощность Ключ: тип устройства ("heater", "conditioner", "air_humidifier" и т.д.) Значение: уровень мощности в процентах (0-100)</dd></dl>
-<dl class="section note"><dt>Заметки</dt><dd>Положительное значение для устройства означает "включить с указанной мощностью" Значение 0 означает "выключить устройство" </dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Безопасные команды для исполнительных устройств </dd></dl>
 
 <p>Замещает <a class="el" href="class_i_climate_manager.html#a4eefed9774f941dd770a7843613c80b2">IClimateManager</a>.</p>
+
+</div>
+</div>
+<a id="a4ea1c1380646e0723fdf36deb770c111" name="a4ea1c1380646e0723fdf36deb770c111"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ea1c1380646e0723fdf36deb770c111">&#9670;&#160;</a></span>getEmergencyReason()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string SafetyProxyManager::getEmergencyReason </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получить причину последней аварийной ситуации </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Строка с описанием причины (для логирования) </dd></dl>
+
+</div>
+</div>
+<a id="a5b0ad3ba78be44ad63683927656f6aa5" name="a5b0ad3ba78be44ad63683927656f6aa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b0ad3ba78be44ad63683927656f6aa5">&#9670;&#160;</a></span>isEmergencyMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SafetyProxyManager::isEmergencyMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверить, находится ли система в аварийном режиме </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true — аварийный режим, false — штатный режим </dd></dl>
+
+</div>
+</div>
+<a id="af26247008ea160e3a2901db22c8263db" name="af26247008ea160e3a2901db22c8263db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af26247008ea160e3a2901db22c8263db">&#9670;&#160;</a></span>setCriticalThresholds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SafetyProxyManager::setCriticalThresholds </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tempMin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tempMax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>humidityMax</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установить критические пороги (метод для обратной совместимости). </p>
+<p>Создаёт стратегию <a class="el" href="class_temperature_emergency_strategy.html" title="Конкретная стратегия для температурно-влажностных аварий">TemperatureEmergencyStrategy</a> по умолчанию, если она ещё не установлена. Позволяет использовать прокси без явного создания стратегии.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tempMin</td><td>Минимальная допустимая температура (°C) </td></tr>
+    <tr><td class="paramname">tempMax</td><td>Максимальная допустимая температура (°C) </td></tr>
+    <tr><td class="paramname">humidityMax</td><td>Максимальная допустимая влажность (%) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae738ffaffa99ae41459f383c5043050f" name="ae738ffaffa99ae41459f383c5043050f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae738ffaffa99ae41459f383c5043050f">&#9670;&#160;</a></span>setEmergencyStrategy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SafetyProxyManager::setEmergencyStrategy </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_i_emergency_strategy.html">IEmergencyStrategy</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>strategy</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установить стратегию аварийного реагирования </p>
+<p>Прокси делегирует проверки и команды стратегии.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">strategy</td><td>Стратегия аварийного реагирования</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_i_emergency_strategy.html" title="Интерфейс стратегии аварийного реагирования">IEmergencyStrategy</a> </dd></dl>
 
 </div>
 </div>
@@ -181,27 +323,27 @@ void&#160;</td><td class="memItemRight"><b>setCriticalThresholds</b> (double tem
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Установить целевые параметры микроклимата </p>
-<p>Задает желаемые значения параметров, к которым система должна стремиться. Ключи — имена параметров ("temperature", "air_humidity", "soil_moisture").</p>
+<p>Делегирует вызов реальному менеджеру. Прокси не изменяет целевые параметры, только передаёт их дальше.</p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">targets</td><td>Ассоциативный массив параметр -&gt; целевое значение</td></tr>
+    <tr><td class="paramname">targets</td><td>Ассоциативный массив "параметр -&gt; целевое значение" </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Заметки</dt><dd>Целевые параметры сохраняются внутри менеджера и используются при каждом вызове <a class="el" href="#a3c6ff944479a81b0b8f24aa54c0d70b6" title="Рассчитать управляющие команды для устройств">calculateCommands()</a>. </dd></dl>
 
 <p>Замещает <a class="el" href="class_i_climate_manager.html#a73d0c7d23b679757c8cf1ce1606a93af">IClimateManager</a>.</p>
 
 </div>
 </div>
-<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li><a class="el" href="_safety_proxy_manager_8h_source.html">SafetyProxyManager.h</a></li>
+<li><b>SafetyProxyManager.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

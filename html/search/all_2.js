@@ -4,6 +4,6 @@ var searchData=
   ['calculatecommands_1',['calculateCommands',['../class_climate_manager.html#a2d8a2148eeee2479fcb1a729d198db1c',1,'ClimateManager::calculateCommands()'],['../class_i_climate_manager.html#a4eefed9774f941dd770a7843613c80b2',1,'IClimateManager::calculateCommands()'],['../class_safety_proxy_manager.html#a3c6ff944479a81b0b8f24aa54c0d70b6',1,'SafetyProxyManager::calculateCommands()']]],
   ['climatemanager_2',['ClimateManager',['../class_climate_manager.html',1,'']]],
   ['conditioner_3',['Conditioner',['../class_conditioner.html',1,'']]],
-  ['configmanager_4',['ConfigManager',['../class_config_manager.html',1,'']]],
-  ['controlstrategy_5',['ControlStrategy',['../class_control_strategy.html',1,'ControlStrategy'],['../class_control_strategy.html#a9b86902b80f389a13b093941de446b36',1,'ControlStrategy::ControlStrategy()']]]
+  ['configmanager_4',['ConfigManager',['../class_config_manager.html',1,'ConfigManager'],['../class_config_manager.html#a7d3d7c10423d969f7544509f6fcca32f',1,'ConfigManager::ConfigManager()']]],
+  ['controlstrategy_5',['ControlStrategy',['../class_control_strategy.html',1,'ControlStrategy'],['../class_control_strategy.html#ae4db65cd3f3f668de52e49e07cb4dbd5',1,'ControlStrategy::ControlStrategy()']]]
 ];
