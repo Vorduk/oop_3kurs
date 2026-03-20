@@ -95,24 +95,22 @@ $(function(){initNavTree('_i_climate_manager_8h_source.html','',''); });
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Интерфейс менеджера климата</span></div>
-<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="class_i_climate_manager.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_climate_manager.html">IClimateManager</a> {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_climate_manager.html">~IClimateManager</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="comment">// Установка целевых параметров</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setTargetParameters(<span class="keyword">const</span> std::map&lt;std::string, double&gt;&amp; targets) = 0;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// Рассчёт команд для устройств на основе текущих показаний</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment">// Возвращает: deviceType -&gt; powerLevel (0-100)</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">virtual</span> std::map&lt;std::string, int&gt; calculateCommands(</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keyword">const</span> std::map&lt;std::string, double&gt;&amp; currentReadings) = 0;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_i_climate_manager.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_climate_manager.html">IClimateManager</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_climate_manager.html">~IClimateManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_i_climate_manager.html#a73d0c7d23b679757c8cf1ce1606a93af">   28</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_climate_manager.html#a73d0c7d23b679757c8cf1ce1606a93af">setTargetParameters</a>(<span class="keyword">const</span> std::map&lt;std::string, double&gt;&amp; targets) = 0;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_i_climate_manager.html#a4eefed9774f941dd770a7843613c80b2">   46</a></span>    <span class="keyword">virtual</span> std::map&lt;std::string, int&gt; <a class="code hl_function" href="class_i_climate_manager.html#a4eefed9774f941dd770a7843613c80b2">calculateCommands</a>(</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">const</span> std::map&lt;std::string, double&gt;&amp; currentReadings) = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
 </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="ttc" id="aclass_i_climate_manager_html"><div class="ttname"><a href="class_i_climate_manager.html">IClimateManager</a></div><div class="ttdef"><b>Определения</b> IClimateManager.h:6</div></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="ttc" id="aclass_i_climate_manager_html"><div class="ttname"><a href="class_i_climate_manager.html">IClimateManager</a></div><div class="ttdoc">Интерфейс менеджера климата</div><div class="ttdef"><b>Определения</b> IClimateManager.h:13</div></div>
+<div class="ttc" id="aclass_i_climate_manager_html_a4eefed9774f941dd770a7843613c80b2"><div class="ttname"><a href="class_i_climate_manager.html#a4eefed9774f941dd770a7843613c80b2">IClimateManager::calculateCommands</a></div><div class="ttdeci">virtual std::map&lt; std::string, int &gt; calculateCommands(const std::map&lt; std::string, double &gt; &amp;currentReadings)=0</div><div class="ttdoc">Рассчитать управляющие команды для устройств</div></div>
+<div class="ttc" id="aclass_i_climate_manager_html_a73d0c7d23b679757c8cf1ce1606a93af"><div class="ttname"><a href="class_i_climate_manager.html#a73d0c7d23b679757c8cf1ce1606a93af">IClimateManager::setTargetParameters</a></div><div class="ttdeci">virtual void setTargetParameters(const std::map&lt; std::string, double &gt; &amp;targets)=0</div><div class="ttdoc">Установить целевые параметры микроклимата</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

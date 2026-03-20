@@ -92,6 +92,11 @@ $(function(){initNavTree('class_i_data_provider.html','','class_i_data_provider-
   <div class="headertitle"><div class="title">Класс IDataProvider<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Интерфейс поставщика данных о состоянии теплицы  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_data_provider_8h_source.html">IDataProvider.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:IDataProvider:</div>
 <div class="dyncontent">
@@ -104,13 +109,108 @@ $(function(){initNavTree('class_i_data_provider.html','','class_i_data_provider-
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a81aadd3ae1e6adc02619390ca06f393d" id="r_a81aadd3ae1e6adc02619390ca06f393d"><td class="memItemLeft"><a id="a81aadd3ae1e6adc02619390ca06f393d" name="a81aadd3ae1e6adc02619390ca06f393d"></a>
-virtual double&#160;</td><td class="memItemRight"><b>getTemperature</b> () const =0</td></tr>
-<tr class="memitem:ab9a7297ace1454a49151b4030bb1b24e" id="r_ab9a7297ace1454a49151b4030bb1b24e"><td class="memItemLeft"><a id="ab9a7297ace1454a49151b4030bb1b24e" name="ab9a7297ace1454a49151b4030bb1b24e"></a>
-virtual double&#160;</td><td class="memItemRight"><b>getAirHumidity</b> () const =0</td></tr>
-<tr class="memitem:acb6bb1a89ebdfd357cb6dd7082d5960b" id="r_acb6bb1a89ebdfd357cb6dd7082d5960b"><td class="memItemLeft"><a id="acb6bb1a89ebdfd357cb6dd7082d5960b" name="acb6bb1a89ebdfd357cb6dd7082d5960b"></a>
-virtual double&#160;</td><td class="memItemRight"><b>getSoilMoisture</b> () const =0</td></tr>
+<tr class="memitem:a81aadd3ae1e6adc02619390ca06f393d" id="r_a81aadd3ae1e6adc02619390ca06f393d"><td class="memItemLeft">virtual double&#160;</td><td class="memItemRight"><a class="el" href="#a81aadd3ae1e6adc02619390ca06f393d">getTemperature</a> () const =0</td></tr>
+<tr class="memdesc:a81aadd3ae1e6adc02619390ca06f393d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущую температуру воздуха  <br /></td></tr>
+<tr class="memitem:ab9a7297ace1454a49151b4030bb1b24e" id="r_ab9a7297ace1454a49151b4030bb1b24e"><td class="memItemLeft">virtual double&#160;</td><td class="memItemRight"><a class="el" href="#ab9a7297ace1454a49151b4030bb1b24e">getAirHumidity</a> () const =0</td></tr>
+<tr class="memdesc:ab9a7297ace1454a49151b4030bb1b24e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущую влажность воздуха  <br /></td></tr>
+<tr class="memitem:acb6bb1a89ebdfd357cb6dd7082d5960b" id="r_acb6bb1a89ebdfd357cb6dd7082d5960b"><td class="memItemLeft">virtual double&#160;</td><td class="memItemRight"><a class="el" href="#acb6bb1a89ebdfd357cb6dd7082d5960b">getSoilMoisture</a> () const =0</td></tr>
+<tr class="memdesc:acb6bb1a89ebdfd357cb6dd7082d5960b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущую влажность почвы  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс поставщика данных о состоянии теплицы </p>
+<p>Предоставляет доступ к текущим параметрам микроклимата: температура воздуха, влажность воздуха и влажность почвы. Этот интерфейс используется датчиками для получения актуальных показаний. Реализуется классом <a class="el" href="class_simulation_model.html">SimulationModel</a>, который симулирует физические процессы.</p>
+<dl class="section note"><dt>Заметки</dt><dd>Все методы константные, так как чтение данных не должно изменять состояние </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="ab9a7297ace1454a49151b4030bb1b24e" name="ab9a7297ace1454a49151b4030bb1b24e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9a7297ace1454a49151b4030bb1b24e">&#9670;&#160;</a></span>getAirHumidity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double IDataProvider::getAirHumidity </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить текущую влажность воздуха </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Относительная влажность в процентах (0-100) </dd></dl>
+
+<p>Замещается в <a class="el" href="class_simulation_model.html#a947d6d47232dec63abe5bfee94fa82ba">SimulationModel</a>.</p>
+
+</div>
+</div>
+<a id="acb6bb1a89ebdfd357cb6dd7082d5960b" name="acb6bb1a89ebdfd357cb6dd7082d5960b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb6bb1a89ebdfd357cb6dd7082d5960b">&#9670;&#160;</a></span>getSoilMoisture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double IDataProvider::getSoilMoisture </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить текущую влажность почвы </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Влажность почвы в процентах (0-100) </dd></dl>
+
+<p>Замещается в <a class="el" href="class_simulation_model.html#ae8ac3c362d2e0f5cc33028eacc92476e">SimulationModel</a>.</p>
+
+</div>
+</div>
+<a id="a81aadd3ae1e6adc02619390ca06f393d" name="a81aadd3ae1e6adc02619390ca06f393d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81aadd3ae1e6adc02619390ca06f393d">&#9670;&#160;</a></span>getTemperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double IDataProvider::getTemperature </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить текущую температуру воздуха </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Температура в градусах Цельсия </dd></dl>
+
+<p>Замещается в <a class="el" href="class_simulation_model.html#aff08fa80a897fc2b53ed0ee8e608e335">SimulationModel</a>.</p>
+
+</div>
+</div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
 <li><a class="el" href="_i_data_provider_8h_source.html">IDataProvider.h</a></li>
 </ul>

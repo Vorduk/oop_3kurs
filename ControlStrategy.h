@@ -51,10 +51,8 @@ public:
         double target = targetIt->second;
         double signal = m_regulator->calculate(current, target);
 
-        // Логика распределения сигнала между устройствами
-        // Для температуры: положительный сигнал -> первое устройство (heater),
-        // отрицательный -> второе устройство (conditioner)
         if (m_devices.size() == 2) {
+            // Температура: положительный сигнал -> нагреватель, отрицательный -> кондиционер
             if (signal > 0) {
                 commands[m_devices[0]] = static_cast<int>(signal);
                 commands[m_devices[1]] = 0;
@@ -68,12 +66,10 @@ public:
             else {
                 commands[m_devices[0]] = 0;
                 commands[m_devices[1]] = 0;
-                std::cout << "[ClimateManager]: " << m_paramName
-                    << " is optimal (" << current << ")" << std::endl;
             }
         }
-        // Для остальных параметров: одно устройство
         else if (m_devices.size() == 1) {
+            // Остальные параметры
             if (signal > 0) {
                 commands[m_devices[0]] = static_cast<int>(signal);
                 logAction(current, target, signal, m_devices[0]);

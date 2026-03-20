@@ -98,7 +98,7 @@ $(function(){initNavTree('class_simulation_model.html','','class_simulation_mode
  <div class="center">
   <img src="class_simulation_model.png" usemap="#SimulationModel_map" alt=""/>
   <map id="SimulationModel_map" name="SimulationModel_map">
-<area href="class_i_data_provider.html" alt="IDataProvider" shape="rect" coords="0,0,104,24"/>
+<area href="class_i_data_provider.html" title="Интерфейс поставщика данных о состоянии теплицы" alt="IDataProvider" shape="rect" coords="0,0,104,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -107,8 +107,11 @@ $(function(){initNavTree('class_simulation_model.html','','class_simulation_mode
 <tr class="memitem:a84aea669cd2a0b78ac88da8e0e97a4ea" id="r_a84aea669cd2a0b78ac88da8e0e97a4ea"><td class="memItemLeft"><a id="a84aea669cd2a0b78ac88da8e0e97a4ea" name="a84aea669cd2a0b78ac88da8e0e97a4ea"></a>
 &#160;</td><td class="memItemRight"><b>SimulationModel</b> (double initial_temperature, double initial_air_humidity, double initial_soil_moisture)</td></tr>
 <tr class="memitem:aff08fa80a897fc2b53ed0ee8e608e335" id="r_aff08fa80a897fc2b53ed0ee8e608e335"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#aff08fa80a897fc2b53ed0ee8e608e335">getTemperature</a> () const override</td></tr>
+<tr class="memdesc:aff08fa80a897fc2b53ed0ee8e608e335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущую температуру воздуха  <br /></td></tr>
 <tr class="memitem:a947d6d47232dec63abe5bfee94fa82ba" id="r_a947d6d47232dec63abe5bfee94fa82ba"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a947d6d47232dec63abe5bfee94fa82ba">getAirHumidity</a> () const override</td></tr>
+<tr class="memdesc:a947d6d47232dec63abe5bfee94fa82ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущую влажность воздуха  <br /></td></tr>
 <tr class="memitem:ae8ac3c362d2e0f5cc33028eacc92476e" id="r_ae8ac3c362d2e0f5cc33028eacc92476e"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ae8ac3c362d2e0f5cc33028eacc92476e">getSoilMoisture</a> () const override</td></tr>
+<tr class="memdesc:ae8ac3c362d2e0f5cc33028eacc92476e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить текущую влажность почвы  <br /></td></tr>
 <tr class="memitem:ae008da20e685bc6951dcef3ed78c0d5f" id="r_ae008da20e685bc6951dcef3ed78c0d5f"><td class="memItemLeft"><a id="ae008da20e685bc6951dcef3ed78c0d5f" name="ae008da20e685bc6951dcef3ed78c0d5f"></a>
 void&#160;</td><td class="memItemRight"><b>update</b> ()</td></tr>
 <tr class="memitem:ab81c87bc867db903b0db26a5e5a9a3c7" id="r_ab81c87bc867db903b0db26a5e5a9a3c7"><td class="memItemLeft"><a id="ab81c87bc867db903b0db26a5e5a9a3c7" name="ab81c87bc867db903b0db26a5e5a9a3c7"></a>
@@ -150,7 +153,10 @@ void&#160;</td><td class="memItemRight"><b>applyLampEffect</b> (int powerLevel)<
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_data_provider.html">IDataProvider</a>.</p>
+<p>Получить текущую влажность воздуха </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Относительная влажность в процентах (0-100) </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_data_provider.html#ab9a7297ace1454a49151b4030bb1b24e">IDataProvider</a>.</p>
 
 </div>
 </div>
@@ -177,7 +183,10 @@ void&#160;</td><td class="memItemRight"><b>applyLampEffect</b> (int powerLevel)<
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_data_provider.html">IDataProvider</a>.</p>
+<p>Получить текущую влажность почвы </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Влажность почвы в процентах (0-100) </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_data_provider.html#acb6bb1a89ebdfd357cb6dd7082d5960b">IDataProvider</a>.</p>
 
 </div>
 </div>
@@ -204,7 +213,10 @@ void&#160;</td><td class="memItemRight"><b>applyLampEffect</b> (int powerLevel)<
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_data_provider.html">IDataProvider</a>.</p>
+<p>Получить текущую температуру воздуха </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Температура в градусах Цельсия </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_data_provider.html#a81aadd3ae1e6adc02619390ca06f393d">IDataProvider</a>.</p>
 
 </div>
 </div>

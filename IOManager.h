@@ -7,18 +7,23 @@
 
 class IOManager : public IIOManager {
 public:
+    // Управление датчиками
     void addSensor(std::shared_ptr<ISensor> sensor) override;
     void removeSensor(int sensorId) override;
     std::shared_ptr<ISensor> getSensor(int sensorId) override;
     std::map<int, double> readAllSensors() override;
 
+    // Управление устройствами
     void addDevice(std::shared_ptr<IDevice> device) override;
     void removeDevice(int deviceId) override;
     std::shared_ptr<IDevice> getDevice(int deviceId) override;
-    void sendCommand(int deviceId, int powerLevel) override;
-    void sendCommand(int deviceId, int mode, bool isModeCommand) override;
 
-    // Дополнительный метод для получения устройств по типу
+    // Команды управления устройствами
+    void sendOnOffCommand(int deviceId, bool turnOn) override;
+    void sendPowerCommand(int deviceId, int powerLevel) override;
+    void sendModeCommand(int deviceId, int mode) override;
+
+    // Вспомогательный метод для получения устройств по типу
     std::vector<int> getDeviceIdsByType(const std::string& type);
 
 private:

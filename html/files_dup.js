@@ -7,6 +7,7 @@ var files_dup =
     [ "ClimateManager.h", "_climate_manager_8h_source.html", null ],
     [ "Conditioner.h", "_conditioner_8h_source.html", null ],
     [ "ConfigManager.h", "_config_manager_8h_source.html", null ],
+    [ "ControlStrategy.h", "_control_strategy_8h_source.html", null ],
     [ "Heater.h", "_heater_8h_source.html", null ],
     [ "IClimateManager.h", "_i_climate_manager_8h_source.html", null ],
     [ "IConfigManager.h", "_i_config_manager_8h_source.html", null ],

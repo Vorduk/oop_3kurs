@@ -92,26 +92,141 @@ $(function(){initNavTree('class_i_config_manager.html','','class_i_config_manage
   <div class="headertitle"><div class="title">Класс IConfigManager<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Интерфейс менеджера целевых конфигураций  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_config_manager_8h_source.html">IConfigManager.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:IConfigManager:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_i_config_manager.png" usemap="#IConfigManager_map" alt=""/>
   <map id="IConfigManager_map" name="IConfigManager_map">
-<area href="class_config_manager.html" alt="ConfigManager" shape="rect" coords="0,56,152,80"/>
-<area href="class_extended_config_manager.html" alt="ExtendedConfigManager" shape="rect" coords="162,56,314,80"/>
+<area href="class_config_manager.html" title="Менеджер конфигурации целевых параметров" alt="ConfigManager" shape="rect" coords="0,56,152,80"/>
+<area href="class_extended_config_manager.html" title="Расширенный менеджер конфигурации с поддержкой таймеров" alt="ExtendedConfigManager" shape="rect" coords="162,56,314,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:aee3a0979adbfcbaec44df109143885bd" id="r_aee3a0979adbfcbaec44df109143885bd"><td class="memItemLeft"><a id="aee3a0979adbfcbaec44df109143885bd" name="aee3a0979adbfcbaec44df109143885bd"></a>
-virtual double&#160;</td><td class="memItemRight"><b>getTargetParameter</b> (const std::string &amp;parameter)=0</td></tr>
-<tr class="memitem:a55d3fd5777151e02df1c5d60edc9dc38" id="r_a55d3fd5777151e02df1c5d60edc9dc38"><td class="memItemLeft"><a id="a55d3fd5777151e02df1c5d60edc9dc38" name="a55d3fd5777151e02df1c5d60edc9dc38"></a>
-virtual void&#160;</td><td class="memItemRight"><b>setTargetParameter</b> (const std::string &amp;parameter, double value)=0</td></tr>
-<tr class="memitem:a6100a802000bdc81a0b642c39ee6ab1c" id="r_a6100a802000bdc81a0b642c39ee6ab1c"><td class="memItemLeft"><a id="a6100a802000bdc81a0b642c39ee6ab1c" name="a6100a802000bdc81a0b642c39ee6ab1c"></a>
-virtual std::map&lt; std::string, double &gt;&#160;</td><td class="memItemRight"><b>getAllTargets</b> ()=0</td></tr>
+<tr class="memitem:aee3a0979adbfcbaec44df109143885bd" id="r_aee3a0979adbfcbaec44df109143885bd"><td class="memItemLeft">virtual double&#160;</td><td class="memItemRight"><a class="el" href="#aee3a0979adbfcbaec44df109143885bd">getTargetParameter</a> (const std::string &amp;parameter)=0</td></tr>
+<tr class="memdesc:aee3a0979adbfcbaec44df109143885bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить целевое значение параметра  <br /></td></tr>
+<tr class="memitem:a55d3fd5777151e02df1c5d60edc9dc38" id="r_a55d3fd5777151e02df1c5d60edc9dc38"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a55d3fd5777151e02df1c5d60edc9dc38">setTargetParameter</a> (const std::string &amp;parameter, double value)=0</td></tr>
+<tr class="memdesc:a55d3fd5777151e02df1c5d60edc9dc38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить целевое значение параметра  <br /></td></tr>
+<tr class="memitem:a6100a802000bdc81a0b642c39ee6ab1c" id="r_a6100a802000bdc81a0b642c39ee6ab1c"><td class="memItemLeft">virtual std::map&lt; std::string, double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6100a802000bdc81a0b642c39ee6ab1c">getAllTargets</a> ()=0</td></tr>
+<tr class="memdesc:a6100a802000bdc81a0b642c39ee6ab1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить все целевые параметры  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс менеджера целевых конфигураций </p>
+<p>Задает целевые значения параметров, к которым система управления должна приводить теплицу: температуру, влажность воздуха, влажность почвы. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a6100a802000bdc81a0b642c39ee6ab1c" name="a6100a802000bdc81a0b642c39ee6ab1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6100a802000bdc81a0b642c39ee6ab1c">&#9670;&#160;</a></span>getAllTargets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::map&lt; std::string, double &gt; IConfigManager::getAllTargets </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить все целевые параметры </p>
+<dl class="section return"><dt>Возвращает</dt><dd>map "имя параметра -&gt; целевое значение" </dd></dl>
+
+<p>Замещается в <a class="el" href="class_config_manager.html#a11210931fd5a4955050dbc1d017f4218">ConfigManager</a> и <a class="el" href="class_extended_config_manager.html#aaec8326b8f4815cfce970ead3ffcda16">ExtendedConfigManager</a>.</p>
+
+</div>
+</div>
+<a id="aee3a0979adbfcbaec44df109143885bd" name="aee3a0979adbfcbaec44df109143885bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee3a0979adbfcbaec44df109143885bd">&#9670;&#160;</a></span>getTargetParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double IConfigManager::getTargetParameter </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>parameter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить целевое значение параметра </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Имя параметра (например "temperature", "air_humidity", "soil_moisture") </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Целевое значение параметра </dd></dl>
+
+<p>Замещается в <a class="el" href="class_config_manager.html#a647dd14fbd56d86599068a28840f69be">ConfigManager</a> и <a class="el" href="class_extended_config_manager.html#a992f2505df391e07dd5af4e89b085a28">ExtendedConfigManager</a>.</p>
+
+</div>
+</div>
+<a id="a55d3fd5777151e02df1c5d60edc9dc38" name="a55d3fd5777151e02df1c5d60edc9dc38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55d3fd5777151e02df1c5d60edc9dc38">&#9670;&#160;</a></span>setTargetParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IConfigManager::setTargetParameter </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>parameter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установить целевое значение параметра </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Имя параметра </td></tr>
+    <tr><td class="paramname">value</td><td>Целевое значение </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещается в <a class="el" href="class_config_manager.html#a8d5b252d9afbd05940fea136bb737708">ConfigManager</a> и <a class="el" href="class_extended_config_manager.html#a68bb025f9ba426defec3463fa98b02c2">ExtendedConfigManager</a>.</p>
+
+</div>
+</div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
 <li><a class="el" href="_i_config_manager_8h_source.html">IConfigManager.h</a></li>
 </ul>

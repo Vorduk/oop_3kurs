@@ -92,6 +92,11 @@ $(function(){initNavTree('class_i_simulation_engine.html','','class_i_simulation
   <div class="headertitle"><div class="title">Класс ISimulationEngine<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Интерфейс движка симуляции системы управления теплицей  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_simulation_engine_8h_source.html">ISimulationEngine.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:ISimulationEngine:</div>
 <div class="dyncontent">
@@ -104,11 +109,73 @@ $(function(){initNavTree('class_i_simulation_engine.html','','class_i_simulation
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a57db60e16b59c9a848bc9d814b30ce4b" id="r_a57db60e16b59c9a848bc9d814b30ce4b"><td class="memItemLeft"><a id="a57db60e16b59c9a848bc9d814b30ce4b" name="a57db60e16b59c9a848bc9d814b30ce4b"></a>
-virtual void&#160;</td><td class="memItemRight"><b>start</b> ()=0</td></tr>
-<tr class="memitem:a620fd240be91a112b1545bc82698f354" id="r_a620fd240be91a112b1545bc82698f354"><td class="memItemLeft"><a id="a620fd240be91a112b1545bc82698f354" name="a620fd240be91a112b1545bc82698f354"></a>
-virtual void&#160;</td><td class="memItemRight"><b>stop</b> ()=0</td></tr>
+<tr class="memitem:a57db60e16b59c9a848bc9d814b30ce4b" id="r_a57db60e16b59c9a848bc9d814b30ce4b"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a57db60e16b59c9a848bc9d814b30ce4b">start</a> ()=0</td></tr>
+<tr class="memdesc:a57db60e16b59c9a848bc9d814b30ce4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запустить цикл управления  <br /></td></tr>
+<tr class="memitem:a620fd240be91a112b1545bc82698f354" id="r_a620fd240be91a112b1545bc82698f354"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a620fd240be91a112b1545bc82698f354">stop</a> ()=0</td></tr>
+<tr class="memdesc:a620fd240be91a112b1545bc82698f354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Остановить цикл управления  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс движка симуляции системы управления теплицей </p>
+<p>Определяет управление циклом обновления системы. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a57db60e16b59c9a848bc9d814b30ce4b" name="a57db60e16b59c9a848bc9d814b30ce4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57db60e16b59c9a848bc9d814b30ce4b">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ISimulationEngine::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Запустить цикл управления </p>
+
+<p>Замещается в <a class="el" href="class_simulation_engine.html#ab363eff2cbcf9b0622f8749c3acf1499">SimulationEngine</a>.</p>
+
+</div>
+</div>
+<a id="a620fd240be91a112b1545bc82698f354" name="a620fd240be91a112b1545bc82698f354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a620fd240be91a112b1545bc82698f354">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ISimulationEngine::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Остановить цикл управления </p>
+
+<p>Замещается в <a class="el" href="class_simulation_engine.html#a169304d5cff6722dc2446213ced1247c">SimulationEngine</a>.</p>
+
+</div>
+</div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
 <li><a class="el" href="_i_simulation_engine_8h_source.html">ISimulationEngine.h</a></li>
 </ul>

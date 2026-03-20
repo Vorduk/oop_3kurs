@@ -93,18 +93,20 @@ $(function(){initNavTree('_i_simulation_engine_8h_source.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Управляет циклом обновления</span></div>
-<div class="foldopen" id="foldopen00004" data-start="{" data-end="};">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_i_simulation_engine.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_simulation_engine.html">ISimulationEngine</a> {</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_simulation_engine.html">~ISimulationEngine</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> start() = 0;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> stop() = 0;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>};</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span></div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_i_simulation_engine.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_i_simulation_engine.html">ISimulationEngine</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_simulation_engine.html">~ISimulationEngine</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_i_simulation_engine.html#a57db60e16b59c9a848bc9d814b30ce4b">   15</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_simulation_engine.html#a57db60e16b59c9a848bc9d814b30ce4b">start</a>() = 0;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_i_simulation_engine.html#a620fd240be91a112b1545bc82698f354">   20</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_simulation_engine.html#a620fd240be91a112b1545bc82698f354">stop</a>() = 0;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
 </div>
-<div class="ttc" id="aclass_i_simulation_engine_html"><div class="ttname"><a href="class_i_simulation_engine.html">ISimulationEngine</a></div><div class="ttdef"><b>Определения</b> ISimulationEngine.h:4</div></div>
+<div class="ttc" id="aclass_i_simulation_engine_html"><div class="ttname"><a href="class_i_simulation_engine.html">ISimulationEngine</a></div><div class="ttdoc">Интерфейс движка симуляции системы управления теплицей</div><div class="ttdef"><b>Определения</b> ISimulationEngine.h:8</div></div>
+<div class="ttc" id="aclass_i_simulation_engine_html_a57db60e16b59c9a848bc9d814b30ce4b"><div class="ttname"><a href="class_i_simulation_engine.html#a57db60e16b59c9a848bc9d814b30ce4b">ISimulationEngine::start</a></div><div class="ttdeci">virtual void start()=0</div><div class="ttdoc">Запустить цикл управления</div></div>
+<div class="ttc" id="aclass_i_simulation_engine_html_a620fd240be91a112b1545bc82698f354"><div class="ttname"><a href="class_i_simulation_engine.html#a620fd240be91a112b1545bc82698f354">ISimulationEngine::stop</a></div><div class="ttdeci">virtual void stop()=0</div><div class="ttdoc">Остановить цикл управления</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

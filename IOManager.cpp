@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <iostream>
 
+// ==================== Управление датчиками ====================
+
 void IOManager::addSensor(std::shared_ptr<ISensor> sensor) {
     int id = sensor->getId();
     m_sensors_by_id[id] = sensor;
@@ -22,10 +24,7 @@ void IOManager::removeSensor(int sensorId) {
 
 std::shared_ptr<ISensor> IOManager::getSensor(int sensorId) {
     auto it = m_sensors_by_id.find(sensorId);
-    if (it != m_sensors_by_id.end()) {
-        return it->second;
-    }
-    return nullptr;
+    return (it != m_sensors_by_id.end()) ? it->second : nullptr;
 }
 
 std::map<int, double> IOManager::readAllSensors() {
@@ -37,6 +36,8 @@ std::map<int, double> IOManager::readAllSensors() {
     }
     return readings;
 }
+
+// ==================== Управление устройствами ====================
 
 void IOManager::addDevice(std::shared_ptr<IDevice> device) {
     int id = device->getId();
@@ -73,36 +74,45 @@ void IOManager::removeDevice(int deviceId) {
 
 std::shared_ptr<IDevice> IOManager::getDevice(int deviceId) {
     auto it = m_devices_by_id.find(deviceId);
-    if (it != m_devices_by_id.end()) {
-        return it->second;
-    }
-    return nullptr;
+    return (it != m_devices_by_id.end()) ? it->second : nullptr;
 }
 
 std::vector<int> IOManager::getDeviceIdsByType(const std::string& type) {
     auto it = m_devices_by_type.find(type);
-    if (it != m_devices_by_type.end()) {
-        return it->second;
-    }
-    return std::vector<int>();
+    return (it != m_devices_by_type.end()) ? it->second : std::vector<int>();
 }
 
-void IOManager::sendCommand(int deviceId, int powerLevel) {
+// ==================== Команды управления устройствами ====================
+
+void IOManager::sendOnOffCommand(int deviceId, bool turnOn) {
     auto device = getDevice(deviceId);
     if (!device) {
         std::cout << "[WARNING]: Device " << deviceId << " not found" << std::endl;
         return;
     }
 
-    if (powerLevel > 0 && !device->isOn()) {
+    if (turnOn && !device->isOn()) {
         device->turnOn();
         std::cout << "[CMD]: Device " << deviceId << " (" << device->getType()
             << ") turned ON" << std::endl;
     }
-    else if (powerLevel <= 0 && device->isOn()) {
+    else if (!turnOn && device->isOn()) {
         device->turnOff();
         std::cout << "[CMD]: Device " << deviceId << " (" << device->getType()
             << ") turned OFF" << std::endl;
+    }
+}
+
+void IOManager::sendPowerCommand(int deviceId, int powerLevel) {
+    auto device = getDevice(deviceId);
+    if (!device) {
+        std::cout << "[WARNING]: Device " << deviceId << " not found" << std::endl;
+        return;
+    }
+
+    // Убеждаемся, что устройство включено перед установкой мощности
+    if (powerLevel > 0 && !device->isOn()) {
+        sendOnOffCommand(deviceId, true);
     }
 
     auto adjustable = std::dynamic_pointer_cast<IAdjustableDevice>(device);
@@ -111,13 +121,17 @@ void IOManager::sendCommand(int deviceId, int powerLevel) {
         std::cout << "[CMD]: Device " << deviceId << " power set to "
             << powerLevel << "%" << std::endl;
     }
+    else if (powerLevel <= 0 && device->isOn()) {
+        sendOnOffCommand(deviceId, false);
+    }
 }
 
-void IOManager::sendCommand(int deviceId, int mode, bool isModeCommand) {
-    if (!isModeCommand) return;
-
+void IOManager::sendModeCommand(int deviceId, int mode) {
     auto device = getDevice(deviceId);
-    if (!device) return;
+    if (!device) {
+        std::cout << "[WARNING]: Device " << deviceId << " not found" << std::endl;
+        return;
+    }
 
     auto modeSelectable = std::dynamic_pointer_cast<IModeSelectableDevice>(device);
     if (modeSelectable) {

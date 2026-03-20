@@ -98,16 +98,18 @@ $(function(){initNavTree('class_simulation_engine.html','','class_simulation_eng
  <div class="center">
   <img src="class_simulation_engine.png" usemap="#SimulationEngine_map" alt=""/>
   <map id="SimulationEngine_map" name="SimulationEngine_map">
-<area href="class_i_simulation_engine.html" alt="ISimulationEngine" shape="rect" coords="0,0,111,24"/>
+<area href="class_i_simulation_engine.html" title="Интерфейс движка симуляции системы управления теплицей" alt="ISimulationEngine" shape="rect" coords="0,0,111,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:ae44a914c6569d443f9081dfe9981da8e" id="r_ae44a914c6569d443f9081dfe9981da8e"><td class="memItemLeft"><a id="ae44a914c6569d443f9081dfe9981da8e" name="ae44a914c6569d443f9081dfe9981da8e"></a>
-&#160;</td><td class="memItemRight"><b>SimulationEngine</b> (std::shared_ptr&lt; <a class="el" href="class_simulation_model.html">SimulationModel</a> &gt; model, <a class="el" href="class_i_o_manager.html">IOManager</a> &amp;io_manager)</td></tr>
+<tr class="memitem:a506a0edc735a194e7101a768ae726aeb" id="r_a506a0edc735a194e7101a768ae726aeb"><td class="memItemLeft"><a id="a506a0edc735a194e7101a768ae726aeb" name="a506a0edc735a194e7101a768ae726aeb"></a>
+&#160;</td><td class="memItemRight"><b>SimulationEngine</b> (std::shared_ptr&lt; <a class="el" href="class_simulation_model.html">SimulationModel</a> &gt; model, std::shared_ptr&lt; <a class="el" href="class_i_o_manager.html">IOManager</a> &gt; io_manager)</td></tr>
 <tr class="memitem:ab363eff2cbcf9b0622f8749c3acf1499" id="r_ab363eff2cbcf9b0622f8749c3acf1499"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab363eff2cbcf9b0622f8749c3acf1499">start</a> () override</td></tr>
+<tr class="memdesc:ab363eff2cbcf9b0622f8749c3acf1499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запустить цикл управления  <br /></td></tr>
 <tr class="memitem:a169304d5cff6722dc2446213ced1247c" id="r_a169304d5cff6722dc2446213ced1247c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a169304d5cff6722dc2446213ced1247c">stop</a> () override</td></tr>
+<tr class="memdesc:a169304d5cff6722dc2446213ced1247c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Остановить цикл управления  <br /></td></tr>
 <tr class="memitem:a68850029473227f4039092348b12269c" id="r_a68850029473227f4039092348b12269c"><td class="memItemLeft"><a id="a68850029473227f4039092348b12269c" name="a68850029473227f4039092348b12269c"></a>
 void&#160;</td><td class="memItemRight"><b>setClimateManager</b> (std::shared_ptr&lt; <a class="el" href="class_i_climate_manager.html">IClimateManager</a> &gt; manager)</td></tr>
 <tr class="memitem:a40c00526809b85b2c1e623e16d282de3" id="r_a40c00526809b85b2c1e623e16d282de3"><td class="memItemLeft"><a id="a40c00526809b85b2c1e623e16d282de3" name="a40c00526809b85b2c1e623e16d282de3"></a>
@@ -139,7 +141,9 @@ void&#160;</td><td class="memItemRight"><b>setupSchedules</b> (<a class="el" hre
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_simulation_engine.html">ISimulationEngine</a>.</p>
+<p>Запустить цикл управления </p>
+
+<p>Замещает <a class="el" href="class_i_simulation_engine.html#a57db60e16b59c9a848bc9d814b30ce4b">ISimulationEngine</a>.</p>
 
 </div>
 </div>
@@ -166,7 +170,9 @@ void&#160;</td><td class="memItemRight"><b>setupSchedules</b> (<a class="el" hre
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_simulation_engine.html">ISimulationEngine</a>.</p>
+<p>Остановить цикл управления </p>
+
+<p>Замещает <a class="el" href="class_i_simulation_engine.html#a620fd240be91a112b1545bc82698f354">ISimulationEngine</a>.</p>
 
 </div>
 </div>

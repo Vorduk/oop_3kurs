@@ -51,13 +51,44 @@ void SimulationEngine::applyScheduledCommand(const std::string& deviceType, int 
 
     auto deviceIds = m_io_manager->getDeviceIdsByType(deviceType);
     for (int deviceId : deviceIds) {
-        m_io_manager->sendCommand(deviceId, powerLevel);
+        // Для вентиляции и ламп используем команду мощности
+        // (они поддерживают IAdjustableDevice)
+        m_io_manager->sendPowerCommand(deviceId, powerLevel);
 
         if (deviceType == "ventilation" && m_model) {
             m_model->applyVentilationEffect(powerLevel);
         }
         else if (deviceType == "lamp" && m_model) {
             m_model->applyLampEffect(powerLevel);
+        }
+    }
+}
+
+void SimulationEngine::applyCommands(const std::map<std::string, int>& commands) {
+    if (!m_model || !m_io_manager) return;
+
+    for (const auto& pair : commands) {
+        const std::string& deviceType = pair.first;
+        int power = pair.second;
+
+        auto deviceIds = m_io_manager->getDeviceIdsByType(deviceType);
+        for (int deviceId : deviceIds) {
+            // Отправляем команду мощности
+            m_io_manager->sendPowerCommand(deviceId, power);
+        }
+
+        // Применяем эффекты к модели
+        if (deviceType == "heater") {
+            m_model->applyHeaterEffect(power);
+        }
+        else if (deviceType == "conditioner") {
+            m_model->applyConditionerEffect(power);
+        }
+        else if (deviceType == "air_humidifier") {
+            m_model->applyHumidifierEffect(power);
+        }
+        else if (deviceType == "irrigation") {
+            m_model->applyIrrigationEffect(power);
         }
     }
 }
@@ -112,34 +143,6 @@ void SimulationEngine::start() {
         }
 
         std::this_thread::sleep_for(std::chrono::seconds(2));
-    }
-}
-
-void SimulationEngine::applyCommands(const std::map<std::string, int>& commands) {
-    if (!m_model || !m_io_manager) return;
-
-    for (const auto& pair : commands) {
-        const std::string& deviceType = pair.first;
-        int power = pair.second;
-
-        auto deviceIds = m_io_manager->getDeviceIdsByType(deviceType);
-        for (int deviceId : deviceIds) {
-            m_io_manager->sendCommand(deviceId, power);
-        }
-
-        // Применяем эффекты к модели
-        if (deviceType == "heater") {
-            m_model->applyHeaterEffect(power);
-        }
-        else if (deviceType == "conditioner") {
-            m_model->applyConditionerEffect(power);
-        }
-        else if (deviceType == "air_humidifier") {
-            m_model->applyHumidifierEffect(power);
-        }
-        else if (deviceType == "irrigation") {
-            m_model->applyIrrigationEffect(power);
-        }
     }
 }
 

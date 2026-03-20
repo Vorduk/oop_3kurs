@@ -92,6 +92,11 @@ $(function(){initNavTree('class_i_climate_manager.html','','class_i_climate_mana
   <div class="headertitle"><div class="title">Класс IClimateManager<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Интерфейс менеджера климата  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_climate_manager_8h_source.html">IClimateManager.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:IClimateManager:</div>
 <div class="dyncontent">
@@ -99,17 +104,96 @@ $(function(){initNavTree('class_i_climate_manager.html','','class_i_climate_mana
   <img src="class_i_climate_manager.png" usemap="#IClimateManager_map" alt=""/>
   <map id="IClimateManager_map" name="IClimateManager_map">
 <area href="class_climate_manager.html" alt="ClimateManager" shape="rect" coords="0,56,132,80"/>
-<area href="class_safety_proxy_manager.html" alt="SafetyProxyManager" shape="rect" coords="142,56,274,80"/>
+<area href="class_safety_proxy_manager.html" title="Паттерн Proxy: заместитель для IClimateManager с проверкой безопасности" alt="SafetyProxyManager" shape="rect" coords="142,56,274,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a73d0c7d23b679757c8cf1ce1606a93af" id="r_a73d0c7d23b679757c8cf1ce1606a93af"><td class="memItemLeft"><a id="a73d0c7d23b679757c8cf1ce1606a93af" name="a73d0c7d23b679757c8cf1ce1606a93af"></a>
-virtual void&#160;</td><td class="memItemRight"><b>setTargetParameters</b> (const std::map&lt; std::string, double &gt; &amp;targets)=0</td></tr>
-<tr class="memitem:a4eefed9774f941dd770a7843613c80b2" id="r_a4eefed9774f941dd770a7843613c80b2"><td class="memItemLeft"><a id="a4eefed9774f941dd770a7843613c80b2" name="a4eefed9774f941dd770a7843613c80b2"></a>
-virtual std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight"><b>calculateCommands</b> (const std::map&lt; std::string, double &gt; &amp;currentReadings)=0</td></tr>
+<tr class="memitem:a73d0c7d23b679757c8cf1ce1606a93af" id="r_a73d0c7d23b679757c8cf1ce1606a93af"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a73d0c7d23b679757c8cf1ce1606a93af">setTargetParameters</a> (const std::map&lt; std::string, double &gt; &amp;targets)=0</td></tr>
+<tr class="memdesc:a73d0c7d23b679757c8cf1ce1606a93af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить целевые параметры микроклимата  <br /></td></tr>
+<tr class="memitem:a4eefed9774f941dd770a7843613c80b2" id="r_a4eefed9774f941dd770a7843613c80b2"><td class="memItemLeft">virtual std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4eefed9774f941dd770a7843613c80b2">calculateCommands</a> (const std::map&lt; std::string, double &gt; &amp;currentReadings)=0</td></tr>
+<tr class="memdesc:a4eefed9774f941dd770a7843613c80b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитать управляющие команды для устройств  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс менеджера климата </p>
+<p>Определяет набор методов, которые должны реализовывать все классы, отвечающие за управление микроклиматом в теплице. Реализации этого интерфейса отвечают за расчет управляющих воздействий на основе текущих показаний датчиков и целевых параметров. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a4eefed9774f941dd770a7843613c80b2" name="a4eefed9774f941dd770a7843613c80b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eefed9774f941dd770a7843613c80b2">&#9670;&#160;</a></span>calculateCommands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::map&lt; std::string, int &gt; IClimateManager::calculateCommands </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; std::string, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>currentReadings</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Рассчитать управляющие команды для устройств </p>
+<p>На основе текущих показаний датчиков и ранее установленных целевых параметров вычисляет, какие устройства и с какой мощностью должны работать.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">currentReadings</td><td>Текущие показания всех датчиков (параметр -&gt; текущее значение)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::map&lt;std::string, int&gt; команда -&gt; мощность Ключ: тип устройства ("heater", "conditioner", "air_humidifier" и т.д.) Значение: уровень мощности в процентах (0-100)</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Положительное значение для устройства означает "включить с указанной мощностью" Значение 0 означает "выключить устройство" </dd></dl>
+
+<p>Замещается в <a class="el" href="class_climate_manager.html#a2d8a2148eeee2479fcb1a729d198db1c">ClimateManager</a> и <a class="el" href="class_safety_proxy_manager.html#a3c6ff944479a81b0b8f24aa54c0d70b6">SafetyProxyManager</a>.</p>
+
+</div>
+</div>
+<a id="a73d0c7d23b679757c8cf1ce1606a93af" name="a73d0c7d23b679757c8cf1ce1606a93af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d0c7d23b679757c8cf1ce1606a93af">&#9670;&#160;</a></span>setTargetParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IClimateManager::setTargetParameters </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; std::string, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>targets</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Установить целевые параметры микроклимата </p>
+<p>Задает желаемые значения параметров, к которым система должна стремиться. Ключи — имена параметров ("temperature", "air_humidity", "soil_moisture").</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targets</td><td>Ассоциативный массив параметр -&gt; целевое значение</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Целевые параметры сохраняются внутри менеджера и используются при каждом вызове <a class="el" href="#a4eefed9774f941dd770a7843613c80b2" title="Рассчитать управляющие команды для устройств">calculateCommands()</a>. </dd></dl>
+
+<p>Замещается в <a class="el" href="class_climate_manager.html#a0fc093688cddd503c667bc872479cd0f">ClimateManager</a> и <a class="el" href="class_safety_proxy_manager.html#aedd712c9c87d6a05de6c4452a87b6d7b">SafetyProxyManager</a>.</p>
+
+</div>
+</div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
 <li><a class="el" href="_i_climate_manager_8h_source.html">IClimateManager.h</a></li>
 </ul>

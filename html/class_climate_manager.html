@@ -98,14 +98,16 @@ $(function(){initNavTree('class_climate_manager.html','','class_climate_manager-
  <div class="center">
   <img src="class_climate_manager.png" usemap="#ClimateManager_map" alt=""/>
   <map id="ClimateManager_map" name="ClimateManager_map">
-<area href="class_i_climate_manager.html" alt="IClimateManager" shape="rect" coords="0,0,107,24"/>
+<area href="class_i_climate_manager.html" title="Интерфейс менеджера климата" alt="IClimateManager" shape="rect" coords="0,0,107,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a0fc093688cddd503c667bc872479cd0f" id="r_a0fc093688cddd503c667bc872479cd0f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0fc093688cddd503c667bc872479cd0f">setTargetParameters</a> (const std::map&lt; std::string, double &gt; &amp;targets) override</td></tr>
+<tr class="memdesc:a0fc093688cddd503c667bc872479cd0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить целевые параметры микроклимата  <br /></td></tr>
 <tr class="memitem:a2d8a2148eeee2479fcb1a729d198db1c" id="r_a2d8a2148eeee2479fcb1a729d198db1c"><td class="memItemLeft">std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2d8a2148eeee2479fcb1a729d198db1c">calculateCommands</a> (const std::map&lt; std::string, double &gt; &amp;current_readings) override</td></tr>
+<tr class="memdesc:a2d8a2148eeee2479fcb1a729d198db1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитать управляющие команды для устройств  <br /></td></tr>
 <tr class="memitem:ac8821822a72afbf8f49acbd5fbeccaed" id="r_ac8821822a72afbf8f49acbd5fbeccaed"><td class="memItemLeft"><a id="ac8821822a72afbf8f49acbd5fbeccaed" name="ac8821822a72afbf8f49acbd5fbeccaed"></a>
 void&#160;</td><td class="memItemRight"><b>setMapping</b> (const std::string &amp;parameter, const std::string &amp;device_type)</td></tr>
 <tr class="memitem:aa3b76b04d8afb5d0950315185758c7f7" id="r_aa3b76b04d8afb5d0950315185758c7f7"><td class="memItemLeft"><a id="aa3b76b04d8afb5d0950315185758c7f7" name="aa3b76b04d8afb5d0950315185758c7f7"></a>
@@ -126,7 +128,7 @@ void&#160;</td><td class="memItemRight"><b>setHysteresis</b> (double temp_hyster
         <tr>
           <td class="memname">std::map&lt; std::string, int &gt; ClimateManager::calculateCommands </td>
           <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>current_readings</em></span></td><td>)</td>
+          <td class="paramtype">const std::map&lt; std::string, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>currentReadings</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -137,7 +139,18 @@ void&#160;</td><td class="memItemRight"><b>setHysteresis</b> (double temp_hyster
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_climate_manager.html">IClimateManager</a>.</p>
+<p>Рассчитать управляющие команды для устройств </p>
+<p>На основе текущих показаний датчиков и ранее установленных целевых параметров вычисляет, какие устройства и с какой мощностью должны работать.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">currentReadings</td><td>Текущие показания всех датчиков (параметр -&gt; текущее значение)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::map&lt;std::string, int&gt; команда -&gt; мощность Ключ: тип устройства ("heater", "conditioner", "air_humidifier" и т.д.) Значение: уровень мощности в процентах (0-100)</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Положительное значение для устройства означает "включить с указанной мощностью" Значение 0 означает "выключить устройство" </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_climate_manager.html#a4eefed9774f941dd770a7843613c80b2">IClimateManager</a>.</p>
 
 </div>
 </div>
@@ -164,7 +177,17 @@ void&#160;</td><td class="memItemRight"><b>setHysteresis</b> (double temp_hyster
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_climate_manager.html">IClimateManager</a>.</p>
+<p>Установить целевые параметры микроклимата </p>
+<p>Задает желаемые значения параметров, к которым система должна стремиться. Ключи — имена параметров ("temperature", "air_humidity", "soil_moisture").</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targets</td><td>Ассоциативный массив параметр -&gt; целевое значение</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Целевые параметры сохраняются внутри менеджера и используются при каждом вызове <a class="el" href="#a2d8a2148eeee2479fcb1a729d198db1c" title="Рассчитать управляющие команды для устройств">calculateCommands()</a>. </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_climate_manager.html#a73d0c7d23b679757c8cf1ce1606a93af">IClimateManager</a>.</p>
 
 </div>
 </div>

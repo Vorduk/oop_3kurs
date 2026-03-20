@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "ControlStrategy", "class_control_strategy.html", null ],
     [ "IAdjustableDevice", "class_i_adjustable_device.html", [
       [ "Conditioner", "class_conditioner.html", null ],
       [ "Heater", "class_heater.html", null ],

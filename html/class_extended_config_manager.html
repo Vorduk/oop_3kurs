@@ -92,21 +92,29 @@ $(function(){initNavTree('class_extended_config_manager.html','','class_extended
   <div class="headertitle"><div class="title">Класс ExtendedConfigManager</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Расширенный менеджер конфигурации с поддержкой таймеров  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_schedule_config_8h_source.html">ScheduleConfig.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:ExtendedConfigManager:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_extended_config_manager.png" usemap="#ExtendedConfigManager_map" alt=""/>
   <map id="ExtendedConfigManager_map" name="ExtendedConfigManager_map">
-<area href="class_i_config_manager.html" alt="IConfigManager" shape="rect" coords="0,0,152,24"/>
+<area href="class_i_config_manager.html" title="Интерфейс менеджера целевых конфигураций" alt="IConfigManager" shape="rect" coords="0,0,152,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a992f2505df391e07dd5af4e89b085a28" id="r_a992f2505df391e07dd5af4e89b085a28"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a992f2505df391e07dd5af4e89b085a28">getTargetParameter</a> (const std::string &amp;parameter) override</td></tr>
+<tr class="memdesc:a992f2505df391e07dd5af4e89b085a28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить целевое значение параметра  <br /></td></tr>
 <tr class="memitem:a68bb025f9ba426defec3463fa98b02c2" id="r_a68bb025f9ba426defec3463fa98b02c2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a68bb025f9ba426defec3463fa98b02c2">setTargetParameter</a> (const std::string &amp;parameter, double value) override</td></tr>
+<tr class="memdesc:a68bb025f9ba426defec3463fa98b02c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить целевое значение параметра  <br /></td></tr>
 <tr class="memitem:aaec8326b8f4815cfce970ead3ffcda16" id="r_aaec8326b8f4815cfce970ead3ffcda16"><td class="memItemLeft">std::map&lt; std::string, double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aaec8326b8f4815cfce970ead3ffcda16">getAllTargets</a> () override</td></tr>
+<tr class="memdesc:aaec8326b8f4815cfce970ead3ffcda16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить все целевые параметры  <br /></td></tr>
 <tr class="memitem:abde9e89f5fc11f4247685271ee772d12" id="r_abde9e89f5fc11f4247685271ee772d12"><td class="memItemLeft"><a id="abde9e89f5fc11f4247685271ee772d12" name="abde9e89f5fc11f4247685271ee772d12"></a>
 void&#160;</td><td class="memItemRight"><b>setSchedule</b> (const std::string &amp;deviceType, int intervalSeconds, int powerLevel)</td></tr>
 <tr class="memitem:a6d75bb8e56d60808e2d70f9fe99abbcb" id="r_a6d75bb8e56d60808e2d70f9fe99abbcb"><td class="memItemLeft"><a id="a6d75bb8e56d60808e2d70f9fe99abbcb" name="a6d75bb8e56d60808e2d70f9fe99abbcb"></a>
@@ -118,7 +126,10 @@ bool&#160;</td><td class="memItemRight"><b>hasSchedule</b> (const std::string &a
 <tr class="memitem:ae12ed523954cab650a614ed33a03a380" id="r_ae12ed523954cab650a614ed33a03a380"><td class="memItemLeft"><a id="ae12ed523954cab650a614ed33a03a380" name="ae12ed523954cab650a614ed33a03a380"></a>
 const std::map&lt; std::string, <a class="el" href="struct_schedule_config.html">ScheduleConfig</a> &gt; &amp;&#160;</td><td class="memItemRight"><b>getAllSchedules</b> () const</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Расширенный менеджер конфигурации с поддержкой таймеров </p>
+<p>Наследуется от <a class="el" href="class_config_manager.html" title="Менеджер конфигурации целевых параметров">ConfigManager</a> и добавляет функциональность расписаний для периодического включения устройств. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
 <a id="aaec8326b8f4815cfce970ead3ffcda16" name="aaec8326b8f4815cfce970ead3ffcda16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaec8326b8f4815cfce970ead3ffcda16">&#9670;&#160;</a></span>getAllTargets()</h2>
 
@@ -137,12 +148,15 @@ const std::map&lt; std::string, <a class="el" href="struct_schedule_config.html"
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_config_manager.html">IConfigManager</a>.</p>
+<p>Получить все целевые параметры </p>
+<dl class="section return"><dt>Возвращает</dt><dd>map "имя параметра -&gt; целевое значение" </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_config_manager.html#a6100a802000bdc81a0b642c39ee6ab1c">IConfigManager</a>.</p>
 
 </div>
 </div>
@@ -164,12 +178,21 @@ const std::map&lt; std::string, <a class="el" href="struct_schedule_config.html"
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_config_manager.html">IConfigManager</a>.</p>
+<p>Получить целевое значение параметра </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Имя параметра (например "temperature", "air_humidity", "soil_moisture") </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Целевое значение параметра </dd></dl>
+
+<p>Замещает <a class="el" href="class_i_config_manager.html#aee3a0979adbfcbaec44df109143885bd">IConfigManager</a>.</p>
 
 </div>
 </div>
@@ -195,17 +218,27 @@ const std::map&lt; std::string, <a class="el" href="struct_schedule_config.html"
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Замещает <a class="el" href="class_i_config_manager.html">IConfigManager</a>.</p>
+<p>Установить целевое значение параметра </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Имя параметра </td></tr>
+    <tr><td class="paramname">value</td><td>Целевое значение </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Замещает <a class="el" href="class_i_config_manager.html#a55d3fd5777151e02df1c5d60edc9dc38">IConfigManager</a>.</p>
 
 </div>
 </div>
-<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li><a class="el" href="_schedule_config_8h_source.html">ScheduleConfig.h</a></li>
+<li><b>ScheduleConfig.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
