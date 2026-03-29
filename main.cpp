@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <memory>
+#include <vector>
 #include "SimulationEngine.h"
 #include "SimulationModel.h"
 #include "IOManager.h"
@@ -7,7 +8,7 @@
 #include "AirHumiditySensor.h"
 #include "SoilMoistureSensor.h"
 #include "ClimateManager.h"
-#include "ScheduleConfig.h"  // Здесь находится ExtendedConfigManager
+#include "ScheduleConfig.h"
 #include "SafetyProxyManager.h"
 #include "PidRegulator.h"
 #include "OnOffRegulator.h"
@@ -19,117 +20,182 @@
 #include "Lamp.h"
 
 int main() {
-    // Вывод заголовка системы
+    // Вывод заголовка
     std::cout << "========================================" << std::endl;
-    std::cout << "Greenhouse Control System - Lab 4" << std::endl;
-    std::cout << "Patterns: Delegation, Proxy, Configuration" << std::endl;
+    std::cout << "Greenhouse Control System" << std::endl;
     std::cout << "========================================" << std::endl << std::endl;
 
-    // Модель — источник данных для датчиков (температура, влажность воздуха, влажность почвы)
-    std::shared_ptr<SimulationModel> simulationModel =
-        std::make_shared<SimulationModel>(22.0, 65.0, 45.0);
+    // Модель — источник данных для датчиков
+    std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(22.0, 65.0, 45.0);
 
-    // Датчики получают данные через weak_ptr на модель (предотвращает циклические ссылки)
-    std::shared_ptr<TemperatureSensor> tempSensor =
-        std::make_shared<TemperatureSensor>(simulationModel);
-    std::shared_ptr<AirHumiditySensor> humiditySensor =
-        std::make_shared<AirHumiditySensor>(simulationModel);
-    std::shared_ptr<SoilMoistureSensor> soilSensor =
-        std::make_shared<SoilMoistureSensor>(simulationModel);
+    // Создание множества датчиков
+    std::vector<std::shared_ptr<BaseSensor>> all_sensors;
+    std::cout << "\nCreating sensors..." << std::endl;
 
-    // Нагреватель — повышает температуру
-    std::shared_ptr<Heater> heater = std::make_shared<Heater>();
-    // Кондиционер — понижает температуру
-    std::shared_ptr<Conditioner> conditioner = std::make_shared<Conditioner>();
-    // Увлажнитель — повышает влажность воздуха
-    std::shared_ptr<AirHumidifier> humidifier = std::make_shared<AirHumidifier>();
-    // Полив — повышает влажность почвы
-    std::shared_ptr<Irrigation> irrigation = std::make_shared<Irrigation>();
-    // Вентиляция — понижает температуру и влажность
-    std::shared_ptr<Ventilation> ventilation = std::make_shared<Ventilation>();
-    // Лампы — повышают температуру, обеспечивают освещение
-    std::shared_ptr<Lamp> lamp = std::make_shared<Lamp>();
+    // 3 датчика температуры
+    for (int i = 0; i < 3; ++i) {
+        std::shared_ptr <BaseSensor> sensor = std::make_shared<TemperatureSensor>(simulation_model);
+        all_sensors.push_back(sensor);
+        std::cout << "Created sensor: Type='" << sensor->getType() << "', ID=" << sensor->getId() << std::endl;
+    }
 
-    // IOManager хранит все датчики и устройства, управляет командами
+    // 2 датчика влажности воздуха
+    for (int i = 0; i < 2; ++i) {
+        std::shared_ptr <BaseSensor> sensor = std::make_shared<AirHumiditySensor>(simulation_model);
+        all_sensors.push_back(sensor);
+        std::cout << "Created sensor: Type='" << sensor->getType() << "', ID=" << sensor->getId() << std::endl;
+    }
+
+    // 2 датчика влажности почвы
+    for (int i = 0; i < 2; ++i) {
+        std::shared_ptr <BaseSensor> sensor = std::make_shared<SoilMoistureSensor>(simulation_model);
+        all_sensors.push_back(sensor);
+        std::cout << "Created sensor: Type='" << sensor->getType() << "', ID=" << sensor->getId() << std::endl;
+    }
+
+    std::cout << "\nTotal sensors created: " << all_sensors.size() << std::endl;
+
+    // Подсчет датчиков по типам для вывода
+    int tempCount = 0, humidityCount = 0, soilCount = 0;
+    for (const std::shared_ptr <BaseSensor>& sensor : all_sensors) {
+        if (sensor->getType() == "temperature") tempCount++;
+        else if (sensor->getType() == "air_humidity") humidityCount++;
+        else if (sensor->getType() == "soil_moisture") soilCount++;
+    }
+    std::cout << "  - Temperature sensors: " << tempCount << std::endl;
+    std::cout << "  - Air humidity sensors: " << humidityCount << std::endl;
+    std::cout << "  - Soil moisture sensors: " << soilCount << std::endl;
+
+    // Создание устройств
+    std::cout << "\nCreating devices..." << std::endl;
+
+    std::vector<std::shared_ptr<BaseDevice>> allDevices;
+
+    std::shared_ptr<BaseDevice> heater = std::make_shared<Heater>();
+    allDevices.push_back(heater);
+    std::cout << "  Created device: Type='" << heater->getType() << "', ID=" << heater->getId() << std::endl;
+
+    std::shared_ptr<BaseDevice> conditioner = std::make_shared<Conditioner>();
+    allDevices.push_back(conditioner);
+    std::cout << "  Created device: Type='" << conditioner->getType() << "', ID=" << conditioner->getId() << std::endl;
+
+    std::shared_ptr<BaseDevice> humidifier = std::make_shared<AirHumidifier>();
+    allDevices.push_back(humidifier);
+    std::cout << "  Created device: Type='" << humidifier->getType() << "', ID=" << humidifier->getId() << std::endl;
+
+    std::shared_ptr<BaseDevice> irrigation = std::make_shared<Irrigation>();
+    allDevices.push_back(irrigation);
+    std::cout << "  Created device: Type='" << irrigation->getType() << "', ID=" << irrigation->getId() << std::endl;
+
+    std::shared_ptr<BaseDevice> ventilation = std::make_shared<Ventilation>();
+    allDevices.push_back(ventilation);
+    std::cout << "  Created device: Type='" << ventilation->getType() << "', ID=" << ventilation->getId() << std::endl;
+
+    std::shared_ptr<BaseDevice> lamp = std::make_shared<Lamp>();
+    allDevices.push_back(lamp);
+    std::cout << "  Created device: Type='" << lamp->getType() << "', ID=" << lamp->getId() << std::endl;
+
+    // IOManager
+    std::cout << "\nInitializing IOManager..." << std::endl;
     std::shared_ptr<IOManager> io_manager = std::make_shared<IOManager>();
 
-    // Регистрация датчиков
-    io_manager->addSensor(tempSensor);
-    io_manager->addSensor(humiditySensor);
-    io_manager->addSensor(soilSensor);
+    // Регистрация всех датчиков из единого массива
+    std::cout << "\nRegistering all sensors..." << std::endl;
+    for (std::shared_ptr<BaseSensor>& sensor : all_sensors) {
+        io_manager->addSensor(sensor);
+    }
 
-    // Регистрация устройств
-    io_manager->addDevice(heater);
-    io_manager->addDevice(conditioner);
-    io_manager->addDevice(humidifier);
-    io_manager->addDevice(irrigation);
-    io_manager->addDevice(ventilation);
-    io_manager->addDevice(lamp);
+    // Регистрация всех устройств
+    std::cout << "\nRegistering all devices..." << std::endl;
+    for (std::shared_ptr<BaseDevice>& device : allDevices) {
+        io_manager->addDevice(device);
+    }
 
-    // Реальный менеджер — вычисляет управляющие сигналы
-    std::shared_ptr<ClimateManager> realClimateManager =
-        std::make_shared<ClimateManager>();
+    // Реальный менеджер климата
+    std::cout << "\nCreating ClimateManager with regulators..." << std::endl;
+    std::shared_ptr<ClimateManager> realClimateManager = std::make_shared<ClimateManager>();
 
     // Создание регуляторов
-    std::shared_ptr<PidRegulator> pidRegulator =
-        std::make_shared<PidRegulator>(2.0, 0.1, 0.5);   // ПИД-регулятор для температуры
-    std::shared_ptr<OnOffRegulator> onOffRegulator =
-        std::make_shared<OnOffRegulator>(2.0);            // On/Off для влажности
+    std::shared_ptr<PidRegulator> pidRegulator = std::make_shared<PidRegulator>(2.0, 0.1, 0.5);
+    std::shared_ptr<OnOffRegulator> onOffRegulator = std::make_shared<OnOffRegulator>(2.0);
 
-    // Назначение регуляторов параметрам (делегирование вычислений)
+    // Назначение регуляторов параметрам
     realClimateManager->setRegulator("temperature", pidRegulator);
     realClimateManager->setRegulator("air_humidity", onOffRegulator);
     realClimateManager->setRegulator("soil_moisture", onOffRegulator);
 
-    std::cout << "\n[Delegation Pattern]: ClimateManager delegates calculations to:" << std::endl;
-    std::cout << "  - Temperature -> PID Regulator" << std::endl;
-    std::cout << "  - Humidity -> On/Off Regulator with hysteresis" << std::endl;
-    std::cout << "  - Soil moisture -> On/Off Regulator with hysteresis" << std::endl;
+    // Создание стратегии аварийного реагирования
+    std::shared_ptr<IEmergencyStrategy> emergencyStrategy = std::make_shared<TemperatureEmergencyStrategy>(5.0, 40.0, 90.0);
 
-    // SafetyProxyManager оборачивает реальный менеджер, добавляя проверки безопасности
-    std::shared_ptr<SafetyProxyManager> safetyProxy =
-        std::make_shared<SafetyProxyManager>(realClimateManager, io_manager);
+    // Прокси – теперь все настройки через конструктор
+    std::shared_ptr<IClimateManager> safetyProxy = std::make_shared<SafetyProxyManager>(
+        realClimateManager,
+        io_manager,
+        emergencyStrategy
+    );
 
-    // Стратегия аварийного реагирования (температурно-влажностные пороги)
-    std::shared_ptr<TemperatureEmergencyStrategy> emergencyStrategy =
-        std::make_shared<TemperatureEmergencyStrategy>(5.0, 40.0, 90.0);
-    safetyProxy->setEmergencyStrategy(emergencyStrategy);
+    // Конфигурация
+    std::cout << "\nCreating ExtendedConfigManager..." << std::endl;
+    std::shared_ptr<ExtendedConfigManager> configManager = std::make_shared<ExtendedConfigManager>();
 
-    std::cout << "\n[Proxy Pattern]: SafetyProxyManager wraps ClimateManager" << std::endl;
-    std::cout << "  - Emergency thresholds: temp [5-40]C, humidity <90%" << std::endl;
+    // Установка целевых параметров
+    double target_temperature = 23.0;
+    double target_air_humidity = 65.0;
+    double target_soil_moisture = 50.0;
+    configManager->setTargetParameter("temperature", target_temperature);
+    configManager->setTargetParameter("air_humidity", target_air_humidity);
+    configManager->setTargetParameter("soil_moisture", target_soil_moisture);
 
-    // ExtendedConfigManager хранит целевые параметры и расписания для устройств
-    std::shared_ptr<ExtendedConfigManager> configManager =
-        std::make_shared<ExtendedConfigManager>();
+    std::cout << "\nTarget parameters set:" << std::endl;
+    std::cout << "  - Temperature target: " << target_temperature << "C" << std::endl;
+    std::cout << "  - Air humidity target: " << target_air_humidity << "%" << std::endl;
+    std::cout << "  - Soil moisture target: " << target_soil_moisture << " %" << std::endl;
 
-    // Установка целевых параметров микроклимата
-    configManager->setTargetParameter("temperature", 23.0);
-    configManager->setTargetParameter("air_humidity", 65.0);
-    configManager->setTargetParameter("soil_moisture", 50.0);
+    // Настройка периодических задач
+    configManager->setSchedule("ventilation", 10, 50);
+    configManager->setSchedule("lamp", 15, 70);
 
-    // Настройка периодических задач (паттерн Configuration)
-    configManager->setSchedule("ventilation", 10, 50);   // Вентиляция каждые 10 сек на 50%
-    configManager->setSchedule("lamp", 15, 70);          // Лампы каждые 15 сек на 70%
+    std::cout << "\nSchedules configured:" << std::endl;
+    std::cout << "  - Ventilation: every 10 seconds at 50% power" << std::endl;
+    std::cout << "  - Lamp: every 15 seconds at 70% power" << std::endl;
 
-    std::cout << "\n[Configuration Pattern]: Schedules configured:" << std::endl;
+    // Движок симуляции
+    std::cout << "\nCreating SimulationEngine..." << std::endl;
+    SimulationEngine engine(simulation_model, io_manager);
+
+    // Конфигурирование движка
+    engine.setClimateManager(safetyProxy);
+    engine.setConfigManager(configManager);
+    engine.setupSchedules(configManager.get());
+
+    // Итоговая конфигурация
+    std::cout << "\n========================================" << std::endl;
+    std::cout << "System configured with:" << std::endl;
+    std::cout << "Sensors:" << std::endl;
+    std::cout << "  - Total sensors: " << all_sensors.size() << std::endl;
+    std::cout << "  - Temperature sensors: " << tempCount << std::endl;
+    std::cout << "  - Air humidity sensors: " << humidityCount << std::endl;
+    std::cout << "  - Soil moisture sensors: " << soilCount << std::endl;
+
+    std::cout << "\nDevices:" << std::endl;
+    for (const std::shared_ptr<BaseDevice>& device : allDevices) {
+        std::cout << "  - " << device->getType() << " (ID: " << device->getId() << ")" << std::endl;
+    }
+
+    std::cout << "\nTargets:" << std::endl;
+    std::cout << "  - Temperature: 23.0 C" << std::endl;
+    std::cout << "  - Air humidity: 65.0 %" << std::endl;
+    std::cout << "  - Soil moisture: 50.0 %" << std::endl;
+
+    std::cout << "\nSchedules:" << std::endl;
     std::cout << "  - Ventilation: every 10s at 50%" << std::endl;
     std::cout << "  - Lamp: every 15s at 70%" << std::endl;
 
-    // SimulationEngine — центральный компонент, запускающий цикл управления
-    SimulationEngine engine(simulationModel, io_manager);
+    std::cout << "\nSafety:" << std::endl;
+    std::cout << "  - Emergency thresholds: temp [5-40]C, humidity <90%" << std::endl;
 
-    // Конфигурирование движка (внедрение зависимостей)
-    engine.setClimateManager(safetyProxy);      // Используем прокси вместо реального менеджера
-    engine.setConfigManager(configManager);      // Менеджер конфигурации
-    engine.setupSchedules(configManager.get());  // Настройка таймеров по расписаниям
-
-    // Вывод итоговой конфигурации
     std::cout << "\n========================================" << std::endl;
-    std::cout << "[INFO]: System fully configured" << std::endl;
-    std::cout << "  - Target temperature: 23.0 C" << std::endl;
-    std::cout << "  - Target humidity: 65.0 %" << std::endl;
-    std::cout << "  - Target soil moisture: 50.0 %" << std::endl;
-    std::cout << "\n[INFO]: Starting control system...\n" << std::endl;
+    std::cout << "Starting main loop...\n" << std::endl;
 
     // Запуск основного цикла управления
     engine.start();

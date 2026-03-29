@@ -24,7 +24,7 @@ SimulationModel::SimulationModel(double initial_temperature,
     , m_rng(std::random_device{}())          // Аппаратный энтропийный источник
     , m_noise(-0.3, 0.3) {                   // Случайные колебания ±0.3
 
-    std::cout << "[INFO]: SimulationModel created" << std::endl;
+    std::cout << "[SimulationModel] SimulationModel created" << std::endl;
 }
 
 /**
@@ -206,7 +206,7 @@ void SimulationModel::update() {
  * в лабе. Вызывается каждый цикл управления.
  */
 void SimulationModel::printParameters() const {
-    std::cout << "\n=== Current greenhouse parameters values ===" << std::endl;
+    std::cout << "\n[SimulationModel] Current greenhouse parameters values" << std::endl;
     std::cout << "Temperature: " << m_temperature << " C" << std::endl;
     std::cout << "Air humidity: " << m_air_humidity << " %" << std::endl;
     std::cout << "Soil moisture: " << m_soil_moisture << " %" << std::endl;

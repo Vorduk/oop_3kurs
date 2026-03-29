@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 /**
  * @brief Интерфейс для всех типов датчиков
@@ -30,5 +31,6 @@ public:
 	 * Уникальность обеспечивается наследниками.
 	 */
 	virtual int getId() const = 0;
+
 };
 

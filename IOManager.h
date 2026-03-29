@@ -124,8 +124,12 @@ public:
      */
     std::vector<int> getDeviceIdsByType(const std::string& type);
 
+    std::map<std::string, double> readAggregatedSensors();
+    std::vector<std::shared_ptr<ISensor>> getSensorsByType(const std::string& type);
+
 private:
     std::map<int, std::shared_ptr<ISensor>> m_sensors_by_id;           ///< Датчики по ID
     std::map<int, std::shared_ptr<IDevice>> m_devices_by_id;           ///< Устройства по ID
     std::map<std::string, std::vector<int>> m_devices_by_type;         ///< Устройства по типу
+    std::map<std::string, std::vector<std::shared_ptr<ISensor>>> m_sensors_by_type;
 };

@@ -41,13 +41,13 @@ public:
         const std::map<std::string, double>& current_readings) override;
 
     /**
-     * @brief Добавить стратегию управления (паттерн Делегирования)
+     * @brief Добавить стратегию управления
      * @param strategy Умный указатель на стратегию
      */
     void addStrategy(std::shared_ptr<ControlStrategy> strategy);
 
     /**
-     * @brief Установить регулятор для параметра (удобный метод-обёртка)
+     * @brief Установить регулятор для параметра
      * @param parameter Имя параметра ("temperature", "air_humidity" и т.д.)
      * @param regulator Умный указатель на регулятор
      *

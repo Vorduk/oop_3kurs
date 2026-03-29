@@ -10,7 +10,7 @@ void ExtendedConfigManager::setSchedule(const std::string& deviceType,
     int intervalSeconds,
     int powerLevel) {
     m_schedules[deviceType] = ScheduleConfig(intervalSeconds, powerLevel);
-    std::cout << "[Config]: Schedule set for " << deviceType
+    std::cout << "[ExtendedConfigManager]: Schedule set for " << deviceType
         << " - every " << intervalSeconds << "s at " << powerLevel << "%" << std::endl;
 }
 

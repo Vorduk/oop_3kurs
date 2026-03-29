@@ -53,7 +53,7 @@ void SimulationEngine::setupSchedules(ExtendedConfigManager* configManager) {
             });
 
         m_schedules[deviceType] = std::move(timer);
-        std::cout << "[Engine]: Timer started for " << deviceType
+        std::cout << "[SimulationEngine]: Timer started for " << deviceType
             << " every " << schedule.interval.count() << "s" << std::endl;
     }
 }
@@ -67,7 +67,7 @@ void SimulationEngine::setupSchedules(ExtendedConfigManager* configManager) {
 void SimulationEngine::applyScheduledCommand(const std::string& deviceType, int powerLevel) {
     if (!m_io_manager) return;
 
-    std::cout << "\n[Timer]: Executing scheduled command for " << deviceType
+    std::cout << "\n[SimulationEngine]: Executing scheduled command for " << deviceType
         << " at " << powerLevel << "%" << std::endl;
 
     auto deviceIds = m_io_manager->getDeviceIdsByType(deviceType);
@@ -139,7 +139,7 @@ void SimulationEngine::applyCommands(const std::map<std::string, int>& commands)
 void SimulationEngine::start() {
     // Проверка: все компоненты должны быть установлены
     if (!m_climateManager || !m_configManager || !m_model || !m_io_manager) {
-        std::cout << "[ERROR]: Required components not set!" << std::endl;
+        std::cout << "[SimulationEngine]: Required components not set!" << std::endl;
         std::cout << "  ClimateManager: " << (m_climateManager ? "OK" : "MISSING") << std::endl;
         std::cout << "  ConfigManager: " << (m_configManager ? "OK" : "MISSING") << std::endl;
         std::cout << "  Model: " << (m_model ? "OK" : "MISSING") << std::endl;
@@ -153,29 +153,15 @@ void SimulationEngine::start() {
     auto targets = m_configManager->getAllTargets();
     m_climateManager->setTargetParameters(targets);
 
-    std::cout << "\n[INFO]: SimulationEngine started with control loop" << std::endl;
+    std::cout << "\n[SimulationEngine]: SimulationEngine started with control loop" << std::endl;
 
     // Основной цикл управления
     while (m_is_running) {
         // Чтение показаний всех датчиков
-        auto sensorReadings = m_io_manager->readAllSensors();
-
-        // Преобразование ID датчиков в имена параметров
-        std::map<std::string, double> currentValues;
-        for (const auto& pair : sensorReadings) {
-            int id = pair.first;
-            double value = pair.second;
-            auto sensor = m_io_manager->getSensor(id);
-            if (sensor) {
-                currentValues[sensor->getType()] = value;
-            }
-        }
-
-        // Вывод текущих показаний
-        std::cout << "\n=== Current readings ===" << std::endl;
-        for (const auto& pair : currentValues) {
-            const std::string& param = pair.first;
-            double value = pair.second;
+        auto currentValues = m_io_manager->readAggregatedSensors();
+      
+        std::cout << "\n[SimulationEngine] Current readings (averaged)" << std::endl;
+        for (const auto& [param, value] : currentValues) {
             std::cout << param << ": " << value;
             if (param == "temperature") std::cout << " C";
             if (param == "air_humidity") std::cout << " %";
@@ -183,19 +169,23 @@ void SimulationEngine::start() {
             std::cout << std::endl;
         }
 
-        // Расчёт управляющих команд (делегирование ClimateManager)
+        // Расчёт управляющих команд
+        std::cout << "[SimulationEngine] Calculating control commands..." << std::endl;
         auto commands = m_climateManager->calculateCommands(currentValues);
 
-        // Применение команд к устройствам и модели
+        // Применение команд
+        std::cout << "[SimulationEngine] Applying commands..." << std::endl;
         applyCommands(commands);
 
-        //  Обновление модели (естественные процессы + эффекты устройств)
+        // Обновление модели
+        std::cout << "[SimulationEngine] Updating simulation model..." << std::endl;
         if (m_model) {
             m_model->update();
             m_model->printParameters();
         }
 
-        // Пауза перед следующим циклом
+        // Пауза
+        std::cout << "[SimulationEngine] Waiting 2 seconds..." << std::endl;
         std::this_thread::sleep_for(std::chrono::seconds(2));
     }
 }
@@ -217,5 +207,5 @@ void SimulationEngine::stop() {
         }
     }
 
-    std::cout << "[INFO]: SimulationEngine stopped" << std::endl;
+    std::cout << "[SimulationEngine]: SimulationEngine stopped" << std::endl;
 }

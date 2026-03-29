@@ -101,17 +101,17 @@ void ControlStrategy::logAction(double current, double target, double signal,
 
     if (device == "optimal") {
         // Оптимальное состояние — параметр в норме, устройства не нужны
-        std::cout << "[ClimateManager]: " << m_paramName << " is optimal ("
+        std::cout << "[ControlStrategy]: " << m_paramName << " is optimal ("
             << current << ")" << std::endl;
     }
     else if (device == "no_device") {
         // Нет устройств для управления, только информация о рассогласовании
-        std::cout << "[ClimateManager]: " << m_paramName << " " << current
+        std::cout << "[ControlStrategy]: " << m_paramName << " " << current
             << " -> " << target << ", no device to control" << std::endl;
     }
     else {
         // Устройство включено с указанной мощностью
-        std::cout << "[ClimateManager]: " << m_paramName << " " << current
+        std::cout << "[ControlStrategy]: " << m_paramName << " " << current
             << " -> " << target << ", " << device
             << " ON at " << static_cast<int>(signal) << "%" << std::endl;
     }
