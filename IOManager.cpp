@@ -136,7 +136,8 @@ std::vector<int> IOManager::getDeviceIdsByType(const std::string& type) {
 void IOManager::sendOnOffCommand(int deviceId, bool turnOn) {
     auto device = getDevice(deviceId);
     if (!device) {
-        std::cout << "[IOManager]: Device " << deviceId << " not found" << std::endl;
+        std::cout << "[IOManager]: Device " << deviceId << " (" << device->getType()
+            << " not found" << std::endl;
         return;
     }
 
@@ -155,7 +156,8 @@ void IOManager::sendOnOffCommand(int deviceId, bool turnOn) {
 void IOManager::sendPowerCommand(int deviceId, int powerLevel) {
     auto device = getDevice(deviceId);
     if (!device) {
-        std::cout << "[IOManager]: Device " << deviceId << " not found" << std::endl;
+        std::cout << "[IOManager]: Device " << deviceId << " (" << device->getType()
+            << " not found" << std::endl;
         return;
     }
 
@@ -167,7 +169,8 @@ void IOManager::sendPowerCommand(int deviceId, int powerLevel) {
     auto adjustable = std::dynamic_pointer_cast<IAdjustableDevice>(device);
     if (adjustable && powerLevel > 0) {
         adjustable->setPower(powerLevel);
-        std::cout << "[IOManager]: Device " << deviceId << " power set to "
+        std::cout << "[IOManager]: Device " << deviceId << " (" << device->getType()
+            << " power set to "
             << powerLevel << "%" << std::endl;
     }
     else if (powerLevel <= 0 && device->isOn()) {
@@ -178,14 +181,16 @@ void IOManager::sendPowerCommand(int deviceId, int powerLevel) {
 void IOManager::sendModeCommand(int deviceId, int mode) {
     auto device = getDevice(deviceId);
     if (!device) {
-        std::cout << "[IOManager]: Device " << deviceId << " not found" << std::endl;
+        std::cout << "[IOManager]: Device " << deviceId << " (" << device->getType()
+            << " not found" << std::endl;
         return;
     }
 
     auto modeSelectable = std::dynamic_pointer_cast<IModeSelectableDevice>(device);
     if (modeSelectable) {
         modeSelectable->setMode(mode);
-        std::cout << "[IOManager]: Device " << deviceId << " mode set to "
+        std::cout << "[IOManager]: Device " << deviceId << " (" << device->getType()
+            << " mode set to "
             << mode << std::endl;
     }
 }

@@ -44,13 +44,30 @@ void ClimateManager::setRegulator(const std::string& parameter,
         );
         m_strategies.push_back(strategy);
     }
-    else {
-        // Остальные параметры (влажность воздуха, влажность почвы)
-        // управляются одним устройством — устройства будут определены
-        // позже через strategy->setDevices() или останутся пустыми
+    else if (parameter == "air_humidity") {
+        // Влажность воздуха управляется увлажнителем
         auto strategy = std::make_shared<ControlStrategy>(
             parameter,
-            std::vector<std::string>{},  // устройства будут добавлены позже
+            std::vector<std::string>{"air_humidifier"},
+            regulator
+        );
+        m_strategies.push_back(strategy);
+    }
+    else if (parameter == "soil_moisture") {
+        // Влажность почвы управляется системой полива
+        auto strategy = std::make_shared<ControlStrategy>(
+            parameter,
+            std::vector<std::string>{"irrigation"},
+            regulator
+        );
+        m_strategies.push_back(strategy);
+    }
+    else {
+        // Остальные параметры (если появятся) управляются одним устройством,
+        // устройства будут определены позже через strategy->setDevices()
+        auto strategy = std::make_shared<ControlStrategy>(
+            parameter,
+            std::vector<std::string>{},
             regulator
         );
         m_strategies.push_back(strategy);
