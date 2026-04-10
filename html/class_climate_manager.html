@@ -114,9 +114,9 @@ $(function(){initNavTree('class_climate_manager.html','','class_climate_manager-
 <tr class="memitem:a2d8a2148eeee2479fcb1a729d198db1c" id="r_a2d8a2148eeee2479fcb1a729d198db1c"><td class="memItemLeft">std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2d8a2148eeee2479fcb1a729d198db1c">calculateCommands</a> (const std::map&lt; std::string, double &gt; &amp;current_readings) override</td></tr>
 <tr class="memdesc:a2d8a2148eeee2479fcb1a729d198db1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитать управляющие команды на основе текущих показаний  <br /></td></tr>
 <tr class="memitem:aef062672708809f0bf5ac81971a36b87" id="r_aef062672708809f0bf5ac81971a36b87"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aef062672708809f0bf5ac81971a36b87">addStrategy</a> (std::shared_ptr&lt; <a class="el" href="class_control_strategy.html">ControlStrategy</a> &gt; strategy)</td></tr>
-<tr class="memdesc:aef062672708809f0bf5ac81971a36b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавить стратегию управления (паттерн Делегирования).  <br /></td></tr>
+<tr class="memdesc:aef062672708809f0bf5ac81971a36b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавить стратегию управления  <br /></td></tr>
 <tr class="memitem:aa3b76b04d8afb5d0950315185758c7f7" id="r_aa3b76b04d8afb5d0950315185758c7f7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa3b76b04d8afb5d0950315185758c7f7">setRegulator</a> (const std::string &amp;parameter, std::shared_ptr&lt; <a class="el" href="class_i_regulator.html">IRegulator</a> &gt; regulator)</td></tr>
-<tr class="memdesc:aa3b76b04d8afb5d0950315185758c7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить регулятор для параметра (удобный метод-обёртка).  <br /></td></tr>
+<tr class="memdesc:aa3b76b04d8afb5d0950315185758c7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить регулятор для параметра  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Менеджер климата, реализующий логику поддержания микроклимата </p>
@@ -139,7 +139,7 @@ $(function(){initNavTree('class_climate_manager.html','','class_climate_manager-
       </table>
 </div><div class="memdoc">
 
-<p>Добавить стратегию управления (паттерн Делегирования). </p>
+<p>Добавить стратегию управления </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
     <tr><td class="paramname">strategy</td><td>Умный указатель на стратегию </td></tr>
@@ -204,7 +204,7 @@ $(function(){initNavTree('class_climate_manager.html','','class_climate_manager-
       </table>
 </div><div class="memdoc">
 
-<p>Установить регулятор для параметра (удобный метод-обёртка). </p>
+<p>Установить регулятор для параметра </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
     <tr><td class="paramname">parameter</td><td>Имя параметра ("temperature", "air_humidity" и т.д.) </td></tr>

@@ -24,6 +24,8 @@ var annotated_dup =
     [ "ISensor", "class_i_sensor.html", "class_i_sensor" ],
     [ "ISimulationEngine", "class_i_simulation_engine.html", "class_i_simulation_engine" ],
     [ "Lamp", "class_lamp.html", "class_lamp" ],
+    [ "OldHeater", "class_old_heater.html", "class_old_heater" ],
+    [ "OldHeaterAdapter", "class_old_heater_adapter.html", "class_old_heater_adapter" ],
     [ "OnOffRegulator", "class_on_off_regulator.html", "class_on_off_regulator" ],
     [ "PidRegulator", "class_pid_regulator.html", "class_pid_regulator" ],
     [ "SafetyProxyManager", "class_safety_proxy_manager.html", "class_safety_proxy_manager" ],

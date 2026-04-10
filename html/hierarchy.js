@@ -4,7 +4,8 @@ var hierarchy =
     [ "IAdjustableDevice", "class_i_adjustable_device.html", [
       [ "Conditioner", "class_conditioner.html", null ],
       [ "Heater", "class_heater.html", null ],
-      [ "Lamp", "class_lamp.html", null ]
+      [ "Lamp", "class_lamp.html", null ],
+      [ "OldHeaterAdapter", "class_old_heater_adapter.html", null ]
     ] ],
     [ "IClimateManager", "class_i_climate_manager.html", [
       [ "ClimateManager", "class_climate_manager.html", null ],
@@ -25,6 +26,7 @@ var hierarchy =
         [ "Heater", "class_heater.html", null ],
         [ "Irrigation", "class_irrigation.html", null ],
         [ "Lamp", "class_lamp.html", null ],
+        [ "OldHeaterAdapter", "class_old_heater_adapter.html", null ],
         [ "Ventilation", "class_ventilation.html", null ]
       ] ]
     ] ],
@@ -54,6 +56,7 @@ var hierarchy =
     [ "ISimulationEngine", "class_i_simulation_engine.html", [
       [ "SimulationEngine", "class_simulation_engine.html", null ]
     ] ],
+    [ "OldHeater", "class_old_heater.html", null ],
     [ "ScheduleConfig", "struct_schedule_config.html", null ],
     [ "TimerSchedule", "class_timer_schedule.html", null ]
 ];

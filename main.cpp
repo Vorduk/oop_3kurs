@@ -18,6 +18,7 @@
 #include "Irrigation.h"
 #include "Ventilation.h"
 #include "Lamp.h"
+#include "OldHeaterAdapter.h"
 
 int main() {
     // Вывод заголовка
@@ -26,7 +27,7 @@ int main() {
     std::cout << "========================================" << std::endl << std::endl;
 
     // Модель — источник данных для датчиков
-    std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(22.0, 65.0, 45.0);
+    std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(20.0, 65.0, 45.0);
 
     // Создание множества датчиков
     std::vector<std::shared_ptr<BaseSensor>> all_sensors;
@@ -111,12 +112,19 @@ int main() {
         io_manager->addDevice(device);
     }
 
+    //Адаптер.
+    std::shared_ptr<OldHeater> legacy_heater= std::make_shared<OldHeater>();
+    std::shared_ptr<BaseDevice> = std::make_shared<OldHeaterAdapter>(legacy_heater);
+    // Регистрируем адаптер в IOManager (он ожидает shared_ptr<IDevice>)
+    io_manager->addDevice(adapter);
+
+
     // Реальный менеджер климата
     std::cout << "\nCreating ClimateManager with regulators..." << std::endl;
     std::shared_ptr<ClimateManager> realClimateManager = std::make_shared<ClimateManager>();
 
     // Создание регуляторов
-    std::shared_ptr<PidRegulator> pidRegulator = std::make_shared<PidRegulator>(2.0, 0.1, 0.5);
+    std::shared_ptr<PidRegulator> pidRegulator = std::make_shared<PidRegulator>(2.0, 0.5, 1.0);
     std::shared_ptr<OnOffRegulator> onOffRegulator = std::make_shared<OnOffRegulator>(2.0);
 
     // Назначение регуляторов параметрам

@@ -21,6 +21,8 @@ var files_dup =
     [ "ISensor.h", "_i_sensor_8h_source.html", null ],
     [ "ISimulationEngine.h", "_i_simulation_engine_8h_source.html", null ],
     [ "Lamp.h", "_lamp_8h_source.html", null ],
+    [ "OldHeater.h", "_old_heater_8h_source.html", null ],
+    [ "OldHeaterAdapter.h", "_old_heater_adapter_8h_source.html", null ],
     [ "OnOffRegulator.h", "_on_off_regulator_8h_source.html", null ],
     [ "PidRegulator.h", "_pid_regulator_8h_source.html", null ],
     [ "SafetyProxyManager.h", "_safety_proxy_manager_8h_source.html", null ],

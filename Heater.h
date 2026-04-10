@@ -33,7 +33,7 @@ public:
     int getPower() const override;
 
 private:
-    bool m_isOn;        ///< Состояние устройства (включен/выключен)
+    bool m_is_on;       ///< Состояние устройства (включен/выключен)
     int m_powerLevel;   ///< Уровень мощности в процентах (0-100)
 };
 
