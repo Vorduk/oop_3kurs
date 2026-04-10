@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['heater_0',['Heater',['../class_heater.html',1,'']]]
+  ['extendedconfigmanager_0',['ExtendedConfigManager',['../class_extended_config_manager.html',1,'']]]
 ];

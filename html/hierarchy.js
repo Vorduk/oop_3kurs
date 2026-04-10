@@ -1,11 +1,20 @@
 var hierarchy =
 [
+    [ "Command", "class_command.html", null ],
+    [ "CommandNode", "class_command_node.html", null ],
     [ "ControlStrategy", "class_control_strategy.html", null ],
     [ "IAdjustableDevice", "class_i_adjustable_device.html", [
       [ "Conditioner", "class_conditioner.html", null ],
+      [ "DeviceDecorator", "class_device_decorator.html", [
+        [ "DeviceLoggerDecorator", "class_device_logger_decorator.html", null ],
+        [ "DevicePowerLimitDecorator", "class_device_power_limit_decorator.html", null ]
+      ] ],
       [ "Heater", "class_heater.html", null ],
       [ "Lamp", "class_lamp.html", null ],
       [ "OldHeaterAdapter", "class_old_heater_adapter.html", null ]
+    ] ],
+    [ "IAggregate", "class_i_aggregate.html", [
+      [ "CommandHistory", "class_command_history.html", null ]
     ] ],
     [ "IClimateManager", "class_i_climate_manager.html", [
       [ "ClimateManager", "class_climate_manager.html", null ],
@@ -28,7 +37,8 @@ var hierarchy =
         [ "Lamp", "class_lamp.html", null ],
         [ "OldHeaterAdapter", "class_old_heater_adapter.html", null ],
         [ "Ventilation", "class_ventilation.html", null ]
-      ] ]
+      ] ],
+      [ "DeviceDecorator", "class_device_decorator.html", null ]
     ] ],
     [ "IEmergencyStrategy", "class_i_emergency_strategy.html", [
       [ "TemperatureEmergencyStrategy", "class_temperature_emergency_strategy.html", null ]
@@ -36,8 +46,12 @@ var hierarchy =
     [ "IIOManager", "class_i_i_o_manager.html", [
       [ "IOManager", "class_i_o_manager.html", null ]
     ] ],
+    [ "IIterator", "class_i_iterator.html", [
+      [ "CommandIterator", "class_command_iterator.html", null ]
+    ] ],
     [ "IModeSelectableDevice", "class_i_mode_selectable_device.html", [
       [ "AirHumidifier", "class_air_humidifier.html", null ],
+      [ "DeviceDecorator", "class_device_decorator.html", null ],
       [ "Irrigation", "class_irrigation.html", null ],
       [ "Lamp", "class_lamp.html", null ],
       [ "Ventilation", "class_ventilation.html", null ]
@@ -50,7 +64,8 @@ var hierarchy =
       [ "BaseSensor", "class_base_sensor.html", [
         [ "AirHumiditySensor", "class_air_humidity_sensor.html", null ],
         [ "SoilMoistureSensor", "class_soil_moisture_sensor.html", null ],
-        [ "TemperatureSensor", "class_temperature_sensor.html", null ]
+        [ "TemperatureSensor", "class_temperature_sensor.html", null ],
+        [ "TemperatureSensorsComposite", "class_temperature_sensors_composite.html", null ]
       ] ]
     ] ],
     [ "ISimulationEngine", "class_i_simulation_engine.html", [

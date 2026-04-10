@@ -43,7 +43,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_air_humidifier_8h_source.html"
+"_air_humidifier_8h_source.html",
+"class_temperature_emergency_strategy.html#af0396abc097d6b2ce9d8f8c1d707556b"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

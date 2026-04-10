@@ -88,35 +88,37 @@ void SimulationEngine::applyScheduledCommand(const std::string& deviceType, int 
 /**
  * @brief Применение команд управления к устройствам и модели
  *
- * Вызывается из главного цикла управления. Эффекты от устройств
- * накапливаются и будут применены при следующем вызове update().
+ * Вызывается из главного цикла. Эффекты от устройств
+ * накапливаются и примененяютя при следующем вызове update().
  */
 void SimulationEngine::applyCommands(const std::map<std::string, int>& commands) {
     if (!m_model || !m_io_manager) return;
 
     for (const auto& pair : commands) {
-        const std::string& deviceType = pair.first;
+        const std::string& device_type = pair.first;
         int power = pair.second;
 
-        auto deviceIds = m_io_manager->getDeviceIdsByType(deviceType);
-        for (int deviceId : deviceIds) {
-            // Отправляем команду мощности устройству
-            m_io_manager->sendPowerCommand(deviceId, power);
+        auto device_ids = m_io_manager->getDeviceIdsByType(device_type);
+        for (int device_id : device_ids) {
+            // Команда мощности устройству
+            m_io_manager->sendPowerCommand(device_id, power);
         }
 
-        // Применение эффектоа к модели (накапливаются до следующего update())
-        if (deviceType == "heater") {
+        // Применение эффектоа к модели
+        if (device_type == "heater") {
             m_model->applyHeaterEffect(power);
         }
-        else if (deviceType == "conditioner") {
+        else if (device_type == "conditioner") {
             m_model->applyConditionerEffect(power);
         }
-        else if (deviceType == "air_humidifier") {
+        else if (device_type == "air_humidifier") {
             m_model->applyHumidifierEffect(power);
         }
-        else if (deviceType == "irrigation") {
+        else if (device_type == "irrigation") {
             m_model->applyIrrigationEffect(power);
         }
+
+        m_command_history.push(Command(device_type, power));
     }
 }
 
@@ -183,6 +185,16 @@ void SimulationEngine::start() {
             m_model->update();
             m_model->printParameters();
         }
+
+        IIterator* it = m_command_history.createIterator();
+        int commands_count = 0;
+        std::cout << "\n[CommandHistory]: last 5 commands:" << std::endl;
+        while (it->hasNext() && commands_count < 5) {
+            Command* cmd = static_cast<Command*>(it->next());
+            std::cout << "  " << cmd->getDescription() << std::endl;
+            ++commands_count;
+        }
+        delete it;
 
         // Пауза
         std::cout << "[SimulationEngine] Waiting 2 seconds..." << std::endl;

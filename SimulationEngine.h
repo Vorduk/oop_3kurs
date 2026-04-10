@@ -8,6 +8,7 @@
 #include <memory>
 #include <map>
 #include <string>
+#include "CommandHistory.h"
 
 class ExtendedConfigManager;
 
@@ -105,4 +106,6 @@ private:
     std::shared_ptr<IConfigManager> m_configManager;        ///< Менеджер конфигурации
 
     std::map<std::string, std::unique_ptr<TimerSchedule>> m_schedules;  ///< Активные таймеры расписаний
+
+    CommandHistory m_command_history;
 };
