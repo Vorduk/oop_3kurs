@@ -8,7 +8,7 @@ DevicePowerLimitDecorator::DevicePowerLimitDecorator(std::shared_ptr<IDevice> de
 
 void DevicePowerLimitDecorator::setPower(int level) {
     if (level > m_max_power) {
-        std::cout << "[DevicePowerLimitDecorator]$ Device " << getType()
+        std::cout << "[DevicePowerLimitDecorator]: Device " << getType()
             << " (ID:" << getId() << ") reducing power from "
             << level << "% to " << m_max_power << "%" << std::endl;
         level = m_max_power;

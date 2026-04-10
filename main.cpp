@@ -30,7 +30,7 @@ int main() {
     std::cout << "========================================" << std::endl << std::endl;
 
     // Модель — источник данных для датчиков
-    std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(20.0, 65.0, 45.0);
+    std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(-50.0, 65.0, 45.0);
 
     // Создание множества датчиков
     std::vector<std::shared_ptr<BaseSensor>> all_sensors;
@@ -105,7 +105,7 @@ int main() {
 
     //Декораторы
     std::shared_ptr<BaseDevice> heater = std::make_shared<Heater>();
-    auto limited_heater = std::make_shared<DevicePowerLimitDecorator>(heater, 70);
+    auto limited_heater = std::make_shared<DevicePowerLimitDecorator>(heater, 10);
     auto logged_limited_heater = std::make_shared<DeviceLoggerDecorator>(limited_heater);
     std::cout << "  Created device: Type='" << logged_limited_heater->getType()
         << "', ID=" << logged_limited_heater->getId() << std::endl;
@@ -130,11 +130,6 @@ int main() {
     for (std::shared_ptr<BaseDevice>& device : allDevices) {
         io_manager->addDevice(device);
     }
-
-    //Адаптер.
-    std::shared_ptr<OldHeater> legacy_heater= std::make_shared<OldHeater>();
-    std::shared_ptr<BaseDevice> heater_adapter = std::make_shared<OldHeaterAdapter>(legacy_heater);
-    io_manager->addDevice(heater_adapter);
 
     // Реальный менеджер климата
     std::cout << "\nCreating ClimateManager with regulators..." << std::endl;

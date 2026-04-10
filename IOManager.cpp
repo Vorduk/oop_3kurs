@@ -156,8 +156,7 @@ void IOManager::sendOnOffCommand(int deviceId, bool turnOn) {
 void IOManager::sendPowerCommand(int deviceId, int powerLevel) {
     auto device = getDevice(deviceId);
     if (!device) {
-        std::cout << "[IOManager]: Device " << deviceId << " (" << device->getType()
-            << " not found" << std::endl;
+        std::cout << "[IOManager]: Device " << deviceId << " not found" << std::endl;
         return;
     }
 

@@ -4,7 +4,7 @@
 #include <algorithm>
 
 TemperatureSensorsComposite::TemperatureSensorsComposite()
-    : BaseSensor(std::weak_ptr<const IDataProvider>(), "temperature_composite") {
+    : BaseSensor(std::weak_ptr<const IDataProvider>(), "temperature") {
     // DataProvider пустой, т. к. он не нужен для композитного датчика
 }
 
