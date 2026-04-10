@@ -8,6 +8,10 @@ OldHeaterAdapter::OldHeaterAdapter(std::shared_ptr<OldHeater> legacy)
     , m_powerLevel(0) {
 }
 
+OldHeaterAdapter::~OldHeaterAdapter()
+{
+}
+
 void OldHeaterAdapter::turnOn() {
     if (m_legacy) {
         m_legacy->powerOn();
