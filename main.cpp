@@ -19,6 +19,8 @@
 #include "Ventilation.h"
 #include "Lamp.h"
 #include "OldHeaterAdapter.h"
+#include "DeviceLoggerDecorator.h"
+#include "DevicePowerLimitDecorator.h"
 
 int main() {
     // Вывод заголовка
@@ -72,14 +74,6 @@ int main() {
 
     std::vector<std::shared_ptr<BaseDevice>> allDevices;
 
-    std::shared_ptr<BaseDevice> heater = std::make_shared<Heater>();
-    allDevices.push_back(heater);
-    std::cout << "  Created device: Type='" << heater->getType() << "', ID=" << heater->getId() << std::endl;
-
-    std::shared_ptr<BaseDevice> conditioner = std::make_shared<Conditioner>();
-    allDevices.push_back(conditioner);
-    std::cout << "  Created device: Type='" << conditioner->getType() << "', ID=" << conditioner->getId() << std::endl;
-
     std::shared_ptr<BaseDevice> humidifier = std::make_shared<AirHumidifier>();
     allDevices.push_back(humidifier);
     std::cout << "  Created device: Type='" << humidifier->getType() << "', ID=" << humidifier->getId() << std::endl;
@@ -100,6 +94,20 @@ int main() {
     std::cout << "\nInitializing IOManager..." << std::endl;
     std::shared_ptr<IOManager> io_manager = std::make_shared<IOManager>();
 
+    std::shared_ptr<BaseDevice> heater = std::make_shared<Heater>();
+    //Декораторы
+    auto limited_heater = std::make_shared<DevicePowerLimitDecorator>(heater, 70);
+    auto logged_limited_heater = std::make_shared<DeviceLoggerDecorator>(limited_heater);
+    std::cout << "  Created device: Type='" << logged_limited_heater->getType() << "', ID=" << logged_limited_heater->getId() << std::endl;
+    io_manager->addDevice(logged_limited_heater);
+
+    std::shared_ptr<BaseDevice> conditioner = std::make_shared<Heater>();
+    //Декораторы
+    auto logged_conditioner = std::make_shared<DeviceLoggerDecorator>(conditioner);
+    auto limited_logged_heater = std::make_shared<DevicePowerLimitDecorator>(heater, 50);
+    std::cout << "  Created device: Type='" << limited_logged_heater->getType() << "', ID=" << limited_logged_heater->getId() << std::endl;
+    io_manager->addDevice(limited_logged_heater);
+
     // Регистрация всех датчиков из единого массива
     std::cout << "\nRegistering all sensors..." << std::endl;
     for (std::shared_ptr<BaseSensor>& sensor : all_sensors) {
@@ -114,10 +122,8 @@ int main() {
 
     //Адаптер.
     std::shared_ptr<OldHeater> legacy_heater= std::make_shared<OldHeater>();
-    std::shared_ptr<BaseDevice> = std::make_shared<OldHeaterAdapter>(legacy_heater);
-    // Регистрируем адаптер в IOManager (он ожидает shared_ptr<IDevice>)
-    io_manager->addDevice(adapter);
-
+    std::shared_ptr<BaseDevice> heater_adapter = std::make_shared<OldHeaterAdapter>(legacy_heater);
+    io_manager->addDevice(heater_adapter);
 
     // Реальный менеджер климата
     std::cout << "\nCreating ClimateManager with regulators..." << std::endl;
