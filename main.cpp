@@ -36,20 +36,28 @@ int main() {
     std::vector<std::shared_ptr<BaseSensor>> all_sensors;
     std::cout << "\nCreating sensors..." << std::endl;
 
-    // Композит из 3-х датчиков температуры
-    std::shared_ptr<TemperatureSensorsComposite> temp_сomposite =
-        std::make_shared<TemperatureSensorsComposite>();
+    // Композит  датчиков температуры
+    // Подкомпозит 1 (3 датчика температуры)
+    std::shared_ptr<TemperatureSensorsComposite> subComposite1 = std::make_shared<TemperatureSensorsComposite>();
     for (int i = 0; i < 3; ++i) {
-        std::shared_ptr<TemperatureSensor> sensor =
-            std::make_shared<TemperatureSensor>(simulation_model);
-        temp_сomposite->addSensor(sensor);
-
-        std::cout << "Created temperature sensor ID:" << sensor->getId()
-            << " added to composite" << std::endl;
+        std::shared_ptr<TemperatureSensor> tempSensor = std::make_shared<TemperatureSensor>(simulation_model);
+        subComposite1->addSensor(tempSensor);
     }
-    // Добавление композита в общий список (приведение к базовому типу)
-    all_sensors.push_back(std::static_pointer_cast<BaseSensor>(temp_сomposite));
-    std::cout << "Temperature composite created, ID:" << temp_сomposite->getId() << std::endl;
+
+    // Подкомпозит 2 (2 датчика температуры)
+    std::shared_ptr<TemperatureSensorsComposite> subComposite2 = std::make_shared<TemperatureSensorsComposite>();
+    for (int i = 0; i < 2; ++i) {
+        std::shared_ptr<TemperatureSensor> tempSensor = std::make_shared<TemperatureSensor>(simulation_model);
+        subComposite2->addSensor(tempSensor);
+    }
+
+    // Композит из этих двух композитов
+    std::shared_ptr<TemperatureSensorsComposite> rootComposite = std::make_shared<TemperatureSensorsComposite>();
+    rootComposite->addSensor(subComposite1);
+    rootComposite->addSensor(subComposite2);
+
+    // Добавление в общий список датчиков
+    all_sensors.push_back(rootComposite);
 
     // 2 датчика влажности воздуха
     for (int i = 0; i < 2; ++i) {
@@ -105,16 +113,16 @@ int main() {
 
     //Декораторы
     std::shared_ptr<BaseDevice> heater = std::make_shared<Heater>();
-    auto limited_heater = std::make_shared<DevicePowerLimitDecorator>(heater, 10);
-    auto logged_limited_heater = std::make_shared<DeviceLoggerDecorator>(limited_heater);
+    std::shared_ptr<IDevice> limited_heater = std::make_shared<DevicePowerLimitDecorator>(heater, 10);
+    std::shared_ptr<IDevice> logged_limited_heater = std::make_shared<DeviceLoggerDecorator>(limited_heater);
     std::cout << "  Created device: Type='" << logged_limited_heater->getType()
         << "', ID=" << logged_limited_heater->getId() << std::endl;
     io_manager->addDevice(logged_limited_heater);
 
     //Декораторы
-    std::shared_ptr<BaseDevice> conditioner = std::make_shared<Conditioner>();
-    auto logged_conditioner = std::make_shared<DeviceLoggerDecorator>(conditioner);
-    auto limited_logged_conditioner = std::make_shared<DevicePowerLimitDecorator>(logged_conditioner, 50);
+    std::shared_ptr<IDevice> conditioner = std::make_shared<Conditioner>();
+    std::shared_ptr<IDevice> logged_conditioner = std::make_shared<DeviceLoggerDecorator>(conditioner);
+    std::shared_ptr<IDevice> limited_logged_conditioner = std::make_shared<DevicePowerLimitDecorator>(logged_conditioner, 50);
     std::cout << "  Created device: Type='" << limited_logged_conditioner->getType()
         << "', ID=" << limited_logged_conditioner->getId() << std::endl;
     io_manager->addDevice(limited_logged_conditioner);
