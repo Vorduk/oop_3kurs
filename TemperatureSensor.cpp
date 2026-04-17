@@ -12,3 +12,15 @@ double TemperatureSensor::getValue() {
     // Если провайдер умер, возвращается в начальное состояние
     return START_TEMPERATURE_READING;
 }
+
+TemperatureSensor::TemperatureSensor(std::weak_ptr<const IDataProvider> data_provider)
+    : BaseSensor(data_provider, "temperature")
+{
+}
+
+// Реализация clone()
+std::shared_ptr<ISensor> TemperatureSensor::clone() const {
+    std::cout << "[TemperatureSensor] Cloning sensor ID=" << getId() << std::endl;
+    // Используется конструктор копирования TemperatureSensor
+    return std::make_shared<TemperatureSensor>(*this);
+}

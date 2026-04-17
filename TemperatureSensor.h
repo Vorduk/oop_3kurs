@@ -14,9 +14,8 @@ public:
      * @brief Конструктор датчика температуры
      * @param data_provider Умный указатель на источник данных
      */
-    TemperatureSensor(std::weak_ptr<const IDataProvider> data_provider)
-        : BaseSensor(data_provider, "temperature") {
-    }
+    TemperatureSensor(std::weak_ptr<const IDataProvider> data_provider);
+    std::shared_ptr<ISensor> clone() const override;
 private:
 
     /**
@@ -24,4 +23,6 @@ private:
      * @return Температура в градусах Цельсия
      */
 	double getValue() override; // Метод для получения показания с датчика.
+
+    
 };

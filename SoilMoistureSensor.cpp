@@ -11,3 +11,14 @@ double SoilMoistureSensor::getValue() {
     // Если провайдер умер, возвращается в начальное состояние
     return START_SOIL_MOISTURE_READING;
 }
+
+SoilMoistureSensor::SoilMoistureSensor(std::weak_ptr<const IDataProvider> data_provider)
+    : BaseSensor(data_provider, "soil_moisture")
+{
+}
+
+std::shared_ptr<ISensor> SoilMoistureSensor::clone() const {
+    std::cout << "[SoilMoistureSensor] Cloning sensor ID=" << getId() << std::endl;
+    // Используется конструктор копирования
+    return std::make_shared<SoilMoistureSensor>(*this);
+}

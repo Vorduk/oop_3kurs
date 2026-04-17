@@ -11,3 +11,14 @@ double AirHumiditySensor::getValue() {
     // Если провайдер умер, возвращается в начальное состояние
     return START_AIR_HUMIDITY_READING;
 }
+
+AirHumiditySensor::AirHumiditySensor(std::weak_ptr<const IDataProvider> data_provider)
+    : BaseSensor(data_provider, "air_humidity")
+{
+}
+
+std::shared_ptr<ISensor> AirHumiditySensor::clone() const {
+    std::cout << "[AirHumiditySensor] Cloning sensor ID=" << getId() << std::endl;
+    // Используется конструктор копирования
+    return std::make_shared<AirHumiditySensor>(*this);
+}

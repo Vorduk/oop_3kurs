@@ -14,13 +14,14 @@ public:
      * @brief Конструктор датчика влажности почвы
      * @param data_provider Умный указатель на источник данных
      */
-    SoilMoistureSensor(std::weak_ptr<const IDataProvider> data_provider)
-        : BaseSensor(data_provider, "soil_moisture") {
-    }
+    SoilMoistureSensor(std::weak_ptr<const IDataProvider> data_provider);
+    std::shared_ptr<ISensor> clone() const override;
 private:
     /**
      * @brief Получить текущее показание влажности почвы
      * @return Влажность в процентах (0-100%)
      */
 	double getValue() override; // Метод для получения показания с датчика.
+
+    
 };

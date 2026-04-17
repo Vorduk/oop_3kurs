@@ -32,5 +32,7 @@ public:
 	 */
 	virtual int getId() const = 0;
 
+	virtual std::shared_ptr<ISensor> clone() const = 0;
+
 };
 
