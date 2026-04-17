@@ -22,6 +22,7 @@
 #include "DeviceLoggerDecorator.h"
 #include "DevicePowerLimitDecorator.h"
 #include "TemperatureSensorsComposite.h"
+#include "GreenhouseFactory.h"
 
 int main() {
     // Вывод заголовка
@@ -31,6 +32,10 @@ int main() {
 
     // Модель — источник данных для датчиков
     std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(-50.0, 65.0, 45.0);
+
+    // IOManager
+    std::cout << "\nInitializing IOManager..." << std::endl;
+    std::shared_ptr<IOManager> io_manager = std::make_shared<IOManager>();
 
     // Создание множества датчиков
     std::vector<std::shared_ptr<BaseSensor>> all_sensors;
@@ -86,71 +91,50 @@ int main() {
     std::cout << "  - Air humidity sensors: " << humidityCount << std::endl;
     std::cout << "  - Soil moisture sensors: " << soilCount << std::endl;
 
-    // Создание устройств
-    std::cout << "\nCreating devices..." << std::endl;
-
-    std::vector<std::shared_ptr<BaseDevice>> allDevices;
-
-    std::shared_ptr<BaseDevice> humidifier = std::make_shared<AirHumidifier>();
-    allDevices.push_back(humidifier);
-    std::cout << "  Created device: Type='" << humidifier->getType() << "', ID=" << humidifier->getId() << std::endl;
-
-    std::shared_ptr<BaseDevice> irrigation = std::make_shared<Irrigation>();
-    allDevices.push_back(irrigation);
-    std::cout << "  Created device: Type='" << irrigation->getType() << "', ID=" << irrigation->getId() << std::endl;
-
-    std::shared_ptr<BaseDevice> ventilation = std::make_shared<Ventilation>();
-    allDevices.push_back(ventilation);
-    std::cout << "  Created device: Type='" << ventilation->getType() << "', ID=" << ventilation->getId() << std::endl;
-
-    std::shared_ptr<BaseDevice> lamp = std::make_shared<Lamp>();
-    allDevices.push_back(lamp);
-    std::cout << "  Created device: Type='" << lamp->getType() << "', ID=" << lamp->getId() << std::endl;
-
-    // IOManager
-    std::cout << "\nInitializing IOManager..." << std::endl;
-    std::shared_ptr<IOManager> io_manager = std::make_shared<IOManager>();
-
-    //Декораторы
-    std::shared_ptr<BaseDevice> heater = std::make_shared<Heater>();
-    std::shared_ptr<IDevice> limited_heater = std::make_shared<DevicePowerLimitDecorator>(heater, 10);
-    std::shared_ptr<IDevice> logged_limited_heater = std::make_shared<DeviceLoggerDecorator>(limited_heater);
-    std::cout << "  Created device: Type='" << logged_limited_heater->getType()
-        << "', ID=" << logged_limited_heater->getId() << std::endl;
-    io_manager->addDevice(logged_limited_heater);
-
-    //Декораторы
-    std::shared_ptr<IDevice> conditioner = std::make_shared<Conditioner>();
-    std::shared_ptr<IDevice> logged_conditioner = std::make_shared<DeviceLoggerDecorator>(conditioner);
-    std::shared_ptr<IDevice> limited_logged_conditioner = std::make_shared<DevicePowerLimitDecorator>(logged_conditioner, 50);
-    std::cout << "  Created device: Type='" << limited_logged_conditioner->getType()
-        << "', ID=" << limited_logged_conditioner->getId() << std::endl;
-    io_manager->addDevice(limited_logged_conditioner);
-
     // Регистрация всех датчиков из единого массива
     std::cout << "\nRegistering all sensors..." << std::endl;
     for (std::shared_ptr<BaseSensor>& sensor : all_sensors) {
         io_manager->addSensor(sensor);
     }
 
-    // Регистрация всех устройств
-    std::cout << "\nRegistering all devices..." << std::endl;
-    for (std::shared_ptr<BaseDevice>& device : allDevices) {
-        io_manager->addDevice(device);
-    }
 
-    // Реальный менеджер климата
-    std::cout << "\nCreating ClimateManager with regulators..." << std::endl;
+
+
+    // Создание устройств
+    std::cout << "\nCreating devices..." << std::endl;
+
+    // Абстрактная фабрика
+    std::shared_ptr<IGreenhouseFactory> factory = std::make_shared<GreenhouseFactory>();
+
+    std::cout << "\nCreating devices via Abstract Factory..." << std::endl;
+
+    std::shared_ptr<IDevice> heater = factory->createHeater();
+    std::shared_ptr<IDevice> conditioner = factory->createConditioner();
+    std::shared_ptr<IDevice> humidifier = factory->createAirHumidifier();
+    std::shared_ptr<IDevice> irrigation = factory->createIrrigation();
+    std::shared_ptr<IDevice> ventilation = factory->createVentilation();
+    std::shared_ptr<IDevice> lamp = factory->createLamp();
+
+    std::cout << "\nRegistering devices..." << std::endl;
+    io_manager->addDevice(heater);
+    io_manager->addDevice(conditioner);
+    io_manager->addDevice(humidifier);
+    io_manager->addDevice(irrigation);
+    io_manager->addDevice(ventilation);
+    io_manager->addDevice(lamp);
+
+    std::cout << "\nCreating ClimateManager with regulators via Abstract Factory..." << std::endl;
     std::shared_ptr<ClimateManager> realClimateManager = std::make_shared<ClimateManager>();
 
-    // Создание регуляторов
-    std::shared_ptr<PidRegulator> pidRegulator = std::make_shared<PidRegulator>(2.0, 0.5, 1.0);
-    std::shared_ptr<OnOffRegulator> onOffRegulator = std::make_shared<OnOffRegulator>(2.0);
+    // Получение регуляторов от фабрики
+    std::shared_ptr<IRegulator> temp_regulator = factory->createTemperatureRegulator();
+    std::shared_ptr<IRegulator> humidity_regulator = factory->createHumidityRegulator();
+    std::shared_ptr<IRegulator> soil_regulator = factory->createSoilMoistureRegulator();
 
     // Назначение регуляторов параметрам
-    realClimateManager->setRegulator("temperature", pidRegulator);
-    realClimateManager->setRegulator("air_humidity", onOffRegulator);
-    realClimateManager->setRegulator("soil_moisture", onOffRegulator);
+    realClimateManager->setRegulator("temperature", temp_regulator);
+    realClimateManager->setRegulator("air_humidity", humidity_regulator);
+    realClimateManager->setRegulator("soil_moisture", soil_regulator);
 
     // Создание стратегии аварийного реагирования
     std::shared_ptr<IEmergencyStrategy> emergencyStrategy = std::make_shared<TemperatureEmergencyStrategy>(5.0, 40.0, 90.0);
@@ -204,11 +188,6 @@ int main() {
     std::cout << "  - Temperature sensors: " << tempCount << std::endl;
     std::cout << "  - Air humidity sensors: " << humidityCount << std::endl;
     std::cout << "  - Soil moisture sensors: " << soilCount << std::endl;
-
-    std::cout << "\nDevices:" << std::endl;
-    for (const std::shared_ptr<BaseDevice>& device : allDevices) {
-        std::cout << "  - " << device->getType() << " (ID: " << device->getId() << ")" << std::endl;
-    }
 
     std::cout << "\nTargets:" << std::endl;
     std::cout << "  - Temperature: 23.0 C" << std::endl;
