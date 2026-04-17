@@ -22,6 +22,10 @@
 #include "DeviceLoggerDecorator.h"
 #include "DevicePowerLimitDecorator.h"
 #include "TemperatureSensorsComposite.h"
+#include "SensorCreator.h"
+#include "TemperatureSensorCreator.h"
+#include "AirHumiditySensorCreator.h"
+#include "SoilMoistureSensorCreator.h"
 
 int main() {
     // Вывод заголовка
@@ -33,51 +37,39 @@ int main() {
     std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(-50.0, 65.0, 45.0);
 
     // Создание множества датчиков
-    std::vector<std::shared_ptr<BaseSensor>> all_sensors;
+    std::vector<std::shared_ptr<ISensor>> all_sensors;
     std::cout << "\nCreating sensors..." << std::endl;
 
-    // Композит  датчиков температуры
-    // Подкомпозит 1 (3 датчика температуры)
-    std::shared_ptr<TemperatureSensorsComposite> subComposite1 = std::make_shared<TemperatureSensorsComposite>();
-    for (int i = 0; i < 3; ++i) {
-        std::shared_ptr<TemperatureSensor> tempSensor = std::make_shared<TemperatureSensor>(simulation_model);
-        subComposite1->addSensor(tempSensor);
-    }
+    // Создание фабрик датчиков (Factory Method)
+    std::cout << "\nCreating sensor factories..." << std::endl;
+    std::shared_ptr<SensorCreator> tempCreator = std::make_shared<TemperatureSensorCreator>();
+    std::shared_ptr<SensorCreator> humCreator = std::make_shared<AirHumiditySensorCreator>();
+    std::shared_ptr<SensorCreator> soilCreator = std::make_shared<SoilMoistureSensorCreator>();
 
-    // Подкомпозит 2 (2 датчика температуры)
-    std::shared_ptr<TemperatureSensorsComposite> subComposite2 = std::make_shared<TemperatureSensorsComposite>();
+    // Создание датчиков через фабричные методы
+    std::cout << "\nCreating sensors via Factory Method..." << std::endl;
+
+    // 2 датчика температуры
     for (int i = 0; i < 2; ++i) {
-        std::shared_ptr<TemperatureSensor> tempSensor = std::make_shared<TemperatureSensor>(simulation_model);
-        subComposite2->addSensor(tempSensor);
+        std::shared_ptr<ISensor> sensor = tempCreator->createSensor(simulation_model);
+        all_sensors.push_back(sensor);
     }
-
-    // Композит из этих двух композитов
-    std::shared_ptr<TemperatureSensorsComposite> rootComposite = std::make_shared<TemperatureSensorsComposite>();
-    rootComposite->addSensor(subComposite1);
-    rootComposite->addSensor(subComposite2);
-
-    // Добавление в общий список датчиков
-    all_sensors.push_back(rootComposite);
 
     // 2 датчика влажности воздуха
     for (int i = 0; i < 2; ++i) {
-        std::shared_ptr <BaseSensor> sensor = std::make_shared<AirHumiditySensor>(simulation_model);
+        std::shared_ptr<ISensor> sensor = humCreator->createSensor(simulation_model);
         all_sensors.push_back(sensor);
-        std::cout << "Created sensor: Type='" << sensor->getType() << "', ID=" << sensor->getId() << std::endl;
     }
 
     // 2 датчика влажности почвы
     for (int i = 0; i < 2; ++i) {
-        std::shared_ptr <BaseSensor> sensor = std::make_shared<SoilMoistureSensor>(simulation_model);
+        std::shared_ptr<ISensor> sensor = soilCreator->createSensor(simulation_model);
         all_sensors.push_back(sensor);
-        std::cout << "Created sensor: Type='" << sensor->getType() << "', ID=" << sensor->getId() << std::endl;
     }
-
-    std::cout << "\nTotal sensors created: " << all_sensors.size() << std::endl;
 
     // Подсчет датчиков по типам для вывода
     int tempCount = 0, humidityCount = 0, soilCount = 0;
-    for (const std::shared_ptr <BaseSensor>& sensor : all_sensors) {
+    for (const std::shared_ptr <ISensor>& sensor : all_sensors) {
         if (sensor->getType() == "temperature") tempCount++;
         else if (sensor->getType() == "air_humidity") humidityCount++;
         else if (sensor->getType() == "soil_moisture") soilCount++;
@@ -129,7 +121,7 @@ int main() {
 
     // Регистрация всех датчиков из единого массива
     std::cout << "\nRegistering all sensors..." << std::endl;
-    for (std::shared_ptr<BaseSensor>& sensor : all_sensors) {
+    for (std::shared_ptr<ISensor>& sensor : all_sensors) {
         io_manager->addSensor(sensor);
     }
 
