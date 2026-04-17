@@ -22,6 +22,9 @@
 #include "DeviceLoggerDecorator.h"
 #include "DevicePowerLimitDecorator.h"
 #include "TemperatureSensorsComposite.h"
+#include "TotalEnergyExpert.h"
+#include "AverageTemperatureExpert.h"
+#include "CommandHistory.h"
 
 int main() {
     // Вывод заголовка
@@ -222,7 +225,30 @@ int main() {
     std::cout << "\nSafety:" << std::endl;
     std::cout << "  - Emergency thresholds: temp [5-40]C, humidity <90%" << std::endl;
 
-    std::cout << "\n========================================" << std::endl;
+    std::cout << "\nSafety:" << std::endl;
+    std::cout << "  - Emergency thresholds: temp [5-40]C, humidity <90%" << std::endl;
+
+    // Information Expert
+    std::cout << "Information Expert" << std::endl;
+
+    // Создание истории команд и добавление тестовых данных
+    std::shared_ptr<CommandHistory> history = std::make_shared<CommandHistory>();
+    history->push(Command("heater", 50));
+    history->push(Command("conditioner", 30));
+    history->push(Command("heater", 75));
+    history->push(Command("heater", 25));
+
+    // Эксперт 1: Суммарная энергия нагревателя
+    std::shared_ptr<IInformationExpert> energyExpert =
+        std::make_shared<TotalEnergyExpert>(history, "heater");
+    energyExpert->getValue();
+    std::cout << std::endl;
+
+    // Эксперт 2: Средняя температура
+    std::shared_ptr<IInformationExpert> tempExpert =
+        std::make_shared<AverageTemperatureExpert>(io_manager);
+    tempExpert->getValue();
+
     std::cout << "Starting main loop...\n" << std::endl;
 
     // Запуск основного цикла управления
