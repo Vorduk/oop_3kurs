@@ -8,6 +8,7 @@
 #include <memory>
 #include <map>
 #include <string>
+#include "AnalyzerPool.h"
 #include "CommandHistory.h"
 
 class ExtendedConfigManager;
@@ -108,4 +109,6 @@ private:
     std::map<std::string, std::unique_ptr<TimerSchedule>> m_schedules;  ///< Активные таймеры расписаний
 
     CommandHistory m_command_history;
+
+    void performClimateAnalysis(double temperature, double humidity, double soilMoisture);
 };

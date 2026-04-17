@@ -161,6 +161,13 @@ void SimulationEngine::start() {
     while (m_is_running) {
         // Чтение показаний всех датчиков
         auto currentValues = m_io_manager->readAggregatedSensors();
+
+        std::map<std::string, double>::const_iterator tempIt = currentValues.find("temperature");
+        std::map<std::string, double>::const_iterator humIt = currentValues.find("air_humidity");
+        std::map<std::string, double>::const_iterator soilIt = currentValues.find("soil_moisture");
+        if (tempIt != currentValues.end() && humIt != currentValues.end() && soilIt != currentValues.end()) {
+            performClimateAnalysis(tempIt->second, humIt->second, soilIt->second);
+        }
       
         std::cout << "\n[SimulationEngine] Current readings (averaged)" << std::endl;
         for (const auto& [param, value] : currentValues) {
@@ -220,4 +227,17 @@ void SimulationEngine::stop() {
     }
 
     std::cout << "[SimulationEngine]: SimulationEngine stopped" << std::endl;
+}
+
+void SimulationEngine::performClimateAnalysis(double temperature, double humidity, double soilMoisture) {
+    AnalyzerPool& pool = AnalyzerPool::getInstance();
+    ClimateAnalyzer* analyzer = pool.acquire();
+    if (analyzer) {
+        std::string recommendation = analyzer->analyze(temperature, humidity, soilMoisture);
+        std::cout << "[SimulationEngine] Analysis: " << recommendation << std::endl;
+        pool.release(analyzer);
+    }
+    else {
+        std::cout << "[SimulationEngine] No analyzer available, skipping analysis." << std::endl;
+    }
 }
