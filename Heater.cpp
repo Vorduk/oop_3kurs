@@ -1,31 +1,28 @@
 #include "Heater.h"
 
-Heater::Heater()
-    : BaseDevice("heater"), m_is_on(false), m_powerLevel(0) {
+Heater::Heater(std::shared_ptr<IDeviceDriver> driver)
+    : BaseDevice("heater"), m_driver(driver) {
 }
 
 void Heater::turnOn() {
-    m_is_on = true;
+    m_driver->hardwarePowerOn();
 }
 
 void Heater::turnOff() {
-    m_is_on = false;
-    m_powerLevel = 0;
+    m_driver->hardwarePowerOff();
 }
 
 bool Heater::isOn() const {
-    return m_is_on;
+    return m_driver->isHardwareOn();
 }
 
 void Heater::setPower(int level) {
-    if (level < 0 || level > 100) {
-        return;
-    }
-    if (m_is_on) {
-        m_powerLevel = level;
-    }
+    if (level < 0) level = 0;
+    if (level > 100) level = 100;
+    m_last_power = level;
+    m_driver->hardwareSetPower(level);
 }
 
 int Heater::getPower() const {
-    return m_powerLevel;
+    return m_last_power;
 }

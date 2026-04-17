@@ -1,31 +1,28 @@
 #include "Conditioner.h"
 
-Conditioner::Conditioner()
-    : BaseDevice("conditioner"), m_isOn(false), m_powerLevel(0) {
+Conditioner::Conditioner(std::shared_ptr<IDeviceDriver> driver)
+    : BaseDevice("conditioner"), m_driver(driver) {
 }
 
 void Conditioner::turnOn() {
-    m_isOn = true;
+    m_driver->hardwarePowerOn();
 }
 
 void Conditioner::turnOff() {
-    m_isOn = false;
-    m_powerLevel = 0;
+    m_driver->hardwarePowerOff();
 }
 
 bool Conditioner::isOn() const {
-    return m_isOn;
+    return m_driver->isHardwareOn();
 }
 
 void Conditioner::setPower(int level) {
-    if (level < 0 || level > 100) {
-        return;
-    }
-    if (m_isOn) {
-        m_powerLevel = level;
-    }
+    if (level < 0) level = 0;
+    if (level > 100) level = 100;
+    m_last_power = level;
+    m_driver->hardwareSetPower(level);
 }
 
 int Conditioner::getPower() const {
-    return m_powerLevel;
+    return m_last_power;
 }

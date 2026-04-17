@@ -1,5 +1,7 @@
 #pragma once
 #include "BaseDevice.h"
+#include "IDeviceDriver.h"
+#include "memory"
 
 /**
  * @brief Нагреватель для повышения температуры в теплице
@@ -9,7 +11,7 @@
  */
 class Heater : public BaseDevice, public IAdjustableDevice {
 public:
-    Heater();
+    Heater(std::shared_ptr<IDeviceDriver> driver);
     ~Heater() override = default;
 
     // Методы IDevice
@@ -33,7 +35,7 @@ public:
     int getPower() const override;
 
 private:
-    bool m_is_on;       ///< Состояние устройства (включен/выключен)
-    int m_powerLevel;   ///< Уровень мощности в процентах (0-100)
+    std::shared_ptr<IDeviceDriver> m_driver;
+    int m_last_power = 0;
 };
 

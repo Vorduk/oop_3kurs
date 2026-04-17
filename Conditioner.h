@@ -1,5 +1,7 @@
 #pragma once
 #include "BaseDevice.h"
+#include "IDeviceDriver.h"
+#include <memory>
 
 /**
  * @brief Кондиционер для понижения температуры в теплице
@@ -9,11 +11,11 @@
  */
 class Conditioner : public BaseDevice, public IAdjustableDevice {
 private:
-    bool m_isOn;        ///< Состояние устройства (включен/выключен)
-    int m_powerLevel;   ///< Уровень мощности в процентах (0-100)
+    std::shared_ptr<IDeviceDriver> m_driver;
+    int m_last_power = 0;
 
 public:
-    Conditioner();
+    Conditioner(std::shared_ptr<IDeviceDriver> driver);
     ~Conditioner() override = default;
 
     // Методы IDevice

@@ -22,6 +22,8 @@
 #include "DeviceLoggerDecorator.h"
 #include "DevicePowerLimitDecorator.h"
 #include "TemperatureSensorsComposite.h"
+#include "SimulatedDeviceDriver.h"
+#include "ConsoleDeviceDriver.h"
 
 int main() {
     // Вывод заголовка
@@ -30,7 +32,7 @@ int main() {
     std::cout << "========================================" << std::endl << std::endl;
 
     // Модель — источник данных для датчиков
-    std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(-50.0, 65.0, 45.0);
+    std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(18.0, 65.0, 45.0);
 
     // Создание множества датчиков
     std::vector<std::shared_ptr<BaseSensor>> all_sensors;
@@ -111,21 +113,19 @@ int main() {
     std::cout << "\nInitializing IOManager..." << std::endl;
     std::shared_ptr<IOManager> io_manager = std::make_shared<IOManager>();
 
-    //Декораторы
-    std::shared_ptr<BaseDevice> heater = std::make_shared<Heater>();
-    std::shared_ptr<IDevice> limited_heater = std::make_shared<DevicePowerLimitDecorator>(heater, 10);
-    std::shared_ptr<IDevice> logged_limited_heater = std::make_shared<DeviceLoggerDecorator>(limited_heater);
-    std::cout << "  Created device: Type='" << logged_limited_heater->getType()
-        << "', ID=" << logged_limited_heater->getId() << std::endl;
-    io_manager->addDevice(logged_limited_heater);
+    // Bridge
 
-    //Декораторы
-    std::shared_ptr<IDevice> conditioner = std::make_shared<Conditioner>();
-    std::shared_ptr<IDevice> logged_conditioner = std::make_shared<DeviceLoggerDecorator>(conditioner);
-    std::shared_ptr<IDevice> limited_logged_conditioner = std::make_shared<DevicePowerLimitDecorator>(logged_conditioner, 50);
-    std::cout << "  Created device: Type='" << limited_logged_conditioner->getType()
-        << "', ID=" << limited_logged_conditioner->getId() << std::endl;
-    io_manager->addDevice(limited_logged_conditioner);
+    // Реализации
+    std::shared_ptr<SimulatedDeviceDriver> sim_driver_heater = std::make_shared<SimulatedDeviceDriver>();
+    std::shared_ptr<ConsoleDeviceDriver> console_driver = std::make_shared<ConsoleDeviceDriver>("Conditioner-01");
+
+    // Абстракции
+    std::shared_ptr<BaseDevice> heater = std::make_shared<Heater>(sim_driver_heater);
+    std::shared_ptr<BaseDevice> conditioner = std::make_shared<Conditioner>(console_driver);
+
+    // Регистрация без изменений
+    io_manager->addDevice(heater);
+    io_manager->addDevice(conditioner);
 
     // Регистрация всех датчиков из единого массива
     std::cout << "\nRegistering all sensors..." << std::endl;
