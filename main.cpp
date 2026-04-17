@@ -29,8 +29,8 @@ int main() {
     std::cout << "Greenhouse Control System" << std::endl;
     std::cout << "========================================" << std::endl << std::endl;
 
-    // Модель — источник данных для датчиков
-    std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(-50.0, 65.0, 45.0);
+    // Singleton: Единственный экземпляр модели
+    std::shared_ptr<SimulationModel> simulation_model = SimulationModel::getInstance();
 
     // Создание множества датчиков
     std::vector<std::shared_ptr<BaseSensor>> all_sensors;

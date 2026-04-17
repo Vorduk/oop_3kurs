@@ -26,14 +26,12 @@
  */
 class SimulationModel : public IDataProvider {
 public:
-    /**
-     * @brief Конструктор модели симуляции
-     * @param initial_temperature Начальная температура воздуха (°C)
-     * @param initial_air_humidity Начальная влажность воздуха (%)
-     * @param initial_soil_moisture Начальная влажность почвы (%)
-     */
-    SimulationModel(double initial_temperature, double initial_air_humidity,
-        double initial_soil_moisture);
+    // Статический метод доступа к единственному экземпляру
+    static std::shared_ptr<SimulationModel> getInstance();
+
+    // Запрет копирования и перемещения
+    SimulationModel(const SimulationModel&) = delete;
+    SimulationModel& operator=(const SimulationModel&) = delete;
 
     // Реализация интерфейса IDataProvider
     double getTemperature() const override { return m_temperature; }
@@ -70,6 +68,10 @@ public:
     void applyLampEffect(int powerLevel);           ///< Лампы (повышают температуру)
 
 private:
+    SimulationModel(double initial_temperature,
+        double initial_air_humidity,
+        double initial_soil_moisture);
+
     // Текущие параметры модели
     double m_temperature;       ///< Температура воздуха (°C)
     double m_air_humidity;      ///< Влажность воздуха (%)

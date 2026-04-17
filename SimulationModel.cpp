@@ -2,12 +2,16 @@
 #include <iostream>
 #include <algorithm>
 
-/**
- * @brief Конструктор модели симуляции
- *
- * Инициализирует начальные значения параметров и генератор случайных чисел.
- * Все эффекты устройств изначально равны 0.
- */
+// Реализация Singleton
+std::shared_ptr<SimulationModel> SimulationModel::getInstance() {
+    static std::shared_ptr<SimulationModel> instance(
+        new SimulationModel(22.0, 65.0, 45.0) // значения по умолчанию
+    );
+    std::cout << "[SimulationModel] Singleton instance accessed." << std::endl;
+    return instance;
+}
+
+// Приватный конструктор
 SimulationModel::SimulationModel(double initial_temperature,
     double initial_air_humidity,
     double initial_soil_moisture)
@@ -21,10 +25,10 @@ SimulationModel::SimulationModel(double initial_temperature,
     , m_ventilation_effect(0.0)
     , m_lamp_effect(0.0)
     , m_humidity_effect_from_vent(0.0)
-    , m_rng(std::random_device{}())          // Аппаратный энтропийный источник
-    , m_noise(-0.3, 0.3) {                   // Случайные колебания ±0.3
-
-    std::cout << "[SimulationModel] SimulationModel created" << std::endl;
+    , m_rng(std::random_device{}())
+    , m_noise(-0.3, 0.3)
+{
+    std::cout << "[SimulationModel] Singleton instance created (first call)." << std::endl;
 }
 
 /**
