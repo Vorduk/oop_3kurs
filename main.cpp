@@ -22,6 +22,8 @@
 #include "DeviceLoggerDecorator.h"
 #include "DevicePowerLimitDecorator.h"
 #include "TemperatureSensorsComposite.h"
+#include "SensorLogicFactory.h"
+#include "LightweightSensor.h"
 
 int main() {
     // Вывод заголовка
@@ -32,59 +34,45 @@ int main() {
     // Модель — источник данных для датчиков
     std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(-50.0, 65.0, 45.0);
 
+
+
+
     // Создание множества датчиков
-    std::vector<std::shared_ptr<BaseSensor>> all_sensors;
-    std::cout << "\nCreating sensors..." << std::endl;
+    std::vector<std::shared_ptr<ISensor>> all_sensors;
 
-    // Композит  датчиков температуры
-    // Подкомпозит 1 (3 датчика температуры)
-    std::shared_ptr<TemperatureSensorsComposite> subComposite1 = std::make_shared<TemperatureSensorsComposite>();
+    std::cout << "\nCreating sensors with Flyweight pattern..." << std::endl;
+
+    // Создание фабрики приспособленцев
+    SensorLogicFactory logicFactory;
+
+    // 3 датчика температуры
     for (int i = 0; i < 3; ++i) {
-        std::shared_ptr<TemperatureSensor> tempSensor = std::make_shared<TemperatureSensor>(simulation_model);
-        subComposite1->addSensor(tempSensor);
+        std::shared_ptr<ISensorLogic> tempLogic = logicFactory.getSensorLogic("temperature", simulation_model);
+        std::shared_ptr<LightweightSensor> sensor = std::make_shared<LightweightSensor>(tempLogic);
+        all_sensors.push_back(sensor);
+        std::cout << "Created sensor: Type='" << sensor->getType()
+            << "', ID=" << sensor->getId() << std::endl;
     }
-
-    // Подкомпозит 2 (2 датчика температуры)
-    std::shared_ptr<TemperatureSensorsComposite> subComposite2 = std::make_shared<TemperatureSensorsComposite>();
-    for (int i = 0; i < 2; ++i) {
-        std::shared_ptr<TemperatureSensor> tempSensor = std::make_shared<TemperatureSensor>(simulation_model);
-        subComposite2->addSensor(tempSensor);
-    }
-
-    // Композит из этих двух композитов
-    std::shared_ptr<TemperatureSensorsComposite> rootComposite = std::make_shared<TemperatureSensorsComposite>();
-    rootComposite->addSensor(subComposite1);
-    rootComposite->addSensor(subComposite2);
-
-    // Добавление в общий список датчиков
-    all_sensors.push_back(rootComposite);
 
     // 2 датчика влажности воздуха
     for (int i = 0; i < 2; ++i) {
-        std::shared_ptr <BaseSensor> sensor = std::make_shared<AirHumiditySensor>(simulation_model);
+        std::shared_ptr<ISensorLogic> airLogic = logicFactory.getSensorLogic("air_humidity", simulation_model);
+        std::shared_ptr<LightweightSensor> sensor = std::make_shared<LightweightSensor>(airLogic);
         all_sensors.push_back(sensor);
-        std::cout << "Created sensor: Type='" << sensor->getType() << "', ID=" << sensor->getId() << std::endl;
+        std::cout << "Created sensor: Type='" << sensor->getType()
+            << "', ID=" << sensor->getId() << std::endl;
     }
 
     // 2 датчика влажности почвы
     for (int i = 0; i < 2; ++i) {
-        std::shared_ptr <BaseSensor> sensor = std::make_shared<SoilMoistureSensor>(simulation_model);
+        std::shared_ptr<ISensorLogic> soilLogic = logicFactory.getSensorLogic("soil_moisture", simulation_model);
+        std::shared_ptr<LightweightSensor> sensor = std::make_shared<LightweightSensor>(soilLogic);
         all_sensors.push_back(sensor);
-        std::cout << "Created sensor: Type='" << sensor->getType() << "', ID=" << sensor->getId() << std::endl;
+        std::cout << "Created sensor: Type='" << sensor->getType()
+            << "', ID=" << sensor->getId() << std::endl;
     }
 
-    std::cout << "\nTotal sensors created: " << all_sensors.size() << std::endl;
 
-    // Подсчет датчиков по типам для вывода
-    int tempCount = 0, humidityCount = 0, soilCount = 0;
-    for (const std::shared_ptr <BaseSensor>& sensor : all_sensors) {
-        if (sensor->getType() == "temperature") tempCount++;
-        else if (sensor->getType() == "air_humidity") humidityCount++;
-        else if (sensor->getType() == "soil_moisture") soilCount++;
-    }
-    std::cout << "  - Temperature sensors: " << tempCount << std::endl;
-    std::cout << "  - Air humidity sensors: " << humidityCount << std::endl;
-    std::cout << "  - Soil moisture sensors: " << soilCount << std::endl;
 
     // Создание устройств
     std::cout << "\nCreating devices..." << std::endl;
@@ -129,7 +117,7 @@ int main() {
 
     // Регистрация всех датчиков из единого массива
     std::cout << "\nRegistering all sensors..." << std::endl;
-    for (std::shared_ptr<BaseSensor>& sensor : all_sensors) {
+    for (std::shared_ptr<ISensor>& sensor : all_sensors) {
         io_manager->addSensor(sensor);
     }
 
@@ -201,9 +189,9 @@ int main() {
     std::cout << "System configured with:" << std::endl;
     std::cout << "Sensors:" << std::endl;
     std::cout << "  - Total sensors: " << all_sensors.size() << std::endl;
-    std::cout << "  - Temperature sensors: " << tempCount << std::endl;
-    std::cout << "  - Air humidity sensors: " << humidityCount << std::endl;
-    std::cout << "  - Soil moisture sensors: " << soilCount << std::endl;
+    std::cout << "  - Temperature sensors: " << 3 << std::endl;
+    std::cout << "  - Air humidity sensors: " << 2 << std::endl;
+    std::cout << "  - Soil moisture sensors: " << 2 << std::endl;
 
     std::cout << "\nDevices:" << std::endl;
     for (const std::shared_ptr<BaseDevice>& device : allDevices) {

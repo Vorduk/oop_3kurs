@@ -7,38 +7,20 @@ protected:
     std::shared_ptr<IDevice> m_device;
 
 public:
-    DeviceDecorator(std::shared_ptr<IDevice> device) : m_device(device) {}
+    DeviceDecorator(std::shared_ptr<IDevice> device);
 
     // IDevice
-    void turnOn() override { m_device->turnOn(); }
-    void turnOff() override { m_device->turnOff(); }
-    bool isOn() const override { return m_device->isOn(); }
-    std::string getType() const override { return m_device->getType(); }
-    int getId() const override { return m_device->getId(); }
+    void turnOn() override;
+    void turnOff() override;
+    bool isOn() const override;
+    std::string getType() const override;
+    int getId() const override;
 
     // IAdjustableDevice
-    void setPower(int level) override {
-        if (auto adj = std::dynamic_pointer_cast<IAdjustableDevice>(m_device)) {
-            adj->setPower(level);
-        }
-    }
-    int getPower() const override {
-        if (auto adj = std::dynamic_pointer_cast<IAdjustableDevice>(m_device)) {
-            return adj->getPower();
-        }
-        return 0;
-    }
+    void setPower(int level) override;
+        int getPower() const override;
 
     // IModeSelectableDevice
-    void setMode(int mode) override {
-        if (auto modeSel = std::dynamic_pointer_cast<IModeSelectableDevice>(m_device)) {
-            modeSel->setMode(mode);
-        }
-    }
-    int getMode() const override {
-        if (auto modeSel = std::dynamic_pointer_cast<IModeSelectableDevice>(m_device)) {
-            return modeSel->getMode();
-        }
-        return 0;
-    }
+        void setMode(int mode) override;
+        int getMode() const override;
 };
