@@ -1,104 +1,104 @@
 #include "ClimateManager.h"
+#include "NormalState.h"
 #include <iostream>
 
-ClimateManager::ClimateManager() {
-    // Инициализация пустая — стратегии добавляются позже через addStrategy() или setRegulator()
+ClimateManager::ClimateManager()
+    : m_currentState(nullptr) {
+    // Начальное состояние — нормальное с порогами
+    m_currentState = new NormalState(5.0, 40.0, 90.0);
+    std::cout << "[ClimateManager] Created with initial state: NormalState\n";
+}
+
+ClimateManager::~ClimateManager() {
+    delete m_currentState;
 }
 
 void ClimateManager::setTargetParameters(const std::map<std::string, double>& targets) {
     m_targets = targets;
-    std::cout << "[ClimateManager]: Targets set:" << std::endl;
-    for (const auto& [param, value] : targets) {
-        std::cout << "  " << param << " = " << value << std::endl;
+    std::cout << "[ClimateManager] Set initial params:\n";
+    // Перебор без auto: используем константный итератор
+    for (std::map<std::string, double>::const_iterator it = targets.begin();
+        it != targets.end(); ++it) {
+        std::cout << "  " << it->first << " = " << it->second << std::endl;
     }
 }
 
 void ClimateManager::addStrategy(std::shared_ptr<ControlStrategy> strategy) {
     if (strategy) {
         m_strategies.push_back(strategy);
-        std::cout << "[ClimateManager]: Added strategy for "
-            << strategy->getParamName() << std::endl;
+        std::cout << "[ClimateManager] Added strategy for " << strategy->getParamName() << std::endl;
     }
 }
 
 void ClimateManager::setRegulator(const std::string& parameter,
     std::shared_ptr<IRegulator> regulator) {
-
-    // Поиск существующей стратегии для этого параметра
-    for (auto& strategy : m_strategies) {
-        if (strategy->getParamName() == parameter) {
-            strategy->setRegulator(regulator);
+    // Поиск существующей стратегии
+    for (std::vector<std::shared_ptr<ControlStrategy>>::const_iterator it = m_strategies.begin();
+        it != m_strategies.end(); ++it) {
+        if ((*it)->getParamName() == parameter) {
+            (*it)->setRegulator(regulator);
             return;
         }
     }
-
-    // Стратегии нет — создание новой
+    // Если не найдена, создаётся новая с устройствами по имени параметра
+    std::vector<std::string> devices;
     if (parameter == "temperature") {
-        // Температура управляется двумя устройствами:
-        // - heater (нагреватель) — работает при положительном сигнале
-        // - conditioner (кондиционер) — работает при отрицательном сигнале
-        auto strategy = std::make_shared<ControlStrategy>(
-            parameter,
-            std::vector<std::string>{"heater", "conditioner"},
-            regulator
-        );
-        m_strategies.push_back(strategy);
+        devices.push_back("heater");
+        devices.push_back("conditioner");
     }
     else if (parameter == "air_humidity") {
-        // Влажность воздуха управляется увлажнителем
-        auto strategy = std::make_shared<ControlStrategy>(
-            parameter,
-            std::vector<std::string>{"air_humidifier"},
-            regulator
-        );
-        m_strategies.push_back(strategy);
+        devices.push_back("air_humidifier");
     }
     else if (parameter == "soil_moisture") {
-        // Влажность почвы управляется системой полива
-        auto strategy = std::make_shared<ControlStrategy>(
-            parameter,
-            std::vector<std::string>{"irrigation"},
-            regulator
-        );
-        m_strategies.push_back(strategy);
+        devices.push_back("irrigation");
     }
-    else {
-        // Остальные параметры (если появятся) управляются одним устройством,
-        // устройства будут определены позже через strategy->setDevices()
-        auto strategy = std::make_shared<ControlStrategy>(
-            parameter,
-            std::vector<std::string>{},
-            regulator
-        );
-        m_strategies.push_back(strategy);
-    }
+    std::shared_ptr<ControlStrategy> strategy = std::make_shared<ControlStrategy>(
+        parameter, devices, regulator);
+    m_strategies.push_back(strategy);
+    std::cout << "[ClimateManager] Added strategy for " << parameter << "\n";
 }
 
 std::map<std::string, int> ClimateManager::calculateCommands(
-    const std::map<std::string, double>& current_readings) {
+    const std::map<std::string, double>& currentReadings) {
+    // Делегирование текущему состоянию
+    if (m_currentState) {
+        return m_currentState->handle(currentReadings, m_targets, this);
+    }
+    std::map<std::string, int> empty;
+    return empty;
+}
 
-    std::map<std::string, int> all_commands;
+void ClimateManager::setState(ISystemState* newState) {
+    if (m_currentState) {
+        std::cout << "[ClimateManager] State changed: "
+            << m_currentState->getName() << " -> " << newState->getName() << std::endl;
+        delete m_currentState;
+    }
+    m_currentState = newState;
+}
 
-    // Обрабатывается каждая стратегия
-    // ClimateManager не знает, как именно стратегия вычисляет команды —
-    // это делегируется объекту ControlStrategy
-    for (const auto& strategy : m_strategies) {
-        // Стратегия возвращает map "устройство -> мощность" для своего параметра
-        auto commands = strategy->calculate(current_readings, m_targets);
-
-        // Объединение команды от всех стратегий
-        for (const auto& [device, power] : commands) {
-            auto it = all_commands.find(device);
-            if (it != all_commands.end()) {
-                // Конфликт: два параметра хотят управлять одним устройством
-                // Выбирается максимальная мощность
-                all_commands[device] = std::max(it->second, power);
+std::map<std::string, int> ClimateManager::computeStandardCommands(
+    const std::map<std::string, double>& currentReadings,
+    const std::map<std::string, double>& targets) const {
+    std::map<std::string, int> allCommands;
+    for (std::vector<std::shared_ptr<ControlStrategy>>::const_iterator stratIt = m_strategies.begin();
+        stratIt != m_strategies.end(); ++stratIt) {
+        const std::shared_ptr<ControlStrategy>& strategy = *stratIt;
+        std::map<std::string, int> commands = strategy->calculate(currentReadings, targets);
+        for (std::map<std::string, int>::const_iterator cmdIt = commands.begin();
+            cmdIt != commands.end(); ++cmdIt) {
+            const std::string& dev = cmdIt->first;
+            int power = cmdIt->second;
+            std::map<std::string, int>::iterator it = allCommands.find(dev);
+            if (it != allCommands.end()) {
+                if (power > it->second) {
+                    it->second = power;
+                }
             }
             else {
-                all_commands[device] = power;
+                allCommands[dev] = power;
             }
         }
     }
-
-    return all_commands;
+    return allCommands;
 }

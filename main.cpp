@@ -30,7 +30,7 @@ int main() {
     std::cout << "========================================" << std::endl << std::endl;
 
     // Модель — источник данных для датчиков
-    std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(-50.0, 65.0, 45.0);
+    std::shared_ptr<SimulationModel> simulation_model = std::make_shared<SimulationModel>(5000.0, 65.0, 45.0);
 
     // Создание множества датчиков
     std::vector<std::shared_ptr<BaseSensor>> all_sensors;
@@ -139,29 +139,6 @@ int main() {
         io_manager->addDevice(device);
     }
 
-    // Реальный менеджер климата
-    std::cout << "\nCreating ClimateManager with regulators..." << std::endl;
-    std::shared_ptr<ClimateManager> realClimateManager = std::make_shared<ClimateManager>();
-
-    // Создание регуляторов
-    std::shared_ptr<PidRegulator> pidRegulator = std::make_shared<PidRegulator>(2.0, 0.5, 1.0);
-    std::shared_ptr<OnOffRegulator> onOffRegulator = std::make_shared<OnOffRegulator>(2.0);
-
-    // Назначение регуляторов параметрам
-    realClimateManager->setRegulator("temperature", pidRegulator);
-    realClimateManager->setRegulator("air_humidity", onOffRegulator);
-    realClimateManager->setRegulator("soil_moisture", onOffRegulator);
-
-    // Создание стратегии аварийного реагирования
-    std::shared_ptr<IEmergencyStrategy> emergencyStrategy = std::make_shared<TemperatureEmergencyStrategy>(5.0, 40.0, 90.0);
-
-    // Прокси – теперь все настройки через конструктор
-    std::shared_ptr<IClimateManager> safetyProxy = std::make_shared<SafetyProxyManager>(
-        realClimateManager,
-        io_manager,
-        emergencyStrategy
-    );
-
     // Конфигурация
     std::cout << "\nCreating ExtendedConfigManager..." << std::endl;
     std::shared_ptr<ExtendedConfigManager> configManager = std::make_shared<ExtendedConfigManager>();
@@ -191,8 +168,18 @@ int main() {
     std::cout << "\nCreating SimulationEngine..." << std::endl;
     SimulationEngine engine(simulation_model, io_manager);
 
-    // Конфигурирование движка
-    engine.setClimateManager(safetyProxy);
+    std::shared_ptr<ClimateManager> climateManager = std::make_shared<ClimateManager>();
+
+    // Регуляторы
+    auto pidRegulator = std::make_shared<PidRegulator>(2.0, 0.5, 1.0);
+    auto onOffRegulator = std::make_shared<OnOffRegulator>(2.0);
+
+    climateManager->setRegulator("temperature", pidRegulator);
+    climateManager->setRegulator("air_humidity", onOffRegulator);
+    climateManager->setRegulator("soil_moisture", onOffRegulator);
+
+    // В движок передаётся climateManager (не прокси)
+    engine.setClimateManager(climateManager);
     engine.setConfigManager(configManager);
     engine.setupSchedules(configManager.get());
 
