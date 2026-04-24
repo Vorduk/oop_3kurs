@@ -160,6 +160,43 @@ void SimulationModel::clampParameters() {
     m_soil_moisture = std::clamp(m_soil_moisture, MIN_SOIL, MAX_SOIL);
 }
 
+void SimulationModel::attach(std::shared_ptr<IParameterObserver> observer) {
+    m_observers.push_back(observer);
+}
+
+void SimulationModel::detach(std::shared_ptr<IParameterObserver> observer) {
+    std::vector<std::shared_ptr<IParameterObserver>>::iterator it = m_observers.begin();
+    while (it != m_observers.end()) {
+        if (*it == observer) {
+            it = m_observers.erase(it);
+        }
+        else {
+            ++it;
+        }
+    }
+}
+
+void SimulationModel::notifyTemperatureChange(double oldValue, double newValue) {
+    for (std::vector<std::shared_ptr<IParameterObserver>>::iterator it = m_observers.begin();
+        it != m_observers.end(); ++it) {
+        (*it)->onTemperatureChanged(oldValue, newValue);
+    }
+}
+
+void SimulationModel::notifyAirHumidityChange(double oldValue, double newValue) {
+    for (std::vector<std::shared_ptr<IParameterObserver>>::iterator it = m_observers.begin();
+        it != m_observers.end(); ++it) {
+        (*it)->onAirHumidityChanged(oldValue, newValue);
+    }
+}
+
+void SimulationModel::notifySoilMoistureChange(double oldValue, double newValue) {
+    for (std::vector<std::shared_ptr<IParameterObserver>>::iterator it = m_observers.begin();
+        it != m_observers.end(); ++it) {
+        (*it)->onSoilMoistureChanged(oldValue, newValue);
+    }
+}
+
 /**
  * @brief Обновление состояния модели на один шаг симуляции
  *
@@ -174,29 +211,32 @@ void SimulationModel::clampParameters() {
  *       чтобы эффекты не "съедались" испарением в том же цикле
  */
 void SimulationModel::update() {
-    // Шаг 1: Применение эффектов от устройств
+    // Сохраняем старые значения для сравнения
+    double oldTemp = m_temperature;
+    double oldHum = m_air_humidity;
+    double oldSoil = m_soil_moisture;
+
+    // Применение эффектов и естественных процессов (как раньше)
     applyDeviceEffects();
-
-    // Шаг 2: Естественные процессы (случайные колебания)
-    // Температура колеблется в пределах ±0.3°C
     m_temperature += m_noise(m_rng);
-    // Влажность воздуха колеблется в пределах ±0.15%
     m_air_humidity += m_noise(m_rng) * 0.5;
-    // Влажность почвы колеблется в пределах ±0.09%
     m_soil_moisture += m_noise(m_rng) * 0.3;
-
-    // Шаг 3: Естественное испарение и охлаждение
-    // Почва теряет влагу даже без полива
     m_soil_moisture -= 0.2;
-    // Воздух теряет влагу естественным путём
     m_air_humidity -= 0.1;
-    // Температура естественным образом не меняется (нет источников)
-
-    // Шаг 4: Ограничение допустимыми пределами
     clampParameters();
-
-    // Шаг 5: Сброс эффектов для следующего цикла
+    // Сброс эффектов
     resetDeviceEffects();
+
+    // Уведомление наблюдателей при изменении значений
+    if (oldTemp != m_temperature) {
+        notifyTemperatureChange(oldTemp, m_temperature);
+    }
+    if (oldHum != m_air_humidity) {
+        notifyAirHumidityChange(oldHum, m_air_humidity);
+    }
+    if (oldSoil != m_soil_moisture) {
+        notifySoilMoistureChange(oldSoil, m_soil_moisture);
+    }
 }
 
 /**

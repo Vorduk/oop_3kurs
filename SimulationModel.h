@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 #include <memory>
+#include "IParameterObserver.h"
 
 /**
  * @brief Модель симуляции физических процессов в теплице
@@ -69,11 +70,16 @@ public:
     void applyVentilationEffect(int powerLevel);    ///< Вентиляция (понижает T и влажность)
     void applyLampEffect(int powerLevel);           ///< Лампы (повышают температуру)
 
+    void attach(std::shared_ptr<IParameterObserver> observer);
+    void detach(std::shared_ptr<IParameterObserver> observer);
+
 private:
     // Текущие параметры модели
     double m_temperature;       ///< Температура воздуха (°C)
     double m_air_humidity;      ///< Влажность воздуха (%)
     double m_soil_moisture;     ///< Влажность почвы (%)
+
+    std::vector<std::shared_ptr<IParameterObserver>> m_observers;
 
     // Накопленные эффекты от устройств (суммируются перед update())
     double m_heater_effect;                 ///< Влияние нагревателя на температуру
@@ -92,4 +98,8 @@ private:
     void applyDeviceEffects();  ///< Применить накопленные эффекты к параметрам
     void resetDeviceEffects();  ///< Обнулить накопленные эффекты
     void clampParameters();     ///< Ограничить параметры допустимыми пределами
+
+    void notifyTemperatureChange(double oldValue, double newValue);
+    void notifyAirHumidityChange(double oldValue, double newValue);
+    void notifySoilMoistureChange(double oldValue, double newValue);
 };
