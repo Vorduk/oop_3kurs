@@ -76,6 +76,18 @@ void SimulationModel::applyIrrigationEffect(int powerLevel) {
     m_irrigation_effect = powerLevel * 0.09;
 }
 
+void SimulationModel::setTemperature(double value) {
+    m_temperature = value;
+}
+
+void SimulationModel::setAirHumidity(double value) {
+    m_air_humidity = value;
+}
+
+void SimulationModel::setSoilMoisture(double value) {
+    m_soil_moisture = value;
+}
+
 /**
  * @brief Применить эффект вентиляции
  * @param powerLevel Мощность вентиляции (0-100%)
@@ -159,6 +171,7 @@ void SimulationModel::clampParameters() {
     m_air_humidity = std::clamp(m_air_humidity, MIN_HUMIDITY, MAX_HUMIDITY);
     m_soil_moisture = std::clamp(m_soil_moisture, MIN_SOIL, MAX_SOIL);
 }
+
 
 /**
  * @brief Обновление состояния модели на один шаг симуляции

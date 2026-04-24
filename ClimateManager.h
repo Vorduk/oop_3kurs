@@ -40,6 +40,8 @@ public:
     std::map<std::string, int> calculateCommands(
         const std::map<std::string, double>& current_readings) override;
 
+    std::map<std::string, double> getTargets() const;
+
     /**
      * @brief Добавить стратегию управления
      * @param strategy Умный указатель на стратегию

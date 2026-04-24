@@ -41,6 +41,8 @@ public:
      */
     std::map<std::string, double> getAllTargets() override;
 
+
+
 protected:
     std::map<std::string, double> m_targets;  ///< Хранилище целевых параметров
 };

@@ -21,6 +21,10 @@ void ClimateManager::addStrategy(std::shared_ptr<ControlStrategy> strategy) {
     }
 }
 
+std::map<std::string, double> ClimateManager::getTargets() const {
+    return m_targets;
+}
+
 void ClimateManager::setRegulator(const std::string& parameter,
     std::shared_ptr<IRegulator> regulator) {
 

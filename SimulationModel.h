@@ -69,6 +69,10 @@ public:
     void applyVentilationEffect(int powerLevel);    ///< Вентиляция (понижает T и влажность)
     void applyLampEffect(int powerLevel);           ///< Лампы (повышают температуру)
 
+    void setTemperature(double value);
+    void setAirHumidity(double value);
+    void setSoilMoisture(double value);
+
 private:
     // Текущие параметры модели
     double m_temperature;       ///< Температура воздуха (°C)
@@ -92,4 +96,5 @@ private:
     void applyDeviceEffects();  ///< Применить накопленные эффекты к параметрам
     void resetDeviceEffects();  ///< Обнулить накопленные эффекты
     void clampParameters();     ///< Ограничить параметры допустимыми пределами
+
 };
