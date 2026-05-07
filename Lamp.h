@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseDevice.h"
+#include "IDeviceVisitor.h"
 
 /**
  * @brief Лампы освещения для обеспечения светового дня
@@ -45,6 +46,10 @@ public:
     static constexpr int MODE_WHITE = 1;    ///< Белый свет (дневной)
     static constexpr int MODE_WARM = 2;     ///< Теплый свет (вечерний)
     static constexpr int MODE_UF = 3;       ///< Ультрафиолетовый (для роста)
+
+    void accept(IDeviceVisitor* visitor) override {
+        visitor->visit(this);
+    }
 
 private:
     bool m_isOn;           ///< Состояние устройства (включен/выключен)

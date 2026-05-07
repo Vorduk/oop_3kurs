@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseDevice.h"
+#include "IDeviceVisitor.h"
 
 /**
  * @brief Кондиционер для понижения температуры в теплице
@@ -35,5 +36,10 @@ public:
 
     /** @brief Получить текущую мощность кондиционера */
     int getPower() const override;
+
+    // Принять посетителя
+    void accept(IDeviceVisitor* visitor) override {
+        visitor->visit(this);
+    }
 };
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseDevice.h"
+#include "IDeviceVisitor.h"
 
 /**
  * @brief Увлажнитель для повышения влажности воздуха
@@ -37,6 +38,11 @@ public:
     static constexpr int MODE_LOW = 2;
     static constexpr int MODE_MEDIUM = 3;
     static constexpr int MODE_HIGH = 4;
+
+    // Принять посетителя
+    void accept(IDeviceVisitor* visitor) override {
+        visitor->visit(this);
+    }
 
 private:
     bool m_isOn;

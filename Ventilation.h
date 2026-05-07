@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseDevice.h"
+#include "IDeviceVisitor.h"
 
 /**
  * @brief Вентиляция для воздухообмена в теплице
@@ -36,6 +37,10 @@ public:
     static constexpr int MODE_LOW = 1;      ///< Слабый режим
     static constexpr int MODE_MEDIUM = 2;   ///< Средний режим
     static constexpr int MODE_HIGH = 3;     ///< Сильный режим
+
+    void accept(IDeviceVisitor* visitor) override {
+        visitor->visit(this);
+    }
 
 private:
     bool m_isOn;    ///< Состояние устройства (включен/выключен)

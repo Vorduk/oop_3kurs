@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseDevice.h"
+#include "IDeviceVisitor.h"
 
 /**
  * @brief Нагреватель для повышения температуры в теплице
@@ -31,6 +32,10 @@ public:
 
     /** @brief Получить текущую мощность нагревателя */
     int getPower() const override;
+
+    void accept(IDeviceVisitor* visitor) override {
+        visitor->visit(this);
+    }
 
 private:
     bool m_is_on;       ///< Состояние устройства (включен/выключен)

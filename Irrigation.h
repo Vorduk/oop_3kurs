@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseDevice.h"
+#include "IDeviceVisitor.h"
 
 /**
  * @brief Система капельного полива для увлажнения почвы
@@ -35,6 +36,10 @@ public:
     /** @brief Режимы полива */
     static constexpr int MODE_DRIP = 1;         ///< Капельный полив
     static constexpr int MODE_SPRINKLER = 2;    ///< Разбрызгивание
+
+    void accept(IDeviceVisitor* visitor) override {
+        visitor->visit(this);
+    }
 
 private:
     bool m_isOn;    ///< Состояние устройства (включен/выключен)
