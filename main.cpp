@@ -34,9 +34,9 @@ int main() {
 
     // Создание прототипов
     std::cout << "\nCreating Prototypes..." << std::endl;
-    auto tempProto = std::make_shared<TemperatureSensor>(simulation_model);
-    auto humProto = std::make_shared<AirHumiditySensor>(simulation_model);
-    auto soilProto = std::make_shared<SoilMoistureSensor>(simulation_model);
+    std::shared_ptr<BaseSensor> tempProto = std::make_shared<TemperatureSensor>(simulation_model);
+    std::shared_ptr<BaseSensor> humProto = std::make_shared<AirHumiditySensor>(simulation_model);
+    std::shared_ptr<BaseSensor> soilProto = std::make_shared<SoilMoistureSensor>(simulation_model);
 
     std::cout << "Prototype TemperatureSensor ID: " << tempProto->getId() << std::endl;
     std::cout << "Prototype AirHumiditySensor ID: " << humProto->getId() << std::endl;
