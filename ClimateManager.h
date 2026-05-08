@@ -37,5 +37,5 @@ public:
 private:
     std::map<std::string, double> m_targets;
     std::vector<std::shared_ptr<ControlStrategy>> m_strategies;
-    ISystemState* m_currentState;  // владение состоянием, может быть сырым указателем (удаляем при смене)
+    ISystemState* m_currentState; 
 };
