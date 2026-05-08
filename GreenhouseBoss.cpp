@@ -14,7 +14,7 @@ SystemMemento GreenhouseBoss::createMemento() const {
     // Команды устройств пока не сохраняются (можно расширить).
     std::map<std::string, int> deviceCommands;
 
-    std::cout << "[GreenhouseOriginator] Creating snapshot: T=" << temp << " C"
+    std::cout << "[GreenhouseBoss] Creating snapshot: T=" << temp << " C"
         << ", H=" << humidity << " %"
         << ", S=" << soil << " %" << std::endl;
     return SystemMemento(temp, humidity, soil, targets, deviceCommands);
@@ -28,7 +28,7 @@ void GreenhouseBoss::restoreFromMemento(const SystemMemento& memento) {
     // Восстановление целевых уставок
     m_climateManager->setTargetParameters(memento.getTargets());
 
-    std::cout << "[GreenhouseOriginator] Restored snapshot: T=" << memento.getTemperature()
+    std::cout << "[GreenhouseBoss] Restored snapshot: T=" << memento.getTemperature()
         << " C, H=" << memento.getAirHumidity()
         << " %, S=" << memento.getSoilMoisture() << " %" << std::endl;
 }
