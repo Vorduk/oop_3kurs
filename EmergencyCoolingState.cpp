@@ -3,7 +3,8 @@
 #include "ClimateManager.h"
 #include <iostream>
 
-EmergencyCoolingState::EmergencyCoolingState() {
+EmergencyCoolingState::EmergencyCoolingState(double tempMax)
+    : m_tempMax(tempMax) {
 }
 
 std::map<std::string, int> EmergencyCoolingState::handle(
@@ -15,10 +16,7 @@ std::map<std::string, int> EmergencyCoolingState::handle(
     std::map<std::string, double>::const_iterator tempIt = readings.find("temperature");
     if (tempIt != readings.end()) {
         double temp = tempIt->second;
-        std::map<std::string, double>::const_iterator targetIt = targets.find("temperature");
-        double target = (targetIt != targets.end()) ? targetIt->second : 23.0;
-        // Возврат в нормальный режим
-        if (temp <= target + 2.0) {
+        if (temp <= m_tempMax) {
             std::cout << "[EmergencyCoolingState] Temperature " << temp
                 << " normalized, back to NormalState\n";
             context->setState(new NormalState(5.0, 40.0, 90.0));

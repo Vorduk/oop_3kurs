@@ -5,7 +5,7 @@
 
 class EmergencyCoolingState : public ISystemState {
 public:
-    EmergencyCoolingState();
+    EmergencyCoolingState(double tempMax);
 
     std::map<std::string, int> handle(
         const std::map<std::string, double>& readings,
@@ -13,4 +13,7 @@ public:
         ClimateManager* context) override;
 
     std::string getName() const override { return "EmergencyCoolingState"; }
+
+private:
+    double m_tempMax;
 };

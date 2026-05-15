@@ -36,8 +36,8 @@ std::map<std::string, int> NormalState::handle(
         if (temp > m_tempMax) {
             std::cout << "[NormalState] Temperature " << temp
                 << " above emergency maximum " << m_tempMax
-                << " – go to EmergencyCoolingState\n";
-            context->setState(new EmergencyCoolingState()); // переключение на охлаждение
+                << " - go to EmergencyCoolingState\n";
+            context->setState(new EmergencyCoolingState(m_tempMax)); // переключение на охлаждение
             commands.clear();
             commands["heater"] = 0;
             commands["conditioner"] = 100;
@@ -54,7 +54,7 @@ std::map<std::string, int> NormalState::handle(
         if (hum > m_humidityMax) {
             std::cout << "[NormalState] Humidity " << hum
                 << " above emergency maximum " << m_humidityMax
-                << " – ventilation\n";
+                << " - ventilation\n";
             commands["air_humidifier"] = 0;
             commands["ventilation"] = 100;
         }
