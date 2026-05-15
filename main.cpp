@@ -1,46 +1,36 @@
 ﻿#include <iostream>
 #include <memory>
 #include "SignalProcessor.h"
+#include "TemperatureHandler.h"
+#include "HumidityHandler.h"
+#include "SoilMoistureHandler.h"
+#include "DefaultHandler.h"
 
 int main() {
-    std::cout << "Chain of Responsibility" << std::endl;
 
+    // Полная цепочка через SignalProcessor
     SignalProcessor processor;
-
-    std::cout << std::endl;
-    std::cout << "Test 1: Temperature too low" << std::endl;
+    std::cout << "\nFull chain\n";
     processor.process_signal("temperature", 15.0);
-
-    std::cout << std::endl;
-    std::cout << "Test 2: Temperature too high" << std::endl;
-    processor.process_signal("temperature", 32.0);
-
-    std::cout << std::endl;
-    std::cout << "Test 3: Temperature normal" << std::endl;
-    processor.process_signal("temperature", 23.0);
-
-    std::cout << std::endl;
-    std::cout << "Test 4: Air humidity too low" << std::endl;
     processor.process_signal("air_humidity", 40.0);
-
-    std::cout << std::endl;
-    std::cout << "Test 5: Air humidity too high" << std::endl;
-    processor.process_signal("air_humidity", 85.0);
-
-    std::cout << std::endl;
-    std::cout << "Test 6: Soil moisture too low" << std::endl;
     processor.process_signal("soil_moisture", 25.0);
 
-    std::cout << std::endl;
-    std::cout << "Test 7: Soil moisture too high" << std::endl;
-    processor.process_signal("soil_moisture", 75.0);
+    // Разрыв цепочки: цепочка без HumidityHandler
+    std::cout << "\nBroken chain (without HumidityHandler)\n";
+    auto temp = std::make_shared<TemperatureHandler>();
+    auto soil = std::make_shared<SoilMoistureHandler>();
+    auto def = std::make_shared<DefaultHandler>();
 
-    std::cout << std::endl;
-    std::cout << "Test 8: Soil moisture normal" << std::endl;
-    processor.process_signal("soil_moisture", 50.0);
+    temp->set_next(soil);  // пропуск HumidityHandler
+    soil->set_next(def);
 
-    std::cout << std::endl;
-    std::cout << "Test 9: Unknown signal" << std::endl;
+    // Отправка сигнала air_humidity – он не обрабатывается,
+    // проходит через TemperatureHandler и SoilMoistureHandler до DefaultHandler
+    std::string result = temp->handle("air_humidity", 40.0);
+    std::cout << "Result: " << result << std::endl;
+
+    // Прохождение до конца цепочки: неизвестный сигнал
+    std::cout << "\nUnknown signal\n";
     processor.process_signal("light_intensity", 500.0);
 
     return 0;
