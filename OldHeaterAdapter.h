@@ -1,6 +1,7 @@
 #pragma once
 #include "BaseDevice.h"
 #include "OldHeater.h"
+#include "IDeviceVisitor.h"
 #include <memory>
 
 class OldHeaterAdapter : public BaseDevice, public IAdjustableDevice {
@@ -27,6 +28,10 @@ public:
 
     /** @brief Получить текущую мощность нагревателя */
     int getPower() const override;
+
+    void accept(IDeviceVisitor* visitor) override {
+        visitor->visit(this);
+    }
 
 private:
     std::shared_ptr<OldHeater> m_legacy;    ///< Адаптируемый объект

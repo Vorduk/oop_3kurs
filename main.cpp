@@ -40,6 +40,11 @@ int main()
     std::shared_ptr<Lamp> lamp = std::make_shared<Lamp>();
     all_devices.push_back(lamp);
 
+    std::shared_ptr<OldHeater> old_heater = std::make_shared<OldHeater>();
+    std::shared_ptr<OldHeaterAdapter> adapter = std::make_shared<OldHeaterAdapter>(old_heater);
+    adapter->turnOn();
+    adapter->setPower(50);
+    all_devices.push_back(adapter);
 
     // настройка некоторых устройств для демонстрации
     heater->turnOn();
